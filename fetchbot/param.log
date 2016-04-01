@@ -1,0 +1,263 @@
+amcl: {gui_publish_rate: 10.0, kld_err: 0.05, kld_z: 0.99, laser_lambda_short: 0.1,
+  laser_likelihood_max_dist: 2.0, laser_max_beams: 30, laser_model_type: likelihood_field,
+  laser_sigma_hit: 0.2, laser_z_hit: 0.5, laser_z_max: 0.05, laser_z_rand: 0.5, laser_z_short: 0.05,
+  max_particles: 5000, min_particles: 500, odom_alpha1: 0.2, odom_alpha2: 0.2, odom_alpha3: 0.8,
+  odom_alpha4: 0.2, odom_alpha5: 0.1, odom_frame_id: odom, odom_model_type: omni,
+  recovery_alpha_fast: 0.0, recovery_alpha_slow: 0.0, resample_interval: 1, transform_tolerance: 0.1,
+  update_min_a: 0.5, update_min_d: 0.2}
+camera:
+  color:
+    image_raw:
+      compressed: {format: jpeg, jpeg_quality: 80, png_level: 9}
+      compressedDepth: {depth_max: 10.0, depth_quantization: 100.0, png_level: 9}
+      theora: {keyframe_frequency: 64, optimize_for: 1, quality: 31, target_bitrate: 800000}
+  depth:
+    image_raw:
+      compressed: {format: jpeg, jpeg_quality: 80, png_level: 9}
+      compressedDepth: {depth_max: 10.0, depth_quantization: 100.0, png_level: 9}
+      theora: {keyframe_frequency: 64, optimize_for: 1, quality: 31, target_bitrate: 800000}
+  infrared1:
+    image_raw:
+      compressed: {format: jpeg, jpeg_quality: 80, png_level: 9}
+      compressedDepth: {depth_max: 10.0, depth_quantization: 100.0, png_level: 9}
+      theora: {keyframe_frequency: 64, optimize_for: 1, quality: 31, target_bitrate: 800000}
+  infrared2:
+    image_raw:
+      compressed: {format: jpeg, jpeg_quality: 80, png_level: 9}
+      compressedDepth: {depth_max: 10.0, depth_quantization: 100.0, png_level: 9}
+      theora: {keyframe_frequency: 64, optimize_for: 1, quality: 31, target_bitrate: 800000}
+depthimage_to_laserscan: {output_frame_id: /camera_depth_frame, range_max: 10.0, range_min: 0.45,
+  scan_height: 10, scan_time: 0.033}
+move_base:
+  DWAPlannerROS: {acc_lim_theta: 2.0, acc_lim_x: 1.0, acc_lim_y: 0.0, acc_limit_trans: 0.1,
+    angular_sim_granularity: 0.1, forward_point_distance: 0.325, global_frame_id: odom,
+    goal_distance_bias: 24.0, max_rot_vel: 0.4, max_scaling_factor: 0.2, max_trans_vel: 0.15,
+    max_vel_x: 0.2, max_vel_y: 0.0, min_rot_vel: 0.1, min_trans_vel: 0.1, min_vel_x: 0.0,
+    min_vel_y: 0.0, occdist_scale: 0.5, oscillation_reset_angle: 0.2, oscillation_reset_dist: 0.05,
+    path_distance_bias: 64.0, prune_plan: false, publish_cost_grid_pc: true, publish_traj_pc: true,
+    restore_defaults: false, rot_stopped_vel: 0.1, scaling_speed: 0.25, sim_granularity: 0.025,
+    sim_time: 1.0, stop_time_buffer: 0.2, trans_stopped_vel: 0.1, use_dwa: true, vth_samples: 20,
+    vtheta_samples: 20, vx_samples: 3, vy_samples: 1, xy_goal_tolerance: 0.15, yaw_goal_tolerance: 0.3}
+  GlobalPlanner: {allow_unknown: true, cost_factor: 3.0, default_tolerance: 0.0, lethal_cost: 253,
+    neutral_cost: 50, old_navfn_behavior: false, planner_costmap_publish_frequency: 0.0,
+    planner_window_x: 0.0, planner_window_y: 0.0, publish_potential: true, publish_scale: 100,
+    use_dijkstra: true, use_grid_path: false, use_quadratic: true}
+  NavfnROS: {allow_unknown: true, default_tolerance: 0.0, planner_window_x: 0.0, planner_window_y: 0.0,
+    visualize_potential: false}
+  aggressive_reset: {reset_distance: 1.84}
+  base_global_planner: navfn/NavfnROS
+  base_local_planner: dwa_local_planner/DWAPlannerROS
+  clearing_rotation_allowed: true
+  conservative_reset: {reset_distance: 3.0}
+  conservative_reset_dist: 3.0
+  controller_frequency: 5.0
+  controller_patience: 3.0
+  global_costmap:
+    footprint: '[[-0.15,-0.05],[0,-0.15],[0.3,-0.1],[0.3,0.1],[0,0.15],[-0.15,0.05]]'
+    footprint_padding: 0.01
+    global_frame: map
+    height: 10
+    inflation_layer: {cost_scaling_factor: 5.0, enabled: true, inflation_radius: 0.5}
+    map_type: voxel
+    max_obstacle_height: 0.4
+    obstacle_layer:
+      bump: {clearing: false, data_type: PointCloud2, marking: true, max_obstacle_height: 0.5,
+        min_obstacle_height: 0.3, topic: camera/depth/points}
+      combination_method: 1
+      enabled: true
+      footprint_clearing_enabled: true
+      mark_threshold: 0
+      max_obstacle_height: 0.6
+      observation_sources: scan
+      obstacle_range: 2.5
+      origin_z: 0.0
+      publish_voxel_map: false
+      raytrace_range: 5.0
+      scan: {clearing: true, data_type: LaserScan, marking: true, max_obstacle_height: 0.35,
+        min_obstacle_height: 0.05, topic: scan}
+      track_unknown_space: true
+      unknown_threshold: 15
+      z_resolution: 0.2
+      z_voxels: 2
+    origin_x: 0.0
+    origin_y: 0.0
+    plugins:
+    - {name: static_layer, type: 'costmap_2d::StaticLayer'}
+    - {name: obstacle_layer, type: 'costmap_2d::VoxelLayer'}
+    - {name: inflation_layer, type: 'costmap_2d::InflationLayer'}
+    publish_frequency: 0.5
+    resolution: 0.05
+    robot_base_frame: base_footprint
+    robot_radius: 0.46
+    static_layer: {enabled: true}
+    static_map: false
+    transform_tolerance: 0.5
+    update_frequency: 1.0
+    width: 10
+  local_costmap:
+    footprint: '[[-0.14,-0.04],[0,-0.14],[0.29,-0.09],[0.29,0.09],[0,0.14],[-0.14,0.04]]'
+    footprint_padding: 0.01
+    global_frame: odom
+    height: 4
+    inflation_layer: {cost_scaling_factor: 5.0, enabled: true, inflation_radius: 0.5}
+    map_type: voxel
+    max_obstacle_height: 0.4
+    obstacle_layer:
+      bump: {clearing: false, data_type: PointCloud2, marking: true, max_obstacle_height: 0.5,
+        min_obstacle_height: 0.3, topic: camera/depth/points}
+      combination_method: 1
+      enabled: true
+      footprint_clearing_enabled: true
+      mark_threshold: 0
+      max_obstacle_height: 0.6
+      observation_sources: scan
+      obstacle_range: 2.5
+      origin_z: 0.0
+      publish_voxel_map: false
+      raytrace_range: 5.0
+      scan: {clearing: true, data_type: LaserScan, marking: true, max_obstacle_height: 0.35,
+        min_obstacle_height: 0.05, topic: scan}
+      track_unknown_space: true
+      unknown_threshold: 15
+      z_resolution: 0.2
+      z_voxels: 2
+    origin_x: 0.0
+    origin_y: 0.0
+    plugins:
+    - {name: obstacle_layer, type: 'costmap_2d::VoxelLayer'}
+    - {name: inflation_layer, type: 'costmap_2d::InflationLayer'}
+    publish_frequency: 2.0
+    resolution: 0.05
+    robot_base_frame: base_footprint
+    robot_radius: 0.46
+    rolling_window: true
+    static_layer: {enabled: true}
+    static_map: false
+    transform_tolerance: 0.5
+    update_frequency: 5.0
+    width: 4
+  oscillation_distance: 0.2
+  oscillation_timeout: 10.0
+  planner_frequency: 1.0
+  planner_patience: 5.0
+  recovery_behavior_enabled: false
+  restore_defaults: false
+  shutdown_costmaps: false
+r200_nodelet: {COLOR_BACKLIGHT_COMPENSATION: 1, COLOR_BRIGHTNESS: 56, COLOR_CONTRAST: 32,
+  COLOR_ENABLE_AUTO_WHITE_BALANCE: 1, COLOR_GAIN: 32, COLOR_GAMMA: 220, COLOR_HUE: 0,
+  COLOR_SATURATION: 128, COLOR_SHARPNESS: 0, COLOR_WHITE_BALANCE: 6500, R200_AUTO_EXPOSURE_BOTTOM_EDGE: 479,
+  R200_AUTO_EXPOSURE_LEFT_EDGE: 0, R200_AUTO_EXPOSURE_RIGHT_EDGE: 639, R200_AUTO_EXPOSURE_TOP_EDGE: 0,
+  R200_DISPARITY_MULTIPLIER: 32, R200_EMITTER_ENABLED: 1, R200_LR_AUTO_EXPOSURE_ENABLED: 0,
+  R200_LR_EXPOSURE: 164, R200_LR_GAIN: 400, color_fps: 60, color_height: 240, color_width: 320,
+  depth_fps: 60, depth_height: 252, depth_width: 332, enable_color: true, enable_depth: true,
+  enable_pointcloud: true, enable_tf: false, mode: manual}
+robot_description: "<?xml version=\"1.0\" ?>\n<!-- ===================================================================================\
+  \ -->\n<!-- |    This document was autogenerated by xacro from /home/intel/Devel/fetchbot_ws/src/fetchbot_description/xacro/fetchbot.urdf.xacro\
+  \ | -->\n<!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                \
+  \                 | -->\n<!-- ===================================================================================\
+  \ -->\n<robot name=\"fetchbot\" xmlns:xacro=\"http://www.ros.org/wiki/xacro\">\n\
+  \  <!-- naming convention for pi consistent with ROS Jade -->\n  <!-- =========================================================================\
+  \ -->\n  <!-- Properties -->\n  <!-- =========================================================================\
+  \ -->\n  <!-- RealSense R200 Definition -->\n  <!-- bounding box of R200 module-->\n\
+  \  <!-- R200 parameters -->\n  <!-- mount correction -->\n  <!-- offset of RGB sensor\
+  \ relative to camera origin -->\n  <!-- offset of origin of depth imager from rgb\
+  \ imager -->\n  <!-- /////////////////////////////////////////////////////////////////////////\
+  \ -->\n  <!-- /////////////////////////////////////////////////////////////////////////\
+  \ -->\n  <!-- Simplify the specification of intertial properties -->\n  <!-- /////////////////////////////////////////////////////////////////////////\
+  \ -->\n  <!-- Define a wheel, offset from the center and rotated -->\n  <!-- =========================================================================\
+  \ -->\n  <!-- Main definitions -->\n  <!-- following name is assumed by various\
+  \ things.  In this robot,\n       for simplicity base_link and base_footprint are\
+  \ the same -->\n  <link name=\"base_footprint\">\n    <origin rpy=\"0 0 0\" xyz=\"\
+  0 0 0\"/>\n  </link>\n  <joint name=\"footprint_to_base\" type=\"fixed\">\n    <parent\
+  \ link=\"base_footprint\"/>\n    <child link=\"base_link\"/>\n  </joint>\n  <!--\
+  \ the base of the robot, defining the origin of its overall \n       coordinate\
+  \ system -->\n  <link name=\"base_link\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0\"\
+  />\n  </link>\n  <!-- instantiate three wheels -->\n  <joint name=\"base_to_wheel0\"\
+  \ type=\"fixed\">\n    <parent link=\"base_link\"/>\n    <child link=\"wheel0\"\
+  />\n    <origin rpy=\"0 0 0.0\" xyz=\"0 0 0\"/>\n  </joint>\n  <link name=\"wheel0\"\
+  >\n    <visual>\n      <geometry>\n        <cylinder length=\"0.015\" radius=\"\
+  0.024\"/>\n      </geometry>\n      <material name=\"darkgrey\">\n        <color\
+  \ rgba=\"0.1 0.1 0.1 1\"/>\n      </material>\n      <origin rpy=\"0 1.57079632679\
+  \ 0\" xyz=\"0.1175 0 0.024\"/>\n    </visual>\n    <collision>\n      <geometry>\n\
+  \        <cylinder length=\"0.015\" radius=\"0.024\"/>\n      </geometry>\n    \
+  \  <origin rpy=\"0 1.57079632679 0\" xyz=\"0.1175 0 0.024\"/>\n    </collision>\n\
+  \    <inertial>\n      <mass value=\"0.05\"/>\n      <inertia ixx=\"1.0\" ixy=\"\
+  0.0\" ixz=\"0.0\" iyy=\"1.0\" iyz=\"0.0\" izz=\"1.0\"/>\n    </inertial>\n  </link>\n\
+  \  <joint name=\"base_to_wheel1\" type=\"fixed\">\n    <parent link=\"base_link\"\
+  />\n    <child link=\"wheel1\"/>\n    <origin rpy=\"0 0 2.09439510239\" xyz=\"0\
+  \ 0 0\"/>\n  </joint>\n  <link name=\"wheel1\">\n    <visual>\n      <geometry>\n\
+  \        <cylinder length=\"0.015\" radius=\"0.024\"/>\n      </geometry>\n    \
+  \  <material name=\"darkgrey\">\n        <color rgba=\"0.1 0.1 0.1 1\"/>\n     \
+  \ </material>\n      <origin rpy=\"0 1.57079632679 0\" xyz=\"0.1175 0 0.024\"/>\n\
+  \    </visual>\n    <collision>\n      <geometry>\n        <cylinder length=\"0.015\"\
+  \ radius=\"0.024\"/>\n      </geometry>\n      <origin rpy=\"0 1.57079632679 0\"\
+  \ xyz=\"0.1175 0 0.024\"/>\n    </collision>\n    <inertial>\n      <mass value=\"\
+  0.05\"/>\n      <inertia ixx=\"1.0\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"1.0\" iyz=\"\
+  0.0\" izz=\"1.0\"/>\n    </inertial>\n  </link>\n  <joint name=\"base_to_wheel2\"\
+  \ type=\"fixed\">\n    <parent link=\"base_link\"/>\n    <child link=\"wheel2\"\
+  />\n    <origin rpy=\"0 0 4.18879020479\" xyz=\"0 0 0\"/>\n  </joint>\n  <link name=\"\
+  wheel2\">\n    <visual>\n      <geometry>\n        <cylinder length=\"0.015\" radius=\"\
+  0.024\"/>\n      </geometry>\n      <material name=\"darkgrey\">\n        <color\
+  \ rgba=\"0.1 0.1 0.1 1\"/>\n      </material>\n      <origin rpy=\"0 1.57079632679\
+  \ 0\" xyz=\"0.1175 0 0.024\"/>\n    </visual>\n    <collision>\n      <geometry>\n\
+  \        <cylinder length=\"0.015\" radius=\"0.024\"/>\n      </geometry>\n    \
+  \  <origin rpy=\"0 1.57079632679 0\" xyz=\"0.1175 0 0.024\"/>\n    </collision>\n\
+  \    <inertial>\n      <mass value=\"0.05\"/>\n      <inertia ixx=\"1.0\" ixy=\"\
+  0.0\" ixz=\"0.0\" iyy=\"1.0\" iyz=\"0.0\" izz=\"1.0\"/>\n    </inertial>\n  </link>\n\
+  \  <joint name=\"base_to_body\" type=\"fixed\">\n    <parent link=\"base_link\"\
+  />\n    <child link=\"body\"/>\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0.1125\"/>\n\
+  \  </joint>\n  <link name=\"body\">\n    <visual>\n      <geometry>\n        <cylinder\
+  \ length=\"0.129\" radius=\"0.11\"/>\n      </geometry>\n      <material name=\"\
+  darkgrey\">\n        <color rgba=\"0.1 0.1 0.1 1\"/>\n      </material>\n    </visual>\n\
+  \    <collision>\n      <geometry>\n        <cylinder length=\"0.129\" radius=\"\
+  0.11\"/>\n      </geometry>\n    </collision>\n    <inertial>\n      <mass value=\"\
+  1\"/>\n      <inertia ixx=\"1.0\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"1.0\" iyz=\"0.0\"\
+  \ izz=\"1.0\"/>\n    </inertial>\n  </link>\n  <joint name=\"body_to_camera_mount\"\
+  \ type=\"fixed\">\n    <parent link=\"body\"/>\n    <child link=\"camera_mount\"\
+  />\n    <origin rpy=\"0 0 0\" xyz=\"-0.03 0 0.1245\"/>\n  </joint>\n  <link name=\"\
+  camera_mount\"/>\n  <!-- RGB joints & links -->\n  <joint name=\"camera_rgb_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0.003 -0.0494 0.0035\"/>\n  \
+  \  <parent link=\"camera_mount\"/>\n    <child link=\"camera_rgb_frame\"/>\n  </joint>\n\
+  \  <link name=\"camera_rgb_frame\"/>\n  <!-- RGB optical frame is rotated relative\
+  \ to the camera -->\n  <joint name=\"camera_rgb_optical_joint\" type=\"fixed\">\n\
+  \    <origin rpy=\"-1.57079632679 0 -1.57079632679\" xyz=\"0 0 0\"/>\n    <parent\
+  \ link=\"camera_rgb_frame\"/>\n    <child link=\"camera_rgb_optical_frame\"/>\n\
+  \  </joint>\n  <link name=\"camera_rgb_optical_frame\"/>\n  <!-- The physical camera\
+  \ -->\n  <joint name=\"camera_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\"\
+  \ xyz=\"0.003 -0.0494 0.0035\"/>\n    <parent link=\"camera_mount\"/>\n    <child\
+  \ link=\"camera_link\"/>\n  </joint>\n  <joint name=\"camera_joint_box\" type=\"\
+  fixed\">\n    <parent link=\"camera_mount\"/>\n    <child link=\"camera_link_box\"\
+  />\n  </joint>\n  <link name=\"camera_link\">\n    <visual>\n      <origin rpy=\"\
+  1.57079632679 0 1.57079632679\" xyz=\"-0.0088 0.1034 -0.0483\"/>\n      <geometry>\n\
+  \        <mesh filename=\"package://fetchbot_description/meshes/sensors/r200_entire.dae\"\
+  />\n      </geometry>\n    </visual>\n    <!-- This inertial field needs doesn't\
+  \ contain reliable data!! -->\n    <inertial>\n      <mass value=\"0.564\"/>\n \
+  \     <origin xyz=\"0 0 0\"/>\n      <inertia ixx=\"0.003881243\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.000498940\" iyz=\"0.0\" izz=\"0.003879257\"/>\n    </inertial>\n \
+  \ </link>\n  <!-- just for collision -->\n  <link name=\"camera_link_box\">\n  \
+  \  <collision>\n      <geometry>\n        <box size=\"0.007 0.13 0.02\"/>\n    \
+  \  </geometry>\n    </collision>\n  </link>\n  <!-- Depth joints & links -->\n \
+  \ <joint name=\"camera_depth_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0.0274 0\"/>\n    <parent link=\"camera_rgb_frame\"/>\n    <child link=\"\
+  camera_depth_frame\"/>\n  </joint>\n  <link name=\"camera_depth_frame\"/>\n  <!--\
+  \ Depth optical frame is rotated relative to the camera -->\n  <joint name=\"camera_depth_optical_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"-1.57079632679 0 -1.57079632679\" xyz=\"0 0\
+  \ 0\"/>\n    <parent link=\"camera_depth_frame\"/>\n    <child link=\"camera_depth_optical_frame\"\
+  />\n  </joint>\n  <link name=\"camera_depth_optical_frame\"/>\n</robot>\n\n"
+rosdistro: 'indigo
+
+  '
+roslaunch:
+  uris: {host_fetchbot00_local__35614: 'http://fetchbot00.local:35614/', host_fetchbot00_local__37314: 'http://fetchbot00.local:37314/',
+    host_fetchbot00_local__40945: 'http://fetchbot00.local:40945/', host_fetchbot00_local__44618: 'http://fetchbot00.local:44618/',
+    host_fetchbot00_local__59706: 'http://fetchbot00.local:59706/'}
+rosversion: '1.11.16
+
+  '
+run_id: 66ba8ed6-f574-11e5-9181-bc5c4c31a7ff
+slam_gmapping: {angularUpdate: 0.218, astep: 0.05, base_frame: base_footprint, delta: 0.01,
+  iterations: 5, kernelSize: 1, lasamplerange: 0.005, lasamplestep: 0.005, linearUpdate: 0.5,
+  llsamplerange: 0.01, llsamplestep: 0.01, lsigma: 0.075, lskip: 0, lstep: 0.05, map_update_interval: 5.0,
+  maxRange: 8.0, maxUrange: 6.0, minimumScore: 250, odom_frame: odom, ogain: 3.0,
+  particles: 80, resampleThreshold: 0.5, sigma: 0.05, srr: 0.01, srt: 0.02, str: 0.01,
+  stt: 0.02, temporalUpdate: 5.0, xmax: 1.0, xmin: -1.0, ymax: 1.0, ymin: -1.0}

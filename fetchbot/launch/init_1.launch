@@ -1,0 +1,8 @@
+<!-- Initialize FetchBot: Phase 1 -->
+<launch>
+  <!-- Load Robot Description and TF Server -->
+  <include file="$(find fetchbot_description)/launch/description.launch"/>
+
+  <!-- Start Realsense-based Laser Scan -->
+  <include file="$(find fetchbot_scan)/launch/scan.launch"/>
+</launch>

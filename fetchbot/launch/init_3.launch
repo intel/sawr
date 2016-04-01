@@ -1,0 +1,5 @@
+<!-- Initialize FetchBot: Phase 3 -->
+<launch>
+  <!-- Start Dynamic Navigation Planning and Execution -->
+  <include file="$(find fetchbot_navigation)/launch/nav.launch"/>
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find fetchbot_mapping)/launch/gmapping.launch"/>
+  <include file="$(find fetchbot_mapping)/launch/amcl.launch"/>
+</launch>
