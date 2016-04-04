@@ -8,9 +8,6 @@
   <url type="website">http://intel.com/</url> -->
   <author email="michael.mccool@intel.com">Michael McCool</author> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>fetchbot_description</build_depend>
-  <build_depend>fetchbot_mapping</build_depend>
-  <build_depend>move_base</build_depend>
   <run_depend>fetchbot_description</run_depend>
   <run_depend>fetchbot_mapping</run_depend>
   <run_depend>move_base</run_depend>
