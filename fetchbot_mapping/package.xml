@@ -13,4 +13,5 @@
   <run_depend>fetchbot_base</run_depend>
   <run_depend>fetchbot_scan</run_depend>
   <run_depend>gmapping</run_depend>
+  <run_depend>amcl</run_depend>
 </package>
