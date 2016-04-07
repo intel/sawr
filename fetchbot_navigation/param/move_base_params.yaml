@@ -3,54 +3,51 @@
 #
 shutdown_costmaps: false
 
-controller_frequency: 20.0
+controller_frequency: 30.0
 controller_patience: 7.0
 
 planner_frequency: 3.0
 planner_patience: 10.0
 
-oscillation_timeout: 0.0 # wait forever
+oscillation_timeout: 3.0 # wait forever
 oscillation_distance: 0.1
 
 # local planner - default is trajectory rollout
-base_local_planner: "dwa_local_planner/DWAPlannerROS"
+# base_local_planner: "dwa_local_planner/DWAPlannerROS"
+base_local_planner: "base_local_planner/TrajectoryPlannerROS"
 
 #alternatives: 
 #   global_planner/GlobalPlanner
 #   carrot_planner/CarrotPlanner
 base_global_planner: "navfn/NavfnROS" 
 
-# Recovery behaviours disabled
-recovery_behavior_enabled: false
+recovery_behavior_enabled: true
 clearing_rotation_allowed: true
 
-#recovery_behaviors:
-  #- name: 'super_conservative_reset1'
-    #type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  #- name: 'conservative_reset1'
-    #type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  #- name: 'aggressive_reset1'
-    #type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  #- name: 'clearing_rotation1'
-    #type: 'rotate_recovery/RotateRecovery'
-  #- name: 'super_conservative_reset2'
-    #type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  #- name: 'conservative_reset2'
-    #type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  #- name: 'aggressive_reset2'
-    #type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  #- name: 'clearing_rotation2'
-    #type: 'rotate_recovery/RotateRecovery'
+recovery_behaviors:
+  - name: 'reset1'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  - name: 'move1'
+    type: 'move_slow_and_clear/MoveSlowAndClear'
+  - name: 'reset2'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  - name: 'rotation1'
+    type: 'rotate_recovery/RotateRecovery'
+  - name: 'move2'
+    type: 'move_slow_and_clear/MoveSlowAndClear'
 
-#super_conservative_reset1:
-  #reset_distance: 3.0
-#conservative_reset1:
-  #reset_distance: 1.5
-#aggressive_reset1:
-  #reset_distance: 0.0
-#super_conservative_reset2:
-  #reset_distance: 3.0
-#conservative_reset2:
-  #reset_distance: 1.5
-#aggressive_reset2:
-  #reset_distance: 0.0
+reset1:
+  reset_distance: 0.5
+move1:
+  clearing_distance: 0.3
+  limited_distance: 0.3
+  limited_trans_speed: 0.1
+reset2:
+  reset_distance: 1.0
+rotation1:
+  max_rotational_vel: 0.3
+  min_rotational_vel: 0.2
+move2:
+  clearing_distance: 1.0
+  limited_distance: 0.5
+  limited_trans_speed: 0.2

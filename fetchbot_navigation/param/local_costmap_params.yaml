@@ -1,14 +1,14 @@
 # local_costmap parameters
-global_frame: /odom  # default; overridden in nav.launch 
-robot_base_frame: /base_footprint # default; overridden in nav.launch
+global_frame: odom  # default; overridden in nav.launch 
+robot_base_frame: base_footprint # default; overridden in nav.launch
 update_frequency: 5.0
 publish_frequency: 2.0
 static_map: false
 rolling_window: true
 width: 4.0
 height: 4.0
-resolution: 0.02
-transform_tolerance: 0.5
+resolution: 0.05
+transform_tolerance: 1.0
 plugins:
   - {name: obstacle_layer,      type: "costmap_2d::VoxelLayer"}
   - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}
