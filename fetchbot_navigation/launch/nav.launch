@@ -5,7 +5,8 @@
   <arg name="odom_topic"      default="odom" />
   <arg name="scan_topic"      default="scan" />
 
-  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  <!-- set respawn to true to overcome the occasional crash -->
+  <node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen">
     <!-- load basic parameters for move_base -->
     <rosparam file="$(find fetchbot_navigation)/param/move_base_params.yaml" command="load"/>
 
@@ -21,7 +22,11 @@
     <rosparam file="$(find fetchbot_navigation)/param/custom_costmap_params.yaml" command="load" />
 
     <!-- parameters just for the DWA local planner -->
+<!--
     <rosparam file="$(find fetchbot_navigation)/param/dwa_local_planner_params.yaml" command="load" ns="DWAPlannerROS"/>
+-->
+    <!-- parameters just for the trajectory local planner -->
+    <rosparam file="$(find fetchbot_navigation)/param/traj_local_planner_params.yaml" command="load" ns="TrajectoryPlannerROS"/>
 
     <!-- parameters just for the global planner -->
     <rosparam file="$(find fetchbot_navigation)/param/global_planner_params.yaml" command="load" ns="GlobalPlanner"/>
@@ -34,7 +39,10 @@
     <param name="global_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
     <param name="local_costmap/global_frame" value="$(arg odom_frame_id)"/>
     <param name="local_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
+<!--
     <param name="DWAPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/>
+-->
+    <param name="TrajectoryPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/>
     
     <!-- Inputs and output topics; use nav_cmd_vel in fetchbot_base -->
     <remap from="cmd_vel" to="nav_cmd_vel"/>
