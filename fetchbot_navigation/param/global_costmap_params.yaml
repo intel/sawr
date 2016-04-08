@@ -1,11 +1,11 @@
 # global_costmap parameters
 
-global_frame: /map # default; overridden in nav.launch
-robot_base_frame: /base_footprint # default; overridden in nav.launch
+global_frame: map # default; overridden in nav.launch
+robot_base_frame: base_footprint # default; overridden in nav.launch
 update_frequency: 3.0
 publish_frequency: 0.5
 static_map: true
-transform_tolerance: 0.5
+transform_tolerance: 1.0
 plugins:
   - {name: static_layer,            type: "costmap_2d::StaticLayer"}
   - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
