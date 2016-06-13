@@ -1,59 +1,66 @@
 # DWA Planner Parameters
   global_frame_id: odom
+#  global_frame_id: map
 
 # Robot Configuration Parameters - Fetchbot
-  max_vel_x: 0.3 # move relatively slowly, otherwise slam can't keep up 
-  min_vel_x: 0.05 
+  max_vel_x: 0.25 # move relatively slowly, otherwise slam can't keep up 
+  min_vel_x: 0.12
 
-  max_vel_y: 0.3   # 1.0  
-  min_vel_y: 0.05  # 0.1  
+  max_vel_y: 0.0   # 1.0  
+  min_vel_y: 0.0  # 0.1  
 
-  max_trans_vel: 0.4 # choose slightly less than the base's capability
-  min_trans_vel: 0.1  # this is the min trans velocity when there is negligible rotational velocity
+  max_trans_vel: 0.24 # choose slightly less than the base's capability
+  min_trans_vel: 0.11 # this is the min trans velocity when there is negligible rotational velocity
   trans_stopped_vel: 0.01
 
-  penalize_negative_x: false  # travelling backwards is fine!
+  penalize_negative_x: true  # sensor points only forwards, so...
 
   # Warning!
   #   do not set min_trans_vel to 0.0 otherwise dwa will always think translational velocities
   #   are non-negligible and small in place rotational velocities will be created.
 
-  max_rot_vel: 1.0  # choose slightly less than the base's capability
-  min_rot_vel: 0.0  # this is the min angular velocity when there is negligible translational velocity
+  max_rot_vel: 0.5  # choose slightly less than the base's capability
+  min_rot_vel: 0.35  # this is the min angular velocity when there is negligible translational velocity
   rot_stopped_vel: 0.0
   
-  acc_lim_x: 2.0
-  acc_lim_y: 2.0  # 1.0  
-  acc_lim_theta: 1.0
+  acc_lim_x: 0.05
+  acc_lim_y: 0.0  # 1.0  
+  acc_lim_theta: 0.1
 
 # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.4
+  yaw_goal_tolerance: 0.3
   xy_goal_tolerance: 0.2 
   latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters
-  sim_time: 2.0       # 1.7
-  sim_granularity: 0.01
-  vx_samples: 6       # 3
-  vy_samples: 6       # 10
-  vtheta_samples: 20  # 20
-  controller_frequency: 30 # set this in move_base instead
+  sim_time: 1.7       # 1.7
+  sim_granularity: 0.05
+  #angular_sim_granularity: 0.05
+  vx_samples: 10        # 3
+  vy_samples: 10       # 10
+  vtheta_samples: 180    # 20
+  #controller_frequency: 30 # set this in move_base instead
 
 # Trajectory Scoring Parameters
-  path_distance_bias: 64.0      # 32.0   - weighting for how much it should stick to the global path plan
+  path_distance_bias: 32.0      # 32.0   - weighting for how much it should stick to the global path plan
   goal_distance_bias: 24.0      # 24.0   - weighting for how much it should attempt to reach its goal
-  occdist_scale: 0.05           # 0.01   - weighting for how much the controller should avoid obstacles
+  occdist_scale: 0.01           # 0.01   - weighting for how much the controller should avoid obstacles
   forward_point_distance: 0.325 # 0.325  - how far along to place an additional scoring point
   stop_time_buffer: 0.2         # 0.2    - amount of time a robot must stop in before colliding for a valid traj.
-  scaling_speed: 0.25           # 0.25   - absolute velocity at which to start scaling the robot's footprint
+  scaling_speed: 0.25            # 0.25   - absolute velocity at which to start scaling the robot's footprint
   max_scaling_factor: 0.2       # 0.2    - how much to scale the robot's footprint when at speed.
 
 # Oscillation Prevention Parameters
+  oscillation_timeout: 0.0  # wait forever
   oscillation_reset_dist: 0.05  # 0.05   - how far to travel before resetting oscillation flags
+
+  meter_scoring: true
 
 # Debugging
   publish_traj_pc : true
   publish_cost_grid_pc: true
+  publish_cost_grid: true
 
 # 3WD omniwheel robot
 #  holonomic_robot: true   # not sure holonomic motion planning is fully debugged!
+  holonomic_robot: false 

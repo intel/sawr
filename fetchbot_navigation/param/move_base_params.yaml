@@ -3,14 +3,15 @@
 #
 shutdown_costmaps: false
 
-controller_frequency: 30.0
+controller_frequency: 10.0
 controller_patience: 7.0
 
-planner_frequency: 3.0
+planner_frequency: 0.0
 planner_patience: 10.0
 
-oscillation_timeout: 3.0 # wait forever
-oscillation_distance: 0.1
+#oscillation_timeout: 3.0 
+oscillation_timeout: 0.0 # wait forever
+oscillation_distance: 0.05
 
 # local planner - default is trajectory rollout
 # base_local_planner: "dwa_local_planner/DWAPlannerROS"
@@ -22,7 +23,7 @@ base_local_planner: "base_local_planner/TrajectoryPlannerROS"
 base_global_planner: "navfn/NavfnROS" 
 
 recovery_behavior_enabled: true
-clearing_rotation_allowed: true
+clearing_rotation_allowed: false
 
 recovery_behaviors:
   - name: 'reset1'
@@ -31,23 +32,31 @@ recovery_behaviors:
     type: 'move_slow_and_clear/MoveSlowAndClear'
   - name: 'reset2'
     type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  - name: 'rotation1'
-    type: 'rotate_recovery/RotateRecovery'
+#  - name: 'rotation1'
+#    type: 'rotate_recovery/RotateRecovery'
   - name: 'move2'
     type: 'move_slow_and_clear/MoveSlowAndClear'
 
 reset1:
-  reset_distance: 0.5
+#  reset_distance: 0.2
+  reset_distance: 0.02
+#  reset_distance: 0.2
+  reset_distance: 0.02
 move1:
-  clearing_distance: 0.3
-  limited_distance: 0.3
+#  clearing_distance: 0.2
+  clearing_distance: 0.02
+#  limited_distance: 0.2
+  limited_distance: 0.02
   limited_trans_speed: 0.1
 reset2:
-  reset_distance: 1.0
-rotation1:
-  max_rotational_vel: 0.3
-  min_rotational_vel: 0.2
+#  reset_distance: 1.0
+  reset_distance: 0.05
+#rotation1:
+#  max_rotational_vel: 0.3
+#  min_rotational_vel: 0.2
 move2:
-  clearing_distance: 1.0
-  limited_distance: 0.5
+#  clearing_distance: 0.5
+  clearing_distance: 0.08
+#  limited_distance: 0.3
+  limited_distance: 0.08
   limited_trans_speed: 0.2

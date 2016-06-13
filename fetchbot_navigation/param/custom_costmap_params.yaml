@@ -1,14 +1,11 @@
 global_costmap:
-  robot_radius: 0.135  # distance a circular robot should be clear of the obstacle (kobuki: 0.18)
-  # When fetchbot has gripper it is not circular. Want to avoid collisions with gripper
-  #footprint: [ [-0.15, -0.05], [0.0, -0.15], [0.3, -0.10], [0.3, 0.10], [0.0, 0.15], [-0.15, 0.05] ]  
-  footprint: [ [-0.15, -0.05], [0.0, -0.15], [0.15, -0.05], [0.15, 0.05], [0.0, 0.15], [-0.15, 0.05] ]  
+  robot_radius: 0.24  # distance a circular robot should be clear of the obstacle (kobuki: 0.18)
+  footprint: [ [-0.24, -0.08], [0.0, -0.24], [0.24, -0.08], [0.24, 0.08], [0.0, 0.24], [-0.24, 0.08] ]  
 
 local_costmap:
-  robot_radius: 0.125  # distance a circular robot should be clear of the obstacle (kobuki: 0.18)
+  robot_radius: 0.23  # distance a circular robot should be clear of the obstacle (kobuki: 0.18)
   # slightly shrunken version of the above footprint
-  #footprint: [ [-0.14, -0.04], [0.0, -0.14], [0.29, -0.09], [0.29, 0.09], [0.0, 0.14], [-0.14, 0.04] ]  
-  footprint: [ [-0.14, -0.04], [0.0, -0.14], [0.14, -0.04], [0.14, 0.04], [0.0, 0.14], [-0.14, 0.04] ]  
+  footprint: [ [-0.23, -0.07], [0.0, -0.23], [0.23, -0.07], [0.23, 0.07], [0.0, 0.23], [-0.23, 0.07] ]  
 
 
 

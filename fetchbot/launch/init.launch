@@ -1,0 +1,7 @@
+<!-- Initialize FetchBot -->
+<launch>
+  <include file="$(find fetchbot)/launch/init_0.launch"/>
+  <include file="$(find fetchbot)/launch/init_1.launch"/>
+  <include file="$(find fetchbot)/launch/init_2.launch"/>
+  <include file="$(find fetchbot)/launch/init_3.launch"/>
+</launch>
