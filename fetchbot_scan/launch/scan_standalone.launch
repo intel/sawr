@@ -8,7 +8,7 @@
   <arg name="camera"      default="camera"/>
   <arg name="sensor"      default="r200"/>  
   <arg name="publish_tf"  default="false"/>  <!-- coming from URDF already -->
-  <arg name="depth_enhance"  default="true"/> 
+  <arg name="depth_enhance"  default="false"/> 
   <arg name="depth_enhance_gui"  default="false"/> 
   <arg name="depth_enhance_self"  default="false"/> 
 

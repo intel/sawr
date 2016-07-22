@@ -3,14 +3,14 @@
 #  global_frame_id: map
 
 # Robot Configuration Parameters - Fetchbot
-  max_vel_x: 0.25 # move relatively slowly, otherwise slam can't keep up 
-  min_vel_x: 0.12
+  max_vel_x: 0.20 # move relatively slowly, otherwise slam can't keep up 
+  min_vel_x: 0.10
 
   max_vel_y: 0.0   # 1.0  
   min_vel_y: 0.0  # 0.1  
 
-  max_trans_vel: 0.24 # choose slightly less than the base's capability
-  min_trans_vel: 0.11 # this is the min trans velocity when there is negligible rotational velocity
+  max_trans_vel: 0.40 # choose slightly less than the base's capability
+  min_trans_vel: 0.10 # this is the min trans velocity when there is negligible rotational velocity
   trans_stopped_vel: 0.01
 
   penalize_negative_x: true  # sensor points only forwards, so...
@@ -20,15 +20,15 @@
   #   are non-negligible and small in place rotational velocities will be created.
 
   max_rot_vel: 0.5  # choose slightly less than the base's capability
-  min_rot_vel: 0.35  # this is the min angular velocity when there is negligible translational velocity
+  min_rot_vel: 0.1  # this is the min angular velocity when there is negligible translational velocity
   rot_stopped_vel: 0.0
   
-  acc_lim_x: 0.05
+  acc_lim_x: 0.5
   acc_lim_y: 0.0  # 1.0  
-  acc_lim_theta: 0.1
+  acc_lim_theta: 0.5
 
 # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.3
+  yaw_goal_tolerance: 0.2
   xy_goal_tolerance: 0.2 
   latch_xy_goal_tolerance: false
 

@@ -1,0 +1,8 @@
+<!-- Initialize FetchBot: Phase 0 -->
+<launch>
+  <node pkg="g_moter_control"
+        type="g_moter_control" 
+        name="g_moter_control"
+        output="screen"
+  /> 
+</launch>

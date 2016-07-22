@@ -4,37 +4,37 @@
 #  robot_base_frame: base_footprint
 
 # Robot Configuration Parameters - Fetchbot
-  max_vel_x: 0.30 # move relatively slowly, otherwise slam can't keep up 
-  min_vel_x: 0.20 
+  max_vel_x: 0.5 # move relatively slowly, otherwise slam can't keep up 
+  min_vel_x: 0.1 
 
 #  max_vel_y: 0.3   # 1.0  
 #  min_vel_y: 0.1  # 0.1  
   max_vel_y: 0.0   # 1.0  
   min_vel_y: 0.0  # 0.1  
 
-  max_rot_vel: 0.6
-  min_rot_vel: 0.5
+  max_rot_vel: 0.5
+  min_rot_vel: 0.1
 
-  max_trans_vel: 0.29 # choose slightly less than the base's capability
-  min_trans_vel: 0.19 # this is the min trans velocity when there is negligible rotational velocity
+  max_trans_vel: 0.5 # choose slightly less than the base's capability
+  min_trans_vel: 0.1 # this is the min trans velocity when there is negligible rotational velocity
 
 
   # Warning!
   #   do not set min_trans_vel to 0.0 otherwise dwa will always think translational velocities
   #   are non-negligible and small in place rotational velocities will be created.
 
-  max_vel_theta: 0.59  # choose slightly less than the base's capability
-  min_vel_theta: 0.49  # this is the min angular velocity when there is negligible translational velocity
-  min_in_place_vel_theta: 0.49
+  max_vel_theta: 0.5  # choose slightly less than the base's capability
+  min_vel_theta: 0.1  # this is the min angular velocity when there is negligible translational velocity
+  min_in_place_vel_theta: 0.05
   
   escape_vel: -0.10
   # y_vels: [-0.5,-0.3,0.3,0.5]
   y_vels: [0.0]
   
-  acc_lim_x: 0.1
+  acc_lim_x: 0.5
   #acc_lim_y: 1.0  # 1.0  
   acc_lim_y: 0.0 
-  acc_lim_theta: 0.05
+  acc_lim_theta: 0.5
 
 # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.3
