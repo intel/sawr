@@ -7,6 +7,7 @@
   -->
   <arg name="camera"      default="camera"/>
   <arg name="sensor"      default="r200"/>  
+  <arg name="camera_type" default="R200"/>  
   <arg name="publish_tf"  default="false"/>  <!-- coming from URDF already -->
   <arg name="depth_enhance"  default="false"/> 
   <arg name="depth_enhance_gui"  default="false"/> 
@@ -39,8 +40,9 @@
   <!-- Start RealSense nodelet -->
   <node pkg="nodelet" type="nodelet" 
         name="$(arg sensor)_nodelet" 
-        args="load realsense_camera/RealsenseNodelet realsense_manager">
+        args="load realsense_camera/$(arg camera_type)Nodelet realsense_manager">
      <param name="mode"              type="str"  value="manual" />
+     <param name="camera_type"       type="str"  value="$(arg camera_type)" />
      <param name="enable_depth"      type="bool" value="true" />
      <param name="enable_color"      type="bool" value="true" />
      <param name="enable_pointcloud" type="bool" value="true" />
@@ -49,10 +51,6 @@
      <param name="depth_height"      type="int"  value="252" />
      <param name="color_width"       type="int"  value="320" />
      <param name="color_height"      type="int"  value="240" />
-<!--
-     <param name="depth_fps"         type="int"  value="60" />
-     <param name="color_fps"         type="int"  value="60" />
--->
      <param name="depth_fps"         type="int"  value="30" />
      <param name="color_fps"         type="int"  value="30" />
 

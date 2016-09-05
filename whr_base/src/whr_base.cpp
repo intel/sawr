@@ -85,9 +85,9 @@ int param_odom_publication_divisor = 10;
 // Battery state is published on every nth polling loop
 int param_batt_publication_divisor = 10000;           
 // Dynamixel ID for left motor (when facing towards the front of the robot)
-int param_left_motor_id = 2;       
+int param_left_motor_id = 1;       
 // Dynamixel ID for right motor (when facing towards the front of the robot)
-int param_right_motor_id = 1;      
+int param_right_motor_id = 2;      
 // Mechanical advantage of transmission
 double param_mech = 6.21882;
 // Dynamixel baudrate
@@ -138,7 +138,9 @@ double effective_wheel_circumference = M_PI*effective_wheel_diameter;
 double base_circumference = M_PI*param_wheel_base;
 
 // Calibration
-double param_calibration = 0.9;
+double param_calibration = 0.8;
+//double param_calibration = 0.9;
+//double param_calibration = 1.1;
 
 // Amount to scale linear speed values in m/s to get motor speeds in cps
                                                            // -> c/s
