@@ -1,4 +1,0 @@
-<launch>
-  <!-- Start base bridge -->
-  <node pkg="fetchbot_base" type="base_bridge" name="base_bridge"/>
-</launch>

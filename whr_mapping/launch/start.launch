@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find whr_mapping)/launch/gmapping.launch"/>
+  <include file="$(find whr_mapping)/launch/amcl.launch"/>
+</launch>

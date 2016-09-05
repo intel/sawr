@@ -2,7 +2,7 @@
 <package>
   <name>whr_base</name>
   <version>0.0.0</version>
-  <description>Dynamixel controller for Whr Robot</description>
+  <description>Dynamixel controller for 2WD Differential Whr Robot</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

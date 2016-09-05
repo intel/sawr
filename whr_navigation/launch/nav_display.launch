@@ -1,0 +1,14 @@
+<!-- Navigation demo visualization 
+     Start camera, launch navigation_demo first
+-->
+<launch>
+  <arg name="map" default="$(env FETCHBOT_MAP_FILE)"/>
+  <arg name="home" default="$(env HOME)"/>
+  <arg name="display_depth" default="false"/> 
+
+  <!-- RVIZ with custom layout -->
+  <node if="$(arg display_depth)" pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find whr_navigation)/rviz/navigation_r200.rviz"/>
+  <node unless="$(arg display_depth)" pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find whr_navigation)/rviz/navigation_r200_without_depth.rviz"/>
+</launch>

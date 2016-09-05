@@ -1,0 +1,10 @@
+<!-- Display laser scan and point cloud input data.
+     Run init_1 and init_2 launches.  Note that unlike the version of this
+     launchfile in whr_description, we do NOT load state publishers
+     or the robot description... those should already be active.
+-->
+<launch>
+  <arg name="gui" default="False" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find whr_scan)/rviz/scan.rviz" required="true" />
+</launch>

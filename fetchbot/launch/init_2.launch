@@ -1,5 +1,0 @@
-<!-- Initialize FetchBot: Phase 2 -->
-<launch>
-  <!-- Start SLAM (Mapping and Localization) -->
-  <include file="$(find fetchbot_mapping)/launch/start.launch"/>
-</launch>

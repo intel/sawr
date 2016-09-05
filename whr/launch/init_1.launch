@@ -1,0 +1,8 @@
+<!-- Initialize Whr: Phase 1 -->
+<launch>
+  <!-- Load Robot Description and TF Server -->
+  <include file="$(find whr_description)/launch/description.launch"/>
+
+  <!-- Start Realsense-based Laser Scan -->
+  <include file="$(find whr_scan)/launch/scan_standalone.launch"/>
+</launch>

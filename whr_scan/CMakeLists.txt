@@ -1,17 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(whr_base)
+project(whr_scan)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  sensor_msgs
-  std_msgs
-  geometry_msgs
-  tf
-  nav_msgs
-)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -104,7 +96,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES whr_base
+#  LIBRARIES whr_scan
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
@@ -115,30 +107,27 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-  ${catkin_INCLUDE_DIRS}
-  #/usr/local/include
-)
+# include_directories(include)
 
 ## Declare a C++ library
-# add_library(whr_base
-#   src/${PROJECT_NAME}/whr_base.cpp
+# add_library(whr_scan
+#   src/${PROJECT_NAME}/whr_scan.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(whr_base ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(whr_scan ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(whr_base_node src/whr_base_node.cpp)
+# add_executable(whr_scan_node src/whr_scan_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(whr_base_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(whr_scan_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(whr_base_node
+# target_link_libraries(whr_scan_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -157,7 +146,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS whr_base whr_base_node
+# install(TARGETS whr_scan whr_scan_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -182,15 +171,10 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_whr_base.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_whr_scan.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-  include_directories(include ${catkin_INCLUDE_DIRS})
-  add_executable(base_bridge src/base_bridge.cpp)
-  add_executable(whr_base src/whr_base.cpp)
-  target_link_libraries(base_bridge ${catkin_LIBRARIES})
-  target_link_libraries(whr_base dxl_x64_cpp ${catkin_LIBRARIES})

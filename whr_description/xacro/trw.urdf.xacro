@@ -1,29 +1,20 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
-       name="makitabot"
+       name="trw"
 >
 <!-- naming convention for pi consistent with ROS Jade -->
 <xacro:property name="pi" value="3.1415926535897931"/>
 
 <!-- ========================================================================= -->
 <!-- Properties -->
-<!--
 <xacro:property name="bodyheight" value="${2*0.06+3*.003}"/>
 <xacro:property name="bodyradius" value="0.11"/>
--->
-<xacro:property name="bodyheight" value="0.056"/>
-<xacro:property name="bodyradius" value="0.10"/>
-<!--
 <xacro:property name="wheelheight" value="0.015"/>
 <xacro:property name="wheelradius" value="0.024"/>
 <xacro:property name="wheeloffset" value="${bodyradius+wheelheight/2}"/>
--->
-<xacro:property name="baseheight" value="0.027"/>
-<xacro:property name="cameraheight" value="0.066"/>
-<!--
+<xacro:property name="baseheight" value="0.048"/>
+<xacro:property name="cameraheight" value="0.06"/>
 <xacro:property name="cameraoffset" value="-0.03"/>
--->
-<xacro:property name="cameraoffset" value="-0.04"/>
 
 <!-- ========================================================================= -->
 <!-- RealSense R200 Definition -->
@@ -131,7 +122,6 @@
   </xacro:macro>
 <!-- ///////////////////////////////////////////////////////////////////////// -->
   <!-- Define a wheel, offset from the center and rotated -->
-<!--
   <xacro:macro name="wheel" params="num">
     <joint name="base_to_wheel${num}" type="fixed">
       <parent link="base_link"/>
@@ -161,7 +151,6 @@
       <xacro:default_inertial mass="0.05"/>
     </link>
   </xacro:macro>
--->
 
 <!-- ========================================================================= -->
 <!-- Main definitions -->
@@ -184,11 +173,9 @@
   </link>
 
   <!-- instantiate three wheels -->
-<!--
   <xacro:wheel num="0"/>
   <xacro:wheel num="1"/>
   <xacro:wheel num="2"/>
--->
 
   <joint name="base_to_body" type="fixed">
     <parent link="base_link"/>

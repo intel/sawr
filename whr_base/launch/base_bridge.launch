@@ -1,0 +1,4 @@
+<launch>
+  <!-- Start base bridge -->
+  <node pkg="whr_base" type="base_bridge" name="base_bridge"/>
+</launch>
