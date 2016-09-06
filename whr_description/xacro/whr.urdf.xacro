@@ -1,28 +1,16 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
-       name="makitabot"
->
-<!-- naming convention for pi consistent with ROS Jade -->
-<xacro:property name="pi" value="3.1415926535897931"/>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="whr">
+<!-- We can't use "pi" since predefined in Kinetic and Jade but not
+     Indigo.   So instead we use a different name so it works in all. -->
+<xacro:property name="wpi" value="3.1415926535897931"/>
+-->
 
 <!-- ========================================================================= -->
 <!-- Properties -->
-<!--
-<xacro:property name="bodyheight" value="${2*0.06+3*.003}"/>
-<xacro:property name="bodyradius" value="0.11"/>
--->
 <xacro:property name="bodyheight" value="0.056"/>
 <xacro:property name="bodyradius" value="0.10"/>
-<!--
-<xacro:property name="wheelheight" value="0.015"/>
-<xacro:property name="wheelradius" value="0.024"/>
-<xacro:property name="wheeloffset" value="${bodyradius+wheelheight/2}"/>
--->
 <xacro:property name="baseheight" value="0.027"/>
 <xacro:property name="cameraheight" value="0.066"/>
-<!--
-<xacro:property name="cameraoffset" value="-0.03"/>
--->
 <xacro:property name="cameraoffset" value="-0.04"/>
 
 <!-- ========================================================================= -->
@@ -56,7 +44,7 @@
     <!-- RGB optical frame is rotated relative to the camera -->
     <joint name="camera_rgb_optical_joint" type="fixed">
       <origin xyz="0 0 0" 
-              rpy="${-pi/2} 0 ${-pi/2}" />
+              rpy="${-wpi/2} 0 ${-wpi/2}" />
       <parent link="camera_rgb_frame" />
       <child link="camera_rgb_optical_frame" />
     </joint>
@@ -77,8 +65,8 @@
 
     <link name="camera_link">
       <visual>
-        <origin xyz="${-r200_rgb_px)} ${-r200_rgb_py} ${-r200_rgb_pz}" 
-                rpy="${pi/2} 0 ${pi/2}"/>
+        <origin xyz="${-r200_rgb_px} ${-r200_rgb_py} ${-r200_rgb_pz}" 
+                rpy="${wpi/2} 0 ${wpi/2}"/>
         <geometry>
           <mesh filename="package://whr_description/meshes/sensors/r200_entire.dae"/>
         </geometry>
@@ -113,7 +101,7 @@
 
     <!-- Depth optical frame is rotated relative to the camera -->
     <joint name="camera_depth_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+      <origin xyz="0 0 0" rpy="${-wpi/2} 0 ${-wpi/2}" />
       <parent link="camera_depth_frame" />
       <child link="camera_depth_optical_frame" />
     </joint>
@@ -129,43 +117,8 @@
                                      izz="1.0" />
     </inertial>
   </xacro:macro>
-<!-- ///////////////////////////////////////////////////////////////////////// -->
-  <!-- Define a wheel, offset from the center and rotated -->
-<!--
-  <xacro:macro name="wheel" params="num">
-    <joint name="base_to_wheel${num}" type="fixed">
-      <parent link="base_link"/>
-      <child link="wheel${num}"/>
-        <origin xyz="0 0 0" 
-                rpy="0 0 ${2*pi*(num*120/360)}"/>
-    </joint>
-
-    <link name="wheel${num}">
-      <visual>
-        <geometry>
-          <cylinder length="${wheelheight}" radius="${wheelradius}"/>
-        </geometry>
-        <material name="darkgrey">
-          <color rgba="0.1 0.1 0.1 1"/>
-        </material>
-        <origin xyz="${wheeloffset} 0 ${wheelradius}" 
-                rpy="0 ${2*pi*(90/360)} 0"/>
-      </visual>
-      <collision>
-        <geometry>
-          <cylinder length="${wheelheight}" radius="${wheelradius}"/>
-        </geometry>
-        <origin xyz="${wheeloffset} 0 ${wheelradius}" 
-                rpy="0 ${2*pi*(90/360)} 0"/>
-      </collision>
-      <xacro:default_inertial mass="0.05"/>
-    </link>
-  </xacro:macro>
--->
-
 <!-- ========================================================================= -->
 <!-- Main definitions -->
-
   <!-- following name is assumed by various things.  In this robot,
        for simplicity base_link and base_footprint are the same -->
   <link name="base_footprint">
@@ -182,13 +135,6 @@
   <link name="base_link">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </link>
-
-  <!-- instantiate three wheels -->
-<!--
-  <xacro:wheel num="0"/>
-  <xacro:wheel num="1"/>
-  <xacro:wheel num="2"/>
--->
 
   <joint name="base_to_body" type="fixed">
     <parent link="base_link"/>

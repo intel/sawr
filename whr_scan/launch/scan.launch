@@ -48,8 +48,8 @@
      <param name="depth_height"      type="int"  value="252" />
      <param name="color_width"       type="int"  value="320" />
      <param name="color_height"      type="int"  value="240" />
-     <param name="depth_fps"         type="int"  value="60" />
-     <param name="color_fps"         type="int"  value="60" />
+     <param name="depth_fps"         type="int"  value="30" />
+     <param name="color_fps"         type="int"  value="30" />
 
      <remap if="$(arg depth_enhance)"
             from="$(arg camera)/depth/image_raw" 

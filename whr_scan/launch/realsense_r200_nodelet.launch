@@ -9,8 +9,8 @@
 	<arg name="enable_color" default="true" />
 	<arg name="enable_pointcloud" default="true" />
 	<arg name="enable_tf" default="true" />
-	<arg name="depth_fps" default="60" />
-	<arg name="color_fps" default="60" />	
+	<arg name="depth_fps" default="30" />
+	<arg name="color_fps" default="30" />	
 	
   	<node pkg="nodelet" type="nodelet" name="standalone_nodelet"  args="manager" output="screen"/>
   	
