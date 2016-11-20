@@ -422,9 +422,9 @@ battery_strap_oy_2 = battery_strap_oy - battery_strap_s_2;
 
 switch_x = 11;
 switch_y = 29;
-switch_t = 3;
+switch_t = 4;
 switch_ox = top_x/2 - switch_x/2 - switch_t;
-switch_oy = base_y/2 - 40;
+switch_oy = base_y/2 - 41;
 
 T_slot_sm = hole_sm;
 T_slot_relief_r = 1.5/2; // radius of relief slot (if used)
@@ -467,7 +467,7 @@ axle_spacer_h = motor_trans_offset*plate_thickness
               + (servo_h_h-plate_thickness)
               - axle_spacer_hh;
 axle_size = bearing_id;
-axle_r = axle_size/2 + cut_t;
+axle_r = axle_size/2 + cut_t + tol;
 axle_inner_r = axle_r; // 40mm shoulder penetrates hole 2mm
 axle_shoulder_length = 40;  // shoulder part
 axle_bolt_size = (use_shoulder_bolt) ? 5 : 6;
@@ -520,7 +520,8 @@ wheel_bolt_offset = use_flanged_bearing
                   ? bearing_f
                   : bearing_h-wheel_plate_thickness-outer_plate_thickness
                     +(use_shoulder_bolt ? 1 : 0);
-axle_spacer_h_2 = 15;
+//axle_spacer_h_2 = 15;
+axle_spacer_h_2 = 14; // because 15mm not available at McMaster-Carr...
 rim_e = 0.6*tire_r;
 
 // Friction drive radius (basic offset, plus trim found by experimentation)
