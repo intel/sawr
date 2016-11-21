@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   tf
   nav_msgs
+  dynamixel_sdk
 )
 
 ## System dependencies are found with CMake's conventions
@@ -190,7 +191,5 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
   include_directories(include ${catkin_INCLUDE_DIRS})
-  add_executable(base_bridge src/base_bridge.cpp)
   add_executable(whr_base src/whr_base.cpp)
-  target_link_libraries(base_bridge ${catkin_LIBRARIES})
   target_link_libraries(whr_base dxl_x64_cpp ${catkin_LIBRARIES})
