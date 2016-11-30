@@ -1,0 +1,62 @@
+,Whr robot with Laser Cut Components,,,,,,
+,BOM   ,,,,,,
+,Note : prices are from online retailers  for reference only.,,,,,,
+,Part,Link, Estimated cost per bulk pkg , Qtty of parts in bulk pkg ,Qtty per unit required, Estimated cost per unit ,Notes
+Frame ,Laser cutting,,$2.50 , 1 ,30, $75.00 ,It takes about 30 minutes to cut.   Pololu charges $2.50 per minute of cutting time.
+ $91.60 ,Acrylic sheet 450mm x 300mm x 2mm,,$4.75 , 1 ,1, $4.75 ,Estimated cost of materials 
+,Acrylic sheet 450mm x 300mm x 3mm,,$7.90 , 1 ,1, $7.90 ,Estimated cost of materials 
+,"Pololu 1"" ball caster with plastic rollers",https://www.pololu.com/product/2691, $3.95 , 1 ,1, $3.95 ,"1 ea used in current design, 2 more can be added  for extra stability."
+Electronics,Intel RealSense Robotic Development Kit,http://click.intel.com/intelr-realsensetm-robotic-development-kit.html, $250.00 , 1 ,1, $250.00 ,Estimated cost. According to manufacturer product shipping delayed up to  end of June2016. Will be replaced with GT Q3-4.
+ $454.20 ,DC-DC 5A power convertor from DF Robot,http://www.dfrobot.com/index.php?route=product/product&path=70_119&product_id=752#.VpaHJ1LtvT9, $8.50 , 1 ,1, $8.50 ,
+,MX-12W Dynamixel servos, http://www.trossenrobotics.com/dynamixel-mx-12w-robot-actuator, $65.90 , 1 ,2, $131.80 ,get the ones in individual boxes; you need the included mounting brackets if you laser-cut the frame. 
+,Alternative source for servos,http://www.robotis.us/dynamixel-mx-12w/,,1,0, $-   ,Alternative source for servos
+,USB2AX v3.2a,http://www.trossenrobotics.com/usb2ax, $39.95 ,1,1, $39.95 ,
+,"TP-LINK AC600 High Gain Wireless Dual Band USB Adapter, ",https://www.amazon.com/TP-LINK-Wireless-Adapter-Archer-T2UH/dp/B00UZRVY12/ref=sr_1_3?ie=UTF8&qid=1468895211&sr=8-3&keywords=TP-link+usb+ac, $23.95 ,1,1, $23.95 ,“ac” mode and GHz support .Less expensive  b/g/n model can be used. Check for Linux driver availability. Also tested with cheap CanaKit WiFi dongle from Rpi kit.
+Electrical harness and cables,"Battery (LiPo 3S, 3000mAh to 4000mAh)",  https://www.amazon.com/Venom-4000mAh-Battery-Universal-Traxxas/dp/B000W7WWFW/ref=sr_1_15?s=toys-and-games&ie=UTF8&qid=1466243100&sr=1-15&keywords=3s+lipo, $41.91 , 1 ,1, $41.91 ,"Has connector adapters for different chargers. Alternative :Turnigy 5000mAh 3S 20C Lipo Pack, quality battery has  X-60 connector."
+ $56.10 ,Lipo Battery Monitor/Alarm,http://www.amazon.com/Battery-Tester-Voltage-Buzzer-Alarm/dp/B005GJCJOA, $2.96 , 1 ,1, $2.96 ,Gives audible alarm if battery gets too low.
+,Tamiya Male and Female Plug Set M/F 150mm by Venom,https://www.amazon.com/Tamiya-Male-Female-150mm-Venom/dp/B000HKEVH6, $3.99 , 1 ,1, $3.99 ,Depending on Battery connector it may not  required.
+,Barrel connector Adapter 10 Pack,https://www.amazon.com/iMBAPrice-iMBA-CCTV-PGTM-10-Security-Camera-Pigtail/dp/B0054D80LE/ref=sr_1_81?ie=UTF8&qid=1467833488&sr=8-81-spons&keywords=barrel+5.5mm+power+connector&psc=1, $5.99 , 10 ,1, $0.60 ,1-UP board
+,120 Assorted Fuses / 10 Inline Fuse Holders - Includes Puller,https://www.amazon.com/Assorted-Fuses-Inline-Fuse-Holders/dp/B01E5MM63C/ref=sr_1_3?s=automotive&ie=UTF8&qid=1473005377&sr=1-3&keywords=inline+glass+fuse+5+A, $15.99 , 10 ,1, $1.60 ,"for price reference only.  auto kit, can be substituted with inline fuse holder and 5A glass fuse. Recommendede wire gage not less than 22 AWG. Ferrules specified below should correspond to this wire gage."
+,On/Off Rocker switch pack of 5,http://www.amazon.com/SPST-Black-Snap-Rocker-Switch/dp/B008X10YRC/ref=pd_sim_sbs_60_2?ie=UTF8&dpID=41SKM6WaagL&dpSrc=sims&preST=_AC_UL160_SR160%2C160_&refRID=0PH26X0KDH26FAAV057Y, $4.17 , 5 ,2, $1.67 ,"One for motors, other for Main switch."
+,Female insulated crimp spade disconnects 100 pc,https://www.amazon.com/Haobase-100pcs-Fully-Insulated-Disconnects-Terminal/dp/B01BHQI7U0/ref=sr_1_fkmr0_2?ie=UTF8&qid=1468290469&sr=8-2-fkmr0&keywords=ueton%C2%AE+100pcs+Red+22%2F18-+Gauge+Nylon+female, $5.99 , 100 ,4, $0.24 ,"for secure but removable power connections, and connections to rocker switch"
+,"Ferrules, 22AWG 100 pcs",http://www.amazon.com/gp/product/B00GPH555C?refRID=B5R7Y431MTX1X1HTPKSG&ref_=pd_ys_c_rfy_rp_3, $4.19 , 100 ,6, $0.25 ,for secure connections to screw terminals. Orange 
+,200mm Dynamixel cables pack of 10,http://www.trossenrobotics.com/p/200mm-3-pin-dynamixel-compatible-cables-10-pack, $13.90 , 10 ,1, $1.39 ,
+,250mm Dynamixel cables ,http://www.trossenrobotics.com/p/250mm-3-pin-dynamixel-compatible-cables-10-pack, $14.90 , 10 ,1, $1.49 ,
+,100 mm Dynamixel cable,,,,1,,Part of Dynamixel servo kit.
+Hardware,"Velcro tape, sticky back pack of 10",https://www.amazon.com/VELCRO-Brand-Sticky-Strips-Clear/dp/B00168A18G/ref=sr_1_2?s=electronics&ie=UTF8&qid=1466456585&sr=1-2&keywords=velcro+sticker, $2.09 , 4 ,0.5, $0.26 ,For mounting  battery monitor/alarm. 
+ $48.67 ,Velcro straps for the battery pack of 50,http://www.amazon.com/Reusable-Fastening-Velcro-Cable-Microfiber/, $9.98 , 50 ,4, $0.80 ,
+,4-Inch Cable Ties - 100 Pack,https://www.amazon.com/C2G-Cables-43036-4-Inch-Cable/dp/B0002GX1XA/ref=sr_1_2?ie=UTF8&qid=1466456819&sr=8-2&keywords=small+cable+ties, $2.59 , 100 ,15, $0.39 ,"RS to tower, wheel mounts to plates Check length: min 4 in, width =max 4mm, should be flexible. "
+,"9464K161 Chemical-Resistant Multipurpose O-Ring
+",http://www.mcmaster.com/#9464k161/=14o4emp,3.97,1,2, $7.94 ,2-Wheels 
+,92095A168  Button-Head M3x14,http://www.mcmaster.com/#92095a168/=138tce6, $5.80 ,50,24, $2.78 ,24-Wheels
+,90576A102 Nylon-Insert Locknut M3,http://www.mcmaster.com/#90576a102/=12xtc3z, $3.27 ,100,37, $1.21 ,"24-Wheel, 4-frame,3-casters,2-RS, 4-DF-Robot"
+,92080A033Zinc-Plated Brass Female Threaded Hex Standoff M3x51 (6.3mm thread),http://www.mcmaster.com/#95947a075/=12xtho2, $2.91 ,1,2, $5.82 ,"51 mm (no 50mm on McMaster),thread length 6.3mm.- good for M3x8 screw) 2-base"
+,91292A111 Socket Head Cap Screw M3x6,http://www.mcmaster.com/#91292a111/=12xtjlw, $8.56 ,100,4, $0.34 ,"2- base to tower ,2- top to tower"
+,94500A222 Button-Head Screw M3x8,http://www.mcmaster.com/#94500a222/=12xtm3r, $5.77 ,100,7, $0.40 ,"3-casters, 4-front stanfoffs"
+,91292A029 Socket Head  Screw M3x18,http://www.mcmaster.com/#91292a029/=13a8dhv, $5.60 ,100,2, $0.11 ,2-RS to tower (head 5.5mm dia fits in slot on RS)
+,95947A011 Aluminum Female Full Threaded Hex Standoff  2.5x16,http://www.mcmaster.com/#95947a011/=140th7h, $0.70 ,1,4, $2.80 ,4-Upboard 
+,90128A183 Cap head 2.5x6 screws,http://www.mcmaster.com/#90128a183/=139q9z0, $7.70 ,100,8, $0.62 ,8-UPboard
+,93295A094 Brass Unthreaded Spacer M3x6 mm,http://www.mcmaster.com/#93295a094/=140typ2, $0.49 ,1,4, $1.96 ,4-DFRobot
+,92005A124 Metric Pan Head Phillips Machine Screw M3x14,http://www.mcmaster.com/#92005a124/=140u2lr, $4.24 ,100,4, $0.17 ,4-DFRobot
+,92000A015 Pan Head Phillips  Screw M2x8,http://www.mcmaster.com/#92000a015/=140t8vj, $4.52 ,100,28, $1.27 ," 12-brackets to tower , 16- servo side mount"
+,93625A101 Nylon-Insert Locknut M2,http://www.mcmaster.com/#93625a101/=12xu5kl, $6.82 ,10,12, $8.18 ,12-brackets to tower. May not need if included in servo kit.
+,95610A530 Nylon Flat Washer M3x 1mm,http://www.mcmaster.com/#95610a530/=135yg98, $2.84 ,100,10, $0.28 ,"6-RS to tower spacers(3ea for each screw),2 -base to tower screws, 2-top to tower screws"
+,92981A106 Alloy Steel Shoulder Screw ,http://www.mcmaster.com/#92981a106/=138tvan, $1.30 ,1,2, $2.60 ,"2 Wheel axel shoulder screw 40mm-shoulder, 10mm-M5 thread "
+,97725A600 Metal Sealing Washer 9.9 mm dia,http://www.mcmaster.com/#97725a600/=138tyo9, $9.88 ,50,10, $1.98 ," 6 -to expand 6mm spacer between wheel and mount , 4 -between mount and 14 mm spacer "
+,94669A169 6mm spacer ID=6.3mm,http://www.mcmaster.com/#94669a169/=139qmrc, $0.66 ,1,2, $1.32 ,2- outside spacer between wheel and mount
+,90576A104 M5 Steel Nylon-Insert Locknut,http://www.mcmaster.com/#90576a104/=138uvlh, $4.27 ,100,2, $0.09 ,2-secure axel bolt on inner mount plate. Will need M8 wrench to secure this nut.
+,94669A181 M6x14mm Unthreaded Spacer,http://www.mcmaster.com/#94669a181/=139qq8x, $0.93 ,1,2, $1.86 ,2- between mount plates. 
+,91290A049 M2x20 Socket Head Cap Screw,http://www.mcmaster.com/#91290a049/=138vb62, $11.16 ,100,8, $0.89 ,8-driver to servo hub
+,7804K112 Stainless Steel Ball Bearing,http://www.mcmaster.com/#7804k112/=13coawe, $7.67 ,1,0, $-   ,4-wheels Alternative source in US
+,Powers PJ-BB1260ZZ bearing pack of 10,https://www.amazon.co.jp/Powers-PJ-BB1260ZZ-%E3%83%91%E3%83%AF%E3%83%BC%E3%82%BA%E3%83%99%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0-1260%E3%82%B5%E3%82%A4%E3%82%BA-%EF%BC%8812x6x4%EF%BC%89/dp/B00C7GH1OI/ref=sr_1_1?ie=UTF8&qid=1468894390&sr=8-1&keywords=powers+1260zz, $11.08 ,10,4, $4.43 ,4-wheel. source for metric bearings in JPN
+,Cable organizer clip,https://www.amazon.com/Jiewei-Adhesive-Cable-Holder-Organizer/dp/B01DIIRIAA/ref=sr_1_1?ie=UTF8&qid=1468950671&sr=8-1-spons&keywords=cable+organizer+clip&psc=1, $7.99 ,100,2, $0.16 ,Sticky clip helps to organize wires 
+Basic Tools in the KIT,M8 wrench ,,,,,,To secure axel nut
+,Allen wrench 1.5mm hex,,,,,,Drivers' scews
+,Allen wrench 2 mm hex,,,,,,Other hex screws
+,Allen wrench 3 mm hex,,,,,,To secure Axel screw
+,Philips #1 drive,,,,,,Other philips screws
+,,,,,,,
+,,,,,Per Robot, $650.56 ,
+,,,,,# of components,259.5,
+,,,,,,,
+,,,,,,,
