@@ -1,0 +1,5 @@
+<!-- Initialize SAWhR: Phase 2 -->
+<launch>
+  <!-- Start SLAM (Simultaneous Mapping and Localization) -->
+  <include file="$(find sawhr_mapping)/launch/start.launch"/>
+</launch>

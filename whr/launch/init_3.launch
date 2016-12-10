@@ -1,5 +1,0 @@
-<!-- Initialize Whr: Phase 3 -->
-<launch>
-  <!-- Start Dynamic Navigation Planning and Execution -->
-  <include file="$(find whr_navigation)/launch/nav.launch"/>
-</launch>

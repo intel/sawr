@@ -1,5 +1,0 @@
-<!-- Initialize Whr: Phase 2 -->
-<launch>
-  <!-- Start SLAM (Mapping and Localization) with saved map -->
-  <include file="$(find whr_mapping)/launch/start_saved.launch"/>
-</launch>

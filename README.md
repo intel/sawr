@@ -1,13 +1,13 @@
-# Whr Reference Robot
-This repository is for enabling the Whr, 
-a simple wheeled robot.
-The goal of the Whr project is to define a basic "reference robot" 
+# Simple Autononmous Wheeled Robot
+The goal of the SAWhR project is to define a basic "example robot" 
 to demonstrate autonomous navigation using ROS with
-the Intel&reg; RealSense&trade; 3D cameras. 
-It can also be used to develop software and deliver training material.
+the Intel&reg; RealSense&trade; 3D cameras.
+This robot can also be used as a software
+development and testing platform and 
+to deliver training material.
 
 This repository contains both the hardware specification and the software
-to enable you to build and run your own Whr robot. 
+to enable you to build and run your own SAWhR robot. 
 For compute and sensing, you can
 use either the Intel&reg; RealSense&trade; Robotic Development Kit 
 (which includes an UP Board and an Intel&reg; RealSense&trade; R200 3D camera)
@@ -15,11 +15,11 @@ or an Intel&reg; Joule&trade; compute module and
 an Intel&reg; RealSense&trade; R200 3D camera.
 
 The hardware specification, 
-located in [whr_description/hardware], 
+located in [sawhr_description/hardware], 
 is intended to be sufficient to allow you to
 build your own Whr robot if you have access to a laser cutter.
 The hardware specification is in the form of some OpenSCAD files,
-a bill of materials, and basic build instructions (in [whr_description/hardware/Build.md]).
+a bill of materials, and basic build instructions (in [sawhr_description/hardware/BUILD.md]).
 Laser-cutting files are derived from the OpenSCAD master but are included for convenience as well.
 The SW stack enables basic autonomous navigation and currently supports
 building a 2D map with gmapper and then planning and executing a motion path
@@ -28,26 +28,26 @@ using move-base.
 The software stack consists of ROS configuration files and some simple ROS nodes for
 motor control.
 For the most part, we have kept the stack as simple as possible.
-Installation and launch instructions for the SW stack are in the [whr] package,
-in [whr/Install.md] and [whr/Launch.md], respectively.
+Installation and launch instructions for the SW stack are in the [sawhr] package,
+in [sawhr/INSTALL.md] and [sawhr/LAUNCH.md], respectively.
 
 # Packages
 Here is a list of packages included in this repo and a summary of what each one contains.
 Please refer to the README.md files in each package for more information:
-* [whr/README.md] - Master package, installation instructions, and launch scripts.
-* [whr_description/README.md] - Hardware specification and build instructions, URDF files.
-* [whr_base/README.md] - Motor controller and hardware interfacing.
-* [whr_scan/README.md] - Camera configuration.
-* [whr_mapping/README.md] - SLAM configuration.
-* [whr_navigation/README.md] - Move-base configuration.
+* [sawhr/README.md] - Master package, installation instructions, and launch scripts.
+* [sawhr_description/README.md] - Hardware specification and build instructions, URDF files.
+* [sawhr_base/README.md] - Motor controller and hardware interfacing.
+* [sawhr_scan/README.md] - Camera configuration.
+* [sawhr_mapping/README.md] - SLAM configuration.
+* [sawhr_navigation/README.md] - Move-base configuration.
 
 # Additional Material
-Please look for the Whr project under [http://01.org/](https://01.org/search/node/Whr) 
+Please look for the Whr project under [http://01.org/](https://01.org/search/node/SAWhR) 
 for links to additional material.  
 For example, the basic build instructions included in this repo,
 while intended to make the repo self-contained,
 do not include high-resolution images to keep the repo size down.
-For the same reason this repo does not include videos of the Whr in action.
+For the same reason this repo does not include videos of the SAWhR in action.
 We will make these and other resources available externally, 
 with a Whr project under 01.org acting as a hub pointing to the available resources.
 
@@ -57,14 +57,13 @@ Go ahead, the license supports that, as long as you do not try to claim exclusiv
 But please do let us know if you are producing a kit so we can link to you from
 the above site.
 
-# Contributing to the Whr Project
+# Contributing to the SAWhR Project
 Third-party patches and contributions are welcome. We do require
 you read and agree to the Contribution License Agreement below.
 
 ## Contribution License Agreement
-
-The Whr project is developed and distributed under
-a BSD license as noted in [whr/licenses/License.txt].
+The Simple Autonomous Wheeled Robot (SAWhR) project is developed and distributed under
+a BSD license as noted in [whr/LICENSE.txt].
 
 By making a contribution to this project, I certify that:
 

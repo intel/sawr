@@ -1,7 +1,0 @@
-<!-- Initialize Whr -->
-<launch>
-  <include file="$(find whr)/launch/init_0.launch"/>
-  <include file="$(find whr)/launch/init_1.launch"/>
-  <include file="$(find whr)/launch/init_2.launch"/>
-  <include file="$(find whr)/launch/init_3.launch"/>
-</launch>

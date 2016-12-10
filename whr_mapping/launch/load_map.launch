@@ -1,5 +1,0 @@
-<launch>
-  <!-- Map server: for using static maps saved from a previous map session -->
-  <arg name="map_file" default="$(find whr_mapping)/maps/saved.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-</launch>

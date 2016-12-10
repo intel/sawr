@@ -1,0 +1,7 @@
+<!-- Initialize SAWhR: Phase 1 -->
+<launch>
+  <!-- Load robot description and tf server -->
+  <include file="$(find sawhr_description)/launch/description.launch"/>
+  <!-- Start simulated laser scan -->
+  <include file="$(find sawhr_scan)/launch/scan_standalone.launch"/>
+</launch>

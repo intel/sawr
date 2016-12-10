@@ -1,0 +1,9 @@
+<!-- Initialize SAWhR: Phase 0 -->
+<launch>
+  <!-- Start local motor control bridge -->
+  <node pkg="sawhr_base"
+        type="sawhr_base" 
+        name="sawhr_base"
+        output="screen"
+  /> 
+</launch>

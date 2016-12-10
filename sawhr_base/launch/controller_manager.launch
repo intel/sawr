@@ -1,0 +1,21 @@
+<!-- -*- mode: XML -*- -->
+<!-- Launch the Dynamixel Manager -->
+<!-- Use this to configure the servos (in particular, to set the IDs) during setup -->
+<launch>
+    <node name="dynamixel_manager" 
+          pkg="dynamixel_controllers" 
+          type="controller_manager.py" 
+          required="true" 
+          output="screen">
+        <rosparam>
+            namespace: dxl_manager
+            serial_ports:
+                pan_tilt_port:
+                    port_name: "/dev/ttyUSB0"
+                    baud_rate: 117647
+                    min_motor_id: 1
+                    max_motor_id: 2
+                    update_rate: 20
+        </rosparam>
+    </node>
+</launch>

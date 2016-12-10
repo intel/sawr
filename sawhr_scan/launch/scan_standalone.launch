@@ -1,0 +1,98 @@
+<!-- Bring up RealSense-based laser scan using nodelets
+-->
+<launch>
+  <!-- "camera" should uniquely identify the device. 
+       All topics are pushed down into the "camera" namespace, 
+       and it is prepended to tf frame ids. 
+  -->
+  <arg name="camera"      default="camera"/>
+  <arg name="sensor"      default="r200"/>  
+  <arg name="camera_type" default="R200"/>  
+  <arg name="publish_tf"  default="false"/>  <!-- coming from URDF already -->
+  <arg name="depth_enhance"  default="false"/> 
+  <arg name="depth_enhance_gui"  default="false"/> 
+  <arg name="depth_enhance_self"  default="false"/> 
+
+  <!-- Factory-calibrated depth registration -->
+  <arg name="depth_registration" default="false"/>
+
+  <!-- Laserscan topic -->
+  <arg name="scan_topic" default="scan"/>
+
+  <!-- Processing Modules -->
+  <arg name="rgb_processing"                  default="true"/>
+  <arg name="ir_processing"                   default="true"/>
+  <arg name="depth_processing"                default="true"/>
+  <arg name="depth_registered_processing"     default="true"/>
+  <arg name="disparity_processing"            default="true"/>
+  <arg name="disparity_registered_processing" default="true"/>
+  <!-- Worker threads for the nodelet manager --> 
+  <arg name="num_worker_threads" default="4" />
+
+  <!-- pick depth mode -->
+  <arg if="$(arg depth_registration)" name="depth" value="depth_registered" />
+  <arg unless="$(arg depth_registration)" name="depth" value="depth" />
+
+
+  <!-- Start realsense nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="realsense_manager" args="manager"/>
+
+  <!-- Start RealSense nodelet -->
+  <node pkg="nodelet" type="nodelet" 
+        name="$(arg sensor)_nodelet" 
+        args="load realsense_camera/$(arg camera_type)Nodelet realsense_manager">
+     <param name="mode"              type="str"  value="manual" />
+     <param name="camera_type"       type="str"  value="$(arg camera_type)" />
+     <param name="enable_depth"      type="bool" value="true" />
+     <param name="enable_color"      type="bool" value="true" />
+     <param name="enable_pointcloud" type="bool" value="true" />
+     <param name="enable_tf"         type="bool" value="false" />
+     <param name="depth_width"       type="int"  value="332" />
+     <param name="depth_height"      type="int"  value="252" />
+     <param name="color_width"       type="int"  value="320" />
+     <param name="color_height"      type="int"  value="240" />
+     <param name="depth_fps"         type="int"  value="30" />
+     <param name="color_fps"         type="int"  value="30" />
+
+     <remap if="$(arg depth_enhance)"
+            from="$(arg camera)/depth/image_raw" 
+            to="$(arg camera)/depth/preprocess"/>
+  </node>
+
+  <!-- Start scan nodelet manager -->
+  <node if="$(arg depth_enhance)"
+        pkg="nodelet" type="nodelet" name="depth_enhance_manager" args="manager"/>
+
+  <include if="$(arg depth_enhance)"
+           file="$(find realsense_depth_enhance)/launch/realsense_depth_enhance.launch">
+    <arg name="self_manager" value="$(arg depth_enhance_self)"/>
+    <arg unless="$(arg depth_enhance_self)" name="manager" value="depth_enhance_manager"/>
+    <arg name="gui" value="$(arg depth_enhance_gui)"/>
+    <arg name="config" value="$(find sawhr_scan)/config/median.cfg"/>
+  </include>
+
+  <node pkg="nodelet" type="nodelet" name="scan_manager" args="manager"/>
+
+  <!-- Start depth image to laserscan conversion nodelet. -->
+  <node pkg="nodelet" type="nodelet" 
+        name="depthimage_to_laserscan" 
+        args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet scan_manager">
+      <param name="scan_height" value="10"/>
+      <param name="output_frame_id" value="/$(arg camera)_depth_frame"/>
+      <param name="range_min" value="0.45"/>
+      <remap from="image" to="$(arg camera)/$(arg depth)/image_raw"/>
+      <remap from="scan" to="$(arg scan_topic)"/>
+
+      <!-- Somehow topics here get prefixed by "$(arg camera)" when not 
+           inside an app namespace, so in this case "$(arg scan_topic)" 
+           must provide an absolute topic name (issue #88).
+           Probably is a bug in the nodelet manager: 
+           https://github.com/ros/nodelet_core/issues/7 -->
+
+      <remap from="$(arg camera)/image" 
+             to="$(arg camera)/$(arg depth)/image_raw"/>
+      <remap from="$(arg camera)/scan" 
+             to="$(arg scan_topic)"/>
+  </node>
+</launch>
+
