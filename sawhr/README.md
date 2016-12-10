@@ -1,8 +1,8 @@
-# Whr Master Package
+# Simple Autonomous Wheeled Robot (SAWhR) Master Package
 
 This package serves two purposes:
 1. To act as a metapackage in that is has 
-   dependencies on all other packages needed for the Whr.
+   dependencies on all other packages needed for the SAWhR project.
    Therefore, you only have to install this package to get everything,
    in theory.
    In practice, some other manual steps are required to set up your

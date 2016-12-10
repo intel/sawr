@@ -1,4 +1,4 @@
-# Simple Autononmous Wheeled Robot
+# Simple Autonomous Wheeled Robot
 The goal of the SAWhR project is to define a basic "example robot" 
 to demonstrate autonomous navigation using ROS with
 the Intel&reg; RealSense&trade; 3D cameras.
