@@ -1,0 +1,9 @@
+<!-- Initialize SAWR: Phase 0 -->
+<launch>
+  <!-- Start local motor control bridge -->
+  <node pkg="sawr_base"
+        type="sawr_base" 
+        name="sawr_base"
+        output="screen"
+  /> 
+</launch>

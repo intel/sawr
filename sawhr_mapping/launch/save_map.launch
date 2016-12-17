@@ -1,5 +1,0 @@
-<launch>
-  <!-- Save map: for using map later as a static map -->
-  <arg name="map_file" default="$(find sawhr_mapping)/maps/saved"/>
-  <node name="map_server" pkg="map_server" type="map_saver" args="-f $(arg map_file)" />
-</launch>

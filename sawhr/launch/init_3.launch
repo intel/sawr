@@ -1,5 +1,0 @@
-<!-- Initialize SAWhR: Phase 3 -->
-<launch>
-  <!-- Start dynamic navigation planning and execution -->
-  <include file="$(find sawhr_navigation)/launch/nav.launch"/>
-</launch>

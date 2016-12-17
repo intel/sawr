@@ -1,7 +1,0 @@
-<!-- Initialize SAWhR: Launch All Phases Simultaneously -->
-<launch>
-  <include file="$(find sawhr)/launch/init_0.launch"/>
-  <include file="$(find sawhr)/launch/init_1.launch"/>
-  <include file="$(find sawhr)/launch/init_2.launch"/>
-  <include file="$(find sawhr)/launch/init_3.launch"/>
-</launch>

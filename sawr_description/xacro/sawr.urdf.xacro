@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sawr">
+<!-- We can't use "pi" since predefined in Kinetic and Jade but not
+     Indigo.   So instead we use a different name so it works in all. -->
+<xacro:property name="wpi" value="3.1415926535897931"/>
+-->
+
+<!-- ========================================================================= -->
+<!-- Properties -->
+<xacro:property name="bodyheight" value="0.056"/>
+<xacro:property name="bodyradius" value="0.10"/>
+<xacro:property name="baseheight" value="0.027"/>
+<xacro:property name="cameraheight" value="0.066"/>
+<xacro:property name="cameraoffset" value="-0.04"/>
+
+<!-- ========================================================================= -->
+<!-- RealSense R200 Definition -->
+<!-- bounding box of R200 module-->
+<xacro:property name="r200_x" value="0.007"/>
+<xacro:property name="r200_y" value="0.130"/>
+<xacro:property name="r200_z" value="0.020"/>
+<!-- R200 parameters -->
+<!-- mount correction -->
+<xacro:property name="r200_mx" value="0.003"/> 
+<xacro:property name="r200_mz" value="0.0035"/> 
+<xacro:property name="r200_my" value="-0.0494"/> 
+<!-- offset of RGB sensor relative to camera origin -->
+<xacro:property name="r200_rgb_px" value="0.0088"/>
+<xacro:property name="r200_rgb_py" value="-0.1034"/>
+<xacro:property name="r200_rgb_pz" value="0.0483"/>
+<!-- offset of origin of depth imager from rgb imager -->
+<xacro:property name="r200_depth_offset" value="0.0274"/>
+<!-- ///////////////////////////////////////////////////////////////////////// -->
+<xacro:macro name="sensor_r200" params="parent">
+    <!-- RGB joints & links -->
+    <joint name="camera_rgb_joint" type="fixed">
+      <origin xyz="${r200_mx} ${r200_my} ${r200_mz}" 
+              rpy="0 0 0"/>
+      <parent link="${parent}"/>
+      <child link="camera_rgb_frame" />
+    </joint>
+    <link name="camera_rgb_frame"/>
+
+    <!-- RGB optical frame is rotated relative to the camera -->
+    <joint name="camera_rgb_optical_joint" type="fixed">
+      <origin xyz="0 0 0" 
+              rpy="${-wpi/2} 0 ${-wpi/2}" />
+      <parent link="camera_rgb_frame" />
+      <child link="camera_rgb_optical_frame" />
+    </joint>
+    <link name="camera_rgb_optical_frame"/>
+
+    <!-- The physical camera -->
+    <joint name="camera_joint" type="fixed">
+      <origin xyz="${r200_mx} ${r200_my} ${r200_mz}" 
+              rpy="0 0 0"/>
+      <parent link="${parent}"/>
+      <child link="camera_link"/>
+    </joint>
+
+    <joint name="camera_joint_box" type="fixed">
+      <parent link="${parent}"/>
+      <child link="camera_link_box"/>
+    </joint>
+
+    <link name="camera_link">
+      <visual>
+        <origin xyz="${-r200_rgb_px} ${-r200_rgb_py} ${-r200_rgb_pz}" 
+                rpy="${wpi/2} 0 ${wpi/2}"/>
+        <geometry>
+          <mesh filename="package://sawr_description/meshes/sensors/r200_entire.dae"/>
+        </geometry>
+      </visual>
+
+      <!-- This inertial field needs doesn't contain reliable data!! -->
+      <inertial>
+        <mass value="0.564" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.003881243" ixy="0.0"         ixz="0.0"
+                                   iyy="0.000498940" iyz="0.0"
+                                                     izz="0.003879257" />
+      </inertial>
+    </link>
+
+    <!-- just for collision -->
+    <link name="camera_link_box">
+      <collision>
+        <geometry>
+          <box size="${r200_x} ${r200_y} ${r200_z}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Depth joints & links -->
+    <joint name="camera_depth_joint" type="fixed">
+      <origin xyz="0 ${r200_depth_offset} 0" rpy="0 0 0" />
+      <parent link="camera_rgb_frame" />
+      <child link="camera_depth_frame" />
+    </joint>
+    <link name="camera_depth_frame"/>
+
+    <!-- Depth optical frame is rotated relative to the camera -->
+    <joint name="camera_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-wpi/2} 0 ${-wpi/2}" />
+      <parent link="camera_depth_frame" />
+      <child link="camera_depth_optical_frame" />
+    </joint>
+    <link name="camera_depth_optical_frame"/>
+  </xacro:macro>
+<!-- ///////////////////////////////////////////////////////////////////////// -->
+<!-- Simplify the specification of intertial properties -->
+  <xacro:macro name="default_inertial" params="mass">
+    <inertial>
+      <mass value="${mass}" />
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                           iyy="1.0" iyz="0.0"
+                                     izz="1.0" />
+    </inertial>
+  </xacro:macro>
+<!-- ========================================================================= -->
+<!-- Main definitions -->
+  <!-- following name is assumed by various things.  In this robot,
+       for simplicity base_link and base_footprint are the same -->
+  <link name="base_footprint">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+
+  <joint name="footprint_to_base" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!-- the base of the robot, defining the origin of its overall 
+       coordinate system -->
+  <link name="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </link>
+
+  <joint name="base_to_body" type="fixed">
+    <parent link="base_link"/>
+    <child link="body"/>
+    <origin xyz="0 0 ${baseheight+bodyheight/2}" 
+            rpy="0 0 0"/>
+  </joint>
+
+  <link name="body">
+    <visual>
+      <geometry>
+        <cylinder length="${bodyheight}" radius="${bodyradius}"/>
+      </geometry>
+      <material name="darkgrey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="${bodyheight}" radius="${bodyradius}"/>
+      </geometry>
+    </collision>
+    <xacro:default_inertial mass="1"/>
+  </link>
+
+  <joint name="body_to_camera_mount" type="fixed">
+    <parent link="body"/>
+    <child link="camera_mount"/>
+    <origin xyz="${cameraoffset} 0 ${bodyheight/2 + cameraheight}" 
+            rpy="0 0 0"/>
+  </joint>
+
+  <link name="camera_mount"/>
+
+  <xacro:sensor_r200 parent="camera_mount"/>
+</robot>

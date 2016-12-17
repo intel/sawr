@@ -1,0 +1,5 @@
+<!-- Initialize SAWR: Phase 3 -->
+<launch>
+  <!-- Start dynamic navigation planning and execution -->
+  <include file="$(find sawr_navigation)/launch/nav.launch"/>
+</launch>

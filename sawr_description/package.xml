@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>sawr_description</name>
+  <version>0.0.0</version>
+  <description>URDF Description of the Simple Autonomous Wheeled Robot (SAWR)</description>
+  <maintainer email="michael.mccool@intel.com">Michael McCool</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.intel.com/</url> 
+  <author email="michael.mccool@intel.com">Michael McCool</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>urdf</build_depend>
+  <run_depend>urdf</run_depend>
+  <export>
+  </export>
+</package>

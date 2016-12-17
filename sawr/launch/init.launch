@@ -1,0 +1,7 @@
+<!-- Initialize SAWR: Launch All Phases Simultaneously -->
+<launch>
+  <include file="$(find sawr)/launch/init_0.launch"/>
+  <include file="$(find sawr)/launch/init_1.launch"/>
+  <include file="$(find sawr)/launch/init_2.launch"/>
+  <include file="$(find sawr)/launch/init_3.launch"/>
+</launch>

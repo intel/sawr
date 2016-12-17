@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>sawr_mapping</name>
+  <version>0.0.0</version>
+  <description>Set up Simple Autonomous Wheeled Robot (SAWR) for Mapping</description>
+  <maintainer email="michael.mccool@intel.com">Michael McCool</maintainer>
+  <license>BSD</license>
+  <url type="website">http://intel.com</url> 
+  <author email="michael.mccool@intel.com">Michael McCool</author> 
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>gmapping</build_depend>
+  <run_depend>swhr_description</run_depend>
+  <run_depend>swhr_base</run_depend>
+  <run_depend>swhr_scan</run_depend>
+  <run_depend>gmapping</run_depend>
+  <run_depend>amcl</run_depend>
+</package>
