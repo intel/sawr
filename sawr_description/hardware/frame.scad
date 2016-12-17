@@ -2,6 +2,8 @@
 // Developed by: Michael McCool
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
+use <Models/r200.scad>
+use <Models/zr300.scad>
 
 // All units in mm unless noted otherwise.
 
@@ -15,7 +17,7 @@ using_pom = false;  // Use of POM/Delrin/Duracon/Acetal allows for certain
                      // off by default to target acrylic.
                     
 // Use external 3D models in visualization
-use_external_models = false; // off by default
+use_external_models = true; 
 
 // TOLERANCES 
 
@@ -48,6 +50,8 @@ dihedral = 10; // angle between wheels, 0 is vertical
 base_radius = 200/2; // radius of basic platform
 
 // other boolean selections
+use_r200_camera = true; // use an r200 camera
+use_zr300_camera = false; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
 use_up = true; // use UP Board
 use_tc = false; // use standard Joule carrier (TuChuck)
@@ -1535,29 +1539,15 @@ module battery() {
     }
 }
 module camera() {
-  color([0.1,0.1,0.7,0.5])
-  translate([-camera_x/2,0,0]) {
-    difference() {
-      cube([camera_x,camera_y,camera_z]);
-      translate([camera_six,-0.05,camera_siz])
-        cube([camera_sx,camera_y+0.1,camera_sz]);
-    }
+  if (use_zr300_camera) {
+    zr300_camera();
+  } else if (use_r200_camera) {
+    r200_camera();
   }
 }
 module camera_holes() {
-  // holes for bolts
-  translate([-camera_x/2+camera_hole_ix,camera_hole_iz])
-    circle(r=camera_hole_r,$fn=camera_hole_sm);
-  translate([-camera_x/2+camera_hole_ix+camera_hole_dx/2,camera_hole_iz])
-    circle(r=camera_hole_r,$fn=camera_hole_sm);
-  //translate([-camera_x/2+camera_hole_ix+camera_hole_dx,camera_hole_iz])
-  //  circle(r=camera_hole_r,$fn=camera_hole_sm);
-  
-  // slots for ties
-  translate([camera_x/2-camera_slot_ix-camera_slot_x,-camera_slot_y])
-    square([camera_slot_x,camera_slot_y+camera_slot_ey]);
-  translate([camera_x/2-camera_slot_ix-camera_slot_x,camera_z-camera_slot_ey])
-    square([camera_slot_x,camera_slot_y+camera_slot_ey]);
+  r200_camera_mounting_holes();
+  zr300_camera_mounting_holes();
 }
 module power() {
   color([0.1,0.7,0.1,0.5])
@@ -2569,7 +2559,7 @@ module assembly() {
       }
   }
   // 3d camera
-  translate([camera_ox,camera_oy-camera_y,camera_oz])
+  translate([camera_ox,camera_oy,camera_oz])
     camera();
   // up board
   if (show_up_board) {
