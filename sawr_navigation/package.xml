@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>swhr_navigation</name>
+  <name>sawr_navigation</name>
   <version>0.0.0</version>
   <description>Configure Simple Autonomous Wheeled Robot (SAWR) for Navigation</description>
   <maintainer email="michael.mccool@intel.com">Michael McCool</maintainer>
