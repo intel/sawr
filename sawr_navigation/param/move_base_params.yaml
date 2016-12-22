@@ -28,35 +28,15 @@ clearing_rotation_allowed: false
 recovery_behaviors:
   - name: 'reset1'
     type: 'clear_costmap_recovery/ClearCostmapRecovery'
-  - name: 'move1'
-    type: 'move_slow_and_clear/MoveSlowAndClear'
+  - name: 'rotation1'
+    type: 'rotate_recovery/RotateRecovery'
   - name: 'reset2'
     type: 'clear_costmap_recovery/ClearCostmapRecovery'
-#  - name: 'rotation1'
-#    type: 'rotate_recovery/RotateRecovery'
-  - name: 'move2'
-    type: 'move_slow_and_clear/MoveSlowAndClear'
 
 reset1:
-#  reset_distance: 0.2
   reset_distance: 0.02
-#  reset_distance: 0.2
-  reset_distance: 0.02
-move1:
-#  clearing_distance: 0.2
-  clearing_distance: 0.02
-#  limited_distance: 0.2
-  limited_distance: 0.02
-  limited_trans_speed: 0.1
+rotation1:
+  max_rotational_vel: 0.3
+  min_rotational_vel: 0.2
 reset2:
-#  reset_distance: 1.0
   reset_distance: 0.05
-#rotation1:
-#  max_rotational_vel: 0.3
-#  min_rotational_vel: 0.2
-move2:
-#  clearing_distance: 0.5
-  clearing_distance: 0.08
-#  limited_distance: 0.3
-  limited_distance: 0.08
-  limited_trans_speed: 0.2
