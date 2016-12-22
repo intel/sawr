@@ -3,6 +3,7 @@
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
 use <Models/r200.scad>
+include <Models/zr300_params.scad>
 use <Models/zr300.scad>
 
 // All units in mm unless noted otherwise.
@@ -12,17 +13,18 @@ sm_base = 5;  // "smoothness" of curves; larger->smoother
               // set to 5 during development, to 100 for laser-cutting output
               
 // Material selection
-using_pom = false;  // Use of POM/Delrin/Duracon/Acetal allows for certain
-                     // features like a cantilevered suspension... but this is
-                     // off by default to target acrylic.
-                    
+using_pom = false;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
+                    // features like a cantilevered suspension... but if using 
+                    // acrylic, which is too brittle to support these features,
+                    // set this to false.
+
 // Use external 3D models in visualization
 use_external_models = true; 
 
 // TOLERANCES 
 
 // tolerance around cuts; lasers remove a tiny slice (making holes
-// very slightly larger) but 3D printers add material (making holes
+// very slightly larger) but 3D printers *add* material (making holes
 // smaller... and typically with more "spread").
 laser_cut_t = -0.05;  // typical 0.1mm cut width
 printed_cut_t = 0.1;  // depends on printer; might need to be up to 0.3
@@ -50,8 +52,8 @@ dihedral = 10; // angle between wheels, 0 is vertical
 base_radius = 200/2; // radius of basic platform
 
 // other boolean selections
-use_r200_camera = true; // use an r200 camera
-use_zr300_camera = false; // use a zr300 camera
+use_r200_camera = false; // use an r200 camera
+use_zr300_camera = true; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
 use_up = true; // use UP Board
 use_tc = false; // use standard Joule carrier (TuChuck)
@@ -257,6 +259,7 @@ up_board_hole_dx = up_board_x - 2*up_board_hole_ix - 20.1;
 up_board_hole_dy = up_board_y - 2*up_board_hole_iy;
 up_board_ox = 0;
 up_board_oy = tower_offset_y + up_board_standoff_h;
+up_board_tz = 1.5;
 up_board_oz = 54;
 up_board_standoff_r = up_board_hole_r;
 up_board_standoff_R = up_board_hole_r+1;
@@ -430,6 +433,7 @@ switch_ox = top_x/2 - switch_x/2 - switch_t;
 switch_oy = base_y/2 - 41;
 
 T_slot_sm = hole_sm;
+T_slot_tighten = 0.05; 
 T_slot_relief_r = 1.5/2; // radius of relief slot (if used)
 
 // McMaster-Carr bearing: http://www.mcmaster.com/#7804k105/=1359lzz
@@ -624,7 +628,8 @@ module locknut(size=3) {
 
 // slot for mounting panels at 90 degrees in a tab using bolt and locknut
 module T_slot(size=3+cut_t,length=6.5+cut_t,
-              nut_size=5.5+cut_t,nut_height=3+cut_t,
+              nut_size=5.5+cut_t+T_slot_tighten,
+              nut_height=3+cut_t,
               thick=plate_thickness,pad=0,
               ext=1) {
   // for bolt
@@ -643,6 +648,25 @@ module T_slot(size=3+cut_t,length=6.5+cut_t,
       translate([-nut_size/2,0])
         circle(r=T_slot_relief_r,$fn=T_slot_sm);
     }
+  }
+}
+// slot for mounting panels at 90 degrees in a tab using head of bolt
+cap_slot_sm = T_slot_sm;
+module cap_slot(size=2.5+cut_t,
+                width=5,
+                radius=1.5,
+                length=2, // bolt must be max of this + plate thickness + 3
+                thick=plate_thickness,
+                ext=1) {
+  // for bolt
+  translate([-size/2,-ext-thick])
+    square([size,length+ext+thick]);
+  // for head
+  hull() {
+    translate([-width/2,length+radius-tol])
+      circle(r=radius,$fn=cap_slot_sm);
+    translate([width/2,length+radius-tol])
+      circle(r=radius,$fn=cap_slot_sm);
   }
 }
 module caster() {
@@ -2141,7 +2165,7 @@ module tower_slice(trans=false) {
     }
     // mounting holes for up board
     if (use_up_holes) {
-      translate([up_board_ox,up_board_oz])
+      translate([up_board_ox,up_board_oz+up_board_tz])
         rotate(90)
           up_board_holes();
     }
@@ -2156,9 +2180,14 @@ module tower_slice(trans=false) {
       translate([power_ox,power_oz])
         power_holes();
     }
-    // mounting holes for camera
+    // mounting holes for R200 camera
     translate([0,camera_oz])
       camera_holes();
+    // mounting slot for ZR300 camera shelf
+    translate([-shelf_tab_width/2,
+               camera_oz-zr300_base_z-plate_thickness-plate_thickness_tol-cut_t]) {
+      square([shelf_tab_width,plate_thickness+plate_thickness_tol+2*cut_t]);
+    }
     // top plate slots
     translate([-cut_t,top_offset_z-cut_t]) {
       translate([top_tab_ox,0]) 
@@ -2204,6 +2233,48 @@ module tower_plate() {
             rotate([0,0,90])
               bracket();
   }
+}
+shelf_depth = zr300_y+zr300_plate_thick;
+shelf_corner_radius = shelf_depth/2;
+shelf_width = up_board_hole_dy+15;
+shelf_sm = 4*sm_base;
+shelf_tab_width = 0.75*zr300_base_x1;
+shelf_tab_depth = plate_thickness;
+shelf_bolt_indent_y = -shelf_corner_radius+zr300_y/2;
+shelf_bolt_separation = zr300_base_h;
+shelf_bolt_radius = zr300_base_r;
+shelf_cap_slot_separation = up_board_hole_dy;
+module shelf_slice() {
+  translate([0,-shelf_depth+shelf_corner_radius]) {
+    difference() {
+      union() {
+        hull() {
+          translate([-shelf_width/2+shelf_corner_radius,0])
+            circle(r=shelf_corner_radius,$fn=shelf_sm);
+          translate([ shelf_width/2-shelf_corner_radius,0])
+            circle(r=shelf_corner_radius,$fn=shelf_sm);
+          translate([-shelf_width/2,0])
+            square([shelf_width,shelf_depth-shelf_corner_radius]);
+        }
+        translate([-shelf_tab_width/2,0])
+          square([shelf_tab_width,shelf_depth-shelf_corner_radius+shelf_tab_depth]);
+      }
+      translate([-shelf_bolt_separation/2,shelf_bolt_indent_y])
+        circle(r=shelf_bolt_radius,$fn=hole_sm);
+      translate([ shelf_bolt_separation/2,shelf_bolt_indent_y])
+        circle(r=shelf_bolt_radius,$fn=hole_sm);
+      translate([-shelf_cap_slot_separation/2,shelf_depth-shelf_corner_radius])
+        rotate(180) 
+          cap_slot();
+      translate([ shelf_cap_slot_separation/2,shelf_depth-shelf_corner_radius])
+        rotate(180) 
+          cap_slot();
+    }
+  }
+}
+module shelf_plate() {
+  linear_extrude(plate_thickness)
+    shelf_slice();
 }
 module top_slice() {
   difference() {
@@ -2559,11 +2630,16 @@ module assembly() {
       }
   }
   // 3d camera
-  translate([camera_ox,camera_oy,camera_oz])
+  translate([camera_ox,camera_oy,camera_oz]) {
     camera();
+    // camera shelf (only if zr300)
+    if (use_zr300_camera) {
+      translate([0,0,-zr300_base_z-plate_thickness]) shelf_plate();
+    }
+  }
   // up board
   if (show_up_board) {
-    translate([up_board_ox,up_board_oy,up_board_oz])
+    translate([up_board_ox,up_board_oy,up_board_oz+up_board_tz])
       rotate([0,0,180])
         rotate([90,0,0])
           rotate([0,0,90]) {
@@ -2737,6 +2813,7 @@ module assembly() {
 //driver_spacer_slice();// x2
 //driver_rim_slice();   // x4
 //tc_fan_slice();       // x1 if using TC
+//shelf_slice();        // x1 if using ZR300
 
 // Alternative laser-cut parts
 // half and quarter wheel slices... makes layout of sheets easier
@@ -2763,10 +2840,10 @@ module assembly() {
 //top_plate();          // x1
 //mount_plate();        // x2
 //driver_plate();       // x4
-//driver_spacer_plate();  // x2
+//driver_spacer_plate();// x2
 //driver_mount_plate();
 //driver_rim_plate();   // x4
-//tc_fan_plate();
+//tc_fan_plate();       // x1
 
 // ASSEMBLY VISUALIZATION
 // Note: full CGAL compile will fail because UP board is not a 
@@ -2819,6 +2896,8 @@ translate([0,0,-base_offset_z+caster_H]) assembly();
 //driver_spacer_plate();
 //bearing();
 //tc_board();
+//camera();
+//translate([0,0,-3-plate_thickness]) shelf_plate();
 
 // REPORT
 echo("WHEEL DIAMETER:");

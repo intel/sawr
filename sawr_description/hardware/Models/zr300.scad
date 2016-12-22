@@ -10,28 +10,7 @@ sm_base = 10;  // "smoothness" of curves; larger->smoother
 mount_hole_sm = sm_base;
 m2_5_hole_radius = 2.5/2;
 
-// CAMERA PARAMETERS
-
-// basic overall size of camera
-zr300_x = 156;
-zr300_y = 9.5;
-zr300_z = 32.5;
-
-// base of camera
-zr300_base_x1 = 32;
-zr300_base_x2 = 57;
-zr300_base_z = 3;
-zr300_base_h = 18; // separation of mounting holes
-zr300_base_r = m2_5_hole_radius;
-
-// thickness of magnetic mounting plate and tape
-zr300_plate_thick = 1.4;
-
-// CAMERA MOUNT PARAMETERS
-
-// defaults 
-zr300_mount_hole_t = 0.2;  // tolerance of mounting hole
-zr300_mount_slot_t = 0.0;  // tolerance of mounting slot
+include <zr300_params.scad>
 
 // ZR300 Camera Model (3D)
 module zr300_camera() {
