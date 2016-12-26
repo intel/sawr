@@ -3,14 +3,14 @@
 // Developed b0y: Michael McCool
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
+include <tols.scad>
+include <smooth.scad>
+include <bolt_params.scad>
+include <zr300_params.scad>
 
 // All units in mm unless noted otherwise.
 
-sm_base = 10;  // "smoothness" of curves; larger->smoother
-mount_hole_sm = sm_base;
-m2_5_hole_radius = 2.5/2;
-
-include <zr300_params.scad>
+mount_hole_sm = 4*sm_base;
 
 // ZR300 Camera Model (3D)
 module zr300_camera() {

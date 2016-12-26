@@ -2,9 +2,13 @@
 // Developed by: Michael McCool
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
-use <Models/r200.scad>
-include <Models/zr300_params.scad>
-use <Models/zr300.scad>
+include <tols.scad>
+include <smooth.scad>
+include <bolt_params.scad>
+use <bolts.scad>
+use <r200.scad>
+include <zr300_params.scad>
+use <zr300.scad>
 
 // All units in mm unless noted otherwise.
 
@@ -26,9 +30,11 @@ use_external_models = true;
 // tolerance around cuts; lasers remove a tiny slice (making holes
 // very slightly larger) but 3D printers *add* material (making holes
 // smaller... and typically with more "spread").
+/*
 laser_cut_t = -0.05;  // typical 0.1mm cut width
 printed_cut_t = 0.1;  // depends on printer; might need to be up to 0.3
 cut_t = printed ? printed_cut_t : laser_cut_t; 
+*/
 
 // PLATE THICKNESSES
 // If possible, adjust these to fit actual plates used.
