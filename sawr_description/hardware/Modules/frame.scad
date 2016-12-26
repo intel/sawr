@@ -83,7 +83,7 @@ use_lipo_battery = true;  // for visualization of max battery size
 show_bolts = true; // show bolts as part of visualization
 show_nuts = true;  // show nuts as part of visualization
 show_tire = true;  // show tire as part of visualization
-show_front_casters = false;  // show front casters in visualization
+show_front_casters = true;  // show front casters in visualization
 show_up_board = use_up && true;  // up board in visualization
 show_tc_board = use_tc && true;  // tuchuck board in visualization
 show_gum_board = use_gum && true; // gumstix board in visualization
@@ -129,14 +129,14 @@ tire_cutout = false;
 wheel_radius = tire_R - sin(tire_a)*tire_r;
 
 // vertical shift of wheels (0 is flush with caster)
-wheel_protrude = 0;
+wheel_protrude = using_pom ? 0 : 2;
 
 // move motors and wheels away from body to make extra clearance for nuts
 clear_pad = 2;
 
 // adjust until tires just touch ground (use orthogonal side view) when
 // above value is zero (no protrusion)
-wheel_oz = 2.45;    // for 5.7mm P-125 o-rings
+wheel_oz = 2.0;    // for 5.7mm P-125 o-rings
 
 motor_oz = wheel_oz - wheel_protrude;
 
@@ -2157,7 +2157,7 @@ module tower_slice(trans=false) {
       translate([power_ox,power_oz])
         power_holes();
     }
-    // mounting holes for R200 camera
+    // mounting holes for cameras
     translate([0,camera_oz])
       camera_holes();
     // mounting slot for ZR300 camera shelf

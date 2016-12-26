@@ -7,6 +7,7 @@ include <tols.scad>
 include <smooth.scad>
 include <bolt_params.scad>
 include <zr300_params.scad>
+include <r200_params.scad>
 
 // All units in mm unless noted otherwise.
 
@@ -38,7 +39,15 @@ module zr300_camera() {
 module zr300_camera_mounting_holes(
   hole_t = zr300_mount_hole_t,
   slot_t = zr300_mount_slot_t
-) {
+) {  
+  // slots for cable tie
+  translate([-r200_x/2+zr300_mount_slot_ix+zr300_mount_slot_x+slot_t,
+             -r200_mount_slot_y-slot_t])
+    square([zr300_mount_slot_x+2*slot_t,zr300_mount_slot_y+zr300_mount_slot_ey+2*slot_t]);
+  translate([-r200_x/2+zr300_mount_slot_ix+zr300_mount_slot_x,
+             r200_z-zr300_mount_slot_ey])
+    square([zr300_mount_slot_x+2*slot_t,zr300_mount_slot_y+zr300_mount_slot_ey+2*slot_t]);
+
 }
 
 // VISUALIZATION

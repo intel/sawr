@@ -22,7 +22,14 @@ zr300_plate_thick = 1.4;
 
 // CAMERA MOUNT PARAMETERS
 
+// size of mounting slot in frame
+zr300_mount_slot_x = 4; // width of slot
+zr300_mount_slot_y = 2; // height of slot
+zr300_mount_slot_ey = 1; // slot notch depth (behind camera)
+zr300_mount_slot_ix = 5; // offset of notch from end of camera
+
 // defaults 
 zr300_mount_hole_t = 0.2;  // tolerance of mounting hole
 zr300_mount_slot_t = 0.0;  // tolerance of mounting slot
+
 
