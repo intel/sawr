@@ -11,10 +11,6 @@ include <zr300_params.scad>
 use <zr300.scad>
 
 // All units in mm unless noted otherwise.
-
-printed = 0;  // set to 1 if 3D printing, 0 if laser cutting
-sm_base = 5;  // "smoothness" of curves; larger->smoother
-              // set to 5 during development, to 100 for laser-cutting output
               
 // Material selection
 using_pom = false;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
@@ -24,17 +20,6 @@ using_pom = false;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
 
 // Use external 3D models in visualization
 use_external_models = true; 
-
-// TOLERANCES 
-
-// tolerance around cuts; lasers remove a tiny slice (making holes
-// very slightly larger) but 3D printers *add* material (making holes
-// smaller... and typically with more "spread").
-/*
-laser_cut_t = -0.05;  // typical 0.1mm cut width
-printed_cut_t = 0.1;  // depends on printer; might need to be up to 0.3
-cut_t = printed ? printed_cut_t : laser_cut_t; 
-*/
 
 // PLATE THICKNESSES
 // If possible, adjust these to fit actual plates used.
@@ -169,13 +154,6 @@ wheel_hole_offset = 16/2;
 wheel_tread_r = 1;
 wheel_tread_n = 80;
 
-m2_hole_radius = (2+tol)/2 + cut_t;
-m2_5_hole_radius= (2.5+tol)/2 + cut_t;
-m2_6_hole_radius= (2.6+tol)/2 + cut_t;
-m3_hole_radius= (3+tol)/2 + cut_t;
-//m5_hole_radius= (5+tol)/2 + cut_t;
-//m6_hole_radius= (6+tol)/2 + cut_t;
-
 // Robotis Dynamixel MX-12W servo
 servo_h = 32;
 servo_w = 32;
@@ -257,7 +235,7 @@ up_board_standoff_sm = 6;
 up_board_x = 85;
 up_board_y = 56;
 up_board_z = 20;
-up_board_hole_r = m2_6_hole_radius;
+up_board_hole_r = m2_5_hole_radius;
 up_board_hole_sm = hole_sm;
 up_board_hole_ix = up_board_hole_r + 2.1;
 up_board_hole_iy = up_board_hole_r + 2.1;
@@ -586,38 +564,30 @@ module speaker() {
   }
 }
 
-// bolt (default M3 x 10)
-module bolt(size=3,length=10,sm=bolt_sm) {
-  if (show_bolts) {
-    color([0.5,0.5,0.7,0.8]) {
-      translate([0,0,-length])
-        cylinder(r=0.45*size,h=length,$fn=sm);
-      difference() {
-        cylinder(r=0.8*size,h=size,$fn=2*sm);
-        translate([0,0,0.2*size])
-          cylinder(r=(size-0.5)/2,h=size,$fn=6);
-      }
-    }
-  }
-}
 // shoulder bolt (used for axle)
-module shoulder_bolt(size=axle_size,cap_d=axle_cap_size,cap_h=axle_cap_h,shoulder_length=axle_shoulder_length,length=axle_length,bolt_size=axle_bolt_size,sm=axle_sm) {
-  if (show_bolts) {
-    color([0.5,0.5,0.7,0.8]) {
-      translate([0,0,-shoulder_length])
-        cylinder(r=0.49*size,h=shoulder_length,$fn=sm);
-      translate([0,0,-length])
-        cylinder(r=0.45*bolt_size,h=length,$fn=sm);
-      difference() {
-        cylinder(r=cap_d/2,h=cap_h,$fn=2*sm);
-        translate([0,0,0.5*cap_h])
-          cylinder(r=(cap_d/2)/2,h=cap_h,$fn=6);
-      }
-    }
-  }
+module shoulder_bolt(
+  size = axle_size,
+  cap_d = axle_cap_size,
+  cap_h = axle_cap_h,
+  shoulder_length = axle_shoulder_length,
+  length = axle_length,
+  bolt_size = axle_bolt_size,
+  sm = axle_sm
+) {
+  bolt(
+    shaft_radius = m6_shaft_radius,
+    shaft_length = length,
+    shoulder_length = shoulder_length,
+    thread_radius = m5_thread_radius,
+    cap_radius = m6_cap_radius,
+    cap_height = m6_cap_height,
+    socket_size = m6_socket_size,
+    socket_radius = m6_socket_radius
+  );
 }
 
 // a locknut (default M3)
+/*
 module locknut(size=3) {
   if (show_nuts) {
     color([0.5,0.5,0.7,0.8]) 
@@ -631,6 +601,7 @@ module locknut(size=3) {
     }
   }
 }
+*/
 
 // slot for mounting panels at 90 degrees in a tab using bolt and locknut
 module T_slot(size=3+cut_t,length=6.5+cut_t,
@@ -700,24 +671,24 @@ module caster_holes() {
 module caster_bolts() {
   rotate([0,0,60])
     translate([0,caster_bolt_R,0]) 
-      bolt(size=3,length=8);
+      m3_bolt(length=8);
   rotate([0,0,-60])
     translate([0,caster_bolt_R,0]) 
-      bolt(size=3,length=8);
+      m3_bolt(length=8);
   rotate([0,0,180])
     translate([0,caster_bolt_R,0]) 
-      bolt(size=3,length=8);
+      m3_bolt(length=8);
 }
 module caster_nuts() {
   rotate([0,0,60])
     translate([0,caster_bolt_R,0]) 
-      locknut(size=3);
+      m3_locknut();
   rotate([0,0,-60])
     translate([0,caster_bolt_R,0]) 
-      locknut(size=3);
+      m3_locknut();
   rotate([0,0,180])
     translate([0,caster_bolt_R,0]) 
-      locknut(size=3);
+      m3_locknut();
 }
 module caster_suspension(flip=0,cutout=0) {
   difference() {
@@ -1354,7 +1325,7 @@ module wheel() {
         if (use_shoulder_bolt) {
           shoulder_bolt();
         } else {
-          bolt(size=axle_size,length=axle_length,sm=axle_sm);
+          m6_bolt(length=axle_length,shoulder=12,sm=axle_sm);
         }
       translate([0,0,
                  -axle_spacer_h
@@ -1367,9 +1338,9 @@ module wheel() {
                  +wheel_bolt_offset])
         rotate([180,0,0]) 
           if (use_shoulder_bolt) {
-            locknut(size=axle_bolt_size);
+            m5_locknut();
           } else {
-            locknut(size=axle_size);
+            m6_locknut();
           }
     }
   }
@@ -1384,10 +1355,10 @@ module wheel() {
                  2*wheel_plate_thickness
                 +2*outer_plate_thickness
                 +middle_plate_thickness]) 
-        bolt(size=3,length=15);
+        m3_bolt(length=15);
       translate([wheel_clamp_offset,0,-tol]) 
         rotate([180,0,0]) 
-          locknut(size=3);
+          m3_locknut();
     }
     for (i = [0:3]) {
       rotate(i*360/4) {
@@ -1395,10 +1366,10 @@ module wheel() {
                     2*wheel_plate_thickness
                    +2*outer_plate_thickness
                    +middle_plate_thickness]) 
-          bolt(size=3,length=15);
+          m3_bolt(length=15);
         translate([(bearing_R+wheel_cutout_R1)/2,0,-tol]) 
           rotate([180,0,0]) 
-            locknut(size=3);
+            m3_locknut();
       }
     }
   }
@@ -1506,7 +1477,7 @@ module driver() {
                  +2*wheel_plate_thickness
                  +2*outer_plate_thickness
                  +middle_plate_thickness]) 
-          bolt(size=2,length=20);
+          m2_bolt(length=20);
   }
 }
 // helper function; wish this was built in...
@@ -2742,18 +2713,18 @@ module assembly() {
     translate([spacer_ox,0,0]) {
       spacer();
       translate([0,0,spacer_h+plate_thickness])
-        bolt(size=3,length=10);
+        m3_bolt(length=10);
       translate([0,0,-plate_thickness])
         rotate([0,180,0])
-          bolt(size=3,length=10);
+          m3_bolt(length=10);
     }
     translate([-spacer_ox,0,0]) {
       spacer();
       translate([0,0,spacer_h+plate_thickness])
-        bolt(size=3,length=10);
+        m3_bolt(length=10);
       translate([0,0,-plate_thickness])
         rotate([0,180,0])
-          bolt(size=3,length=10);
+          m3_bolt(length=10);
     }
   }
   // speaker (optional)
