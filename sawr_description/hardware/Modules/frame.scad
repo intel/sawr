@@ -46,10 +46,12 @@ base_radius = 200/2; // radius of basic platform
 use_r200_camera = false; // use an r200 camera
 use_zr300_camera = true; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
-use_up = true; // use UP Board
+use_up = false; // use UP Board
+use_up_squared = true;  // use UP squared
 use_tc = false; // use standard Joule carrier (TuChuck)
 use_gum = false; // use Gumstix board
 use_up_holes = true; // include mounting holes for UP/Gumstix
+use_up_squared_holes = true; // include mounting holes for UP Squared
 use_tc_holes = true; // include mounting holes for TC
 use_imu_holes = true; // include mounting holes for IMU
 use_front_casters = true; // make this true if you want the OPTION of front casters
@@ -69,6 +71,7 @@ use_front_suspension = using_pom; // put front casters on cantilevered suspensio
 
 // Enable individual external models.  
 use_up_model = use_up && use_external_models; // use detailed model of up board
+use_up_squared_model = use_up_squared && use_external_models; // use detailed model of up board
 use_tc_model = use_tc && use_external_models; // use detailed model of tuchuck carrier
 use_gum_model = use_gum && use_external_models; // use detailed model of gumstix carrier
 use_servo_model = use_external_models;  // use detailed model of Dynamixel servo
@@ -85,6 +88,7 @@ show_nuts = true;  // show nuts as part of visualization
 show_tire = true;  // show tire as part of visualization
 show_front_casters = true;  // show front casters in visualization
 show_up_board = use_up && true;  // up board in visualization
+show_up_squared_board = use_up_squared && true;  // up board in visualization
 show_tc_board = use_tc && true;  // tuchuck board in visualization
 show_gum_board = use_gum && true; // gumstix board in visualization
 show_power = show_up_board && true; // power in visualization (don't need with tc)
@@ -248,6 +252,26 @@ up_board_oz = 54;
 up_board_standoff_r = up_board_hole_r;
 up_board_standoff_R = up_board_hole_r+1;
 
+up_squared_board_standoff_h = 15;
+up_squared_board_standoff_sm = 6;
+up_squared_board_x = 85;
+up_squared_board_y = 85; // unlike the UP, the UP Squared is a... square
+up_squared_board_z = 30;
+up_squared_board_hole_r = m2_5_hole_radius;
+up_squared_board_hole_sm = hole_sm;
+up_squared_board_hole_ix = up_squared_board_hole_r + 2.1;
+up_squared_board_hole_iy = up_squared_board_hole_r + 2.1;
+// following is NOT a typo; use UP board dimensions for mounting holes
+up_squared_board_hole_dx = up_board_x - 2*up_board_hole_ix - 20.1;
+up_squared_board_hole_dy = up_board_y - 2*up_board_hole_iy;
+up_squared_board_ox = 0;
+up_squared_board_hox = (up_squared_board_y - up_board_y)/2;
+up_squared_board_oy = tower_offset_y + up_squared_board_standoff_h;
+up_squared_board_tz = 1.5;
+up_squared_board_oz = 50;
+up_squared_board_standoff_r = up_squared_board_hole_r;
+up_squared_board_standoff_R = up_squared_board_hole_r+1;
+
 gum_board_x = 80;
 gum_board_y = 85;
 gum_board_z = 20;
@@ -302,6 +326,9 @@ camera_slot_y = 2;
 camera_slot_ey = 1;
 camera_slot_ix = 5;
 
+slot_relief_r = 2/2; // tab/slot strain relief radius
+slot_sm = 2*hole_sm;
+
 tower_x = base_x + 10;
 
 tower_oy = -2*battery_radius - plate_thickness - battery_pad_lower;
@@ -311,7 +338,7 @@ tower_y = camera_oz + camera_y - base_offset_z + battery_pad_lower;
 tower_r = 2.5*plate_thickness + 3 + clear_pad;
 tower_rr = tower_r; // - 1.5*plate_thickness - 3;
 tower_sm = 3 * sm_base;
-tower_tab_s = 2*plate_thickness;
+tower_tab_s = 3*plate_thickness;
 tower_tab_w = base_x/2 - 2*battery_radius - battery_pad 
             - base_pad - 2*tower_tab_s;
 tower_tab_ox = 2*battery_radius + battery_pad 
@@ -329,7 +356,7 @@ top_y = 2*top_r - tower_offset_y;
 top_offset_y = tower_offset_y;
 top_offset_z = base_offset_z + plate_thickness + top_h;
 
-top_tab_s = 2*plate_thickness;
+top_tab_s = 3*plate_thickness;
 top_tab_w = top_x/2 - 2*battery_radius - battery_pad 
             - base_pad - top_tab_s;
 top_tab_ox = 2*battery_radius + battery_pad 
@@ -1011,6 +1038,16 @@ module up_board() {
     } else {
       translate([-up_board_x/2,-up_board_y/2,0])
         cube([up_board_x,up_board_y,up_board_z]);
+    }
+}
+module up_squared_board() {
+  color([0.3,0.3,0.5,0.5]) 
+    if (false && use_up_squared_model) {
+      scale(1000)
+        import("External/UP_Squared.stl",convexity=5);
+    } else {
+      translate([-up_squared_board_x/2,-up_squared_board_y/2,0])
+        cube([up_squared_board_x,up_squared_board_y,up_squared_board_z]);
     }
 }
 module up_board_holes() {
@@ -1861,6 +1898,29 @@ module motor_base() {
       translate([battery_radius+battery_pad+base_pad+servo_b_h+clear_pad,0,0])
         motor_unit(a=90,p=1);
 }
+// slot with optional strain relief at corners
+module slot(
+  width = 10,
+  thick = plate_thickness + plate_thickness_tol
+) {
+  translate([-cut_t,-cut_t]) 
+    square([width+2*cut_t,thick+2*cut_t]);
+  // to avoid stress concentration, round out sharp interior corners of slot
+  if (use_relief) { 
+    hull() {
+      translate([slot_relief_r-cut_t,thick+cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+      translate([slot_relief_r-cut_t,-cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+    }
+    hull() {
+      translate([width-slot_relief_r+cut_t,thick+cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+      translate([width-slot_relief_r+cut_t,-cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+    }
+  }
+}
 module base_slice() {
   difference() {
     intersection() {
@@ -1960,12 +2020,10 @@ module base_slice() {
     }
     // tower plate slots
     translate([0,tower_offset_y-plate_thickness]) {
-      translate([tower_tab_ox-cut_t,-cut_t]) 
-        square([tower_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
-      translate([-tower_tab_ox-tower_tab_w-cut_t,-cut_t]) 
-        square([tower_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+      translate([tower_tab_ox,0]) 
+        slot(width=tower_tab_w,thick=plate_thickness+plate_thickness_tol);
+      translate([-tower_tab_ox-tower_tab_w,0]) 
+        slot(width=tower_tab_w,thick=plate_thickness+plate_thickness_tol);
     }
   }
 }
@@ -2146,6 +2204,16 @@ module tower_slice(trans=false) {
         rotate(90)
           up_board_holes();
     }
+    // mounting holes for up squared board
+    if (use_up_squared_holes) {
+      translate([up_squared_board_hox,up_squared_board_oz+up_squared_board_tz])
+        rotate(90)
+          up_board_holes();
+      // also support reversed mounting
+      translate([-up_squared_board_hox,up_squared_board_oz+up_squared_board_tz])
+        rotate(90)
+          up_board_holes();
+    }
     // mounting holes for tc board
     if (use_tc_holes) {
       translate([tc_board_ox,tc_board_oz])
@@ -2158,24 +2226,22 @@ module tower_slice(trans=false) {
         power_holes();
     }
     // mounting holes for cameras
-    translate([0,camera_oz])
+    translate([0,camera_oz]) {
       camera_holes();
+    }
     // mounting slot for ZR300 camera shelf
     translate([-shelf_tab_width/2,
                camera_oz-zr300_base_z-plate_thickness-plate_thickness_tol-cut_t]) {
-      square([shelf_tab_width,plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=shelf_tab_width,thick=plate_thickness+plate_thickness_tol);
     }
     // top plate slots
-    translate([-cut_t,top_offset_z-cut_t]) {
+    translate([0,top_offset_z]) {
       translate([top_tab_ox,0]) 
-        square([top_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=top_tab_w,thick=plate_thickness+plate_thickness_tol);
       translate([-top_tab_w/2,0]) 
-        square([top_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=top_tab_w,thick=plate_thickness+plate_thickness_tol);
       translate([-top_tab_ox-top_tab_w,0]) 
-        square([top_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=top_tab_w,thick=plate_thickness+plate_thickness_tol);
     }
     // base plate T-slots
     translate([tower_tab_w/2,tower_oy-eps]) {
@@ -2215,7 +2281,7 @@ shelf_depth = zr300_y+zr300_plate_thick;
 shelf_corner_radius = shelf_depth/2;
 shelf_width = up_board_hole_dy+15;
 shelf_sm = 4*sm_base;
-shelf_tab_width = 0.75*zr300_base_x1;
+shelf_tab_width = zr300_base_x1;
 shelf_tab_depth = plate_thickness;
 shelf_bolt_indent_y = -shelf_corner_radius+zr300_y/2;
 shelf_bolt_separation = zr300_base_h;
@@ -2534,7 +2600,7 @@ module top_plate_trans() {
 module mount_base_slots_slice() {
   projection() {
     intersection() {
-      translate([0,0,base_offset_z])
+      translate([0,0,base_offset_z-tol])
         base_plate();
       translate([tower_cx,0,tower_cy+motor_oz])
         rotate([0,-dihedral,0])
@@ -2545,7 +2611,7 @@ module mount_base_slots_slice() {
                   mount_plate(e=10,pt=-tol);
     }
     intersection() {
-      translate([0,0,base_offset_z])
+      translate([0,0,base_offset_z-tol])
         base_plate();
       translate([-tower_cx,0,tower_cy+motor_oz])
         rotate([0,180+dihedral,0])
@@ -2623,6 +2689,21 @@ module assembly() {
             up_board();
             up_board_spacers();
           } 
+  } 
+  // up squared board
+  if (show_up_squared_board) {
+    translate([up_squared_board_ox,up_squared_board_oy,
+               up_squared_board_oz+up_squared_board_tz])
+      rotate([0,0,180])
+        rotate([90,0,0])
+          rotate([0,0,90])
+            up_squared_board(); 
+    translate([up_squared_board_hox,up_squared_board_oy,
+               up_squared_board_oz+up_squared_board_tz])
+      rotate([0,0,180])
+        rotate([90,0,0])
+          rotate([0,0,90])
+            up_board_spacers();
   } 
   // tc board and fan plate
   if (show_tc_board) {
@@ -2778,7 +2859,7 @@ module assembly() {
 //outer_wheel_slice();  // x2
 //rim_wheel_slice();    // x2 is using transmission
 //base_slice();         // x1 if not using transmission
-//base_slice_trans();   // x1 if using transmission
+base_slice_trans();   // x1 if using transmission
 //tower_slice();        // x1 if not using transmission
 //tower_slice_trans();  // x1 if using transmission
 //top_slice();          // x1 if not using transmission
@@ -2821,11 +2902,6 @@ module assembly() {
 //driver_mount_plate();
 //driver_rim_plate();   // x4
 //tc_fan_plate();       // x1
-
-// ASSEMBLY VISUALIZATION
-// Note: full CGAL compile will fail because UP board is not a 
-// solid model; use just "fast" visualization
-translate([0,0,-base_offset_z+caster_H]) assembly();
 
 // INTERSECTION TESTING
 //mount_tower_slots_slice();
@@ -2875,6 +2951,11 @@ translate([0,0,-base_offset_z+caster_H]) assembly();
 //tc_board();
 //camera();
 //translate([0,0,-3-plate_thickness]) shelf_plate();
+
+// ASSEMBLY VISUALIZATION
+// Note: full CGAL compile will fail because UP board is not a 
+// solid model; use just "fast" visualization
+//translate([0,0,-base_offset_z+caster_H]) assembly();
 
 // REPORT
 echo("WHEEL DIAMETER:");
