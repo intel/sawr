@@ -65,9 +65,10 @@ use_flanged_bearing = false; // use if possible, wheel is more stable
 use_hub_bolts = true; // for more hub stabilty, esp. if not using flanged bearing
 use_shoulder_bolt = true;  // use 6mm x 40mm + 10mm x M5 shoulder bolt for axle
 use_cable_holes = true && !use_arm; // cable holes only if no arm
-use_power_holes = !use_tc; // include mounting holes for power
+use_power_holes = true; // include mounting holes for power
 use_rear_suspension = using_pom; // put rear caster on cantilevered suspension
 use_front_suspension = using_pom; // put front casters on cantilevered suspension
+use_accessory_grid = false; // robotis-ollo-compatible grid for mounting stuff
 
 // Enable individual external models.  
 use_up_model = use_up && use_external_models; // use detailed model of up board
@@ -76,7 +77,7 @@ use_tc_model = use_tc && use_external_models; // use detailed model of tuchuck c
 use_gum_model = use_gum && use_external_models; // use detailed model of gumstix carrier
 use_servo_model = use_external_models;  // use detailed model of Dynamixel servo
 use_bracket_model = use_external_models;  // use detailed model of servo bracket
-use_power_model = !use_tc && use_external_models; // use detailed model of power module
+use_power_model = use_power_holes && use_external_models; // use detailed model of power module
 use_imu_model = use_external_models; // use detailed model of imu
 
 // Various visualization options.  Affects only rendering, not output model.
@@ -91,7 +92,7 @@ show_up_board = use_up && true;  // up board in visualization
 show_up_squared_board = use_up_squared && true;  // up board in visualization
 show_tc_board = use_tc && true;  // tuchuck board in visualization
 show_gum_board = use_gum && true; // gumstix board in visualization
-show_power = show_up_board && true; // power in visualization (don't need with tc)
+show_power =  true; // power board in visualization
 
 // TIRE PARAMETERS 
 
@@ -146,8 +147,6 @@ motor_oz = wheel_oz - wheel_protrude;
 
 // OTHER PARAMETERS
 sm = 10 * sm_base;
-eps = 0.0001;
-tol = 0.1;
 hole_sm = 2 * sm_base;
 bolt_sm = sm_base;
 torus_sm_R = 10 * sm_base;
@@ -157,6 +156,13 @@ tread_sm = sm_base;
 wheel_hole_offset = 16/2;
 wheel_tread_r = 1;
 wheel_tread_n = 80;
+
+// Accessory mounting grid
+// compatible with Robotis Ollo system (6mm spacing, 4mm holes)
+accessory_hole_radius = 4/2+cut_t; // exactly 4mm
+accessory_grid_spacing = 6;
+accessory_sm = 2*hole_sm;
+accessory_oy = -60;
 
 // Robotis Dynamixel MX-12W servo
 servo_h = 32;
@@ -236,7 +242,7 @@ tower_offset_y = servo_l2 + bracket_h + plate_thickness;
 
 up_board_standoff_h = 15;
 up_board_standoff_sm = 6;
-up_board_x = 85;
+up_board_x = 85.6;
 up_board_y = 56;
 up_board_z = 20;
 up_board_hole_r = m2_5_hole_radius;
@@ -247,15 +253,15 @@ up_board_hole_dx = up_board_x - 2*up_board_hole_ix - 20.1;
 up_board_hole_dy = up_board_y - 2*up_board_hole_iy;
 up_board_ox = 0;
 up_board_oy = tower_offset_y + up_board_standoff_h;
-up_board_tz = 1.5;
+up_board_tz = 1.2;
 up_board_oz = 54;
 up_board_standoff_r = up_board_hole_r;
 up_board_standoff_R = up_board_hole_r+1;
 
 up_squared_board_standoff_h = 15;
 up_squared_board_standoff_sm = 6;
-up_squared_board_x = 85;
-up_squared_board_y = 85; // unlike the UP, the UP Squared is a... square
+up_squared_board_x = 85.6;
+up_squared_board_y = 90; // unlike the UP, the UP Squared is a... square (almost)
 up_squared_board_z = 30;
 up_squared_board_hole_r = m2_5_hole_radius;
 up_squared_board_hole_sm = hole_sm;
@@ -1928,6 +1934,9 @@ module base_slice() {
       translate([-base_x/2,-base_y/2,0])
         square([base_x,base_y]);
     }
+    // accessory mounting grid
+    if (use_accessory_grid)
+      accessory_base_grid();
     // mounting holes and suspension slot for back caster
     translate([0,caster_or-caster_oyy])
       rotate([0,0,180]) {
@@ -2286,10 +2295,12 @@ shelf_tab_depth = plate_thickness;
 shelf_bolt_indent_y = -shelf_corner_radius+zr300_y/2;
 shelf_bolt_separation = zr300_base_h;
 shelf_bolt_radius = zr300_base_r;
+shelf_bolt_slack = zr300_plate_thick;
 shelf_cap_slot_separation = up_board_hole_dy;
 module shelf_slice() {
   translate([0,-shelf_depth+shelf_corner_radius]) {
     difference() {
+      // base shape
       union() {
         hull() {
           translate([-shelf_width/2+shelf_corner_radius,0])
@@ -2302,10 +2313,19 @@ module shelf_slice() {
         translate([-shelf_tab_width/2,0])
           square([shelf_tab_width,shelf_depth-shelf_corner_radius+shelf_tab_depth]);
       }
+      // bolt holes (actually, slots, allowing camera to slide in and out to match tape)
       translate([-shelf_bolt_separation/2,shelf_bolt_indent_y])
-        circle(r=shelf_bolt_radius,$fn=hole_sm);
+        hull() {
+          circle(r=shelf_bolt_radius,$fn=hole_sm);
+          translate([0,shelf_bolt_slack])
+            circle(r=shelf_bolt_radius,$fn=hole_sm);
+        }
       translate([ shelf_bolt_separation/2,shelf_bolt_indent_y])
-        circle(r=shelf_bolt_radius,$fn=hole_sm);
+        hull() {
+          circle(r=shelf_bolt_radius,$fn=hole_sm);
+          translate([0,shelf_bolt_slack])
+            circle(r=shelf_bolt_radius,$fn=hole_sm);
+        }
       translate([-shelf_cap_slot_separation/2,shelf_depth-shelf_corner_radius])
         rotate(180) 
           cap_slot();
@@ -2318,6 +2338,55 @@ module shelf_slice() {
 module shelf_plate() {
   linear_extrude(plate_thickness)
     shelf_slice();
+}
+
+module accessory_top_grid() {
+  translate([0,accessory_oy]) {
+    for (ix=[-4:4:7]) {
+      for (iy=[-1:4:7]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) {
+          hull() {
+            circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+            translate([0,2*accessory_grid_spacing])
+              circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+          }
+        }
+      }
+    }
+    for (ix=[-4:2:4]) {
+      for (iy=[-4:2:6]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) 
+          circle(r=accessory_hole_radius,$fn=accessory_sm);
+      }
+    }
+    for (ix=[-6:2:6]) {
+      for (iy=[-2:2:7]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) 
+          circle(r=accessory_hole_radius,$fn=accessory_sm);
+      }
+    }
+  }
+}
+module accessory_base_grid() {
+  translate([0,accessory_oy]) {
+    for (ix=[-4:4:7]) {
+      for (iy=[-1:4:5]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) {
+          hull() {
+            circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+            translate([0,2*accessory_grid_spacing])
+              circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+          }
+        }
+      }
+    }
+    for (ix=[-4:2:4]) {
+      for (iy=[-4:2:5]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) 
+          circle(r=accessory_hole_radius,$fn=accessory_sm);
+      }
+    }
+  }
 }
 module top_slice() {
   difference() {
@@ -2342,8 +2411,11 @@ module top_slice() {
           switch_hole(t=switch_t);
         translate([-switch_ox,0])
           switch_hole(t=switch_t);
+      }
     }
-    }
+    // accessory mounting grid
+    if (use_accessory_grid) 
+      accessory_top_grid();
     // holes for cable ties to secure side panels
     if (use_trans) {
       translate([top_x/2-mount_tie_h/2-plate_thickness-mount_tie_offset_z,
@@ -2859,7 +2931,7 @@ module assembly() {
 //outer_wheel_slice();  // x2
 //rim_wheel_slice();    // x2 is using transmission
 //base_slice();         // x1 if not using transmission
-base_slice_trans();   // x1 if using transmission
+//base_slice_trans();   // x1 if using transmission
 //tower_slice();        // x1 if not using transmission
 //tower_slice_trans();  // x1 if using transmission
 //top_slice();          // x1 if not using transmission
@@ -2955,7 +3027,7 @@ base_slice_trans();   // x1 if using transmission
 // ASSEMBLY VISUALIZATION
 // Note: full CGAL compile will fail because UP board is not a 
 // solid model; use just "fast" visualization
-//translate([0,0,-base_offset_z+caster_H]) assembly();
+translate([0,0,-base_offset_z+caster_H]) assembly();
 
 // REPORT
 echo("WHEEL DIAMETER:");

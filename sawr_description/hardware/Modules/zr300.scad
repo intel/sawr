@@ -1,6 +1,6 @@
 // Basic Model of Intel(R) RealSense(TM) ZR300 Depth Camera
 //   also includes cutting plan for basic mounting
-// Developed b0y: Michael McCool
+// Developed by: Michael McCool
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
 include <tols.scad>
