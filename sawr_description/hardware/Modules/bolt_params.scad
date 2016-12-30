@@ -6,8 +6,8 @@
 // License: CC-BY.  See LICENSE.md
 
 // normally include the following externally, so comment out here
-include <tols.scad>
-include <smooth.scad>
+//include <tols.scad>
+//include <smooth.scad>
 
 // convenience function
 function hex_size_to_radius(size) = size / (2 * cos(30));

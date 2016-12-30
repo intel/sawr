@@ -3,7 +3,8 @@
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
 include <tols.scad>
-include <smooth.scad>
+include <smooth_model.scad>
+//include <smooth_make.scad>
 include <bolt_params.scad>
 use <bolts.scad>
 use <r200.scad>
@@ -46,8 +47,8 @@ base_radius = 200/2; // radius of basic platform
 use_r200_camera = false; // use an r200 camera
 use_zr300_camera = true; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
-use_up = false; // use UP Board
-use_up_squared = true;  // use UP squared
+use_up = true; // use UP Board
+use_up_squared = false;  // use UP squared
 use_tc = false; // use standard Joule carrier (TuChuck)
 use_gum = false; // use Gumstix board
 use_up_holes = true; // include mounting holes for UP/Gumstix
@@ -68,11 +69,11 @@ use_cable_holes = true && !use_arm; // cable holes only if no arm
 use_power_holes = true; // include mounting holes for power
 use_rear_suspension = using_pom; // put rear caster on cantilevered suspension
 use_front_suspension = using_pom; // put front casters on cantilevered suspension
-use_accessory_grid = false; // robotis-ollo-compatible grid for mounting stuff
+use_accessory_grid = true; // grid for mounting stuff on top and on base
 
 // Enable individual external models.  
 use_up_model = use_up && use_external_models; // use detailed model of up board
-use_up_squared_model = use_up_squared && use_external_models; // use detailed model of up board
+use_up_squared_model = use_up_squared && use_external_models; // use detailed model of up^2 board
 use_tc_model = use_tc && use_external_models; // use detailed model of tuchuck carrier
 use_gum_model = use_gum && use_external_models; // use detailed model of gumstix carrier
 use_servo_model = use_external_models;  // use detailed model of Dynamixel servo
@@ -145,14 +146,39 @@ wheel_oz = 2.0;    // for 5.7mm P-125 o-rings
 
 motor_oz = wheel_oz - wheel_protrude;
 
-// OTHER PARAMETERS
+// SMOOTHNESS
 sm = 10 * sm_base;
 hole_sm = 2 * sm_base;
 bolt_sm = sm_base;
 torus_sm_R = 10 * sm_base;
 torus_sm_r = 2 * sm_base;
 tread_sm = sm_base;
+base_sm = 20 * sm_base;
+top_sm = base_sm;
+accessory_sm = 2*hole_sm;
+bracket_hole_sm = hole_sm;
+wheel_cutout_sm = 5*sm_base;
+wheel_buttress_sm = 10*sm_base;
+power_standoff_sm = 2*sm_base;
+power_hole_sm = hole_sm;
+slot_sm = 2*hole_sm;
+T_slot_sm = 3*hole_sm;
+up_board_hole_sm = hole_sm;
+up_squared_board_hole_sm = hole_sm;
+camera_hole_sm = hole_sm;
+tower_sm = 5*sm_base;
+speaker_sm = 10*sm_base;
+caster_sm = 10*sm_base;
+cable_hole_sm = 4*hole_sm;
+bearing_sm = 4*sm_base;
+axle_sm = 2*bolt_sm;
+bracket_sm = 5*base_sm;
 
+spacer_sm = 6; // actually do want hexagons
+up_board_standoff_sm = 6;
+up_squared_board_standoff_sm = 6;
+
+// OTHER PARAMETERS
 wheel_hole_offset = 16/2;
 wheel_tread_r = 1;
 wheel_tread_n = 80;
@@ -161,7 +187,6 @@ wheel_tread_n = 80;
 // compatible with Robotis Ollo system (6mm spacing, 4mm holes)
 accessory_hole_radius = 4/2+cut_t; // exactly 4mm
 accessory_grid_spacing = 6;
-accessory_sm = 2*hole_sm;
 accessory_oy = -60;
 
 // Robotis Dynamixel MX-12W servo
@@ -182,7 +207,6 @@ servo_ll = 32+tol;
 bracket_h = 5.5;
 bracket_hole_spacing = 8;
 bracket_hole_r = m2_hole_radius;
-bracket_hole_sm = hole_sm;
 bracket_base_x = 4*bracket_hole_spacing + 2;
 bracket_base_y = 3*bracket_hole_spacing + 1;
 
@@ -193,8 +217,6 @@ wheel_cutout_R2 = 0.7*wheel_radius;
 wheel_cutout_scale = 0.1;
 wheel_cutout_r1 = wheel_cutout_scale*wheel_cutout_R1;
 wheel_cutout_r2 = 2.5*wheel_cutout_scale*wheel_cutout_R2;
-wheel_cutout_sm = 3 * sm_base;
-wheel_buttress_sm = 10 * sm_base;
 
 // 7.4V battery... but does not work with MX-12W's :(
 battery_radius = 27.5/2;
@@ -213,7 +235,6 @@ battery_pad = 3;
 battery_pad_lower = bracket_h/2 + 1;
 
 battery_offset_x = 0;
-
 battery_offset_z = -battery_radius;
 
 battery_base_x = 2*battery_radius;
@@ -222,11 +243,9 @@ motor_offset_x = battery_radius + battery_pad;
 motor_offset_z = -battery_radius;
 
 base_pad = plate_thickness;
-//base_r1 = battery_length + battery_offset_y;
-//base_r2 = 2*battery_radius;
 base_rm = base_radius - 10;
 base_r = base_rm + 10;
-base_sm = 10 * sm_base;
+
 base_xm = battery_radius;
 base_xh = base_xm
         + (battery_radius + battery_pad + servo_h + servo_b_h)
@@ -241,12 +260,10 @@ tower_offset_y = servo_l2 + bracket_h + plate_thickness;
             // + (use_trans && use_friction ? -friction_offset : 0);
 
 up_board_standoff_h = 15;
-up_board_standoff_sm = 6;
 up_board_x = 85.6;
 up_board_y = 56;
 up_board_z = 20;
 up_board_hole_r = m2_5_hole_radius;
-up_board_hole_sm = hole_sm;
 up_board_hole_ix = up_board_hole_r + 2.1;
 up_board_hole_iy = up_board_hole_r + 2.1;
 up_board_hole_dx = up_board_x - 2*up_board_hole_ix - 20.1;
@@ -259,12 +276,10 @@ up_board_standoff_r = up_board_hole_r;
 up_board_standoff_R = up_board_hole_r+1;
 
 up_squared_board_standoff_h = 15;
-up_squared_board_standoff_sm = 6;
 up_squared_board_x = 85.6;
 up_squared_board_y = 90; // unlike the UP, the UP Squared is a... square (almost)
 up_squared_board_z = 30;
 up_squared_board_hole_r = m2_5_hole_radius;
-up_squared_board_hole_sm = hole_sm;
 up_squared_board_hole_ix = up_squared_board_hole_r + 2.1;
 up_squared_board_hole_iy = up_squared_board_hole_r + 2.1;
 // following is NOT a typo; use UP board dimensions for mounting holes
@@ -291,59 +306,46 @@ power_x = 50.6;  // measured
 power_y = 20;
 //power_z = 43.307;   From docs... WRONG!!!
 power_z = 46.55;  // measured
-
 power_standoff_h = 6;
-power_standoff_sm = 2*sm_base;  
 power_ox = 0;
 power_oy = servo_l2 + bracket_h - power_standoff_h;
 power_oz = tower_offset_y + 1;
-
 power_hole_r = m3_hole_radius + 0.2;
 power_hole_ix = 3.5;
 power_hole_iy = 3.5;
 power_hole_dx = power_x - 2*power_hole_ix;
 power_hole_dy = power_z - 2*power_hole_iy;
-power_hole_sm = hole_sm;
-
 power_standoff_r = power_hole_r;
 power_standoff_R = power_standoff_r + 1.5;
 
 camera_x = 129;
 camera_y = 8.2;
 camera_z = 19.4;
-
 camera_ox = 0;
 camera_oy = servo_l2 + bracket_h;
 camera_oz = up_board_oz + 25;
-
 camera_sx = 60;
 camera_sz = 4;
 camera_six = 1.4;
 camera_siz = 1.4;
-
 camera_hole_r = m3_hole_radius;
 camera_hole_ix = camera_six + camera_hole_r;
 camera_hole_iz = camera_siz + camera_sz/2;
 camera_hole_dx = camera_sx - camera_hole_r - camera_six;
-camera_hole_sm = hole_sm;
-
 camera_slot_x = 4;
 camera_slot_y = 2;
 camera_slot_ey = 1;
 camera_slot_ix = 5;
 
 slot_relief_r = 2/2; // tab/slot strain relief radius
-slot_sm = 2*hole_sm;
 
 tower_x = base_x + 10;
-
 tower_oy = -2*battery_radius - plate_thickness - battery_pad_lower;
 tower_cx = battery_radius;
 tower_cy = -battery_radius;
 tower_y = camera_oz + camera_y - base_offset_z + battery_pad_lower;
 tower_r = 2.5*plate_thickness + 3 + clear_pad;
 tower_rr = tower_r; // - 1.5*plate_thickness - 3;
-tower_sm = 3 * sm_base;
 tower_tab_s = 3*plate_thickness;
 tower_tab_w = base_x/2 - 2*battery_radius - battery_pad 
             - base_pad - 2*tower_tab_s;
@@ -353,7 +355,6 @@ tower_tab_ox = 2*battery_radius + battery_pad
 // top_r = base_rm + 2*plate_thickness;
 top_r = base_r;
 top_h = 50;
-top_sm = 10*sm_base;
 top_xh = base_xm
         + (battery_radius + battery_pad + base_pad + servo_h + servo_b_h);
 top_x = 2*(top_xh - sin(dihedral)*(top_h - battery_radius - plate_thickness));
@@ -377,7 +378,6 @@ speaker_h2 = 8;
 speaker_c = 4;
 speaker_r = 500+speaker_c;
 speaker_h3 = 20-speaker_c;
-speaker_sm = 10 * sm_base;
 speaker_oy = -48;
 
 // pololu 1" ball caster with plastic rollers
@@ -392,7 +392,6 @@ caster_h1 = 5; // height of base
 caster_h = 2.54; // additional height of housing
 caster_h2 = caster_h + 1.1*caster_r;
 caster_H = 2*caster_r + caster_h; // overall height of housing
-caster_sm = 10 * sm_base;
 caster_or = base_radius - caster_R1;
 caster_bolt_R = 14/2; // distance between mounting holes
 caster_bolt_r = m3_hole_radius;  // radius of mounting holes (3.2mm)
@@ -406,15 +405,10 @@ caster_sl = 50;
 spacer_h = top_h;
 spacer_hole_r = m3_hole_radius;
 spacer_R = 6.5/2; // M3
-spacer_sm = 6; // actually do want hexagons
-
 //spacer_ox = caster_ox + cos(30)*caster_bolt_R;
 //spacer_oy = caster_oy - sin(30)*caster_bolt_R;
-
 spacer_ox = battery_pad + 3*base_pad + 2*battery_radius;
 spacer_oy = caster_oy + 2.5*caster_bolt_R + caster_oyy;
-
-cable_hole_sm = hole_sm;
 
 tower_cable_r = 5;
 tower_cable_ox = up_board_y/2 + tower_cable_r;
@@ -431,7 +425,7 @@ top_cable_s = 10;
 top_cable_oy = top_offset_y
              - plate_thickness - plate_thickness_tol 
              - top_cable_h/2 - top_cable_r - top_cable_s;
-             
+
 battery_strap_r = 3/2;
 battery_strap_ox = 2*battery_radius + battery_strap_r;
 battery_strap_h = 2*battery_strap_r + 15;
@@ -449,7 +443,6 @@ switch_t = 4;
 switch_ox = top_x/2 - switch_x/2 - switch_t;
 switch_oy = base_y/2 - 41;
 
-T_slot_sm = hole_sm;
 T_slot_tighten = 0.05; 
 T_slot_relief_r = 1.5/2; // radius of relief slot (if used)
 
@@ -470,9 +463,7 @@ bearing_r = bearing_id/2;
 bearing_od = 12;
 bearing_R = bearing_od/2;
 bearing_h = 4;  
-bearing_sm = 4*sm_base;
 bearing_lip = 1;
-
 // if flanged bearing used, give flange height
 // this is for http://www.mcmaster.com/#7804k142/=136cs4d, which otherwise
 // has the same dimensions as the PJ-BB12660ZZ
@@ -501,7 +492,6 @@ axle_cap_r = axle_cap_size/2;
 axle_cap_h = 4;
 axle_length = 50; // want bolt with 12 mm or so unthreaded, tend to be long 
 axle_tighten = 3;
-axle_sm = 2*bolt_sm;
 
 // Additional servo bracket parameters
 bracket_t = 3;
@@ -510,7 +500,6 @@ bracket_tt = 0.5;
 bracket_cs = 1;
 bracket_cr = bracket_hole_r + 1 + cut_t;
 bracket_rr = (bracket_base_y - 2*bracket_hole_spacing)/2;
-bracket_sm = 5*base_sm;
 bracket_hh = bracket_h + 0.8;
 bracket_tweak_x = 0.5;
 bracket_tweak_y = 0.25;
@@ -618,27 +607,9 @@ module shoulder_bolt(
     socket_radius = m6_socket_radius
   );
 }
-
-// a locknut (default M3)
-/*
-module locknut(size=3) {
-  if (show_nuts) {
-    color([0.5,0.5,0.7,0.8]) 
-    difference() {
-      intersection() {
-        cylinder(r=size,h=1.3*size,$fn=6);
-        cylinder(r1=1.2*size,r2=0.7*size,h=1.5*size,$fn=2*bolt_sm);
-      }
-      translate([0,0,-size])
-        cylinder(r=0.5*size,h=4*size,$fn=bolt_sm);
-    }
-  }
-}
-*/
-
 // slot for mounting panels at 90 degrees in a tab using bolt and locknut
 module T_slot(size=3+cut_t,length=6.5+cut_t,
-              nut_size=5.5+cut_t+T_slot_tighten,
+              nut_size=5.5+cut_t-T_slot_tighten,
               nut_height=3+cut_t,
               thick=plate_thickness,pad=0,
               ext=1) {
@@ -752,7 +723,7 @@ module switch_hole(t=cut_t) {
     square([switch_x+2*t,switch_y+2*t]);
 }
 module spacer_hole(r=spacer_hole_r,sm=hole_sm) {
-  circle(r=r,$fn=sm);
+  circle(r=r,$fn=hole_sm);
 }
 module spacer(r=spacer_hole_r,R=spacer_R,h=spacer_h,SM=spacer_sm,sm=hole_sm) {
   color([0.5,0.5,0.5,0.9])
@@ -2005,27 +1976,27 @@ module base_slice() {
     // battery strap cutouts
     hull() {
       translate([battery_strap_ox,battery_strap_oy_1-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([battery_strap_ox,battery_strap_oy_1+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     hull() {
       translate([-battery_strap_ox,battery_strap_oy_1-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([-battery_strap_ox,battery_strap_oy_1+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     hull() {
       translate([battery_strap_ox,battery_strap_oy_2-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([battery_strap_ox,battery_strap_oy_2+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     hull() {
       translate([-battery_strap_ox,battery_strap_oy_2-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([-battery_strap_ox,battery_strap_oy_2+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     // tower plate slots
     translate([0,tower_offset_y-plate_thickness]) {
