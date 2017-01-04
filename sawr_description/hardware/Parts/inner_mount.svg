@@ -7,11 +7,11 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.094488189"
-   height="1052.36220472"
+   width="56.623245mm"
+   height="62.182201mm"
    id="svg5175"
    version="1.1"
-   inkscape:version="0.91 r"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="inner_mount.svg">
   <metadata
      id="metadata5585">
@@ -21,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -34,31 +34,38 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1855"
-     inkscape:window-height="1176"
+     inkscape:window-width="3734"
+     inkscape:window-height="2121"
      id="namedview5583"
      showgrid="false"
-     inkscape:zoom="0.89702958"
-     inkscape:cx="-239.15263"
-     inkscape:cy="113.47962"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:zoom="5.0743656"
+     inkscape:cx="-4.0133519"
+     inkscape:cy="104.66913"
+     inkscape:window-x="106"
+     inkscape:window-y="39"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g5191" />
+     inkscape:current-layer="g5191"
+     inkscape:document-units="mm"
+     units="mm"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <desc
      id="desc5177">C:\Share\Robotics\SimpleBot\Parts\55r\inner_mount.dxf - scale = 1.000000, origin = (0.000000, 0.000000), auto = False</desc>
   <defs
      id="defs5179">
     <marker
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        style="overflow:visible"
        id="DistanceX"
        orient="auto">
       <path
-         style="stroke:#000000; stroke-width:0.5"
-         d="M 3,-3 L -3,3 M 0,-5 L  0,5"
-         id="path5182" />
+         style="stroke:#000000;stroke-width:0.5"
+         d="M 3,-3 -3,3 M 0,-5 0,5"
+         id="path5182"
+         inkscape:connector-curvature="0" />
     </marker>
     <pattern
        height="8"
@@ -88,14 +95,15 @@
     </pattern>
     <marker
        style="overflow:visible"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        orient="auto"
        id="DistanceX-1">
       <path
          id="path18998"
-         style="stroke:#000000; stroke-width:0.5"
-         d="M 3,-3 L -3,3 M 0,-5 L  0,5" />
+         style="stroke:#000000;stroke-width:0.5"
+         d="M 3,-3 -3,3 M 0,-5 0,5"
+         inkscape:connector-curvature="0" />
     </marker>
     <pattern
        y="0"
@@ -123,11 +131,50 @@
          linecap="square"
          d="M4 0 l-4,4" />
     </pattern>
+    <marker
+       style="overflow:visible"
+       refY="0"
+       refX="0"
+       orient="auto"
+       id="DistanceX-3">
+      <path
+         id="path4248"
+         style="stroke:#000000;stroke-width:0.5"
+         d="M 3,-3 -3,3 M 0,-5 0,5"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <pattern
+       y="0"
+       x="0"
+       width="8"
+       patternUnits="userSpaceOnUse"
+       id="Hatch-6"
+       height="8">
+      <path
+         id="path4251"
+         stroke-width="0.25"
+         stroke="#000000"
+         linecap="square"
+         d="M8 4 l-4,4" />
+      <path
+         id="path4253"
+         stroke-width="0.25"
+         stroke="#000000"
+         linecap="square"
+         d="M6 2 l-4,4" />
+      <path
+         id="path4255"
+         stroke-width="0.25"
+         stroke="#000000"
+         linecap="square"
+         d="M4 0 l-4,4" />
+    </pattern>
   </defs>
   <g
      inkscape:label="0"
      inkscape:groupmode="layer"
-     id="g5191">
+     id="g5191"
+     transform="translate(-256.41613,-475.09964)">
     <g
        id="g20004"
        transform="translate(78.035331,-228.53204)">
