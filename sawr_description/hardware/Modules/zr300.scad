@@ -1,37 +1,17 @@
 // Basic Model of Intel(R) RealSense(TM) ZR300 Depth Camera
 //   also includes cutting plan for basic mounting
-// Developed b0y: Michael McCool
+// Developed by: Michael McCool
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
+include <tols.scad>
+include <smooth.scad>
+include <bolt_params.scad>
+include <zr300_params.scad>
+include <r200_params.scad>
 
 // All units in mm unless noted otherwise.
 
-sm_base = 10;  // "smoothness" of curves; larger->smoother
-mount_hole_sm = sm_base;
-m2_5_hole_radius = 2.5/2;
-
-// CAMERA PARAMETERS
-
-// basic overall size of camera
-zr300_x = 156;
-zr300_y = 9.5;
-zr300_z = 32.5;
-
-// base of camera
-zr300_base_x1 = 32;
-zr300_base_x2 = 57;
-zr300_base_z = 3;
-zr300_base_h = 18; // separation of mounting holes
-zr300_base_r = m2_5_hole_radius;
-
-// thickness of magnetic mounting plate and tape
-zr300_plate_thick = 1.4;
-
-// CAMERA MOUNT PARAMETERS
-
-// defaults 
-zr300_mount_hole_t = 0.2;  // tolerance of mounting hole
-zr300_mount_slot_t = 0.0;  // tolerance of mounting slot
+mount_hole_sm = 4*sm_base;
 
 // ZR300 Camera Model (3D)
 module zr300_camera() {
@@ -59,7 +39,15 @@ module zr300_camera() {
 module zr300_camera_mounting_holes(
   hole_t = zr300_mount_hole_t,
   slot_t = zr300_mount_slot_t
-) {
+) {  
+  // slots for cable tie
+  translate([-r200_x/2+zr300_mount_slot_ix+zr300_mount_slot_x+slot_t,
+             -r200_mount_slot_y-slot_t])
+    square([zr300_mount_slot_x+2*slot_t,zr300_mount_slot_y+zr300_mount_slot_ey+2*slot_t]);
+  translate([-r200_x/2+zr300_mount_slot_ix+zr300_mount_slot_x,
+             r200_z-zr300_mount_slot_ey])
+    square([zr300_mount_slot_x+2*slot_t,zr300_mount_slot_y+zr300_mount_slot_ey+2*slot_t]);
+
 }
 
 // VISUALIZATION

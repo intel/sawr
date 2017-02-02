@@ -2,31 +2,25 @@
 // Developed by: Michael McCool
 // Copyright 2016 Intel Corporation
 // License: CC-BY.  See LICENSE.md
-use <Models/r200.scad>
-use <Models/zr300.scad>
+include <tols.scad>
+include <smooth_model.scad>
+//include <smooth_make.scad>
+include <bolt_params.scad>
+use <bolts.scad>
+use <r200.scad>
+include <zr300_params.scad>
+use <zr300.scad>
 
 // All units in mm unless noted otherwise.
-
-printed = 0;  // set to 1 if 3D printing, 0 if laser cutting
-sm_base = 5;  // "smoothness" of curves; larger->smoother
-              // set to 5 during development, to 100 for laser-cutting output
               
 // Material selection
-using_pom = false;  // Use of POM/Delrin/Duracon/Acetal allows for certain
-                     // features like a cantilevered suspension... but this is
-                     // off by default to target acrylic.
-                    
+using_pom = false;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
+                    // features like a cantilevered suspension... but if using 
+                    // acrylic, which is too brittle to support these features,
+                    // set this to false.
+
 // Use external 3D models in visualization
 use_external_models = true; 
-
-// TOLERANCES 
-
-// tolerance around cuts; lasers remove a tiny slice (making holes
-// very slightly larger) but 3D printers add material (making holes
-// smaller... and typically with more "spread").
-laser_cut_t = -0.05;  // typical 0.1mm cut width
-printed_cut_t = 0.1;  // depends on printer; might need to be up to 0.3
-cut_t = printed ? printed_cut_t : laser_cut_t; 
 
 // PLATE THICKNESSES
 // If possible, adjust these to fit actual plates used.
@@ -50,13 +44,15 @@ dihedral = 10; // angle between wheels, 0 is vertical
 base_radius = 200/2; // radius of basic platform
 
 // other boolean selections
-use_r200_camera = true; // use an r200 camera
-use_zr300_camera = false; // use a zr300 camera
+use_r200_camera = false; // use an r200 camera
+use_zr300_camera = true; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
 use_up = true; // use UP Board
+use_up_squared = false;  // use UP squared
 use_tc = false; // use standard Joule carrier (TuChuck)
 use_gum = false; // use Gumstix board
 use_up_holes = true; // include mounting holes for UP/Gumstix
+use_up_squared_holes = true; // include mounting holes for UP Squared
 use_tc_holes = true; // include mounting holes for TC
 use_imu_holes = true; // include mounting holes for IMU
 use_front_casters = true; // make this true if you want the OPTION of front casters
@@ -70,17 +66,19 @@ use_flanged_bearing = false; // use if possible, wheel is more stable
 use_hub_bolts = true; // for more hub stabilty, esp. if not using flanged bearing
 use_shoulder_bolt = true;  // use 6mm x 40mm + 10mm x M5 shoulder bolt for axle
 use_cable_holes = true && !use_arm; // cable holes only if no arm
-use_power_holes = !use_tc; // include mounting holes for power
+use_power_holes = true; // include mounting holes for power
 use_rear_suspension = using_pom; // put rear caster on cantilevered suspension
 use_front_suspension = using_pom; // put front casters on cantilevered suspension
+use_accessory_grid = true; // grid for mounting stuff on top and on base
 
 // Enable individual external models.  
 use_up_model = use_up && use_external_models; // use detailed model of up board
+use_up_squared_model = use_up_squared && use_external_models; // use detailed model of up^2 board
 use_tc_model = use_tc && use_external_models; // use detailed model of tuchuck carrier
 use_gum_model = use_gum && use_external_models; // use detailed model of gumstix carrier
 use_servo_model = use_external_models;  // use detailed model of Dynamixel servo
 use_bracket_model = use_external_models;  // use detailed model of servo bracket
-use_power_model = !use_tc && use_external_models; // use detailed model of power module
+use_power_model = use_power_holes && use_external_models; // use detailed model of power module
 use_imu_model = use_external_models; // use detailed model of imu
 
 // Various visualization options.  Affects only rendering, not output model.
@@ -90,11 +88,12 @@ use_lipo_battery = true;  // for visualization of max battery size
 show_bolts = true; // show bolts as part of visualization
 show_nuts = true;  // show nuts as part of visualization
 show_tire = true;  // show tire as part of visualization
-show_front_casters = false;  // show front casters in visualization
+show_front_casters = true;  // show front casters in visualization
 show_up_board = use_up && true;  // up board in visualization
+show_up_squared_board = use_up_squared && true;  // up board in visualization
 show_tc_board = use_tc && true;  // tuchuck board in visualization
 show_gum_board = use_gum && true; // gumstix board in visualization
-show_power = show_up_board && true; // power in visualization (don't need with tc)
+show_power =  true; // power board in visualization
 
 // TIRE PARAMETERS 
 
@@ -136,37 +135,59 @@ tire_cutout = false;
 wheel_radius = tire_R - sin(tire_a)*tire_r;
 
 // vertical shift of wheels (0 is flush with caster)
-wheel_protrude = 0;
+wheel_protrude = using_pom ? 0 : 2;
 
 // move motors and wheels away from body to make extra clearance for nuts
 clear_pad = 2;
 
 // adjust until tires just touch ground (use orthogonal side view) when
 // above value is zero (no protrusion)
-wheel_oz = 2.45;    // for 5.7mm P-125 o-rings
+wheel_oz = 2.0;    // for 5.7mm P-125 o-rings
 
 motor_oz = wheel_oz - wheel_protrude;
 
-// OTHER PARAMETERS
-sm = 10 * sm_base;
-eps = 0.0001;
-tol = 0.1;
-hole_sm = 2 * sm_base;
+// SMOOTHNESS
+sm = 10*sm_base;
+hole_sm = 2*sm_base;
 bolt_sm = sm_base;
-torus_sm_R = 10 * sm_base;
-torus_sm_r = 2 * sm_base;
+torus_sm_R = 10*sm_base;
+torus_sm_r = 2*sm_base;
 tread_sm = sm_base;
+base_sm = 20*sm_base;
+top_sm = 20*sm_base;
+accessory_sm = hole_sm;
+bracket_hole_sm = hole_sm;
+wheel_cutout_sm = 5*sm_base;
+wheel_buttress_sm = 10*sm_base;
+power_standoff_sm = 2*sm_base;
+power_hole_sm = hole_sm;
+slot_sm = hole_sm;
+T_slot_sm = 2*hole_sm;
+up_board_hole_sm = hole_sm;
+up_squared_board_hole_sm = hole_sm;
+camera_hole_sm = hole_sm;
+tower_sm = 5*sm_base;
+speaker_sm = 10*sm_base;
+caster_sm = 10*sm_base;
+cable_hole_sm = 4*hole_sm;
+bearing_sm = 4*sm_base;
+axle_sm = 2*bolt_sm;
+bracket_sm = 5*sm_base;
 
+spacer_sm = 6; // actually do want hexagons
+up_board_standoff_sm = 6;
+up_squared_board_standoff_sm = 6;
+
+// OTHER PARAMETERS
 wheel_hole_offset = 16/2;
 wheel_tread_r = 1;
 wheel_tread_n = 80;
 
-m2_hole_radius = (2+tol)/2 + cut_t;
-m2_5_hole_radius= (2.5+tol)/2 + cut_t;
-m2_6_hole_radius= (2.6+tol)/2 + cut_t;
-m3_hole_radius= (3+tol)/2 + cut_t;
-//m5_hole_radius= (5+tol)/2 + cut_t;
-//m6_hole_radius= (6+tol)/2 + cut_t;
+// Accessory mounting grid
+// compatible with Robotis Ollo system (6mm spacing, 4mm holes)
+accessory_hole_radius = 4/2+cut_t; // exactly 4mm
+accessory_grid_spacing = 6;
+accessory_oy = -60;
 
 // Robotis Dynamixel MX-12W servo
 servo_h = 32;
@@ -186,7 +207,6 @@ servo_ll = 32+tol;
 bracket_h = 5.5;
 bracket_hole_spacing = 8;
 bracket_hole_r = m2_hole_radius;
-bracket_hole_sm = hole_sm;
 bracket_base_x = 4*bracket_hole_spacing + 2;
 bracket_base_y = 3*bracket_hole_spacing + 1;
 
@@ -197,8 +217,6 @@ wheel_cutout_R2 = 0.7*wheel_radius;
 wheel_cutout_scale = 0.1;
 wheel_cutout_r1 = wheel_cutout_scale*wheel_cutout_R1;
 wheel_cutout_r2 = 2.5*wheel_cutout_scale*wheel_cutout_R2;
-wheel_cutout_sm = 3 * sm_base;
-wheel_buttress_sm = 10 * sm_base;
 
 // 7.4V battery... but does not work with MX-12W's :(
 battery_radius = 27.5/2;
@@ -217,7 +235,6 @@ battery_pad = 3;
 battery_pad_lower = bracket_h/2 + 1;
 
 battery_offset_x = 0;
-
 battery_offset_z = -battery_radius;
 
 battery_base_x = 2*battery_radius;
@@ -226,11 +243,9 @@ motor_offset_x = battery_radius + battery_pad;
 motor_offset_z = -battery_radius;
 
 base_pad = plate_thickness;
-//base_r1 = battery_length + battery_offset_y;
-//base_r2 = 2*battery_radius;
 base_rm = base_radius - 10;
 base_r = base_rm + 10;
-base_sm = 10 * sm_base;
+
 base_xm = battery_radius;
 base_xh = base_xm
         + (battery_radius + battery_pad + servo_h + servo_b_h)
@@ -245,21 +260,38 @@ tower_offset_y = servo_l2 + bracket_h + plate_thickness;
             // + (use_trans && use_friction ? -friction_offset : 0);
 
 up_board_standoff_h = 15;
-up_board_standoff_sm = 6;
-up_board_x = 85;
+up_board_x = 85.6;
 up_board_y = 56;
 up_board_z = 20;
-up_board_hole_r = m2_6_hole_radius;
-up_board_hole_sm = hole_sm;
+up_board_hole_r = m2_5_hole_radius;
 up_board_hole_ix = up_board_hole_r + 2.1;
 up_board_hole_iy = up_board_hole_r + 2.1;
 up_board_hole_dx = up_board_x - 2*up_board_hole_ix - 20.1;
 up_board_hole_dy = up_board_y - 2*up_board_hole_iy;
 up_board_ox = 0;
 up_board_oy = tower_offset_y + up_board_standoff_h;
+up_board_tz = 1.2;
 up_board_oz = 54;
 up_board_standoff_r = up_board_hole_r;
 up_board_standoff_R = up_board_hole_r+1;
+
+up_squared_board_standoff_h = 15;
+up_squared_board_x = 85.6;
+up_squared_board_y = 90; // unlike the UP, the UP Squared is a... square (almost)
+up_squared_board_z = 30;
+up_squared_board_hole_r = m2_5_hole_radius;
+up_squared_board_hole_ix = up_squared_board_hole_r + 2.1;
+up_squared_board_hole_iy = up_squared_board_hole_r + 2.1;
+// following is NOT a typo; use UP board dimensions for mounting holes
+up_squared_board_hole_dx = up_board_x - 2*up_board_hole_ix - 20.1;
+up_squared_board_hole_dy = up_board_y - 2*up_board_hole_iy;
+up_squared_board_ox = 0;
+up_squared_board_hox = (up_squared_board_y - up_board_y)/2;
+up_squared_board_oy = tower_offset_y + up_squared_board_standoff_h;
+up_squared_board_tz = 1.5;
+up_squared_board_oz = 50;
+up_squared_board_standoff_r = up_squared_board_hole_r;
+up_squared_board_standoff_R = up_squared_board_hole_r+1;
 
 gum_board_x = 80;
 gum_board_y = 85;
@@ -274,57 +306,47 @@ power_x = 50.6;  // measured
 power_y = 20;
 //power_z = 43.307;   From docs... WRONG!!!
 power_z = 46.55;  // measured
-
 power_standoff_h = 6;
-power_standoff_sm = 2*sm_base;  
 power_ox = 0;
 power_oy = servo_l2 + bracket_h - power_standoff_h;
 power_oz = tower_offset_y + 1;
-
 power_hole_r = m3_hole_radius + 0.2;
 power_hole_ix = 3.5;
 power_hole_iy = 3.5;
 power_hole_dx = power_x - 2*power_hole_ix;
 power_hole_dy = power_z - 2*power_hole_iy;
-power_hole_sm = hole_sm;
-
 power_standoff_r = power_hole_r;
 power_standoff_R = power_standoff_r + 1.5;
 
 camera_x = 129;
 camera_y = 8.2;
 camera_z = 19.4;
-
 camera_ox = 0;
 camera_oy = servo_l2 + bracket_h;
 camera_oz = up_board_oz + 25;
-
 camera_sx = 60;
 camera_sz = 4;
 camera_six = 1.4;
 camera_siz = 1.4;
-
 camera_hole_r = m3_hole_radius;
 camera_hole_ix = camera_six + camera_hole_r;
 camera_hole_iz = camera_siz + camera_sz/2;
 camera_hole_dx = camera_sx - camera_hole_r - camera_six;
-camera_hole_sm = hole_sm;
-
 camera_slot_x = 4;
 camera_slot_y = 2;
 camera_slot_ey = 1;
 camera_slot_ix = 5;
 
-tower_x = base_x + 10;
+slot_relief_r = 2/2; // tab/slot strain relief radius
 
+tower_x = base_x + 10;
 tower_oy = -2*battery_radius - plate_thickness - battery_pad_lower;
 tower_cx = battery_radius;
 tower_cy = -battery_radius;
 tower_y = camera_oz + camera_y - base_offset_z + battery_pad_lower;
 tower_r = 2.5*plate_thickness + 3 + clear_pad;
 tower_rr = tower_r; // - 1.5*plate_thickness - 3;
-tower_sm = 3 * sm_base;
-tower_tab_s = 2*plate_thickness;
+tower_tab_s = 3*plate_thickness;
 tower_tab_w = base_x/2 - 2*battery_radius - battery_pad 
             - base_pad - 2*tower_tab_s;
 tower_tab_ox = 2*battery_radius + battery_pad 
@@ -333,7 +355,6 @@ tower_tab_ox = 2*battery_radius + battery_pad
 // top_r = base_rm + 2*plate_thickness;
 top_r = base_r;
 top_h = 50;
-top_sm = 10*sm_base;
 top_xh = base_xm
         + (battery_radius + battery_pad + base_pad + servo_h + servo_b_h);
 top_x = 2*(top_xh - sin(dihedral)*(top_h - battery_radius - plate_thickness));
@@ -342,7 +363,7 @@ top_y = 2*top_r - tower_offset_y;
 top_offset_y = tower_offset_y;
 top_offset_z = base_offset_z + plate_thickness + top_h;
 
-top_tab_s = 2*plate_thickness;
+top_tab_s = 3*plate_thickness;
 top_tab_w = top_x/2 - 2*battery_radius - battery_pad 
             - base_pad - top_tab_s;
 top_tab_ox = 2*battery_radius + battery_pad 
@@ -357,7 +378,6 @@ speaker_h2 = 8;
 speaker_c = 4;
 speaker_r = 500+speaker_c;
 speaker_h3 = 20-speaker_c;
-speaker_sm = 10 * sm_base;
 speaker_oy = -48;
 
 // pololu 1" ball caster with plastic rollers
@@ -372,7 +392,6 @@ caster_h1 = 5; // height of base
 caster_h = 2.54; // additional height of housing
 caster_h2 = caster_h + 1.1*caster_r;
 caster_H = 2*caster_r + caster_h; // overall height of housing
-caster_sm = 10 * sm_base;
 caster_or = base_radius - caster_R1;
 caster_bolt_R = 14/2; // distance between mounting holes
 caster_bolt_r = m3_hole_radius;  // radius of mounting holes (3.2mm)
@@ -386,15 +405,10 @@ caster_sl = 50;
 spacer_h = top_h;
 spacer_hole_r = m3_hole_radius;
 spacer_R = 6.5/2; // M3
-spacer_sm = 6; // actually do want hexagons
-
 //spacer_ox = caster_ox + cos(30)*caster_bolt_R;
 //spacer_oy = caster_oy - sin(30)*caster_bolt_R;
-
 spacer_ox = battery_pad + 3*base_pad + 2*battery_radius;
 spacer_oy = caster_oy + 2.5*caster_bolt_R + caster_oyy;
-
-cable_hole_sm = hole_sm;
 
 tower_cable_r = 5;
 tower_cable_ox = up_board_y/2 + tower_cable_r;
@@ -411,7 +425,7 @@ top_cable_s = 10;
 top_cable_oy = top_offset_y
              - plate_thickness - plate_thickness_tol 
              - top_cable_h/2 - top_cable_r - top_cable_s;
-             
+
 battery_strap_r = 3/2;
 battery_strap_ox = 2*battery_radius + battery_strap_r;
 battery_strap_h = 2*battery_strap_r + 15;
@@ -429,7 +443,7 @@ switch_t = 4;
 switch_ox = top_x/2 - switch_x/2 - switch_t;
 switch_oy = base_y/2 - 41;
 
-T_slot_sm = hole_sm;
+T_slot_tighten = 0.05; 
 T_slot_relief_r = 1.5/2; // radius of relief slot (if used)
 
 // McMaster-Carr bearing: http://www.mcmaster.com/#7804k105/=1359lzz
@@ -449,9 +463,7 @@ bearing_r = bearing_id/2;
 bearing_od = 12;
 bearing_R = bearing_od/2;
 bearing_h = 4;  
-bearing_sm = 4*sm_base;
 bearing_lip = 1;
-
 // if flanged bearing used, give flange height
 // this is for http://www.mcmaster.com/#7804k142/=136cs4d, which otherwise
 // has the same dimensions as the PJ-BB12660ZZ
@@ -480,7 +492,6 @@ axle_cap_r = axle_cap_size/2;
 axle_cap_h = 4;
 axle_length = 50; // want bolt with 12 mm or so unthreaded, tend to be long 
 axle_tighten = 3;
-axle_sm = 2*bolt_sm;
 
 // Additional servo bracket parameters
 bracket_t = 3;
@@ -489,7 +500,6 @@ bracket_tt = 0.5;
 bracket_cs = 1;
 bracket_cr = bracket_hole_r + 1 + cut_t;
 bracket_rr = (bracket_base_y - 2*bracket_hole_spacing)/2;
-bracket_sm = 5*base_sm;
 bracket_hh = bracket_h + 0.8;
 bracket_tweak_x = 0.5;
 bracket_tweak_y = 0.25;
@@ -576,55 +586,31 @@ module speaker() {
   }
 }
 
-// bolt (default M3 x 10)
-module bolt(size=3,length=10,sm=bolt_sm) {
-  if (show_bolts) {
-    color([0.5,0.5,0.7,0.8]) {
-      translate([0,0,-length])
-        cylinder(r=0.45*size,h=length,$fn=sm);
-      difference() {
-        cylinder(r=0.8*size,h=size,$fn=2*sm);
-        translate([0,0,0.2*size])
-          cylinder(r=(size-0.5)/2,h=size,$fn=6);
-      }
-    }
-  }
-}
 // shoulder bolt (used for axle)
-module shoulder_bolt(size=axle_size,cap_d=axle_cap_size,cap_h=axle_cap_h,shoulder_length=axle_shoulder_length,length=axle_length,bolt_size=axle_bolt_size,sm=axle_sm) {
-  if (show_bolts) {
-    color([0.5,0.5,0.7,0.8]) {
-      translate([0,0,-shoulder_length])
-        cylinder(r=0.49*size,h=shoulder_length,$fn=sm);
-      translate([0,0,-length])
-        cylinder(r=0.45*bolt_size,h=length,$fn=sm);
-      difference() {
-        cylinder(r=cap_d/2,h=cap_h,$fn=2*sm);
-        translate([0,0,0.5*cap_h])
-          cylinder(r=(cap_d/2)/2,h=cap_h,$fn=6);
-      }
-    }
-  }
+module shoulder_bolt(
+  size = axle_size,
+  cap_d = axle_cap_size,
+  cap_h = axle_cap_h,
+  shoulder_length = axle_shoulder_length,
+  length = axle_length,
+  bolt_size = axle_bolt_size,
+  sm = axle_sm
+) {
+  bolt(
+    shaft_radius = m6_shaft_radius,
+    shaft_length = length,
+    shoulder_length = shoulder_length,
+    thread_radius = m5_thread_radius,
+    cap_radius = m6_cap_radius,
+    cap_height = m6_cap_height,
+    socket_size = m6_socket_size,
+    socket_radius = m6_socket_radius
+  );
 }
-
-// a locknut (default M3)
-module locknut(size=3) {
-  if (show_nuts) {
-    color([0.5,0.5,0.7,0.8]) 
-    difference() {
-      intersection() {
-        cylinder(r=size,h=1.3*size,$fn=6);
-        cylinder(r1=1.2*size,r2=0.7*size,h=1.5*size,$fn=2*bolt_sm);
-      }
-      translate([0,0,-size])
-        cylinder(r=0.5*size,h=4*size,$fn=bolt_sm);
-    }
-  }
-}
-
 // slot for mounting panels at 90 degrees in a tab using bolt and locknut
 module T_slot(size=3+cut_t,length=6.5+cut_t,
-              nut_size=5.5+cut_t,nut_height=3+cut_t,
+              nut_size=5.5+cut_t-T_slot_tighten,
+              nut_height=3+cut_t,
               thick=plate_thickness,pad=0,
               ext=1) {
   // for bolt
@@ -643,6 +629,25 @@ module T_slot(size=3+cut_t,length=6.5+cut_t,
       translate([-nut_size/2,0])
         circle(r=T_slot_relief_r,$fn=T_slot_sm);
     }
+  }
+}
+// slot for mounting panels at 90 degrees in a tab using head of bolt
+cap_slot_sm = T_slot_sm;
+module cap_slot(size=2.5+cut_t,
+                width=5,
+                radius=1.5,
+                length=2, // bolt must be max of this + plate thickness + 3
+                thick=plate_thickness,
+                ext=1) {
+  // for bolt
+  translate([-size/2,-ext-thick])
+    square([size,length+ext+thick]);
+  // for head
+  hull() {
+    translate([-width/2,length+radius-tol])
+      circle(r=radius,$fn=cap_slot_sm);
+    translate([width/2,length+radius-tol])
+      circle(r=radius,$fn=cap_slot_sm);
   }
 }
 module caster() {
@@ -670,24 +675,24 @@ module caster_holes() {
 module caster_bolts() {
   rotate([0,0,60])
     translate([0,caster_bolt_R,0]) 
-      bolt(size=3,length=8);
+      m3_bolt(length=8);
   rotate([0,0,-60])
     translate([0,caster_bolt_R,0]) 
-      bolt(size=3,length=8);
+      m3_bolt(length=8);
   rotate([0,0,180])
     translate([0,caster_bolt_R,0]) 
-      bolt(size=3,length=8);
+      m3_bolt(length=8);
 }
 module caster_nuts() {
   rotate([0,0,60])
     translate([0,caster_bolt_R,0]) 
-      locknut(size=3);
+      m3_locknut();
   rotate([0,0,-60])
     translate([0,caster_bolt_R,0]) 
-      locknut(size=3);
+      m3_locknut();
   rotate([0,0,180])
     translate([0,caster_bolt_R,0]) 
-      locknut(size=3);
+      m3_locknut();
 }
 module caster_suspension(flip=0,cutout=0) {
   difference() {
@@ -718,7 +723,7 @@ module switch_hole(t=cut_t) {
     square([switch_x+2*t,switch_y+2*t]);
 }
 module spacer_hole(r=spacer_hole_r,sm=hole_sm) {
-  circle(r=r,$fn=sm);
+  circle(r=r,$fn=hole_sm);
 }
 module spacer(r=spacer_hole_r,R=spacer_R,h=spacer_h,SM=spacer_sm,sm=hole_sm) {
   color([0.5,0.5,0.5,0.9])
@@ -1010,6 +1015,16 @@ module up_board() {
     } else {
       translate([-up_board_x/2,-up_board_y/2,0])
         cube([up_board_x,up_board_y,up_board_z]);
+    }
+}
+module up_squared_board() {
+  color([0.3,0.3,0.5,0.5]) 
+    if (false && use_up_squared_model) {
+      scale(1000)
+        import("External/UP_Squared.stl",convexity=5);
+    } else {
+      translate([-up_squared_board_x/2,-up_squared_board_y/2,0])
+        cube([up_squared_board_x,up_squared_board_y,up_squared_board_z]);
     }
 }
 module up_board_holes() {
@@ -1324,7 +1339,7 @@ module wheel() {
         if (use_shoulder_bolt) {
           shoulder_bolt();
         } else {
-          bolt(size=axle_size,length=axle_length,sm=axle_sm);
+          m6_bolt(length=axle_length,shoulder=12,sm=axle_sm);
         }
       translate([0,0,
                  -axle_spacer_h
@@ -1337,9 +1352,9 @@ module wheel() {
                  +wheel_bolt_offset])
         rotate([180,0,0]) 
           if (use_shoulder_bolt) {
-            locknut(size=axle_bolt_size);
+            m5_locknut();
           } else {
-            locknut(size=axle_size);
+            m6_locknut();
           }
     }
   }
@@ -1354,10 +1369,10 @@ module wheel() {
                  2*wheel_plate_thickness
                 +2*outer_plate_thickness
                 +middle_plate_thickness]) 
-        bolt(size=3,length=15);
+        m3_bolt(length=15);
       translate([wheel_clamp_offset,0,-tol]) 
         rotate([180,0,0]) 
-          locknut(size=3);
+          m3_locknut();
     }
     for (i = [0:3]) {
       rotate(i*360/4) {
@@ -1365,10 +1380,10 @@ module wheel() {
                     2*wheel_plate_thickness
                    +2*outer_plate_thickness
                    +middle_plate_thickness]) 
-          bolt(size=3,length=15);
+          m3_bolt(length=15);
         translate([(bearing_R+wheel_cutout_R1)/2,0,-tol]) 
           rotate([180,0,0]) 
-            locknut(size=3);
+            m3_locknut();
       }
     }
   }
@@ -1476,7 +1491,7 @@ module driver() {
                  +2*wheel_plate_thickness
                  +2*outer_plate_thickness
                  +middle_plate_thickness]) 
-          bolt(size=2,length=20);
+          m2_bolt(length=20);
   }
 }
 // helper function; wish this was built in...
@@ -1860,6 +1875,29 @@ module motor_base() {
       translate([battery_radius+battery_pad+base_pad+servo_b_h+clear_pad,0,0])
         motor_unit(a=90,p=1);
 }
+// slot with optional strain relief at corners
+module slot(
+  width = 10,
+  thick = plate_thickness + plate_thickness_tol
+) {
+  translate([-cut_t,-cut_t]) 
+    square([width+2*cut_t,thick+2*cut_t]);
+  // to avoid stress concentration, round out sharp interior corners of slot
+  if (use_relief) { 
+    hull() {
+      translate([slot_relief_r-cut_t,thick+cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+      translate([slot_relief_r-cut_t,-cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+    }
+    hull() {
+      translate([width-slot_relief_r+cut_t,thick+cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+      translate([width-slot_relief_r+cut_t,-cut_t])
+        circle(r=slot_relief_r,$fn=slot_sm);
+    }
+  }
+}
 module base_slice() {
   difference() {
     intersection() {
@@ -1867,6 +1905,9 @@ module base_slice() {
       translate([-base_x/2,-base_y/2,0])
         square([base_x,base_y]);
     }
+    // accessory mounting grid
+    if (use_accessory_grid)
+      accessory_base_grid();
     // mounting holes and suspension slot for back caster
     translate([0,caster_or-caster_oyy])
       rotate([0,0,180]) {
@@ -1935,36 +1976,34 @@ module base_slice() {
     // battery strap cutouts
     hull() {
       translate([battery_strap_ox,battery_strap_oy_1-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([battery_strap_ox,battery_strap_oy_1+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     hull() {
       translate([-battery_strap_ox,battery_strap_oy_1-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([-battery_strap_ox,battery_strap_oy_1+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     hull() {
       translate([battery_strap_ox,battery_strap_oy_2-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([battery_strap_ox,battery_strap_oy_2+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     hull() {
       translate([-battery_strap_ox,battery_strap_oy_2-battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
       translate([-battery_strap_ox,battery_strap_oy_2+battery_strap_h/2])
-        circle(r=battery_strap_r,$fn=hole_sm);
+        circle(r=battery_strap_r,$fn=2*hole_sm);
     }
     // tower plate slots
     translate([0,tower_offset_y-plate_thickness]) {
-      translate([tower_tab_ox-cut_t,-cut_t]) 
-        square([tower_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
-      translate([-tower_tab_ox-tower_tab_w-cut_t,-cut_t]) 
-        square([tower_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+      translate([tower_tab_ox,0]) 
+        slot(width=tower_tab_w,thick=plate_thickness+plate_thickness_tol);
+      translate([-tower_tab_ox-tower_tab_w,0]) 
+        slot(width=tower_tab_w,thick=plate_thickness+plate_thickness_tol);
     }
   }
 }
@@ -2141,7 +2180,17 @@ module tower_slice(trans=false) {
     }
     // mounting holes for up board
     if (use_up_holes) {
-      translate([up_board_ox,up_board_oz])
+      translate([up_board_ox,up_board_oz+up_board_tz])
+        rotate(90)
+          up_board_holes();
+    }
+    // mounting holes for up squared board
+    if (use_up_squared_holes) {
+      translate([up_squared_board_hox,up_squared_board_oz+up_squared_board_tz])
+        rotate(90)
+          up_board_holes();
+      // also support reversed mounting
+      translate([-up_squared_board_hox,up_squared_board_oz+up_squared_board_tz])
         rotate(90)
           up_board_holes();
     }
@@ -2156,20 +2205,23 @@ module tower_slice(trans=false) {
       translate([power_ox,power_oz])
         power_holes();
     }
-    // mounting holes for camera
-    translate([0,camera_oz])
+    // mounting holes for cameras
+    translate([0,camera_oz]) {
       camera_holes();
+    }
+    // mounting slot for ZR300 camera shelf
+    translate([-shelf_tab_width/2,
+               camera_oz-zr300_base_z-plate_thickness-plate_thickness_tol-cut_t]) {
+        slot(width=shelf_tab_width,thick=plate_thickness+plate_thickness_tol);
+    }
     // top plate slots
-    translate([-cut_t,top_offset_z-cut_t]) {
+    translate([0,top_offset_z]) {
       translate([top_tab_ox,0]) 
-        square([top_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=top_tab_w,thick=plate_thickness+plate_thickness_tol);
       translate([-top_tab_w/2,0]) 
-        square([top_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=top_tab_w,thick=plate_thickness+plate_thickness_tol);
       translate([-top_tab_ox-top_tab_w,0]) 
-        square([top_tab_w+2*cut_t,
-                plate_thickness+plate_thickness_tol+2*cut_t]);
+        slot(width=top_tab_w,thick=plate_thickness+plate_thickness_tol);
     }
     // base plate T-slots
     translate([tower_tab_w/2,tower_oy-eps]) {
@@ -2205,6 +2257,108 @@ module tower_plate() {
               bracket();
   }
 }
+shelf_depth = zr300_y+zr300_plate_thick;
+shelf_corner_radius = shelf_depth/2;
+shelf_width = up_board_hole_dy+15;
+shelf_sm = 4*sm_base;
+shelf_tab_width = zr300_base_x1;
+shelf_tab_depth = plate_thickness;
+shelf_bolt_indent_y = -shelf_corner_radius+zr300_y/2;
+shelf_bolt_separation = zr300_base_h;
+shelf_bolt_radius = zr300_base_r;
+shelf_bolt_slack = zr300_plate_thick;
+shelf_cap_slot_separation = up_board_hole_dy;
+module shelf_slice() {
+  translate([0,-shelf_depth+shelf_corner_radius]) {
+    difference() {
+      // base shape
+      union() {
+        hull() {
+          translate([-shelf_width/2+shelf_corner_radius,0])
+            circle(r=shelf_corner_radius,$fn=shelf_sm);
+          translate([ shelf_width/2-shelf_corner_radius,0])
+            circle(r=shelf_corner_radius,$fn=shelf_sm);
+          translate([-shelf_width/2,0])
+            square([shelf_width,shelf_depth-shelf_corner_radius]);
+        }
+        translate([-shelf_tab_width/2,0])
+          square([shelf_tab_width,shelf_depth-shelf_corner_radius+shelf_tab_depth]);
+      }
+      // bolt holes (actually, slots, allowing camera to slide in and out to match tape)
+      translate([-shelf_bolt_separation/2,shelf_bolt_indent_y])
+        hull() {
+          circle(r=shelf_bolt_radius,$fn=hole_sm);
+          translate([0,shelf_bolt_slack])
+            circle(r=shelf_bolt_radius,$fn=hole_sm);
+        }
+      translate([ shelf_bolt_separation/2,shelf_bolt_indent_y])
+        hull() {
+          circle(r=shelf_bolt_radius,$fn=hole_sm);
+          translate([0,shelf_bolt_slack])
+            circle(r=shelf_bolt_radius,$fn=hole_sm);
+        }
+      translate([-shelf_cap_slot_separation/2,shelf_depth-shelf_corner_radius])
+        rotate(180) 
+          cap_slot();
+      translate([ shelf_cap_slot_separation/2,shelf_depth-shelf_corner_radius])
+        rotate(180) 
+          cap_slot();
+    }
+  }
+}
+module shelf_plate() {
+  linear_extrude(plate_thickness)
+    shelf_slice();
+}
+
+module accessory_top_grid() {
+  translate([0,accessory_oy]) {
+    for (ix=[-4:4:7]) {
+      for (iy=[-1:4:7]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) {
+          hull() {
+            circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+            translate([0,2*accessory_grid_spacing])
+              circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+          }
+        }
+      }
+    }
+    for (ix=[-4:2:4]) {
+      for (iy=[-4:2:6]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) 
+          circle(r=accessory_hole_radius,$fn=accessory_sm);
+      }
+    }
+    for (ix=[-6:2:6]) {
+      for (iy=[-2:2:7]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) 
+          circle(r=accessory_hole_radius,$fn=accessory_sm);
+      }
+    }
+  }
+}
+module accessory_base_grid() {
+  translate([0,accessory_oy]) {
+    for (ix=[-4:4:7]) {
+      for (iy=[-1:4:5]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) {
+          hull() {
+            circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+            translate([0,2*accessory_grid_spacing])
+              circle(r=accessory_hole_radius+eps,$fn=accessory_sm);
+          }
+        }
+      }
+    }
+    for (ix=[-4:2:4]) {
+      for (iy=[-4:2:5]) {
+        translate([ix*accessory_grid_spacing,iy*accessory_grid_spacing]) 
+          circle(r=accessory_hole_radius,$fn=accessory_sm);
+      }
+    }
+  }
+}
 module top_slice() {
   difference() {
     union() {
@@ -2228,8 +2382,11 @@ module top_slice() {
           switch_hole(t=switch_t);
         translate([-switch_ox,0])
           switch_hole(t=switch_t);
+      }
     }
-    }
+    // accessory mounting grid
+    if (use_accessory_grid) 
+      accessory_top_grid();
     // holes for cable ties to secure side panels
     if (use_trans) {
       translate([top_x/2-mount_tie_h/2-plate_thickness-mount_tie_offset_z,
@@ -2486,7 +2643,7 @@ module top_plate_trans() {
 module mount_base_slots_slice() {
   projection() {
     intersection() {
-      translate([0,0,base_offset_z])
+      translate([0,0,base_offset_z-tol])
         base_plate();
       translate([tower_cx,0,tower_cy+motor_oz])
         rotate([0,-dihedral,0])
@@ -2497,7 +2654,7 @@ module mount_base_slots_slice() {
                   mount_plate(e=10,pt=-tol);
     }
     intersection() {
-      translate([0,0,base_offset_z])
+      translate([0,0,base_offset_z-tol])
         base_plate();
       translate([-tower_cx,0,tower_cy+motor_oz])
         rotate([0,180+dihedral,0])
@@ -2559,17 +2716,37 @@ module assembly() {
       }
   }
   // 3d camera
-  translate([camera_ox,camera_oy,camera_oz])
+  translate([camera_ox,camera_oy,camera_oz]) {
     camera();
+    // camera shelf (only if zr300)
+    if (use_zr300_camera) {
+      translate([0,0,-zr300_base_z-plate_thickness]) shelf_plate();
+    }
+  }
   // up board
   if (show_up_board) {
-    translate([up_board_ox,up_board_oy,up_board_oz])
+    translate([up_board_ox,up_board_oy,up_board_oz+up_board_tz])
       rotate([0,0,180])
         rotate([90,0,0])
           rotate([0,0,90]) {
             up_board();
             up_board_spacers();
           } 
+  } 
+  // up squared board
+  if (show_up_squared_board) {
+    translate([up_squared_board_ox,up_squared_board_oy,
+               up_squared_board_oz+up_squared_board_tz])
+      rotate([0,0,180])
+        rotate([90,0,0])
+          rotate([0,0,90])
+            up_squared_board(); 
+    translate([up_squared_board_hox,up_squared_board_oy,
+               up_squared_board_oz+up_squared_board_tz])
+      rotate([0,0,180])
+        rotate([90,0,0])
+          rotate([0,0,90])
+            up_board_spacers();
   } 
   // tc board and fan plate
   if (show_tc_board) {
@@ -2660,18 +2837,18 @@ module assembly() {
     translate([spacer_ox,0,0]) {
       spacer();
       translate([0,0,spacer_h+plate_thickness])
-        bolt(size=3,length=10);
+        m3_bolt(length=10);
       translate([0,0,-plate_thickness])
         rotate([0,180,0])
-          bolt(size=3,length=10);
+          m3_bolt(length=10);
     }
     translate([-spacer_ox,0,0]) {
       spacer();
       translate([0,0,spacer_h+plate_thickness])
-        bolt(size=3,length=10);
+        m3_bolt(length=10);
       translate([0,0,-plate_thickness])
         rotate([0,180,0])
-          bolt(size=3,length=10);
+          m3_bolt(length=10);
     }
   }
   // speaker (optional)
@@ -2737,6 +2914,7 @@ module assembly() {
 //driver_spacer_slice();// x2
 //driver_rim_slice();   // x4
 //tc_fan_slice();       // x1 if using TC
+//shelf_slice();        // x1 if using ZR300
 
 // Alternative laser-cut parts
 // half and quarter wheel slices... makes layout of sheets easier
@@ -2763,15 +2941,10 @@ module assembly() {
 //top_plate();          // x1
 //mount_plate();        // x2
 //driver_plate();       // x4
-//driver_spacer_plate();  // x2
+//driver_spacer_plate();// x2
 //driver_mount_plate();
 //driver_rim_plate();   // x4
-//tc_fan_plate();
-
-// ASSEMBLY VISUALIZATION
-// Note: full CGAL compile will fail because UP board is not a 
-// solid model; use just "fast" visualization
-translate([0,0,-base_offset_z+caster_H]) assembly();
+//tc_fan_plate();       // x1
 
 // INTERSECTION TESTING
 //mount_tower_slots_slice();
@@ -2819,6 +2992,13 @@ translate([0,0,-base_offset_z+caster_H]) assembly();
 //driver_spacer_plate();
 //bearing();
 //tc_board();
+//camera();
+//translate([0,0,-3-plate_thickness]) shelf_plate();
+
+// ASSEMBLY VISUALIZATION
+// Note: full CGAL compile will fail because UP board is not a 
+// solid model; use just "fast" visualization
+translate([0,0,-base_offset_z+caster_H]) assembly();
 
 // REPORT
 echo("WHEEL DIAMETER:");
