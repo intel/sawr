@@ -1,0 +1,6 @@
+<launch>
+  <!-- start rosbridge server on port 8080 -->
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+     <arg name="port" value="8080"/>
+  </include>
+</launch>
