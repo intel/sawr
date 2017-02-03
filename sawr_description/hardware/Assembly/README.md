@@ -1,1 +1,1 @@
-Links in this document become active if you download file to your computer.
+URL Links in these documents will be active if you download files to your computer.

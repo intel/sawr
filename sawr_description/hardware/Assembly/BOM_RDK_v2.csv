@@ -6,13 +6,13 @@ Frame ,Laser cutting,,$2.50 , 1 ,30, $75.00 ,It takes about 30 minutes to cut.  
  $91.60 ,Acrylic sheet 450mm x 300mm x 2mm,,$4.75 , 1 ,1, $4.75 ,Estimated cost of materials 
 ,Acrylic sheet 450mm x 300mm x 3mm,,$7.90 , 1 ,1, $7.90 ,Estimated cost of materials 
 ,"Pololu 1"" ball caster with plastic rollers",https://www.pololu.com/product/2691, $3.95 , 1 ,1, $3.95 ,"1 ea used in current design, 2 more can be added  for extra stability."
-Electronics,Intel RealSense Robotic Development Kit,http://click.intel.com/intelr-realsensetm-robotic-development-kit.html, $250.00 , 1 ,1, $250.00 ,Estimated cost. According to manufacturer product shipping delayed up to  end of June2016. Will be replaced with GT Q3-4.
- $454.20 ,DC-DC 5A power convertor from DF Robot,http://www.dfrobot.com/index.php?route=product/product&path=70_119&product_id=752#.VpaHJ1LtvT9, $8.50 , 1 ,1, $8.50 ,
-,MX-12W Dynamixel servos, http://www.trossenrobotics.com/dynamixel-mx-12w-robot-actuator, $65.90 , 1 ,2, $131.80 ,get the ones in individual boxes; you need the included mounting brackets if you laser-cut the frame. 
+Electronics,Intel RealSense Robotic Development Kit,http://click.intel.com/intelr-realsensetm-robotic-development-kit-2054.html, $349.00 , 1 ,1, $349.00 ,Estimated cost. According to manufacturer product shipping delayed up to  end of June2016. Will be replaced with GT Q3-4.
+ $553.20 ,DC-DC 5A power convertor from DF Robot,http://www.dfrobot.com/index.php?route=product/product&path=70_119&product_id=752#.VpaHJ1LtvT9, $8.50 , 1 ,1, $8.50 ,
+,MX-12W Dynamixel servos,ÿhttp://www.trossenrobotics.com/dynamixel-mx-12w-robot-actuator, $65.90 , 1 ,2, $131.80 ,get the ones in individual boxes; you need the included mounting brackets if you laser-cut the frame. 
 ,Alternative source for servos,http://www.robotis.us/dynamixel-mx-12w/,,1,0, $-   ,Alternative source for servos
 ,USB2AX v3.2a,http://www.trossenrobotics.com/usb2ax, $39.95 ,1,1, $39.95 ,
-,"TP-LINK AC600 High Gain Wireless Dual Band USB Adapter, ",https://www.amazon.com/TP-LINK-Wireless-Adapter-Archer-T2UH/dp/B00UZRVY12/ref=sr_1_3?ie=UTF8&qid=1468895211&sr=8-3&keywords=TP-link+usb+ac, $23.95 ,1,1, $23.95 ,“ac” mode and GHz support .Less expensive  b/g/n model can be used. Check for Linux driver availability. Also tested with cheap CanaKit WiFi dongle from Rpi kit.
-Electrical harness and cables,"Battery (LiPo 3S, 3000mAh to 4000mAh)",  https://www.amazon.com/Venom-4000mAh-Battery-Universal-Traxxas/dp/B000W7WWFW/ref=sr_1_15?s=toys-and-games&ie=UTF8&qid=1466243100&sr=1-15&keywords=3s+lipo, $41.91 , 1 ,1, $41.91 ,"Has connector adapters for different chargers. Alternative :Turnigy 5000mAh 3S 20C Lipo Pack, quality battery has  X-60 connector."
+,"TP-LINK AC600 High Gain Wireless Dual Band USB Adapter,ÿ",https://www.amazon.com/TP-LINK-Wireless-Adapter-Archer-T2UH/dp/B00UZRVY12/ref=sr_1_3?ie=UTF8&qid=1468895211&sr=8-3&keywords=TP-link+usb+ac, $23.95 ,1,1, $23.95 ,?ac? mode and GHz support .Less expensive  b/g/n model can be used. Check for Linux driver availability. Also tested with cheap CanaKit WiFi dongle from Rpi kit.
+Electrical harness and cables,"Battery (LiPo 3S, 3000mAh to 4000mAh)",ÿÿhttps://www.amazon.com/Venom-4000mAh-Battery-Universal-Traxxas/dp/B000W7WWFW/ref=sr_1_15?s=toys-and-games&ie=UTF8&qid=1466243100&sr=1-15&keywords=3s+lipo, $41.91 , 1 ,1, $41.91 ,"Has connector adapters for different chargers. Alternative :Turnigy 5000mAh 3S 20C Lipo Pack, quality battery has  X-60 connector."
  $56.10 ,Lipo Battery Monitor/Alarm,http://www.amazon.com/Battery-Tester-Voltage-Buzzer-Alarm/dp/B005GJCJOA, $2.96 , 1 ,1, $2.96 ,Gives audible alarm if battery gets too low.
 ,Tamiya Male and Female Plug Set M/F 150mm by Venom,https://www.amazon.com/Tamiya-Male-Female-150mm-Venom/dp/B000HKEVH6, $3.99 , 1 ,1, $3.99 ,Depending on Battery connector it may not  required.
 ,Barrel connector Adapter 10 Pack,https://www.amazon.com/iMBAPrice-iMBA-CCTV-PGTM-10-Security-Camera-Pigtail/dp/B0054D80LE/ref=sr_1_81?ie=UTF8&qid=1467833488&sr=8-81-spons&keywords=barrel+5.5mm+power+connector&psc=1, $5.99 , 10 ,1, $0.60 ,1-UP board
@@ -56,7 +56,7 @@ Basic Tools in the KIT,M8 wrench ,,,,,,To secure axel nut
 ,Allen wrench 3 mm hex,,,,,,To secure Axel screw
 ,Philips #1 drive,,,,,,Other philips screws
 ,,,,,,,
-,,,,,Per Robot, $650.56 ,
+,,,,,Per Robot, $749.56 ,
 ,,,,,# of components,259.5,
 ,,,,,,,
 ,,,,,,,
