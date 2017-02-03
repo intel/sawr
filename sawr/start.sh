@@ -1,18 +1,21 @@
 #/bin/sh
-# Bring up the navigation stack in phases
-# Start roscore
+echo "Bringing up the SAWR software stack..."
+echo "Start roscore"
 xterm -e roscore &
 sleep 15
-# Motor control and odometry
+# make rqt_graph more useful
+rosparam set enable_statistics true
+echo "Phase 0: Motor control and odometry"
 ./scripts/xinit.sh 0
-# No need to wait to start teleop
-#./scripts/teleop.sh
 sleep 25
-# Intel RealSense camera and laser scan emulation
+echo "Phase 1: Intel RealSense camera and laser scan emulation"
 ./scripts/xinit.sh 1
 sleep 25
-# Mapping and localization
+echo "Phase 2: Simultaneous localization and mapping (SLAM)"
 ./scripts/xinit.sh 2
 sleep 25
-# Navigation planning and execution
+echo "Phase 3: Navigation planning and execution"
 ./scripts/xinit.sh 3
+sleep 25
+echo "Phase 4: Web console and APIs"
+./scripts/xinit.sh 4
