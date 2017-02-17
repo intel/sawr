@@ -14,7 +14,7 @@ use <zr300.scad>
 // All units in mm unless noted otherwise.
               
 // Material selection
-using_pom = false;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
+using_pom = true;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
                     // features like a cantilevered suspension... but if using 
                     // acrylic, which is too brittle to support these features,
                     // set this to false.
@@ -47,9 +47,9 @@ base_radius = 200/2; // radius of basic platform
 use_r200_camera = false; // use an r200 camera
 use_zr300_camera = true; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
-use_up = true; // use UP Board
+use_up = false; // use UP Board
 use_up_squared = false;  // use UP squared
-use_tc = false; // use standard Joule carrier (TuChuck)
+use_tc = true; // use standard Joule carrier (TuChuck)
 use_gum = false; // use Gumstix board
 use_up_holes = true; // include mounting holes for UP/Gumstix
 use_up_squared_holes = true; // include mounting holes for UP Squared
@@ -135,7 +135,7 @@ tire_cutout = false;
 wheel_radius = tire_R - sin(tire_a)*tire_r;
 
 // vertical shift of wheels (0 is flush with caster)
-wheel_protrude = using_pom ? 0 : 2;
+wheel_protrude = using_pom ? 2 : 2; // for now make them the same
 
 // move motors and wheels away from body to make extra clearance for nuts
 clear_pad = 2;
