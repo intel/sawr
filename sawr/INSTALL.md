@@ -178,7 +178,7 @@ A summary follows:
     source ~/.bashrc
     sudo apt-get install python-rosinstall
 
-# Set up a Catkin Workspace 
+# Set Up a Catkin Workspace 
 
 Follow [http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment], a summary of which follows:
 
@@ -202,7 +202,8 @@ The SAWR package uses a few other ROS packages:
                          ros-kinetic-depthimage-to-laserscan \
                          ros-kinetic-gmapping \
                          ros-kinetic-navigation \
-                         ros-kinetic-rosbridge-server
+                         ros-kinetic-rosbridge-server \
+                         ros-kinetic-teleop-twist-keyboard
 
 # Install SAWR Package
 
