@@ -5,7 +5,7 @@ depending on your situtation.
 Launching is a bit difficult due to the need to work around some race 
 conditions in some of the nodes.
 In theory you could start all the ROS nodes used using a single launch file.   
-In practice, this does not work, at least under Indigo.   
+In practice, this sometimes does not work.
 So instead it is recommended to launch the SW stack in phases, 
 each phase adding another software layer with a bit more functionality.   
 This layering
@@ -26,7 +26,7 @@ one xterm per phase,
 and with a delay between each phase to avoid race conditions.
 The xterms allow you to monitor the output of each phase
 in real time, but be aware that if the xterms are terminated those
-nodes will close.   
+nodes will close (and also, if the nodes crash, the xterms will close).  
 This approach is useful for testing but perhaps not for 
 a final install.
 
@@ -42,7 +42,9 @@ or if you want to avoid a dependency on keeping the xterms running.
 ## Launching Phases Manually
 Sometimes you want to test phases separately if you are doing debugging.
 You can just launch the phases yourself manually using 
-  roslaunch whr init_X.launch
+
+    roslaunch sawr init_X.launch
+
 With X one of 0, 1, 2, or 3.  
 If you want, 
 launch these in separate terminals or ssh sessions to see the output.
@@ -54,5 +56,15 @@ this might not work (it is known not to under Indigo)
 but (if certain issues in ROS or the nodes are resolved over time)
 may work on your installation.
 If you want to, you can try simultaneous launch using:
-  roslaunch whr init.launch
+
+    roslaunch sawr init.launch
+
 Note this does not use a script but just ROS tools.
+
+## Teleop and Visualization
+
+Now that the stack is launched, you can "drive" the robot using a teleoperator
+and visualize the output with rviz.   Do the following in two separate windows:
+
+    rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+    roslaunch sawr_navigation display.launch
