@@ -1,17 +1,16 @@
-Install Ubuntu 16.04
+# Install Ubuntu 16.04
 
-UP Board (included with the Intel Realsense Robotic Development Kit)
+## UP Board (included with the Intel Realsense Robotic Development Kit)
 
-Follow instructions at 
-  https://up-community.org/wiki/Ubuntu
+Follow instructions at [https://up-community.org/wiki/Ubuntu]
 
 First install a standard distribution of Ubuntu 16.04.  
 Download an ISO image for Ubuntu 16.04 from
-https://www.ubuntu.com/download/desktop
+[https://www.ubuntu.com/download/desktop]
 and load it onto a bootable USB stick using, for instance, Rufus
-https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows
+[https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows]
 or, if you are on Linux already, the Startup Disk Creator:
-https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu
+[https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu]
 
 Then boot the UP Board and tap the DEL key to get into the Bios (if it 
 prompts for a password just press enter).  Go to the Boot menu and make the 
@@ -49,7 +48,7 @@ The UP kernel,
 in addition to providing access to board features,
 already includes the RealSense uvc patches, saving us a step later.
 
-Intel Joule 
+## Intel Joule 
 
 There is a special install of Ubuntu 16.04 for Joule available from the following location:
 https://developer.ubuntu.com/core/get-started/intel-joule#alternative-install:-ubuntu-desktop-16.04-lts
@@ -63,7 +62,7 @@ This version of Ubuntu also provides access to GPIOs, etc.
 The Realsense drivers are also already included,
 so we can skip the uvc patch later.
 
-Set up a Terminal
+# Open a Terminal Window
 
 You will need command line access to do most things.   
 Click on the topmost icon in the left menu bar with the Ubuntu logo, 
@@ -72,12 +71,12 @@ then drag the terminal icon to the menu bar for later use.
 
 Click it and open a terminal.   To open additional terminals you need to right click.
 
-Install Basic Development tools
+# Install Basic Development Tools
 
 Enter the following to install git and basic development tools:
   sudo apt-get install git build-essential
 
-Install WiFi Drivers
+# Install WiFi Drivers
 
 Since the UP Board does not include WiFi, you will need to find a WiFi dongle and get it working.
 This will probably involve finding and installing drivers.
@@ -97,7 +96,7 @@ Note that (wired) network access is assumed...
 Then reboot.  
 WiFi should come up automatically.  Log into your access point.
 
-Add User to dialout Group
+# Add User to dialout Group
 
   sudo usermod -a -G dialout $USER
 
@@ -106,11 +105,11 @@ Then log out and log back in again.   Check group membership using
   groups
 
 This is necessary to access the UART device for the USB2AX to drive the motors.
-See: http://www.xevelabs.com/doku.php?id=product:usb2ax:quickstart
+See [http://www.xevelabs.com/doku.php?id=product:usb2ax:quickstart]
 
-Install Dynamixel SDK
+# Install Dynamixel SDK
 
-See https://github.com/ROBOTIS-GIT/DynamixelSDK
+See [https://github.com/ROBOTIS-GIT/DynamixelSDK]
 Here is a summary of how to install:
   mkdir -p ~/Drivers
   cd ~/Drivers
@@ -119,9 +118,9 @@ Here is a summary of how to install:
   make
   sudo make install
 
-Install librealsense
+# Install librealsense
 
-See https://github.com/IntelRealSense/librealsense
+See [https://github.com/IntelRealSense/librealsense]
 Here is a summary of how to install:
   sudo apt-get install libusb-1.0-0-dev pkg-config libglfw3-dev cmake
   mkdir -p ~/Drivers
@@ -148,10 +147,10 @@ Plug in the camera, and check that it is recognized with
 Finally, run a test such as 
   cpp-capture
 
-Install ROS Kinetic
+# Install ROS Kinetic
 
 Follow the instructions at
-  http://wiki.ros.org/kinetic/Installation/Ubuntu
+  [http://wiki.ros.org/kinetic/Installation/Ubuntu]
 including sourcing the ROS setup script in your .bashrc:
   sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
   sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
@@ -163,9 +162,9 @@ including sourcing the ROS setup script in your .bashrc:
   source ~/.bashrc
   sudo apt-get install python-rosinstall
 
-Set up a Catkin Workspace 
+# Set up a Catkin Workspace 
 
-Follow http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment, summary follows:
+Follow [http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment], summary follows:
   mkdir -p ~/catkin_ws/src
   cd ~/catkin_ws/src
   catkin_init_workspace
@@ -175,18 +174,18 @@ Add it to your .bashrc
   echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   source ~/.bashrc
 
-Install Extra ROS Dependencies
+# Install Extra ROS Dependencies
 
 The SAWR package uses a few other ROS packages:
   sudo apt-get install ros-kinetic-dynamixel-sdk
 
-Install SAWR Package
+# Install SAWR Package
 
-TODO: Update with release github path and/or package name!!
+TODO, FIX: Update with release github path and/or package name!!
   cd ~/catkin_ws/src
   git clone https://github.com/otcshare/ros-fetchbot.git
 
-Compile
+# Compile
 
   cd ~/catkin_ws
   catkin_make
