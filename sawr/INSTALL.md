@@ -23,6 +23,7 @@ might have to install drivers for your WiFi dongle in a later step.
 After you have installed Ubuntu, 
 install (if you also want access to board features like GPIOs, I2C, etc) 
 the special kernel for the UP board, using basically the following:
+
     sudo add-apt-repository ppa:ubilinux/up
     sudo apt update
     sudo apt install linux-upboard
@@ -30,11 +31,13 @@ the special kernel for the UP board, using basically the following:
 As of this writing the instructions for modifying GRUB to boot the UP kernel by default are missing a few things.
 You need to ensure the following three lines are in ``/etc/default/grub`` (using ``sudoedit``) 
 to get it bring up the GRUB menu on boot and to "save" the last kernel booted:
+
     GRUB_DEFAULT=saved
     GRUB_SAVEDEFAULT=true
     # GRUB_HIDDEN_TIMEOUT=0
 
 After making these changes to ``/etc/default/grub``, run
+
     sudo update-grub
 
 After selecting the upboard kernel manually 
@@ -73,6 +76,7 @@ To open additional terminals you need to right click.
 # Install Basic Development Tools
 
 Enter the following to install git and basic development tools:
+
     sudo apt-get install git build-essential
 
 # Install WiFi Drivers
@@ -122,6 +126,7 @@ Here is a summary of how to install:
 
 See [https://github.com/IntelRealSense/librealsense]
 Here is a summary of how to install:
+
     sudo apt-get install libusb-1.0-0-dev pkg-config libglfw3-dev cmake
     mkdir -p ~/Drivers
     cd ~/Drivers
@@ -135,19 +140,26 @@ of 60 in the fifth element of each initializer to 30.
 Save.
 This changes the default frame rate to 30Hz which is necessary for 
 the stability of the sample programs on the Joule.
+
     mkdir build
     cd build
     cmake ../ -DBUILD_EXAMPLES=true
     make
     sudo make install
+
 Make sure the camera is not plugged in, then run
+
     cd ..
     sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
     sudo udevadm control --reload-rules && udevadm trigger
+
 Note that you do NOT need to run the kernel patch script.
 Plug in the camera, and check that it is recognized with
+
     sudo dmesg | tail -n 50
+
 Finally, run a test such as 
+
     cpp-capture
 
 # Install ROS Kinetic
@@ -177,21 +189,26 @@ Follow [http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
     catkin_make
 
 Add this workspace to your ``.bashrc`` as well:
+
     echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
     source ~/.bashrc
 
 # Install Extra ROS Dependencies
 
 The SAWR package uses a few other ROS packages:
+
     sudo apt-get install ros-kinetic-dynamixel-sdk
 
 # Install SAWR Package
 
-TODO, FIX: Update with release github path and/or package name!!
+**TODO, FIX: Update with release github path and/or package name!!**
+
     cd ~/catkin_ws/src
     git clone https://github.com/otcshare/ros-fetchbot.git
 
 # Compile
+
+Prepare code in the SAWR package for execution:
 
     cd ~/catkin_ws
     catkin_make
