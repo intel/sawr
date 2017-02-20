@@ -197,7 +197,12 @@ Add this workspace to your ``.bashrc`` as well:
 
 The SAWR package uses a few other ROS packages:
 
-    sudo apt-get install ros-kinetic-dynamixel-sdk
+    sudo apt-get install ros-kinetic-dynamixel-sdk \
+                         ros-kinetic-realsense-camera \
+                         ros-kinetic-depthimage-to-laserscan \
+                         ros-kinetic-gmapping \
+                         ros-kinetic-navigation \
+                         ros-kinetic-rosbridge-server
 
 # Install SAWR Package
 
