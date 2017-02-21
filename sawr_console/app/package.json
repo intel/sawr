@@ -1,13 +1,10 @@
 {
-  "name": "wot_server",
+  "name": "sawr_server",
   "version": "1.0.0",
-  "description": "Server for WoT bridge",
+  "description": "Server for SAWR robot",
   "main": "server.js",
-  "scripts": {
-    "test": "test.js"
-  },
   "author": "Michael McCool",
-  "license": "UNLICENSED",
+  "license": "BSD",
   "dependencies": {
     "express": "^4.14.1",
     "roslib": "^0.18.0"
