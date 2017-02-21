@@ -1,7 +1,29 @@
-<!-- Start websocket rosbridge server -->
+<!-- Start rosbridge server suite -->
 <launch>
-  <arg name="port" default="9090" />
-  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
-     <arg name="port" value="$(arg port)"/>
+  <arg name="output" default="screen"/>
+  <arg name="ws_port" default="9090" />
+  <arg name="wv_port" default="8888" />
+
+  <!-- Start websocket server -->
+  <include file="$(find sawr_console)/launch/rosbridge_websocket.launch" > 
+     <arg name="port" value="$(arg ws_port)"/>
+     <arg name="output" value="$(arg output)"/>
   </include>
+
+  <!-- Start tf republisher -->
+  <node pkg="tf2_web_republisher"
+        type="tf2_web_republisher"
+        output="$(arg output)"
+        name="tf2_web_republisher"
+  />
+
+  <!-- start web video server -->
+  <node pkg="web_video_server"
+        type="web_video_server"
+        output="$(arg output)"
+        name="web_video_server"
+  >
+    <param name="port" value="$(arg wv_port)"/>
+  </node>
+
 </launch>

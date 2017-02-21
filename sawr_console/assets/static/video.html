@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script type="text/javascript" src="http://cdn.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.min.js"></script>
+<script type="text/javascript" type="text/javascript">
+   function init() {
+     var viewer = new MJPEGCANVAS.Viewer({
+        divID : 'mjpeg',
+        host : window.location.hostname,
+        port: '8888',
+        width : 640,
+        height : 480,
+        topic : '/camera/color/image_raw',
+        quality: 50  // performance is more important than image quality
+     });
+   }
+  </script>
+</head>
+
+<body onload="init()">
+  <h1>Simple Autonomous Wheeled Robot</h1>
+  <hr/>
+  <h2>Video</h2>
+  <p>Real time MJPEG stream.
+  </p>
+  <div id="mjpeg"></div>
+</body>
+</html>

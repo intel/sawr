@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script type="text/javascript" src="http://localhost:8080/scripts/roslib.min.js"></script>
+
+<script>
+  // Connecting to ROS
+  // -----------------
+
+  // Create ROS object, but don't connect it yet
+  var ros = new ROSLIB.Ros();
+
+  // Create some callbacks to catch status
+
+  // If there is an error on the backend, an 'error' emit will be emitted.
+  ros.on('error', function(error) {
+    document.getElementById('connecting').style.display = 'none';
+    document.getElementById('connected').style.display = 'none';
+    document.getElementById('closed').style.display = 'none';
+    document.getElementById('error').style.display = 'inline';
+    console.log('Error connecting to websocket server:',error);
+  });
+
+  // Find out exactly when we made a connection.
+  ros.on('connection', function() {
+    console.log('Connection made!');
+    document.getElementById('connecting').style.display = 'none';
+    document.getElementById('error').style.display = 'none';
+    document.getElementById('closed').style.display = 'none';
+    document.getElementById('connected').style.display = 'inline';
+  });
+
+  // Update status when connection closes
+  ros.on('close', function() {
+    console.log('Connection closed.');
+    document.getElementById('connecting').style.display = 'none';
+    document.getElementById('connected').style.display = 'none';
+    document.getElementById('closed').style.display = 'inline';
+  });
+
+  // Create a connection to the rosbridge WebSocket server.
+  ros.connect('ws://localhost:9090');
+
+  // Publishing a Topic
+  // ------------------
+
+  // First, we create a Topic object with details of the topic's name and message type.
+  var cmdVel = new ROSLIB.Topic({
+    ros : ros,
+    name : '/cmd_vel',
+    messageType : 'geometry_msgs/Twist'
+  });
+
+  // Various moves
+  function move_forward_action() {
+    var twist = new ROSLIB.Message({
+      linear : {
+        x : 0.2,
+        y : 0.0,
+        z : 0.0  
+      },
+      angular : {
+        x : 0.0,
+        y : 0.0,
+        z : 0.0
+      }
+    });
+    cmdVel.publish(twist);
+  }
+  function turn_right_action() {
+    var twist = new ROSLIB.Message({
+      linear : {
+        x : 0.0,
+        y : 0.0,
+        z : 0.0  
+      },
+      angular : {
+        x : 0.0,
+        y : 0.0,
+        z : -0.2
+      }
+    });
+    cmdVel.publish(twist);
+  }
+  function turn_left_action() {
+    var twist = new ROSLIB.Message({
+      linear : {
+        x : 0.0,
+        y : 0.0,
+        z : 0.0  
+      },
+      angular : {
+        x : 0.0,
+        y : 0.0,
+        z : 0.2
+      }
+    });
+    cmdVel.publish(twist);
+  }
+
+  // Subscribe to pose topic
+  var listener = new ROSLIB.Topic({
+    ros : ros,
+    name : '/amcl_pose',
+    messageType : 'geometry_msgs/PoseWithCovarianceStamped'
+  });
+
+  // Listen for changes in the pose
+  function listen_pose() {
+    listener.subscribe(function(message) {
+      console.log('Received message on ' + listener.name + ': ' + message.data);
+      // Unsubscribe to avoid getting repeated messages 
+      listener.unsubscribe();
+    });
+  }
+  listen_pose();
+
+  // Calling a service
+  // -----------------
+
+  // First, we create a Service client with details of the service's name and service type.
+  var addTwoIntsClient = new ROSLIB.Service({
+    ros : ros,
+    name : '/add_two_ints',
+    serviceType : 'rospy_tutorials/AddTwoInts'
+  });
+
+  // Then we create a Service Request. The object we pass in to ROSLIB.ServiceRequest matches the
+  // fields defined in the rospy_tutorials AddTwoInts.srv file.
+  var request = new ROSLIB.ServiceRequest({
+    a : 1,
+    b : 2
+  });
+
+  // Finally, we call the /add_two_ints service and get back the results in the callback. The result
+  // is a ROSLIB.ServiceResponse object.
+  addTwoIntsClient.callService(request, function(result) {
+    console.log('Result for service call on ' + addTwoIntsClient.name + ': ' + result.sum);
+  });
+
+  // Setting a param value
+  // ---------------------
+
+  ros.getParams(function(params) {
+    console.log(params);
+  });
+
+  // First, we create Param objects with the name of the params
+  var param_background_r = new ROSLIB.Param({
+    ros : ros,
+    name : 'background_r'
+  });
+  var param_background_g = new ROSLIB.Param({
+    ros : ros,
+    name : 'background_g'
+  });
+  var param_background_b = new ROSLIB.Param({
+    ros : ros,
+    name : 'background_b'
+  });
+
+  // In the case of the background color we also need to clear the background
+  var service_clear_background = new ROSLIB.Service({
+    ros : ros,
+    name : '/clear',
+    serviceType : 'std_srvs/Empty'
+  });
+
+  // Then we set the value of the param, 
+  // which is sent to the ROS Parameter Server.
+  function random_background_color() {
+    param_background_r.set(Math.floor(255*Math.random()));
+    param_background_r.get(function(value) {
+      console.log('background_r: ' + value);
+    });
+    param_background_g.set(Math.floor(255*Math.random()));
+    param_background_g.get(function(value) {
+      console.log('background_g: ' + value);
+    });
+    param_background_b.set(Math.floor(255*Math.random()));
+    param_background_b.get(function(value) {
+      console.log('background_b: ' + value);
+    });
+    service_clear_background.callService();
+  }
+
+  // Setting and Getting a new param value
+  // -------------------------------------
+
+  var favoriteColor = new ROSLIB.Param({
+    ros : ros,
+    name : 'favorite_color'
+  });
+
+  favoriteColor.set('red');
+  favoriteColor.get(function(value) {
+    console.log('My robot\'s favorite color is ' + value);
+  });
+</script>
+</head>
+
+<body>
+  <h1>Simple roslib Example</h1>
+  <p>Run the following commands in the terminal then refresh this page. 
+     Check the JavaScript console for the output.
+     Also look in the parameter server for a new "favorite_color"
+     parameter.
+  </p>
+  <ol>
+    <li><tt>roscd wot_test</tt></li>
+    <li><tt>./start.sh</tt></li>
+  </ol>
+  <p>You can also trigger the following actions...</p>
+  <ol>
+    <li><button onclick="move_action()">Move forward</button></li>
+    <li><button onclick="move_left_action()">Move forward and turn left</button></li>
+    <li><button onclick="move_right_action()">Move forward and turn right</button></li>
+    <li><button onclick="random_background_color()">Clear to random background color</button></li>
+    <li><button onclick="listen_pose()">Get current pose (see console)</button></li>
+    <li><a href="params">Parameters</a></li>
+    <li><a href="longpoll">Long poll</a></li>
+  </ol>
+  <div id="statusIndicator">
+    <p id="connecting">
+      Connecting to rosbridge...
+    </p>
+    <p id="connected" style="color:#00D600; display:none">
+      Connected
+    </p>
+    <p id="error" style="color:#FF0000; display:none">
+      Error in the backend!
+    </p>
+    <p id="closed" style="display:none">
+      Connection closed.
+    </p>
+  </div>
+</body>
+</html>

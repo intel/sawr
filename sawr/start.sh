@@ -18,4 +18,4 @@ echo "Phase 3: Navigation planning and execution"
 ./scripts/xinit.sh 3
 sleep 25
 echo "Phase 4: Web console and APIs"
-./scripts/xinit.sh 4
+#./scripts/xinit.sh 4

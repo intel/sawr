@@ -259,7 +259,17 @@ These can be installed with ``apt-get`` as follows:
                          ros-kinetic-gmapping \
                          ros-kinetic-navigation \
                          ros-kinetic-rosbridge-server \
-                         ros-kinetic-teleop-twist-keyboard
+                         ros-kinetic-web-video-server \
+                         ros-kinetic-teleop-twist-keyboard 
+
+The SAWR web console also depends on the ``tf2_web_republisher`` package
+but as of this writing it is not available on the ROS Kinetic repository.
+For such dependencies you can install them from github as follows:
+
+    cd ~/catkin_ws/src
+    git clone https://github.com/RobotWebTools/tf2_web_republisher.git
+    cd ..
+    catkin_make
 
 # Install Node.js and Dependencies
 
