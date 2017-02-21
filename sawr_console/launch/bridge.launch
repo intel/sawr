@@ -1,6 +1,6 @@
+<!-- Start websocket rosbridge server-->
 <launch>
   <arg name="ws_port" default="9090" />
-  <!-- start websocket rosbridge server on given port -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
      <arg name="port" value="$(arg ws_port)"/>
   </include>

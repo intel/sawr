@@ -53,3 +53,7 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+# Node.js/npm
+node_modules
+

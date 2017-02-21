@@ -1,0 +1,15 @@
+{
+  "name": "wot_server",
+  "version": "1.0.0",
+  "description": "Server for WoT bridge",
+  "main": "server.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Michael McCool",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.14.1",
+    "roslib": "^0.18.0"
+  }
+}
