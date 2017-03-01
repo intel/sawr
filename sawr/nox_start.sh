@@ -16,6 +16,3 @@ echo "Phase 2: Simultaneous localization and mapping (SLAM)"
 sleep 25
 echo "Phase 3: Navigation planning and execution"
 ./scripts/init.sh 3 
-sleep 25
-echo "Phase 4: Web console and APIs"
-./scripts/init.sh 4 

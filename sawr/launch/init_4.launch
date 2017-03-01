@@ -1,7 +1,0 @@
-<!-- Initialize SAWR: Phase 4 -->
-<launch>
-  <!-- Start rosbridge -->
-  <include file="$(find sawr_console)/launch/bridge.launch"/>
-  <!-- Start web server -->
-  <include file="$(find sawr_console)/launch/server.launch"/>
-</launch>
