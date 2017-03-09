@@ -4,7 +4,7 @@
   <version>0.0.0</version>
   <description>Convert RealSense data into LaserScan data</description>
   <maintainer email="michael.mccool@intel.com">intel</maintainer>
-  <license>BSD</license>
+  <license>BSD-3</license>
   <url type="website">http://intel.com</url>
   <author email="michael.mccool@intel.com">Michael McCool</author>
   <buildtool_depend>catkin</buildtool_depend>
