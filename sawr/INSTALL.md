@@ -279,13 +279,8 @@ automatically.
 
 # Install SAWR Package
 
-**TODO: CHANGE PATHS TO RELEASED GITHUB SITE!**
 The SAWR software itself can be installed from
-the [SAWR github repository](https://github.com/otcshare/ros-fetchbot.git)
-as follows:
-
-    cd ~/catkin_ws/src
-    git clone https://github.com/otcshare/ros-fetchbot.git
+the SAWR github repository.
 
 # Install Extra ROS Dependencies
 
@@ -297,48 +292,7 @@ These can be installed with ``apt-get`` as follows:
                          ros-kinetic-depthimage-to-laserscan \
                          ros-kinetic-gmapping \
                          ros-kinetic-navigation \
-                         ros-kinetic-rosbridge-server \
-                         ros-kinetic-web-video-server \
                          ros-kinetic-teleop-twist-keyboard 
-
-The SAWR web console also depends on the ``tf2_web_republisher`` package
-but as of this writing it is not available on the ROS Kinetic repository.
-For such dependencies you can install them from github as follows:
-
-    cd ~/catkin_ws/src
-    git clone https://github.com/RobotWebTools/tf2_web_republisher.git
-    cd ..
-    catkin_make
-
-# Install Node.js and Dependencies
-
-Install [Node.js](https://nodejs.org), a server-side Javascript environment
-we use to create a web console for the SAWR.
-We also want to install ``npm``, which is used to download external modules
-used by our web server implementation.
-
-    sudo apt-get install nodejs npm
-
-Many scripts that use Node.js expect to find it under the name ``node``.
-Unfortunately, that name was already in use in Ubuntu by another 
-(rarely-used) package, and the correct way to invoke it is now ``nodejs``.
-To avoid a number of errors from software that has not yet been
-updated, create a symbolic link as follows:
-
-    sudo ln -s /usr/bin/nodejs /opt/ros/kinetic/bin/node
-
-We suggest putting the link 
-in ``/opt/ros/kinetic/bin`` rather than ``/usr/bin`` to avoid
-clashes if you actually do install the ``node`` package via ``apt-get``.
-
-Go to the ``sawr_console/app`` directory and install the Node.js modules used
-by the web console:
-
-    roscd sawr_console/app
-    npm install 
-
-**TODO: One day this should be updated so the NPM install step
-is handled by catkin_make.**
 
 # Compile SAWR Package
 
