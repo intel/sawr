@@ -44,10 +44,10 @@ dihedral = 10; // angle between wheels, 0 is vertical
 base_radius = 200/2; // radius of basic platform
 
 // other boolean selections
-use_r200_camera = false; // use an r200 camera
-use_zr300_camera = true; // use a zr300 camera
+use_r200_camera = true; // use an r200 camera
+use_zr300_camera = false; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
-use_up = false; // use UP Board
+use_up = true; // use UP Board
 use_up_squared = false;  // use UP squared
 use_tc = true; // use standard Joule carrier (TuChuck)
 use_gum = false; // use Gumstix board
