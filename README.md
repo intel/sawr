@@ -11,46 +11,51 @@ to enable you to build and run your own SAWR.
 For compute and sensing, you can
 use either the Intel&reg; RealSense&trade; Robotic Development Kit
 (which includes an UP Board and an Intel&reg; RealSense&trade; R200 3D camera)
-or an Intel&reg; Joule&trade; compute module and
-an Intel&reg; RealSense&trade; R200 3D camera.
+or an Intel&reg; Joule&trade; compute module combined with
+an Intel&reg; RealSense&trade; R200 3D camera. 
+Note: The frame is designed to support a RealSense&trade; ZR300 3D camera as well
+but the SW has not yet been updated; stay tuned.
 
 The hardware specification,
-located in [sawr_description/hardware],
+located in ``sawr_description/hardware``,
 is intended to be sufficient to allow you to
 build your own SAWR if you have access to a laser cutter.
 The hardware specification is in the form of some OpenSCAD files,
 a bill of materials,
-and basic build instructions
-(all in [sawr_description/hardware]).
+and basic build instructions.
 Laser-cutting files (given as PDF) 
 are derived from the OpenSCAD master but are
 included for convenience as well.
+Note that there are versions for both acrylic and acetal.
+If you can find it, acetal (aka POM) is much tougher and highly recommended, and because it is
+more flexible, allows for some additional features, like a compliant suspension.
 The SW stack enables basic autonomous navigation and currently supports
 building a 2D map with gmapper and then planning and executing a motion path
 using move-base.
 
 The software stack consists of ROS configuration files
-and some simple ROS nodes for
-motor control.
+and some simple ROS nodes for motor control.
 For the most part, we have kept the stack as simple as possible.
-Installation and launch instructions for the SW stack are
-in the [sawr] package,
-in [sawr/INSTALL.md] and [sawr/LAUNCH.md], respectively.
+Additional instructions for the SW stack are
+located in the ``sawr`` package:
+* [sawr/INSTALL.md](sawr/INSTALL.md) - How to install the SW.
+* [sawr/LAUNCH.md](sawr/LAUNCH.md) - How to run the SW after installation.
 
 # Packages
 Here is a list of packages included in this project and
 a summary of what each one contains.
 Please refer to the README.md files in each package for more information:
-* [sawr/README.md] - Master package, installation instructions, and launch scripts.
-* [sawr_description/README.md] - Hardware specification and build instructions, URDF files.
-* [sawr_base/README.md] - Motor controller and hardware interfacing.
-* [sawr_scan/README.md] - Camera configuration.
-* [sawr_mapping/README.md] - SLAM configuration.
-* [sawr_navigation/README.md] - Move-base configuration.
+* [sawr](sawr/README.md) - Master package, installation instructions, and launch scripts.
+* [sawr_description](sawr_description/README.md) - Hardware specification and build instructions, URDF files.
+* [sawr_base](sawr_base/README.md) - Motor controller and hardware interfacing.
+* [sawr_scan](sawr_scan/README.md) - Camera configuration.
+* [sawr_mapping](sawr_mapping/README.md) - SLAM configuration.
+* [sawr_navigation](sawr_navigation/README.md) - Move-base configuration.
+* [sawr_console](sawr_console/README.md) - Web API and console.
 
 # Additional Material
 Please look for the SAWR project under
-[http://01.org/](https://01.org/search/node/SAWR)
+[01.org](https://01.org/search/node/SAWR)
 for links to additional material.
 For example, the basic build instructions included in this repo,
 while intended to make the repo self-contained,
@@ -61,21 +66,21 @@ with a SAWR project under 01.org acting as a hub pointing to
 the available resources.
 
 In particular, 
-we hope to make kits available for purchase and link to them from 01.org.
+we hope to make kits available for purchase and link to them from [01.org](http://01.org/).
 If you want to make and sell a kit, no problem!
-The licenses used permit this (see LICENSE.txt for details).
-Please do let us know if you are producing a kit so we can link to you from
+The licenses used permit this (see [sawr/LICENSE.txt](sawr/LICENSE.txt) for details).
+However, please do let us know if you are producing a kit so we can link to you from
 the above site.
 
 # Contributing to the SAWR Project
-Third-party patches and contributions are welcome. We do require
-you read and agree to the Contribution License Agreement below.
+Third-party patches and contributions are welcome.
+We do require you to read and agree to the Contribution License Agreement below.
 
 ## Contribution License Agreement
 The software for the Simple Autonomous Wheeled Robot (SAWR) project is developed
-and distributed under
-a 3-clause BSD license, and the hardware design is distributed under a 
-CC-BY-4.0 license.  Details are given in [sawr/LICENSE.txt].
+and distributed under a 3-clause BSD license,
+and the hardware design is distributed under a CC-BY-4.0 license.
+Details are given in [sawr/LICENSE.txt].
 
 By making a contribution to this project, I certify that:
 
