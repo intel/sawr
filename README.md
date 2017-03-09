@@ -68,7 +68,9 @@ the available resources.
 In particular, 
 we hope to make kits available for purchase and link to them from [01.org](http://01.org/).
 If you want to make and sell a kit, no problem!
-The licenses used permit this (see [sawr/LICENSE.txt](sawr/LICENSE.txt) for details).
+The licenses used permit commercial use and derivatives;
+see [LICENSES.md](LICENSES.md) for details of the licenses, 
+and the package.xml files in each directory for information on which licenses apply to each component.
 However, please do let us know if you are producing a kit so we can link to you from
 the above site.
 
@@ -78,9 +80,9 @@ We do require you to read and agree to the Contribution License Agreement below.
 
 ## Contribution License Agreement
 The software for the Simple Autonomous Wheeled Robot (SAWR) project is developed
-and distributed under a 3-clause BSD license,
+and distributed under a BSD-3 license,
 and the hardware design is distributed under a CC-BY-4.0 license.
-Details are given in [sawr/LICENSE.txt].
+Details are given in [LICENSES.md](LICENSES.md).
 
 By making a contribution to this project, I certify that:
 
