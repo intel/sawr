@@ -23,7 +23,8 @@ This package serves a few purposes:
      will turn on the performance governor for all cores, which is useful
      on an Intel Joule when using active cooling.
      There are various other scripts in this director useful for testing.
-     After launching your basic software stack, try
+     For example, after launching your basic software stack, try
 
-         sudo ./scripts/viz.sh
+         ./scripts/viz.sh &
+         ./scripts/teleop.sh
 
