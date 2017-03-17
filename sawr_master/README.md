@@ -17,10 +17,13 @@ This package serves a few purposes:
      next.  You can also use the ``start.sh`` script.   
      See [LAUNCH.md](LAUNCH.md) for details.
   3. Includes various helper scripts.  For example,
-         sudo ./scripts/setperf.sh
+
+          sudo ./scripts/setperf.sh
+
      will turn on the performance governor for all cores, which is useful
      on an Intel Joule when using active cooling.
      There are various other scripts in this director useful for testing.
      After launching your basic software stack, try
-        sudo ./scripts/viz.sh
+
+         sudo ./scripts/viz.sh
 
