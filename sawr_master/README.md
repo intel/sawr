@@ -10,13 +10,17 @@ This package serves two purposes:
      See [INSTALL.md](INSTALL.md) for details.
   2. Includes launch files for startup.
      These are organized in "phases" to resolve ordering dependencies.   
-     Launch ``init_1.luanch``, then ``init_2.launch``, etc.
+     Launch ``init_1.launch``, then ``init_2.launch``, etc.
      It is useful to launch each of these
      in a separate window.  
      Wait for each to stabilize before starting the 
      next.  You can also use the ``start.sh`` script.   
      See [LAUNCH.md](LAUNCH.md) for details.
-
-
-
+  3. Includes various helper scripts.  For example,
+         sudo ./scripts/setperf.sh
+     will turn on the performance governor for all cores, which is useful
+     on an Intel Joule when using active cooling.
+     There are various other scripts in this director useful for testing.
+     After launching your basic software stack, try
+        sudo ./scripts/viz.sh
 
