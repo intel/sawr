@@ -342,6 +342,8 @@ Once this is setup, you will be able to remotely and securely log into your robo
 to start the SW stack and use keyboard teleop.
 If you use ``ssh -X`` you will even be able to open windows.
 Unfortunately remote graphics such as in ``rviz`` tends not to work (there is support in OpenGL for remote graphics, but...).
+
+## Secure Tunnelled VNC
 You can also 
 [set up a VNC and tunnel it over ssh](https://www.linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04).
 If set up properly this can be reasonably secure and will allow graphical applications,
