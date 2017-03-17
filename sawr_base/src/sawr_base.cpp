@@ -5,11 +5,11 @@
  * Motion platform controller using two Dynamixel MX-12W servos in "wheel" mode 
  * and a differential drive.
  *
- * Depends on the Dynamixel SDK for Linux which should be installed in /usr/local.
+ * Depends on the Dynamixel SDK for Linux and ROS.
  *
  * Author: Michael McCool, michael.mccool@intel.com
- * Copyright 2016, Intel Corporation
- * License: see ../sawr/LICENSE.md
+ * Copyright 2016 Intel Corporation
+ * License: BSD-3, see LICENSE.md
  */
 #include <math.h>
 #include "ros/ros.h"
