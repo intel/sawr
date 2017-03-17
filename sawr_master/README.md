@@ -1,6 +1,6 @@
 # Simple Autonomous Wheeled Robot (SAWR) Master Package
 
-This package serves two purposes:
+This package serves a few purposes:
   1. To act as a metapackage in that is has 
      dependencies on all other packages needed for the SAWR project.
      In theory, you only have to install this package to get all dependencies.
