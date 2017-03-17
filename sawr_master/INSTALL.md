@@ -279,8 +279,12 @@ automatically.
 
 # Install SAWR Package
 
-The SAWR software itself can be installed from
-the SAWR github repository.
+If you have not done it already,
+the SAWR software itself can be copied from
+the [SAWR github repository](https://github.org/01org/sawr) as follows:
+
+    cd ~/catkin_ws/src
+    git clone https://github.org/01org/sawr 
 
 # Install Extra ROS Dependencies
 
@@ -291,6 +295,7 @@ These can be installed with ``apt-get`` as follows:
                          ros-kinetic-realsense-camera \
                          ros-kinetic-depthimage-to-laserscan \
                          ros-kinetic-gmapping \
+                         ros-kinetic-move-base \
                          ros-kinetic-navigation \
                          ros-kinetic-teleop-twist-keyboard 
 

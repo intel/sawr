@@ -11,7 +11,7 @@ sleep 25
 echo "Phase 1: Intel RealSense camera and laser scan emulation"
 ./scripts/xinit.sh 1
 # Use the following instead if you have a ZR300
-./scripts/xinit_alt.sh 1
+#./scripts/xinit_alt.sh 1
 sleep 25
 echo "Phase 2: Simultaneous localization and mapping (SLAM)"
 ./scripts/xinit.sh 2

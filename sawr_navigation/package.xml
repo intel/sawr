@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package>
   <name>sawr_navigation</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>Configure Simple Autonomous Wheeled Robot (SAWR) for Navigation</description>
   <maintainer email="michael.mccool@intel.com">Michael McCool</maintainer>
   <license>BSD-3</license>
-  <url type="website">http://intel.com/</url> -->
-  <author email="michael.mccool@intel.com">Michael McCool</author> -->
+  <url type="website">https://01.org/sawr</url>
+  <author email="michael.mccool@intel.com">Michael McCool</author>
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>sawr_description</run_depend>
   <run_depend>sawr_mapping</run_depend>

@@ -38,14 +38,14 @@ and some simple ROS nodes for motor control.
 For the most part, we have kept the stack as simple as possible.
 Additional instructions for the SW stack are
 located in the ``sawr`` package:
-* [sawr/INSTALL.md](sawr/INSTALL.md) - How to install the SW.
-* [sawr/LAUNCH.md](sawr/LAUNCH.md) - How to run the SW after installation.
+* [sawr_master/INSTALL.md](sawr_master/INSTALL.md) - How to install the SW.
+* [sawr_master/LAUNCH.md](sawr_master/LAUNCH.md) - How to run the SW after installation.
 
 # Packages
 Here is a list of packages included in this project and
 a summary of what each one contains.
 Please refer to the README.md files in each package for more information:
-* [sawr](sawr/README.md) - Master package, installation instructions, and launch scripts.
+* [sawr_master](sawr_master/README.md) - Master package, installation instructions, and launch scripts.
 * [sawr_description](sawr_description/README.md) - Hardware specification and build instructions, URDF files.
 * [sawr_base](sawr_base/README.md) - Motor controller and hardware interfacing.
 * [sawr_scan](sawr_scan/README.md) - Camera configuration.
@@ -55,7 +55,7 @@ Please refer to the README.md files in each package for more information:
 
 # Additional Material
 Please look for the SAWR project under
-[01.org](https://01.org/search/node/SAWR)
+[01.org](https://01.org/sawr)
 for links to additional material.
 For example, the basic build instructions included in this repo,
 while intended to make the repo self-contained,
@@ -66,7 +66,8 @@ with a SAWR project under 01.org acting as a hub pointing to
 the available resources.
 
 In particular, 
-we hope to make kits available for purchase and link to them from [01.org](http://01.org/).
+we hope to make kits available for purchase and link to them from 
+the [01.org SAWR project page](https://01.org/sawr).
 If you want to make and sell a kit, no problem!
 The licenses used permit commercial use and derivatives;
 see [LICENSES.md](LICENSES.md) for details of the licenses, 
