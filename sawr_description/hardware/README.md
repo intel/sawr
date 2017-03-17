@@ -2,8 +2,8 @@
 
 Here is all the information you need to build your own SAWR!
   1. Bills of materials are located under [Assembly](Assembly).
-  Visit [https://01.org/sawr](the SAWR project page at 01.org) to see if kits are available.
-  Alternatively you can just source all the parts yourself.
+  Visit the [SAWR project page at 01.org](https://01.org/sawr) to see if kits are available.
+  Alternatively you can just source all the parts yourself
   2. If you want to cut your own frame, laser-cut files are located in CUT.
   Use the version appropriate to your material.
   Acetal is highly recommended if you can source it.
