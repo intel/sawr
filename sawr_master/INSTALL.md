@@ -58,7 +58,7 @@ sequence:
 As of this writing the instructions for modifying GRUB to boot
 the UP kernel by default are missing a few things.
 In particular,
-to get it bring up the GRUB menu on boot and to "save" the last kernel booted,
+to get the system to bring up the GRUB menu on boot and to "save" the last kernel booted,
 you need to ensure the following two lines are
 in ``/etc/default/grub`` (using ``sudoedit``):
 
@@ -75,7 +75,7 @@ After making these changes to ``/etc/default/grub``, run
 
 After selecting the ``*-upboard`` kernel manually
 at least once during boot using the "Advanced" options,
-reboot /without/ selecting a kernel manually and
+reboot _without_ selecting a kernel manually and
 confirm that what ``uname -r`` produces still
 has ``upboard`` in the name.
 
@@ -97,6 +97,13 @@ need a Windows computer.
 This version of Ubuntu also provides access to GPIOs, etc.
 The Realsense drivers are also already included,
 so we can skip the uvc patch later.
+
+Currently only standard desktop Ubuntu (running Unity) is supported, not Xubuntu or Lubuntu.
+However, if you really want XFCE or another lightweight window manager, 
+it is possible to install it and have it run by default (or even no window manager, 
+which may make even more sense...).  
+However, it is recommended to first complete a working
+install before trying these options.
 
 # Open a Terminal Window
 
@@ -133,7 +140,7 @@ Note that (wired) network access is necessary...
     sudo make install
     sudo cp RT2870STA.dat /etc/Wireless/RT2870STA/RT2870STA.dat
 
-Then reboot.
+Then unplug your wired network and reboot.
 WiFi should come up automatically.
 Log into your access point and test.
 
@@ -178,7 +185,7 @@ You can use the
 from Windows although there is
 now some support for doing this from ROS as well.
 The default ID and communication rate settings can also be
-reconfigured in [sawr_base/src/sawr_base.cpp](sawr_base/src/sawr_base.cpp) if you
+reconfigured in [``sawr_base.cpp''](../sawr_base/src/sawr_base.cpp) if you
 have to change them.
 
 # Install librealsense
@@ -289,7 +296,7 @@ the [SAWR github repository](https://github.org/01org/sawr) as follows:
 # Install Extra ROS Dependencies
 
 The SAWR package depends on a few other ROS packages.
-These can be installed with ``apt-get`` as follows:
+If necessary these can be installed with ``apt-get`` as follows:
 
     sudo apt-get install ros-kinetic-dynamixel-sdk \
                          ros-kinetic-realsense-camera \
@@ -307,18 +314,25 @@ Prepare code in the SAWR package for execution:
     catkin_make
 
 # Remote Access and Security
+No system is ever perfectly secure, and there are tradeoffs between functionality 
+and security.
+Ubuntu is [fairly secure by default](https://insights.ubuntu.com/2016/12/08/ubuntu-16-04-lts-security-a-comprehensive-overview/)
+but there are various ways to [improve it](https://www.thefanclub.co.za/how-to/how-secure-ubuntu-1604-lts-server-part-1-basics).
+However, if you want to support remote access to your robot to teleoperate it or
+to remotely visualize ROS data you will have to do some work.
+The following are suggestions, not a complete solution for secure access.
 
+## SSH
 By default an ssh server is not installed on Ubuntu and there is also no firewall.
 You can install an ssh server and client using
 
     sudo apt-get install openssh-server openssh-client
     
 and following the 
-[instructions here]() to configure it.
+[instructions here](https://www.thefanclub.co.za/how-to/how-secure-ubuntu-1604-lts-server-part-1-basics) to configure it.
 Note that for enhanced security, after installation you should set up
 a public key, copy it to the computer you intend to access the robot with,
 then disable remote logins via password.
-See the references at the bottom of the above page.
 
 You should also 
 [set up a firewall:](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04).
@@ -326,16 +340,17 @@ If you want remote ssh, then you need to explictly allow it.
 Once this is setup, you will be able to remotely and securely log into your robot
 to start the SW stack and use keyboard teleop.
 If you use ``ssh -X`` you will even be able to open windows.
-Unfortunately remote graphics such as in ``rviz`` tends not to work.
+Unfortunately remote graphics such as in ``rviz`` tends not to work (there is support in OpenGL for remote graphics, but...).
 You can also 
 [set up a VNC and tunnel it over ssh](https://www.linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04).
-If set up properly this can be reasonably secure and will allow graphical applications.
+If set up properly this can be reasonably secure and will allow graphical applications,
+although it will not be especially performant.
 
 Note that if the firewall is running then 
 [remote network access to ROS](http://wiki.ros.org/ROS/NetworkSetup)
 will not be possible.
 You can temporarily disable the firewall in this case using ``sudo ufw disable``,
-and of course reenable it with ``sudo ufw enable``, but while the firewall is 
+and of course reenable it with ``sudo ufw enable``.  Unfortunately, while the firewall is 
 disabled your robot will be vulnerable and should not be on a public network.
 ROS is simply not defined with security in mind and should not be opened to an outside network.
 Unfortunately ssh tunneling will not work for remote ROS access as ROS uses
@@ -350,10 +365,11 @@ you probably will have to do this in software using something like
 [OpenVPN](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04).
 This is complex to set up but can give you secure remote access.
 
-We are currently investigating rosbridge and how to secure a remote web console but note that
+We are currently investigating rosbridge 
+and how to secure a remote web console with Robot Web Tools but note that
 the standard configuration of rosbridge opens a port that allows
-anyone to access it using an insecure websocket.
-For the time being, if you use this, it recommended to do so only on a secure and isolated network.
+anyone to access it using an insecure websocket, so it's just as bad as plain ROS from a security perspective.
+For the time being, if you use this, it is also recommended to do so only on a secure and isolated network.
 
 # Next Steps
 
