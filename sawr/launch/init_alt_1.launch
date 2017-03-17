@@ -1,0 +1,9 @@
+<!-- Initialize SAWR: Phase 1 -->
+<launch>
+  <!-- Load robot description and tf server -->
+  <include file="$(find sawr_description)/launch/description.launch">
+    <arg name="camera_type" value="R200"/>
+  </include>
+  <!-- Start simulated laser scan -->
+  <include file="$(find sawr_scan)/launch/scan.launch"/>
+</launch>
