@@ -14,7 +14,7 @@ use either the Intel&reg; RealSense&trade; Robotic Development Kit
 or an Intel&reg; Joule&trade; compute module combined with
 an Intel&reg; RealSense&trade; R200 3D camera. 
 Note: The frame is designed to support a RealSense&trade; ZR300 3D camera as well
-but the SW has not yet been updated; stay tuned.
+but the SW has not yet been fully updated and tested; stay tuned.
 
 The hardware specification,
 located in ``sawr_description/hardware``,
@@ -26,20 +26,23 @@ and basic build instructions.
 Laser-cutting files (given as PDF) 
 are derived from the OpenSCAD master but are
 included for convenience as well.
-Note that there are versions for both acrylic and acetal.
-If you can find it, acetal (aka POM) is much tougher and highly recommended, and because it is
+There are versions for both acrylic and acetal (aka POM, Delrin, etc).
+If you can find it, acetal is much tougher than acrylic and highly recommended, and because it is
 more flexible, allows for some additional features, like a compliant suspension.
-The SW stack enables basic autonomous navigation and currently supports
+However, if you must use acrylic make sure you cut with the acrylic verion of the frame.
+The SAWR software stack enables basic autonomous navigation and currently supports
 building a 2D map with gmapper and then planning and executing a motion path
-using move-base.
+using move-base.  It does not yet support out-of-the-box secure teleoperation,
+however.  You will have to either run ROS over an isolated network or set up your
+own secure remote teleoperation interface.
 
 The software stack consists of ROS configuration files
 and some simple ROS nodes for motor control.
 For the most part, we have kept the stack as simple as possible.
-Additional instructions for the SW stack are
+Additional instructions for the SAWR software stack are
 located in the ``sawr`` package:
-* [sawr_master/INSTALL.md](sawr_master/INSTALL.md) - How to install the SW.
-* [sawr_master/LAUNCH.md](sawr_master/LAUNCH.md) - How to run the SW after installation.
+* [sawr_master/INSTALL.md](sawr_master/INSTALL.md) - How to install the SAWR software stack.
+* [sawr_master/LAUNCH.md](sawr_master/LAUNCH.md) - How to run the SAWR software stack after installation.
 
 # Packages
 Here is a list of packages included in this project and
@@ -57,12 +60,13 @@ Please refer to the README.md files in each package for more information:
 Please look for the SAWR project under
 [01.org](https://01.org/sawr)
 for links to additional material.
-For example, the basic build instructions included in this repo,
-while intended to make the repo self-contained,
-do not include high-resolution images to keep the repo size down.
-For the same reason this repo does not include videos of the SAWR in action.
-We will make these and other resources available externally,
-with a SAWR project under 01.org acting as a hub pointing to
+For example, the basic build instructions included in this package, 
+while included to make the package self-contained,
+do not include high-resolution images to keep the download size down.
+For the same reason this package does not include videos of the SAWR in action.
+We will make these and other resources available externally
+with a [SAWR project under 01.org](https://01.org/sawr) 
+acting as a hub pointing to
 the available resources.
 
 In particular, 
