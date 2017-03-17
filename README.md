@@ -54,7 +54,6 @@ Please refer to the README.md files in each package for more information:
 * [sawr_scan](sawr_scan/README.md) - Camera configuration.
 * [sawr_mapping](sawr_mapping/README.md) - SLAM configuration.
 * [sawr_navigation](sawr_navigation/README.md) - Move-base configuration.
-* [sawr_console](sawr_console/README.md) - Web API and console.
 
 # Additional Material
 Please look for the SAWR project under
