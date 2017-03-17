@@ -19,8 +19,8 @@ Here are the various ways to start the system.
 ## Script-Driven Under X11
 If you are running using X11,
 either locally (eg with an HDMI cable tether)
-or over the network with "ssh -X",
-you can run the start.sh script.
+or over the network with ``ssh -X``,
+you can run the ``start.sh`` script.
 This launches all the "phases" with the output redirected to an xterm,
 one xterm per phase,
 and with a delay between each phase to avoid race conditions.
@@ -32,7 +32,7 @@ a final install.
 
 ## Script-Driven Without X11
 If you want to launch the entire software stack without starting xterms,
-you can use the "nox_start.sh" script.
+you can use the ``nox_start.sh`` script.
 The same approach will be taken with delays between phases as above,
 but output will be directed to the ROS logs.
 This is useful if you are logging in remotely with just a shell script
@@ -43,7 +43,7 @@ or if you want to avoid a dependency on keeping the xterms running.
 Sometimes you want to test phases separately if you are doing debugging.
 You can just launch the phases yourself manually using
 
-    roslaunch sawr init_X.launch
+    roslaunch sawr_master init_X.launch
 
 With X one of 0, 1, 2, or 3.
 If you want,
@@ -57,17 +57,24 @@ but (if certain issues in ROS or the nodes are resolved over time)
 may work on your installation.
 If you want to, you can try simultaneous launch using:
 
-    roslaunch sawr init.launch
+    roslaunch sawr_master init.launch
 
 Note this does not use a script but just ROS tools.
 
 ## Teleop and Visualization
 
 Now that the stack is launched, you can "drive" the robot using a teleoperator
-and visualize the output with rviz.   Do the following in two separate windows:
+and visualize the output with rviz.
+Do the following in two separate windows:
 
-    rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     roslaunch sawr_navigation display.launch
+    rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+You can also launch these using scripts:
+
+    roscd sawr_master
+    ./scripts/viz.sh &
+    ./scripts/teleop.sh
 
 ## Remote Access
 
