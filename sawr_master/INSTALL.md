@@ -334,6 +334,7 @@ Note that for enhanced security, after installation you should set up
 a public key, copy it to the computer you intend to access the robot with,
 then disable remote logins via password.
 
+## Firewall
 You should also 
 [set up a firewall:](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04).
 If you want remote ssh, then you need to explictly allow it.
@@ -346,6 +347,7 @@ You can also
 If set up properly this can be reasonably secure and will allow graphical applications,
 although it will not be especially performant.
 
+## Remote ROS Access: Only on an Isolated Network
 Note that if the firewall is running then 
 [remote network access to ROS](http://wiki.ros.org/ROS/NetworkSetup)
 will not be possible.
@@ -356,6 +358,7 @@ ROS is simply not defined with security in mind and should not be opened to an o
 Unfortunately ssh tunneling will not work for remote ROS access as ROS uses
 a number of dynamically allocated ports.
 
+## OpenVPN
 A more secure option for remote ROS access,
 and recommended if you want to access your robot remotely over
 the internet, is to 
@@ -365,11 +368,16 @@ you probably will have to do this in software using something like
 [OpenVPN](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04).
 This is complex to set up but can give you secure remote access.
 
+## ROSbridge: Future Work
 We are currently investigating rosbridge 
-and how to secure a remote web console with Robot Web Tools but note that
+and how to secure a remote web console with Robot Web Tools.
+However, note that
 the standard configuration of rosbridge opens a port that allows
-anyone to access it using an insecure websocket, so it's just as bad as plain ROS from a security perspective.
-For the time being, if you use this, it is also recommended to do so only on a secure and isolated network.
+anyone to access it using an insecure websocket, 
+so it's just as bad as plain ROS from a security perspective.
+However, ROSbridge does support secure websockets, and so with the right setup,
+it should be possible to build a reasonably secure web API using it.
+However, for the time being if you use this it is also recommended to do so only on a secure and isolated network.
 
 # Next Steps
 
