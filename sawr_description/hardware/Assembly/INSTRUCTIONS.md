@@ -87,7 +87,6 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
       ![image013.png](images/image013.png)
       ![image015.png](images/image015.png)
-      ![image016.jpg](images/image016.png)
     
       [_Drawing 2B_](http://a360.co/2coACk9)
 
@@ -96,9 +95,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
     * Install standoffs for the UP board, but do not install UP board yet. We will install UP board last after we organize the wiring, much of which will run underneath the UP board. Use 4ea M2.5x16 mm standoffs and 4ea M2.5x6 screws. 
 
       ![image017.png](images/image017.png)
-      ![image018.jpg](images/image018.jpg)
       ![image019.png](images/image019.png)
-      ![image020.jpg](images/image020.jpg)
 
       [_Drawing 2C_](http://a360.co/2afYBTa)
 
@@ -130,7 +127,6 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   2. Top Plate
 
 ![image021.png](images/image021.png)
-![image022.jpg](images/image022.jpg)
 
 [_Drawing 3A_](http://a360.co/2a3N9qc) ([3D Assembly](http://a360.co/2a3nbTS))
 
@@ -139,7 +135,6 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   * Install 2 ea. Power On-Off switches.
 
     ![image023.png](images/image023.png)
-    ![image024.jpg](images/image024.jpg)
 
     [_Drawing 3B_](http://a360.co/2a3n1Mc)
 
@@ -150,14 +145,12 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   * Secure Outer Mount Plate to the Servo with 8ea. M2x8 screws and 8ea. M2 hex nuts.  Repeat for the second Outer Mount.
 
     ![image025.png](images/image025.png)
-    ![image026.jpg](images/image026.jpg)
 
     [_Drawing 3C_](http://a360.co/2a3orGD)
     
   * Attach Outer Mount Plates to Top Plate with ties.
 
     ![image027.png](images/image027.png)
-    ![image030.jpg](images/image030.jpg)
 
     [_Drawing 4_](http://a360.co/2a3nPRi) ([3D Assembly](http://a360.co/2a3N1Y2))
 
@@ -168,15 +161,13 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   4. Base Plate
 
 ![image031.png](images/image031.png)
-![image032.jpg](images/image032.jpg)
 
 [_Drawing 5A_](http://a360.co/2a3zOys) ([Base 3D Assembly](http://a360.co/2agoFxm))
 
   * Install the ball caster on the Base plate with 3ea. M3x8 screws and 3ea. M3 locknuts. Current design uses only one caster in the rear part of the robot, but you may add 2 more front casters if you want; this will reduce the ability of the robot to go over obstacles but will also make it less liable to tipping forward when decelerating. The extra mounting holes on the front of the Base Plate provide this option.
   ** Only the Acetal version of the base plate has flexible "suspensions" for the casters.  If cut in Acrylic these have proven to break too easily.  The frame is intentionally designed so that the casters do not all touch the ground at the same time in any case.
 
-INSTRUCTIONS_files/image033.png
-INSTRUCTIONS_files/image034.jpg
+![image033.png](images/image033.png)
 
 [_Drawing 7_](http://a360.co/2a88AGJ)
 
@@ -184,8 +175,7 @@ INSTRUCTIONS_files/image034.jpg
    
   * You should remove the battery after fitting it, then add it back in afterwards.
   
-  INSTRUCTIONS_files/image035.png
-  INSTRUCTIONS_files/image036.gif
+  ![image035.png](images/image035.png)
   
   [_Drawing 5B_](http://a360.co/2a3zYpA)
   
@@ -197,323 +187,75 @@ INSTRUCTIONS_files/image034.jpg
   
   * Tighten Axel bolt with a wrench. Do not overtighten. Check that Wheels rotate freely on the Axel.
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>&nbsp;&nbsp; 5.
-Install driver and O-rings. (<b>Drawings 6 A, B)</b><o:p></o:p></span></p>
+5. Install driver and O-rings. 
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>&nbsp;&nbsp;&nbsp;&nbsp;</span><a
-href="http://a360.co/2a82vKJ"><span class=InternetLink><span style='font-size:
-10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#4675A8'>&nbsp;</span></span></a><a href="http://a360.co/2akV7Pf"><span
-class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#4675A8'>Driver and O-Ring
-installation 3D</span></b></span></a></p>
+![image037.png](images/image037.png)
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><b><u><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#4675A8'><o:p><span
- style='text-decoration:none'>&nbsp;</span></o:p></span></u></b></p>
+[_Drawing 6A ](http://a360.co/2a82vKJ) and [_Drawing 6A ](http://a360.co/2akV7Pf) ([3D Assembly](http://a360.co/2akZt8Y))
+  * Assemble driver from Driver components in your hand. Parts will be loose.
+  
+  * 4 ea. M2x20mm screws secure driver on the servo hub.
+  
+![image039.png](images/image039.png) ([3D Assembly](http://a360.co/2akV7Pf))
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt;page-break-after:avoid'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><span
-style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727;mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_37" o:spid="_x0000_i1029"
- type="#_x0000_t75" style='width:227.25pt;height:163.5pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image037.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=303 height=218
-src="INSTRUCTIONS_files/image038.jpg" v:shapes="Picture_x0020_37"><![endif]></span></p>
+  * Install Driver and O-Ring by placing O-Ring over the Driver and then snapping it into the grooves on the Wheel.
 
-<p class=MsoCaption>Drawing 6A <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
+## Wiring Components
 
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l0 level1 lfo9;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Assemble driver from Driver components in
-     your hand. Parts will be loose.&nbsp;</span><a
-     href="http://a360.co/2a813Yx"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Drawing 6A</span></b></span></a><b><u><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'><span style='mso-spacerun:yes'>&nbsp;
-     </span></span></u></b>Using<span style='mso-spacerun:yes'>&nbsp;&nbsp;
-     </span>4 ea. M2x20mm screws secure driver on the servo hub.</li>
-</ul>
+INSTRUCTIONS_files/image041.png
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-margin-left:36.0pt;line-height:15.75pt'><span style='font-size:10.5pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#272727'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:15.75pt;page-break-after:avoid'><span style='mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_38" o:spid="_x0000_i1028"
- type="#_x0000_t75" style='width:398.25pt;height:276.75pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image039.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=531 height=369
-src="INSTRUCTIONS_files/image040.jpg" v:shapes="Picture_x0020_38"><![endif]></span></p>
+  1. Electrical power supply.&nbsp;</span><a
+    
+    http://a360.co/2a8p4yC
+    Power Supply diagram
+    
+  * In this design we are using Venom 20C 3S 4000mAh 11.1V LiPo Battery with Universal Plug. In our tests this battery provides enough power for 60 min of operation.
 
-<p class=MsoCaption>Drawing 6B <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
+  * Main electrical power is distributed from the battery through an in-line 5 AMP fuse. The positive side is routed
+through the main power rocker switch to the DC-DC convertor, where it splits into 5V and 12V supply lines. The 12V line is used to power the Servos using a modified Dynamixel cable while the 5V line is used to power UP board with a barrel connector.
 
-<p class=MsoListParagraph style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
-auto;mso-add-space:auto;text-indent:-18.0pt;line-height:15.75pt;mso-list:l0 level1 lfo9;
-tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.5pt;
-mso-bidi-font-size:11.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
-mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>&middot;<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]><b><span style='font-size:10.5pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#272727'>I</span></b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>nstall Driver and O-Ring.&nbsp;</span><a
-href="http://a360.co/2akV0mX"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>Drawing 6B</span></b></span></a><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727;mso-bidi-font-weight:bold'> by placing O-Ring
-over the Driver and then snapping it into the grooves on the Wheel.</span></p>
+  * Pay special attention to the correct polarity of the wires when connecting to DC-DC convertor. If you get this wrong you can destroy
+your UP Board and/or your servos. It is **strongly** recommended to use a voltmeter to check both the output voltage and the polarity before plugging in the servos or the UP
+Board!  See also the 
+[DFRobot Manufacturer Instructions](http://www.dfrobot.com/index.php?route=product/product&amp;product_id=752#.V5etZTU2eXg).
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>6.&nbsp;&nbsp;</span><a
-href="http://a360.co/2akZt8Y"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>3DAssembly&nbsp;with battery installed</span></b></span></a></p>
+  * Also be careful when wiring up the power from the battery. We know of at least one person that has completely destroyed a robot by
+diligently wiring up their battery backwards.
 
-<b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8;mso-ansi-language:EN-US;mso-fareast-language:
-ZH-CN;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
-page-break-before:always'>
-</span></b>
+  2. Servo Wiring (For the ease of assembly it is advisable to complete this step after step 3 of the
+mechanical assembly).
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal'><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#4675A8'><o:p>&nbsp;</o:p></span></b></p>
+![image043.png](images/image043.png) ([Servo wiring Diagram](http://a360.co/2a8p5CN))
 
-<h1>Wiring Components</h1>
+  * Connect USB2AX to 1st servo using a 250mm Dynamixel cable.
+ 
+  * Interconnect both servos with Dynamixel 100mm cable.
+  
+  * Using "custom" cable, connect the 2nd servo to the pass-through output power connector of the DC-DC power convertor.
+  
+  ** This cable can be created by modifying a normal Dynamixel cable.
+  
+  ** The "red" wire (the center wire of the Dynamixel cable) connects to OV out on the DC-DC convertor and the "black" wire
+     connects to GND. See wiring diagram, and note especially the keying on the Dynamixel cables.
+     
+  ** Unfortunately you will have to use the connector keying to distinguish the ground and the signal cables since they are not actually colored or labelled in any way!
+ 
+  ** The "red" wire of the custom cable has 2 female connectors that should be attached to the second rocker switch. This rocker switch will control power supply to motors only, which will allow you to turn off or reset the motors, but keep the UP board powered. This is useful both to preserve battery life when you need to work on UP board configuration and programming, and to stop the motors if necessary without crashing the UP Board.
+  
+  3. Camera and UP Board
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;mso-outline-level:2'><span style='font-size:18.0pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:blue'><o:p>&nbsp;</o:p></span></p>
+![image045.png](images/image045.png) ([Connection Diagram](http://a360.co/2ci6REp))
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-normal;mso-outline-level:2'><span style='mso-fareast-language:JA;mso-no-proof:
-yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_24" o:spid="_x0000_i1027"
- type="#_x0000_t75" style='width:303pt;height:234.75pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image041.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=404 height=313
-src="INSTRUCTIONS_files/image042.jpg" v:shapes="Picture_x0020_24"><![endif]></span><span
-style='font-size:18.0pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'><o:p></o:p></span></p>
+  * Connect RealSense R200 Camera to USB3 OTG port with the USB 3.0 cable provided in the camera kit.
+     
+  * Plug in USB2AX adapter into a (regular) USB2 port of the UP Board.
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:15.75pt'><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>1. Electrical power supply.&nbsp;</span><a
-href="http://a360.co/2a8p4yC"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>Power Supply diagram</span></b></span></a></p>
+  * It is advisable to route camera and USB2AX cables in-between the Tower and UP Board. Address cable management and secure UP Board to
+     the Tower plate with 4ea. M2.5x6 screws.
+     
+     [_Drawing 8_](http://a360.co/2ajdTqA)
+     
+  * Insert Wi-Fi USB dongle in UP board.
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:15.75pt'><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>In this design we are using&nbsp;Venom 20C 3S
-4000mAh 11.1V <span class=SpellE>LiPo</span> Battery with Universal Plug. In
-our tests this battery provides enough power for 60 min of robot's
-operation.&nbsp;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:15.75pt'><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>Main electrical power is distributed from the
-battery through an in-line 5 AMP fuse.<span
-style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The positive side is routed
-through the main power rocker switch to the DC-DC convertor, where it splits
-into 5V and 12V supply lines. The 12V line&nbsp;is used to power the Servos using
-a modified <span class=SpellE>Dynamixel</span> cable while the 5V line is used
-to power UP board with a barrel connector.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:15.75pt'><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>Pay special attention to the correct polarity
-of the wires when connecting to DC-DC convertor.<span
-style='mso-spacerun:yes'>&nbsp; </span>If you get this wrong you can destroy
-your UP Board and/or your servos.<span style='mso-spacerun:yes'>&nbsp;&nbsp;
-</span>It is <b>strongly</b> recommended to use a voltmeter to check both the
-output voltage and the polarity before plugging in the servos or the UP
-Board!&nbsp;(<span class=GramE>see</span> </span><a
-href="http://www.dfrobot.com/index.php?route=product/product&amp;product_id=752#.V5etZTU2eXg"><span
-class=InternetLink><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#4675A8'>Manufacturer
-instructions</span></span></a><u><span style='font-size:10.5pt;font-family:
-"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";color:#4675A8'>).</span></u></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>Also be careful when
-wiring up the power from the battery.<span style='mso-spacerun:yes'>&nbsp;
-</span>We know of at least one person that has completely destroyed a robot by
-wiring up their battery backwards.</span></b></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>2. Servo Wiring (For
-the ease of assembly it is advisable to complete this step after step 3 of the
-mechanical assembly)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='mso-fareast-language:EN-US'><span
-style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='mso-fareast-language:JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
- id="Picture_x0020_25" o:spid="_x0000_i1026" type="#_x0000_t75" style='width:321.75pt;
- height:211.5pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image043.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=429 height=282
-src="INSTRUCTIONS_files/image044.jpg" v:shapes="Picture_x0020_25"><![endif]></span><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><a
-     href="http://a360.co/2a8p5CN"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Servo wiring Diagram</span></b></span></a></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Connect
-     USB2AX to 1st servo using a 250mm <span class=SpellE>Dynamixel</span>
-     cable.<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Interconnect
-     both servos with <span class=SpellE>Dynamixel</span> 100mm cable<o:p></o:p></span></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Using gcustomh cable, connect the 2nd servo to pass-through
-     power connector of DC-DC power convertor.<span
-     style='mso-spacerun:yes'>&nbsp; </span>This cable can be created by
-     modifying a normal <span class=SpellE>Dynamixel</span> cable.<span
-     style='mso-spacerun:yes'>&nbsp; </span>Pay attention to the polarity of
-     wires.&nbsp;<u>The gredh wire (the center wire of the <span class=SpellE>Dynamixel</span>
-     cable) connects to OV out on the DC-DC convertor and the gblackh wire
-     connects to GND</u>. See wiring diagram, and note especially the keying on
-     the <span class=SpellE>Dynamixel</span> cables.<span
-     style='mso-spacerun:yes'>&nbsp; </span>Unfortunately you will have to use
-     the connector keying to distinguish the ground and the signal cables since
-     they are not actually colored or labelled in any way.</span></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>The gredh wire of the custom cable has 2 female connectors
-     that should be attached to the second rocker switch. This rocker switch
-     will control power supply to motors only, which will allow you to turn off
-     motors, but keep the UP board powered. This is useful both to preserve
-     battery life when you need to work on UP board configuration and
-     programming, and to stop or reset the motors if necessary without crashing
-     the UP Board.</span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>3. Camera and UP
-Board.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><span
-style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727;mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_28" o:spid="_x0000_i1025"
- type="#_x0000_t75" style='width:330.75pt;height:218.25pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image045.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=441 height=291
-src="INSTRUCTIONS_files/image046.jpg" v:shapes="Picture_x0020_28"><![endif]></span><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'><span
-style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l4 level1 lfo11;tab-stops:list 36.0pt'><a
-     href="http://a360.co/2ci6REp"><span class=InternetLink><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Connection Diagram</span></span></a></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l4 level1 lfo11;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Connect
-     RealSense R200 Camera to USB3 OTG port with the USB 3.0 cable provided in
-     the camera kit.<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l4 level1 lfo11;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Plug
-     in USB2AX adapter&nbsp;into USB2 port of the UP Board.<o:p></o:p></span></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l4 level1 lfo11;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>It is advisable to route camera's&nbsp;and USB2AX cables
-     between Tower and UP Board. Address cable management and secure UP Board to
-     the Tower plate with 4ea. M2.5x6 screws.</span> <a
-     href="http://a360.co/2ajdTqA"><span class=InternetLink>Drawing 8</span></a></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l4 level1 lfo11;tab-stops:list 36.0pt'><span style='color:windowtext'>Insert
-     Wi-Fi USB dongle in UP board</span><span style='font-size:10.5pt;
-     font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>This section completes
-Mechanical and Wiring assembly of SAWR.<o:p></o:p></span></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-</div>
-
-</body>
-
-</html>
+You have completed mechanical and wiring assembly.
