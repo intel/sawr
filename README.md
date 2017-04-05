@@ -80,7 +80,9 @@ However, please do let us know if you are producing a kit so we can link to you 
 the above site.
 
 # Contributing to the SAWR Project
-Third-party patches and contributions are welcome.
-We do require you to read and agree to the [Contribution License Agreement](CLA.md)
-included in this package.
-
+This project welcomes third-party code via GitHub pull requests. 
+Please review the [Contribution License Agreement](CLA.md) 
+located in the root of the repository. 
+For each pull request submitted, 
+please state your legal name and the text, 
+"I agree to the terms of the 'Simple Autonomous Wheeled Robot' (SAWR) CLA."
