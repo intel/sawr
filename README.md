@@ -30,6 +30,7 @@ There are versions for both acrylic and acetal (aka POM, Delrin, etc).
 If you can find it, acetal is much tougher than acrylic and highly recommended, and because it is
 more flexible, allows for some additional features, like a compliant suspension.
 However, if you must use acrylic make sure you cut with the acrylic verion of the frame.
+
 The SAWR software stack enables basic autonomous navigation and currently supports
 building a 2D map with gmapper and then planning and executing a motion path
 using move-base.  It does not yet support out-of-the-box secure teleoperation,
