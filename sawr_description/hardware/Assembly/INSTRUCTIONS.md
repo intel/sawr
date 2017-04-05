@@ -1,4 +1,5 @@
-# Simple Autonomous Wheeled Robot (SAWR) Assembly Instructions
+# Simple Autonomous Wheeled Robot (SAWR) 
+# _Assembly Instructions_
 
 The SAWR is a simple learning platform for autonomous robotics. Despite its small size and low cost, it is capable of performing advanced mobile robotics tasks, including simultaneous localization, mapping, and navigation. 
 
@@ -58,22 +59,15 @@ Here is a Bill of Materials (BOM), with estimated cost of parts. The links are f
 ## Wheels Assembly
 
 ![image007.png](images/image007.png)
-![image008.jpg](images/image008.jpg)
 
-_Drawing 1_
+[_Drawing 1_](http://a360.co/29UsC8R)
 
-  * [Drawing 1](http://a360.co/29UsC8R)
   * [Wheel 3D Assembly]("http://a360.co/2agnle2)
 
-Wheels are assembled from five layers of laser cut components. The outer  profile of the wheel has a "U" shape to capture an O-ring tire, which is also used as a belt drive.  The center layer of each wheel is 3mm thick, and all other layers are 2mm thick. The total wheel thickness is 11mm.
+Wheels are assembled from five layers of laser cut components. The outer profile of the wheel has a "U" shape to capture an O-ring tire, which is also used as a belt drive.  The center layer of each wheel is 3mm thick, and all other layers are 2mm thick. The total wheel thickness is 11mm.
 
-  * Press in two bearings into the center holes of two pairs of the outer 2mm 
-    wheel layers. This is easiest before bolting the wheel layers together as 
-    you can press in the bearing using a flat surface.
-  * Secure all 5 layers of the wheel with 12 ea. M3 lock-nuts and M3x14
-    screws. The central layerfs hole is slightly smaller than the outer 
-    diameter of the bearing, so the bearings will not pass through the center 
-    layer.
+  * Press in two bearings into the center holes of two pairs of the outer 2mm wheel layers. This is easiest before bolting the wheel layers together as you can press in the bearing using a flat surface.
+  * Secure all 5 layers of the wheel with 12 ea. M3 lock-nuts and M3x14 screws. The central layer's hole is slightly smaller than the outer diameter of the bearing, so the bearings will not pass through the center layer.
   * Repeat for the second wheel.
 
 ## Frame and assembly of other components
@@ -83,14 +77,14 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   1. Attach components to the Tower plate in the following order: 
      (Drawings 2 A, B, C) 
      [Tower 3D Assembly](http://a360.co/2ago66G)
+     
      ![image009.png]([images/image009.png)
      ![image011.png]([images/image011.png)
-     Drawing 2A
+     
+     _Drawing 2A_
 
-  * Attach two brackets to the tower. For each bracket, install
-     6ea. M2 hex nuts (provided in servo box) in the bracket and use 6ea.
-     M2x8 screws to secure bracket to the Tower. Repeat for the
-     second bracket.
+  * Attach two brackets to the tower. For each bracket, install 6ea. M2 hex nuts (provided in servo box) in the bracket and use 6ea.
+     M2x8 screws to secure bracket to the Tower. Repeat for the second bracket.
 
        [Drawing2A](http://a360.co/2covpJj)
 
