@@ -38,7 +38,7 @@ models as appropriate.
 
 ## Mechanical Assembly and Electrical Wiring
 
-![image003.png](images/image003.png)
+![image003.png](images/image003.jpg)
 ![image004.jpg](images/image004.jpg)
 
 All mechanical drawings, 3D assemblies, and electrical
