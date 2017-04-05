@@ -107,42 +107,41 @@ It is advisable to assemble the rest of the robot in the order given below. Note
     * The following procedure is recommended to install the camera in order to ensure precise horizontal and vertical
      alignment:
 
-      ** Insert 1ea. M3x18 screw into slot in camera.
+    ** Insert 1ea. M3x18 screw into slot in camera.
     
-      ** Add 2 ea. M3x1mm washers to the screw between camera and Tower.
+    ** Add 2 ea. M3x1mm washers to the screw between camera and Tower.
     
-      ** Loosely secure screw with M3 locknut in the outer camera mount hole in the tower.
+    ** Loosely secure screw with M3 locknut in the outer camera mount hole in the tower.
     
-      ** The camera should still be able to rotate and slide freely.
+    ** The camera should still be able to rotate and slide freely.
     
-      ** Attach the magnet to the other side of the camera, making sure it is in an accurate position (the bump in the magnet should be in the slot on the back of the camera) and remove protective paper from the magnet.
+    ** Attach the magnet to the other side of the camera, making sure it is in an accurate position (the bump in the magnet should be in the slot on the back of the camera) and remove protective paper from the magnet.
     
-      ** Align camera vertically and horizontally: the top edge of the camera should be aligned with the tower edge.
+    ** Align camera vertically and horizontally: the top edge of the camera should be aligned with the tower edge.
     
-      ** Attach sticky side of the magnet to tower.
+    ** Attach sticky side of the magnet to tower.
     
-      ** Secure the locknut.
+    ** Secure the locknut.
     
-      ** Secure the second screw with washers and a locknut
+    ** Secure the second screw with washers and a locknut
     
-      ** Do not overtighten either screw. The locknuts and screws should hold the camera firmly without bending the case of the camera.
+    ** Do not overtighten either screw. The locknuts and screws should hold the camera firmly without bending the case of the camera.
 
   2. Top Plate
 
 ![image021.png](images/image021.png)
 ![image022.jpg](images/image022.jpg)
 
-[_Drawing 3A_](http://a360.co/2a3N9qc)
-[_Drawing 3A_](http://a360.co/2a3nbTS)
+[_Drawing 3A_](http://a360.co/2a3N9qc) ([3D Assembly](http://a360.co/2a3nbTS))
 
   * Attach 2 ea. Inner Mount Plates to the Top Plate and secure with 2 ties. Leave ties semi loose. Don't cut ties excess length yet. 
   
   * Install 2 ea. Power On-Off switches.
 
-![image023.png](images/image023.png)
-![image024.jpg](images/image024.jpg)
+    ![image023.png](images/image023.png)
+    ![image024.jpg](images/image024.jpg)
 
-[_Drawing 3B_](http://a360.co/2a3n1Mc)
+    [_Drawing 3B_](http://a360.co/2a3n1Mc)
 
   * Attach Top Plate to the Tower with 2 ea. M3x6 screws, M3 nuts, M3x1 washers in T-slots. Tighten ties and cut off excess tie length. 
   
@@ -150,168 +149,53 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
   * Secure Outer Mount Plate to the Servo with 8ea. M2x8 screws and 8ea. M2 hex nuts.  Repeat for the second Outer Mount.
 
-INSTRUCTIONS_files/image025.png
-INSTRUCTIONS_files/image026.jpg
+    ![image025.png](images/image025.png)
+    ![image026.jpg](images/image026.jpg)
 
-[_Drawing 3C_](http://a360.co/2a3orGD)
+    [_Drawing 3C_](http://a360.co/2a3orGD)
+    
   * Attach Outer Mount Plates to Top Plate with ties.
 
-INSTRUCTIONS_files/image027.png
-INSTRUCTIONS_files/image030.jpg
+    ![image027.png](images/image027.png)
+    ![image030.jpg](images/image030.jpg)
 
-[_Drawing 4_](http://a360.co/2a3nPRi)
-
-[3D Assembly](http://a360.co/2a3N1Y2)
+    [_Drawing 4_](http://a360.co/2a3nPRi) ([3D Assembly](http://a360.co/2a3N1Y2))
 
   3. Install Axles and Wheels but do not secure the M5 axle nut tightly yet. Repeat for the second Wheel. NOTE: it is possible to substitute an M6 nut and bolt for the shoulder bolt used here, as long as at least 12mm of the shaft of the bolt is unthreaded and is actually 6mm in diameter.  Shoulder bolts are generally machined to be exact whereas unthreaded bolts are more approximate.
 
   * At this point, for the ease of future assembly, it is advisable to address Servo wiring as described in the Servo Wiring section below.
 
-  4. Base Plate<b>&nbsp;(Drawings
-5A, B)</b><o:p></o:p></span></p>
+  4. Base Plate
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b><a
-href="http://a360.co/2agoFxm"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>Base 3D Assembly</span></b></span></a></p>
+![image031.png](images/image031.png)
+![image032.jpg](images/image032.jpg)
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><b><u><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#4675A8'><o:p><span
- style='text-decoration:none'>&nbsp;</span></o:p></span></u></b></p>
+[_Drawing 5A_](http://a360.co/2a3zOys) ([Base 3D Assembly](http://a360.co/2agoFxm))
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt;page-break-after:avoid'><span style='mso-fareast-language:JA;
-mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_34" o:spid="_x0000_i1032"
- type="#_x0000_t75" style='width:363.75pt;height:179.25pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image031.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=485 height=239
-src="INSTRUCTIONS_files/image032.jpg" v:shapes="Picture_x0020_34"><![endif]></span></p>
+  * Install the ball caster on the Base plate with 3ea. M3x8 screws and 3ea. M3 locknuts. Current design uses only one caster in the rear part of the robot, but you may add 2 more front casters if you want; this will reduce the ability of the robot to go over obstacles but will also make it less liable to tipping forward when decelerating. The extra mounting holes on the front of the Base Plate provide this option.
+  ** Only the Acetal version of the base plate has flexible "suspensions" for the casters.  If cut in Acrylic these have proven to break too easily.  The frame is intentionally designed so that the casters do not all touch the ground at the same time in any case.
 
-<p class=MsoCaption>Drawing 5A <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
+INSTRUCTIONS_files/image033.png
+INSTRUCTIONS_files/image034.jpg
 
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Install the ball caster on the Base plate with 3ea.
-     M3x8&nbsp;screws and 3ea. M3 locknuts. . Current design uses only one
-     caster in the rear part of the robot, but you may add 2 more front casters
-     if you want; this will reduce the ability of the robot to go over
-     obstacles but will also make it less liable to tipping forward when
-     decelerating. The extra mounting holes on the front of the Base plate
-     provide this option.&nbsp;Refer to </span><a href="http://a360.co/2a3zOys"><span
-     class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 5A</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>. </span></b><b><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:black'><span style='mso-spacerun:yes'>&nbsp;</span>Note also that
-     only the <span class=SpellE>Acetal</span> version of the base plate have
-     flexible gsuspensionsh for the casters.<span
-     style='mso-spacerun:yes'>&nbsp; </span>If cut in Acrylic these have proven
-     to break too easily.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:black;mso-bidi-font-weight:bold'>The frame is
-     intentionally designed so that the casters do not all touch the ground at
-     the same time in any case.</span></li>
-</ul>
+[_Drawing 7_](http://a360.co/2a88AGJ)
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:15.75pt;page-break-after:avoid'><span style='font-size:10.5pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#272727'><span
-style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727;mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_35" o:spid="_x0000_i1031"
- type="#_x0000_t75" style='width:469.5pt;height:315pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image033.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=626 height=420
-src="INSTRUCTIONS_files/image034.jpg" v:shapes="Picture_x0020_35"><![endif]></span></p>
+  * Insert Velcro straps in the slots of the Base Plate and Install the Battery. 
+   
+  * You should remove the battery after fitting it, then add it back in afterwards.
+  
+  INSTRUCTIONS_files/image035.png
+  INSTRUCTIONS_files/image036.gif
+  
+  [_Drawing 5B_](http://a360.co/2a3zYpA)
+  
+  * Secure front Standoffs to the Base Plate with 2 ea. M3x8 screws
 
-<p class=MsoCaption>Drawing 7 <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>&nbsp;Insert Velcro straps in the slots
-     of the Base Plate and Install the Battery. Refer to </span><a
-     href="http://a360.co/2a88AGJ"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Drawing 7</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.<span style='mso-spacerun:yes'>&nbsp;
-     </span></span></b></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";mso-bidi-font-weight:bold'>You should remove the battery
-     after fitting it, then add it back in afterwards.</span><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman"'><o:p></o:p></span></li>
-</ul>
-
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:15.75pt;page-break-after:avoid'><span style='font-size:10.5pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#272727'><span
-style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727;mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_36" o:spid="_x0000_i1030"
- type="#_x0000_t75" style='width:340.5pt;height:229.5pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image035.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=454 height=306
-src="INSTRUCTIONS_files/image036.gif" v:shapes="Picture_x0020_36"><![endif]></span></p>
-
-<p class=MsoCaption>Drawing 5B <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
-
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Secure front Standoffs to the Base Plate
-     with 2 ea. M3x8 screws&nbsp;</span><a href="http://a360.co/2a3zYpA"><span
-     class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 5B</span></b></span></a></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Attach Base Plate to the Tower and secure
-     it with 2ea. M3x6screws, 3ea. M3 nuts, and 3ea. M3x1mm washers in T-slots.
-     Refer to </span><a href="http://a360.co/2a3zYpA"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Drawing 5B</span></b></span></a></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Secure Outer and Inner Mount Plates to
-     the Base Plate with ties. (On both sides).&nbsp;Refer to </span><a
-     href="http://a360.co/2a3zYpA"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Drawing 5B</span></b></span></a></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l6 level1 lfo8;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Tighten Axel bolt with a wrench. Do not
-     overtighten. Check that Wheels rotate freely on the Axel.&nbsp;Refer to </span><a
-     href="http://a360.co/2a3zYpA"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Drawing 5B</span></b></span></a><u><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.</span></u></li>
-</ul>
+  * Attach Base Plate to the Tower and secure it with 2ea. M3x6 screws, 3ea. M3 nuts, and 3ea. M3x1mm washers in T-slots.
+     
+  * Secure Outer and Inner Mount Plates to the Base Plate with ties (on both sides).
+  
+  * Tighten Axel bolt with a wrench. Do not overtighten. Check that Wheels rotate freely on the Axel.
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
 15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
