@@ -38,11 +38,8 @@ models as appropriate.
 
 ## Mechanical Assembly and Electrical Wiring
 
-
-![image001.png](images/image001.png)
 ![image003.png](images/image003.png)
 ![image004.jpg](images/image004.jpg)
-
 
 All mechanical drawings, 3D assemblies, and electrical
 schematics presented in this document are also available in the form of web
@@ -118,7 +115,7 @@ we will be using to refer to them in the assembly notes.
 
 The Tower plate provides the option to mount either the RDK
 kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with
-an Intel RealSense ZR300 camera. It갽s also possible to combine a Joule
+an Intel RealSense ZR300 camera. It혖fs also possible to combine a Joule
 with an R200 camera.
 
 ![image006.jpg]([images/image006.jpg)
@@ -142,7 +139,7 @@ _Drawing 1_
   * [Wheel 3D Assembly]("http://a360.co/2agnle2)
 
 Wheels are assembled from five layers of laser cut components. The outer 
-profile of the wheel has a 갾U갿 shape to capture an O-ring tire, which is 
+profile of the wheel has a 혖gU혖h shape to capture an O-ring tire, which is 
 also used as a belt drive.  Note that the center layer is 3mm thick, and all 
 other layers are 2mm thick. The total wheel thickness is 11mm.
 
@@ -150,7 +147,7 @@ other layers are 2mm thick. The total wheel thickness is 11mm.
     wheel layers. This is easiest before bolting the wheel layers together as 
     you can press in the bearing using a flat surface.
   * Secure all 5 layers of the wheel with 12 ea. M3 lock-nuts and M3x14
-    screws. The central layer갽s hole is slightly smaller than the outer 
+    screws. The central layer혖fs hole is slightly smaller than the outer 
     diameter of the bearing, so the bearings will not pass through the center 
     layer.
   * Repeat for the second wheel.
@@ -191,7 +188,7 @@ of the tower plate matters, it is not reversible!
   * Install the DFRobot DC-DC Power Convertor.  The power convertor goes on 
     the opposite side of the tower from the servos. Note the orientation of 
     the connectors; when viewed from the side the power converted is mounted
-    on, the 5V output should be on the left. When viewed from the갾back갿,
+    on, the 5V output should be on the left. When viewed from the혖gback혖h,
     where the servos are, the 5V output will be on the right.
     Use 4ea. M3x6mm spacers, 4ea. M3 locknuts and 4 ea. M3x14 screws/
     Refer to [Drawing 2B](http://a360.co/2coACk9).
@@ -343,7 +340,7 @@ mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
      style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
      "Times New Roman";color:#272727'>Attach 2 ea.&nbsp;Inner Mount
      Plates&nbsp;to the Top Plate and secure with 2 ties. Leave ties semi
-     loose. Don갽t cut ties excess length yet. Refer to </span><a
+     loose. Don혖ft cut ties excess length yet. Refer to </span><a
      href="http://a360.co/2a3nbTS"><span class=InternetLink><b><span
      style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
      "Times New Roman";color:#4675A8'>Drawing 3A</span></b></span></a><b><span
@@ -378,7 +375,7 @@ mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
      mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span style='font-size:
      10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
      color:#272727'>Attach Top Plate to the Tower with 2 ea. M3x6 screws,
-     M3nuts, M3x1 washers in T-slots. Tighten ties and cut off excess of ties갽
+     M3nuts, M3x1 washers in T-slots. Tighten ties and cut off excess of ties혖f
      length. Refer to </span><a href="http://a360.co/2a3n1Mc"><span
      class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
      mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 3B</span></b></span></a><b><span
@@ -525,7 +522,7 @@ mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
      10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
      color:black'><span style='mso-spacerun:yes'>&nbsp;</span>Note also that
      only the <span class=SpellE>Acetal</span> version of the base plate have
-     flexible 갾suspensions갿 for the casters.<span
+     flexible 혖gsuspensions혖h for the casters.<span
      style='mso-spacerun:yes'>&nbsp; </span>If cut in Acrylic these have proven
      to break too easily.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><span
      style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
@@ -850,13 +847,13 @@ mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span
      text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
      mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><span style='font-size:
      10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Using 갾custom갿 cable, connect the 2nd servo to pass-through
+     color:#272727'>Using 혖gcustom혖h cable, connect the 2nd servo to pass-through
      power connector of DC-DC power convertor.<span
      style='mso-spacerun:yes'>&nbsp; </span>This cable can be created by
      modifying a normal <span class=SpellE>Dynamixel</span> cable.<span
      style='mso-spacerun:yes'>&nbsp; </span>Pay attention to the polarity of
-     wires.&nbsp;<u>The 갾red갿 wire (the center wire of the <span class=SpellE>Dynamixel</span>
-     cable) connects to OV out on the DC-DC convertor and the 갾black갿 wire
+     wires.&nbsp;<u>The 혖gred혖h wire (the center wire of the <span class=SpellE>Dynamixel</span>
+     cable) connects to OV out on the DC-DC convertor and the 혖gblack혖h wire
      connects to GND</u>. See wiring diagram, and note especially the keying on
      the <span class=SpellE>Dynamixel</span> cables.<span
      style='mso-spacerun:yes'>&nbsp; </span>Unfortunately you will have to use
@@ -866,7 +863,7 @@ mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span
      text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
      mso-list:l8 level1 lfo10;tab-stops:list 36.0pt'><span style='font-size:
      10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>The 갾red갿 wire of the custom cable has 2 female connectors
+     color:#272727'>The 혖gred혖h wire of the custom cable has 2 female connectors
      that should be attached to the second rocker switch. This rocker switch
      will control power supply to motors only, which will allow you to turn off
      motors, but keep the UP board powered. This is useful both to preserve
