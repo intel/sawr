@@ -28,7 +28,8 @@ to first set up a standard distribution of Ubuntu 16.04.
 In summary, first
 [download an ISO image for Ubuntu 16.04](https://www.ubuntu.com/download/desktop)
 and load it onto a bootable USB stick using, for instance,
-[Rufus](https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows)
+[Rufus](https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows) or
+[Win32DiskImager](https://wiki.ubuntu.com/Win32DiskImager) under Windows,
 or, if you have Ubuntu running already on another computer, the
 [Startup Disk Creator](https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu).
 Note: it is possible and perhaps preferrable to install a lightweight variant
