@@ -1,100 +1,35 @@
 # Simple Autonomous Wheeled Robot (SAWR) Assembly Instructions
 
-The SAWR is a simple learning platform for autonomous robotics. 
-Despite its small size and low cost, it is capable of performing
-advanced mobile robotics tasks, including simultaneous localization, 
-mapping, and navigation. 
+The SAWR is a simple learning platform for autonomous robotics. Despite its small size and low cost, it is capable of performing advanced mobile robotics tasks, including simultaneous localization, mapping, and navigation. 
 
-The purpose of the SAWR is to provide a starting point for people 
-who would like to learn more about advanced mobile robotics, in particular 
-autonomous navigation and ROS, the Robot Operating System.
+The purpose of the SAWR is to provide a starting point for people who would like to learn more about advanced mobile robotics, in particular autonomous navigation and ROS, the Robot Operating System.
 
-This simple robot (and its software stack) can also serve as a starting point 
-for those seeking to develop more sophisticated robots based on the 
-Intel&reg; RealSense&trade; RDK.</p>
-All frame components for the SAWR are parametrically designed with 
-[OpenSCAD](http://www.openscad.org/) and can be easily adjusted to 
-accommodate geometry of new electronic components if required.
-In addition to the Intel&reg; RealSense&trade; RDK,
-the frame also already has mounting points for the 
-Intel&reg; Joule&trade; development kit and the ZR300 Intel&reg;
-RealSense&trade; 3D camera.</p>
+This simple robot (and its software stack) can also serve as a starting point for those seeking to develop more sophisticated robots based on the Intel&reg; RealSense&trade; RDK.
 
-The SAWR has a simple design and uses a minimal number of easily available
-off-the-shelf parts, making this platform easy to assemble.
-This allows you to and move faster
-into the ROS development phase, rather than spending time on mechanical
-assembly and custom electronic components. 
-In particular, the SAWR's locomotion
-is based on two Dynamixel MX-12W servos, which
-provide accurate odometry feedback and speed control,
-and are well-supported by ROS and the robotics community.
+All frame components for the SAWR are parametrically designed with [OpenSCAD](http://www.openscad.org/) and can be easily adjusted to 
+accommodate geometry of new electronic components if required. In addition to the Intel&reg; RealSense&trade; RDK, the frame also already has mounting points for the Intel&reg; Joule&trade; development kit and the ZR300 Intel&reg; RealSense&trade; 3D camera.
 
-This
-following document outlines all mechanical/electronic components and assembly
-steps of the SAWR. Images have been included in the SAWR package to go with
-this file but links are also provided to high-resolution files and even 3D
-models as appropriate.
+The SAWR has a simple design and uses a minimal number of easily available off-the-shelf parts, making this platform easy to assemble. This allows you to and move faster into the ROS development phase, rather than spending time on mechanical assembly and custom electronic components. In particular, the SAWR's locomotion is based on two Dynamixel MX-12W servos, which provide accurate odometry feedback and speed control, and are well-supported by ROS and the robotics community.
+
+This document outlines all mechanical/electronic components and assembly steps of the SAWR. Images have been included in the SAWR package to go with this file but links are also provided to high-resolution files and even 3D models as appropriate.
 
 ## Mechanical Assembly and Electrical Wiring
 
 ![image002.png](images/image002.png)
 
-All mechanical drawings, 3D assemblies, and electrical
-schematics presented in this document are also available in the form of web
-links to CAD cloud storage. 
-In general, the online versions of these images and models may be more up-to-date
-than the images in this document, in addition to in many cases allowing
-interaction, such as rotating the 3D model.
-Therefore, please follow the links
-in any case where a clearer view is needed or to ensure you have the latest
-version of the figure.
-You can also use OpenSCAD to look at the model locally.
+All mechanical drawings, 3D assemblies, and electrical schematics presented in this document are also available in the form of web
+links to CAD cloud storage. In general, the online versions of these images and models may be more up-to-date than the images in this document, in addition to in many cases allowing interaction, such as rotating the 3D model. Therefore, please follow the links in any case where a clearer view is needed or to ensure you have the latest version of the figure. You can also use OpenSCAD to look at the model locally.
 
-;All Fastener specifications and part numbers are
-provided in the BOM and 2D drawings. Part numbers are from the 
-[McMaster-Carr catalog](http://www.mcmaster.com/).
+All Fastener specifications and part numbers are provided in the BOM and 2D drawings. Part numbers are from the [McMaster-Carr catalog](http://www.mcmaster.com/).
 
-All fasteners are sized in metric. 
-In many cases equivalent parts can be substituted, so in addition to McMaster-Carr part
-numbers we also provide (in BOM and drawings) generic specifications of each
-part so you can find appropriate substitute parts if necessary.
+All fasteners are sized in metric. In many cases equivalent parts can be substituted, so in addition to McMaster-Carr part numbers we also provide (in BOM and drawings) generic specifications of each part so you can find appropriate substitute parts if necessary.
 
-Generally a 10% tolerance is used for holes and slots.
-One exception however where an accurate size is needed is for the bearings and the
-bolt used for the wheel axle. These
-must be exact so get metric bolts and bearings (or edit the CAD files and/or
-cut files).
+Generally a 10% tolerance is permissable for holes and slots. One exception however where an accurate size is needed is for the bearings and the bolt used for the wheel axle. These must be exact so get metric bolts and bearings or edit the CAD files and/or cut files.
 
-Frame, driver and wheel components are laser cut from two
-450mm x 300mm (18x12 in) Acrylic or Acetal sheets:
-one 2mm thick and the second 3mm thick.
-Acrylic is perfectly fine and is low-cost, but Acetal
-(also known as POM, Delrin, or Duracon)
-is more durable and is recommended for heavy use, such as in a classroom, or if
-you need to transport the robot frequently.
-Using Acrylic for the 2mm sheet and Acetal for the 3mm sheet 
-is also possible and gives most of the benefit of using
-Acetal alone.
+Frame, driver and wheel components are laser cut from two 450mm x 300mm (18x12 in) Acrylic or Acetal sheets: one 2mm thick and the second 3mm thick. Acrylic is perfectly fine and is low-cost, but Acetal (also known as POM, Delrin, or Duracon) is more durable and is recommended for heavy use, such as in a classroom, or if you need to transport the robot frequently. Using Acrylic for the 2mm sheet and Acetal for the 3mm sheet is also possible and gives most of the benefit of using Acetal alone.
 
-Note: If you just want to laser-cut
-the file, start with the PDF file, being careful not to resize it.
-If you do not have access to the size
-of sheet specified, you can rearrange the parts using a 2D vector graphics 
-editor such as Inkscape, which is free.
-a free 2D drawing tool. 
-In this case, you want to start from the SVG file.
-If you need to rearrange the file
-with Adobe Illustrator, however, start from the PDF file, 
-as Adobe Illustrator tends to resize
-SVG on import. In addition, the
-lines in these files have been colored red and blue. 
-Red lines should be cut first,
-followed by the blue lines (Trotec conventions).
-Depending on your laser cutter
-(i.e. if you have a Universal laser cutter), you may have to modify the colors
-to get the right cutting order. Depending on the laser
-cutter model the cut time is between 24 min to 1 hr.
+If you just want to laser-cut the file, start with the PDF file, being careful not to resize it. If you do not have access to the size
+of sheet specified, you can rearrange the parts using a 2D vector graphics editor such as [Inkscape](https://inkscape.org/), which is free. In this case, you want to start from the SVG file. If you need to rearrange the file with Adobe Illustrator, however, start from the PDF file, as Adobe Illustrator tends to resize SVG on import. In addition, the lines in these files have been colored red and blue.  Red lines should be cut first, followed by the blue lines (Trotec conventions). Depending on your laser cutter (i.e. if you have a Universal laser cutter), you may have to modify the colors to get the right cutting order. Depending on the laser cutter model the cut time is between 24 min to 1 hr.
 
 ### Sheet 1:450X300x2 mm
 (18x12x0.078 in) -- 1 each.
@@ -109,20 +44,13 @@ Select Download from the following web pages
   * [Download Laser Cut file for 3mm sheet in SVG format](http://a360.co/2iRDmuA)
   * [Download Laser Cut file for 3mm sheet in PDF format](http://a360.co/2iRBB0e)
 
-Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with the names 
-we will be using to refer to them in the assembly notes.
+Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with the names we will be using to refer to them in the assembly notes.
 
-The Tower plate provides the option to mount either the RDK
-kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with
-an Intel RealSense ZR300 camera. Itfs also possible to combine a Joule
-with an R200 camera.
+The Tower plate provides the option to mount either the RDK kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with an Intel RealSense ZR300 camera. Itfs also possible to combine a Joule with an R200 camera.
 
 ![image006.jpg]([images/image006.jpg)
 
-Here is a Bill of Materials (BOM), with
-estimated cost of parts. 
-The links are for reference only; you may be able to find
-alternative suppliers for these parts.
+Here is a Bill of Materials (BOM), with estimated cost of parts. The links are for reference only; you may be able to find alternative suppliers for these parts.
 
   * [Download BOM (Bill of Materials) in XLS format](http://a360.co/2c8y1bV)
   * [Download BOM (Bill of Materials) in CSV format](http://a360.co/2c8xRBg)
@@ -137,10 +65,7 @@ _Drawing 1_
   * [Drawing 1](http://a360.co/29UsC8R)
   * [Wheel 3D Assembly]("http://a360.co/2agnle2)
 
-Wheels are assembled from five layers of laser cut components. The outer 
-profile of the wheel has a gUh shape to capture an O-ring tire, which is 
-also used as a belt drive.  Note that the center layer is 3mm thick, and all 
-other layers are 2mm thick. The total wheel thickness is 11mm.
+Wheels are assembled from five layers of laser cut components. The outer  profile of the wheel has a "U" shape to capture an O-ring tire, which is also used as a belt drive.  The center layer of each wheel is 3mm thick, and all other layers are 2mm thick. The total wheel thickness is 11mm.
 
   * Press in two bearings into the center holes of two pairs of the outer 2mm 
     wheel layers. This is easiest before bolting the wheel layers together as 
@@ -153,9 +78,7 @@ other layers are 2mm thick. The total wheel thickness is 11mm.
 
 ## Frame and assembly of other components
 
-It is advisable to assemble the rest of the robot in the following order.
-Note the location of the holes on the top of the tower: the orientation
-of the tower plate matters, it is not reversible!
+It is advisable to assemble the rest of the robot in the order given below. Note the location of the holes on the top of the tower: the orientation of the tower plate matters, it is not reversible!
 
   1. Attach components to the Tower plate in the following order: 
      (Drawings 2 A, B, C) 
