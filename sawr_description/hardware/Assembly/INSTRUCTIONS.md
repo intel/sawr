@@ -85,22 +85,22 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
     * Attach two servos to the brackets. For each servo, use 4 ea. M2x8 screws and 4 ea. M2 hex nuts (nuts provided with servo kits).
 
-    ![image013.png](images/image013.png)
-    ![image015.png](images/image015.png)
-    ![image016.jpg](images/image016.png)
+      ![image013.png](images/image013.png)
+      ![image015.png](images/image015.png)
+      ![image016.jpg](images/image016.png)
     
-    [_Drawing 2B_](http://a360.co/2coACk9).
+      [_Drawing 2B_](http://a360.co/2coACk9)
 
     * Install the DFRobot DC-DC Power Convertor.  The power convertor goes on the opposite side of the tower from the servos. Note the orientation of the connectors; when viewed from the side the power converted is mounted on, the 5V output should be on the left. When viewed from the _back_, where the servos are, the 5V output will be on the right. Use 4ea. M3x6mm spacers, 4ea. M3 locknuts and 4 ea. M3x14 screws.
 
     * Install standoffs for the UP board, but do not install UP board yet. We will install UP board last after we organize the wiring, much of which will run underneath the UP board. Use 4ea M2.5x16 mm standoffs and 4ea M2.5x6 screws. 
 
-    ![image017.png](images/image017.png)
-    ![image018.jpg](images/image018.jpg)
-    ![image019.png](images/image019.png)
-    ![image020.jpg](images/image020.jpg)
+      ![image017.png](images/image017.png)
+      ![image018.jpg](images/image018.jpg)
+      ![image019.png](images/image019.png)
+      ![image020.jpg](images/image020.jpg)
 
-    [_Drawing 2C_](http://a360.co/2afYBTa)
+      [_Drawing 2C_](http://a360.co/2afYBTa)
 
     * Install the Intel&reg; RealSense&trade; RS200 3D Camera. Use 2ea M3x18 socket head screws, 2 ea. M3 locknuts, 1 ea. sticky magnet (included in camera kit) and 1 ea. cable tie. Use 4ea. (2ea. per screw) M3x1mm washers as a spacers between camera and Tower. 
   
