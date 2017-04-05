@@ -1,5 +1,4 @@
-# Simple Autonomous Wheeled Robot (SAWR) 
-# _Assembly Instructions_
+# Simple Autonomous Wheeled Robot (SAWR) Assembly Instructions
 
 The SAWR is a simple learning platform for autonomous robotics. Despite its small size and low cost, it is capable of performing advanced mobile robotics tasks, including simultaneous localization, mapping, and navigation. 
 
@@ -74,325 +73,104 @@ Wheels are assembled from five layers of laser cut components. The outer profile
 
 It is advisable to assemble the rest of the robot in the order given below. Note the location of the holes on the top of the tower: the orientation of the tower plate matters, it is not reversible!
 
-  1. Attach components to the Tower plate in the following order: 
-     (Drawings 2 A, B, C) 
+  1. Attach components to the Tower plate in the following order given by Drawings 2A, 2B, and 2C below. 
      [Tower 3D Assembly](http://a360.co/2ago66G)
      
-     ![image009.png]([images/image009.png)
-     ![image011.png]([images/image011.png)
+     ![image009.png](images/image009.png)
+     ![image011.png](images/image011.png)
      
-     _Drawing 2A_
-
-  * Attach two brackets to the tower. For each bracket, install 6ea. M2 hex nuts (provided in servo box) in the bracket and use 6ea.
+     [_Drawing 2A_](http://a360.co/2covpJj)
+      
+    * Attach two brackets to the tower. For each bracket, install 6ea. M2 hex nuts (provided in servo box) in the bracket and use 6ea.
      M2x8 screws to secure bracket to the Tower. Repeat for the second bracket.
+  
+    * Insert M2 nuts into the servos, both along the outer faces (8 ea.) and along the end where the bracket goes (4 ea.). We will only be using the latter for now but it is much easier to install the nuts in the servos _before_ mounting them on the robot.
 
-       [Drawing2A](http://a360.co/2covpJj)
-
-  * Insert M2 nuts into the servos, both along the outer faces (8 ea.) and 
-    along the end where the bracket goes (4 ea.). We will only be
-     using the latter for now but it is much easier to install the nuts in the
-     servos before mounting them on the robot than afterwards.
-
-  * Attach two servos to the brackets. For each servo, use 4 ea. M2x8
-    screws and 4 ea. M2 hex nuts (nuts provided with servo kits)                    [Drawing 2A](http://a360.co/2covpJj)Drawing 2A
+    * Attach two servos to the brackets. For each servo, use 4 ea. M2x8 screws and 4 ea. M2 hex nuts (nuts provided with servo kits).
 
     ![image013.png](images/image013.png)
-    ![image015.png]((images/image015.png)
-    ![image016.jpg]((images/image016.png)
-    Drawing 2B
+    ![image015.png](images/image015.png)
+    ![image016.jpg](images/image016.png)
+    
+    [_Drawing 2B_](http://a360.co/2coACk9).
 
-  * Install the DFRobot DC-DC Power Convertor.  The power convertor goes on 
-    the opposite side of the tower from the servos. Note the orientation of 
-    the connectors; when viewed from the side the power converted is mounted
-    on, the 5V output should be on the left. When viewed from thegbackh,
-    where the servos are, the 5V output will be on the right.
-    Use 4ea. M3x6mm spacers, 4ea. M3 locknuts and 4 ea. M3x14 screws/
-    Refer to [Drawing 2B](http://a360.co/2coACk9).
+    * Install the DFRobot DC-DC Power Convertor.  The power convertor goes on the opposite side of the tower from the servos. Note the orientation of the connectors; when viewed from the side the power converted is mounted on, the 5V output should be on the left. When viewed from the _back_, where the servos are, the 5V output will be on the right. Use 4ea. M3x6mm spacers, 4ea. M3 locknuts and 4 ea. M3x14 screws.
 
-  * Install standoffs for the UP board, but do not install UP
-     board yet.&nbsp;We will install UP board last after we organize the
-     wiring, much of which will run underneath the UP board. Use 4ea M2.5x16 mm
-     standoffs and 4ea. M2.5x6 screws. Refer to </span><a
-     href="http://a360.co/2coACk9"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman"'>Drawing 2B</span></b></span></a></li>
-</ul>
+    * Install standoffs for the UP board, but do not install UP board yet. We will install UP board last after we organize the wiring, much of which will run underneath the UP board. Use 4ea M2.5x16 mm standoffs and 4ea M2.5x6 screws. 
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-margin-left:36.0pt;text-align:justify;text-justify:inter-ideograph;line-height:
-15.75pt;page-break-after:avoid'><a href="http://a360.co/2coACk9"><span
-style='color:windowtext;mso-fareast-language:JA;mso-no-proof:yes;text-decoration:
-none;text-underline:none'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
- o:spid="_x0000_i1039" type="#_x0000_t75" style='width:202.5pt;height:231pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image017.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=270 height=308
-src="INSTRUCTIONS_files/image018.jpg" v:shapes="Picture_x0020_1"><![endif]></span></a><span
-style='mso-fareast-language:JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
- id="Picture_x0020_10" o:spid="_x0000_i1038" type="#_x0000_t75" style='width:219pt;
- height:212.25pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image019.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=292 height=283
-src="INSTRUCTIONS_files/image020.jpg" v:shapes="Picture_x0020_10"><![endif]></span></p>
+    ![image017.png](images/image017.png)
+    ![image018.jpg](images/image018.jpg)
+    ![image019.png](images/image019.png)
+    ![image020.jpg](images/image020.jpg)
 
-<p class=MsoCaption>Drawing 2C </p>
+    [_Drawing 2C_](http://a360.co/2afYBTa)
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-margin-left:36.0pt;line-height:15.75pt'><span style='font-size:10.5pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#272727'><o:p>&nbsp;</o:p></span></p>
+    * Install the Intel&reg; RealSense&trade; RS200 3D Camera. Use 2ea M3x18 socket head screws, 2 ea. M3 locknuts, 1 ea. sticky magnet (included in camera kit) and 1 ea. cable tie. Use 4ea. (2ea. per screw) M3x1mm washers as a spacers between camera and Tower. 
+  
+    * The following procedure is recommended to install the camera in order to ensure precise horizontal and vertical
+     alignment:
 
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l9 level1 lfo5;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Install the Intel&reg; RealSense&#8482; RS200 3D Camera. Use 2ea
-     M3x18 socket head screws, 2 ea. M3 locknuts, 1 ea. sticky magnet (included
-     in camera kit) and 1 ea. cable tie. Use 4ea. (2ea. per screw) M3x1mm
-     washers as a spacers between camera and Tower.&nbsp;Refer to </span><a
-     href="http://a360.co/2afYBTa"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman"'>Drawing 2C</span></b></span></a><b><u><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.&nbsp;</span></u></b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'> The following procedure is recommended
-     to install the camera in order to ensure precise horizontal and vertical
-     alignment :</span></li>
-</ul>
+      ** Insert 1ea. M3x18 screw into slot in camera.
+    
+      ** Add 2 ea. M3x1mm washers to the screw between camera and Tower.
+    
+      ** Loosely secure screw with M3 locknut in the outer camera mount hole in the tower.
+    
+      ** The camera should still be able to rotate and slide freely.
+    
+      ** Attach the magnet to the other side of the camera, making sure it is in an accurate position (the bump in the magnet should be in the slot on the back of the camera) and remove protective paper from the magnet.
+    
+      ** Align camera vertically and horizontally: the top edge of the camera should be aligned with the tower edge.
+    
+      ** Attach sticky side of the magnet to tower.
+    
+      ** Secure the locknut.
+    
+      ** Secure the second screw with washers and a locknut
+    
+      ** Do not overtighten either screw. The locknuts and screws should hold the camera firmly without bending the case of the camera.
 
-<ol start=1 type=1>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Insert
-     1ea. M3x18 screw&nbsp;into slot in camera.<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Add
-     2 ea. M3x1mm washers to the screw between camera and Tower.<o:p></o:p></span></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Loosely secure screw with M3 locknut in the outer camera
-     mount hole in the tower.<span style='mso-spacerun:yes'>&nbsp;&nbsp;
-     </span>The camera should still be able to rotate and slide freely.</span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Attach
-     the magnet to the other side of the camera, making sure it is in an
-     accurate position (the bump in the magnet should be in the slot on the
-     back of the camera) and remove protective paper from the magnet.<o:p></o:p></span></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Align camera vertically and horizontally&nbsp;- top edge of
-     the camera should be aligned with the tower edge.</span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Attach
-     sticky side of the magnet to tower.<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Secure
-     the locknut.<o:p></o:p></span></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l3 level1 lfo6;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Secure
-     the second screw with washers and a locknut<o:p></o:p></span></li>
-</ol>
+  2. Top Plate
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-margin-left:18.0pt;line-height:15.75pt'><span style='font-size:10.5pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#272727'>Do not overtighten either screw.<span
-style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The locknuts and screws should
-hold the camera firmly without bending the case.&nbsp;<o:p></o:p></span></p>
+![image021.png](images/image021.png)
+![image022.jpg](images/image022.jpg)
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>2. &nbsp; Top Plate<b>&nbsp;(Drawing
-3A, B, C)</b><o:p></o:p></span></p>
+[_Drawing 3A_](http://a360.co/2a3N9qc)
+[_Drawing 3A_](http://a360.co/2a3nbTS)
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b><a
-href="http://a360.co/2a3N9qc"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>Top 3D Assembly</span></b></span></a></p>
+  * Attach 2 ea. Inner Mount Plates to the Top Plate and secure with 2 ties. Leave ties semi loose. Don't cut ties excess length yet. 
+  
+  * Install 2 ea. Power On-Off switches.
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><b><u><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#4675A8'><o:p><span
- style='text-decoration:none'>&nbsp;</span></o:p></span></u></b></p>
+![image023.png](images/image023.png)
+![image024.jpg](images/image024.jpg)
 
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p>&nbsp;</o:p></span></p>
+[_Drawing 3B_](http://a360.co/2a3n1Mc)
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-margin-left:-18.0pt;line-height:15.75pt;page-break-after:avoid'><span
-style='mso-fareast-language:JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
- id="Picture_x0020_22" o:spid="_x0000_i1037" type="#_x0000_t75" style='width:423pt;
- height:192pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image021.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=564 height=256
-src="INSTRUCTIONS_files/image022.jpg" v:shapes="Picture_x0020_22"><![endif]></span></p>
+  * Attach Top Plate to the Tower with 2 ea. M3x6 screws, M3 nuts, M3x1 washers in T-slots. Tighten ties and cut off excess tie length. 
+  
+  * Install 2 ea. M3x51mm standoffs. Use 2ea. M3x8 button head screws.
 
-<p class=MsoCaption>Drawing 3A <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
+  * Secure Outer Mount Plate to the Servo with 8ea. M2x8 screws and 8ea. M2 hex nuts.  Repeat for the second Outer Mount.
 
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Attach 2 ea.&nbsp;Inner Mount
-     Plates&nbsp;to the Top Plate and secure with 2 ties. Leave ties semi
-     loose. Donft cut ties excess length yet. Refer to </span><a
-     href="http://a360.co/2a3nbTS"><span class=InternetLink><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>Drawing 3A</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.</span></b></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Install 2 ea. Power On-Off
-     switches.&nbsp;Refer to </span><a href="http://a360.co/2a3nbTS"><span
-     class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 3A</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.</span></b></li>
-</ul>
+INSTRUCTIONS_files/image025.png
+INSTRUCTIONS_files/image026.jpg
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:15.75pt;page-break-after:avoid'><span style='mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_23" o:spid="_x0000_i1036"
- type="#_x0000_t75" style='width:372pt;height:218.25pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image023.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=496 height=291
-src="INSTRUCTIONS_files/image024.jpg" v:shapes="Picture_x0020_23"><![endif]></span></p>
+[_Drawing 3C_](http://a360.co/2a3orGD)
+  * Attach Outer Mount Plates to Top Plate with ties.
 
-<p class=MsoCaption>Drawing 3B <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
+INSTRUCTIONS_files/image027.png
+INSTRUCTIONS_files/image030.jpg
 
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Attach Top Plate to the Tower with 2 ea. M3x6 screws,
-     M3nuts, M3x1 washers in T-slots. Tighten ties and cut off excess of tiesf
-     length. Refer to </span><a href="http://a360.co/2a3n1Mc"><span
-     class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 3B</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.</span></b></li>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:#272727'>Install 2 ea. M3x51mm standoffs. Use 2ea. M3x8 button head
-     screws.&nbsp;Refer to </span><a href="http://a360.co/2a3n1Mc"><span
-     class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 3B</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>.</span></b></li>
- <li class=MsoNormal style='color:#272727;mso-margin-top-alt:auto;mso-margin-bottom-alt:
-     auto;text-align:justify;text-justify:inter-ideograph;line-height:15.75pt;
-     mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span style='font-size:
-     10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman"'>Secure
-     Outer Mount Plate to the Servo with 8ea. M2x8&nbsp;screws and 8ea. M2 hex
-     nuts<b>.&nbsp;</b>Repeat for the second Outer Mount. <o:p></o:p></span></li>
-</ul>
+[_Drawing 4_](http://a360.co/2a3nPRi)
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:15.75pt;page-break-after:avoid'><span style='mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_31" o:spid="_x0000_i1035"
- type="#_x0000_t75" style='width:404.25pt;height:235.5pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image025.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=539 height=314
-src="INSTRUCTIONS_files/image026.jpg" v:shapes="Picture_x0020_31"><![endif]></span></p>
+[3D Assembly](http://a360.co/2a3N1Y2)
 
-<p class=MsoCaption>Drawing 3C <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
+  3. Install Axles and Wheels but do not secure the M5 axle nut tightly yet. Repeat for the second Wheel. NOTE: it is possible to substitute an M6 nut and bolt for the shoulder bolt used here, as long as at least 12mm of the shaft of the bolt is unthreaded and is actually 6mm in diameter.  Shoulder bolts are generally machined to be exact whereas unthreaded bolts are more approximate.
 
-<ul type=disc>
- <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-     line-height:15.75pt;mso-list:l10 level1 lfo7;tab-stops:list 36.0pt'><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#272727'>Attach Outer Mount Plates to Top Plate
-     with ties. Refer to </span><a href="http://a360.co/2a3orGD"><span
-     class=InternetLink><b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-     mso-fareast-font-family:"Times New Roman";color:#4675A8'>Drawing 3C</span></b></span></a><b><span
-     style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-     "Times New Roman";color:#4675A8'>.<span style='mso-spacerun:yes'>&nbsp;
-     </span></span></b></li>
-</ul>
+  * At this point, for the ease of future assembly, it is advisable to address Servo wiring as described in the Servo Wiring section below.
 
-<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
-line-height:15.75pt;page-break-after:avoid'><span style='mso-fareast-language:
-JA;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_32" o:spid="_x0000_i1034"
- type="#_x0000_t75" style='width:192pt;height:184.5pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image027.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=256 height=246
-src="INSTRUCTIONS_files/image028.jpg" v:shapes="Picture_x0020_32"><![endif]><!--[if gte vml 1]><v:shape
- id="Picture_x0020_33" o:spid="_x0000_i1033" type="#_x0000_t75" style='width:228.75pt;
- height:233.25pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="INSTRUCTIONS_files/image029.png" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img border=0 width=305 height=311
-src="INSTRUCTIONS_files/image030.jpg" v:shapes="Picture_x0020_33"><![endif]></span></p>
-
-<p class=MsoCaption>Drawing 4 <span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:15.75pt'><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>&nbsp;&nbsp; 3.&nbsp; Install axles and
-Wheels, (</span><a href="http://a360.co/2a3nPRi"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>Drawing 4</span></b></span></a><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>,<span class=GramE>&nbsp;&nbsp;</span></span></b><a
-href="http://a360.co/2a3N1Y2"><span class=InternetLink><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#4675A8'>3D Assembly</span></b></span></a><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>)</span></b><span style='font-size:10.5pt;
-font-family:"Helvetica",sans-serif;mso-fareast-font-family:"Times New Roman";
-color:#272727'>&nbsp;but do not secure the M5 axle nut tightly yet. Repeat for
-the second Wheel.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>NOTE: it is
-possible to substitute an M6 nut and bolt for the shoulder bolt used here, as
-long as at least 12mm of the shaft of the bolt is unthreaded and is actually
-6mm in diameter.</span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify;text-justify:inter-ideograph;line-height:15.75pt'><b><span
-style='font-size:10.5pt;font-family:"Helvetica",sans-serif;mso-fareast-font-family:
-"Times New Roman";color:#272727'>At this point, for the ease of future
-assembly, it is advisable to address Servo wiring&nbsp;as described in Servo
-Wiring section below.</span></b><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>&nbsp;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-15.75pt'><span style='font-size:10.5pt;font-family:"Helvetica",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#272727'>4. Base Plate<b>&nbsp;(Drawings
+  4. Base Plate<b>&nbsp;(Drawings
 5A, B)</b><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
