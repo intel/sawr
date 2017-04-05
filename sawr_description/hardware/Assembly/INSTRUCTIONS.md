@@ -46,9 +46,9 @@ Select Download from the following web pages
 
 Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with the names we will be using to refer to them in the assembly notes.
 
-The Tower plate provides the option to mount either the RDK kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with an Intel RealSense ZR300 camera. Itfs also possible to combine a Joule with an R200 camera.
+The Tower plate provides the option to mount either the RDK kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with an Intel RealSense ZR300 camera. It is also possible to combine a Joule with an R200 camera.
 
-![image006.jpg]([images/image006.jpg)
+![image005.png](images/image005.png)
 
 Here is a Bill of Materials (BOM), with estimated cost of parts. The links are for reference only; you may be able to find alternative suppliers for these parts.
 
@@ -59,9 +59,7 @@ Here is a Bill of Materials (BOM), with estimated cost of parts. The links are f
 
 ![image007.png](images/image007.png)
 
-[_Drawing 1_](http://a360.co/29UsC8R)
-
-  * [Wheel 3D Assembly]("http://a360.co/2agnle2)
+[_Drawing 1_](http://a360.co/29UsC8R) ([Wheel 3D Assembly](http://a360.co/2agnle2))
 
 Wheels are assembled from five layers of laser cut components. The outer profile of the wheel has a "U" shape to capture an O-ring tire, which is also used as a belt drive.  The center layer of each wheel is 3mm thick, and all other layers are 2mm thick. The total wheel thickness is 11mm.
 
@@ -74,12 +72,11 @@ Wheels are assembled from five layers of laser cut components. The outer profile
 It is advisable to assemble the rest of the robot in the order given below. Note the location of the holes on the top of the tower: the orientation of the tower plate matters, it is not reversible!
 
   1. Attach components to the Tower plate in the following order given by Drawings 2A, 2B, and 2C below. 
-     [Tower 3D Assembly](http://a360.co/2ago66G)
-     
+
      ![image009.png](images/image009.png)
      ![image011.png](images/image011.png)
      
-     [_Drawing 2A_](http://a360.co/2covpJj)
+     [_Drawing 2A_](http://a360.co/2covpJj) ([Tower 3D Assembly](http://a360.co/2ago66G))
       
     * Attach two brackets to the tower. For each bracket, install 6ea. M2 hex nuts (provided in servo box) in the bracket and use 6ea.
      M2x8 screws to secure bracket to the Tower. Repeat for the second bracket.
