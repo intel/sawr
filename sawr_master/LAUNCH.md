@@ -30,6 +30,12 @@ nodes will close (and also, if the nodes crash, the xterms will close).
 This approach is useful for testing but perhaps not for
 a final install.
 
+To take this approach, issue the following commands, either from the main X11 display 
+or over an X-tunnelled ssh session:
+    
+    roscd sawr_master
+    ./start.sh
+
 ## Script-Driven Without X11
 If you want to launch the entire software stack without starting xterms,
 you can use the ``nox_start.sh`` script.
@@ -38,6 +44,12 @@ but output will be directed to the ROS logs.
 This is useful if you are logging in remotely with just a shell script
 but no remote X11 server,
 or if you want to avoid a dependency on keeping the xterms running.
+
+To take this approach, issue the following commands.  You can do this
+remotely using a regular ssh session:
+    
+    roscd sawr_master
+    ./nox_start.sh
 
 ## Launching Phases Manually
 Sometimes you want to test phases separately if you are doing debugging.
@@ -48,6 +60,7 @@ You can just launch the phases yourself manually using
 With X one of 0, 1, 2, or 3.
 If you want,
 launch these in separate terminals or ssh sessions to see the output.
+Note that you do not have to be in the ``sawr_master`` directory.
 
 ## Launch Everything at Once
 This launches all the phases at the same time without delays in between.
@@ -60,9 +73,9 @@ If you want to, you can try simultaneous launch using:
     roslaunch sawr_master init.launch
 
 Note this does not use a script but just ROS tools.
+You do not have to be in the ``sawr_master`` directory.
 
 ## Teleop and Visualization
-
 Now that the stack is launched, you can "drive" the robot using a teleoperator
 and visualize the output with rviz.
 Do the following in two separate windows:
@@ -77,10 +90,9 @@ You can also launch these using scripts:
     ./scripts/teleop.sh
 
 ## Remote Access
-
 If you set up remote access via ssh as noted in [INSTALL.md](INSTALL.md),
-you will be able to launch the above remotely.
-If you use the -X option when you log in via ssh,
+you will be able to launch the software stack remotely.
+If you use ``ssh -X`` to access the system over the internet,
 even the X11 versions with multiple terminal windows will
 work---definitely on a remote Linux or OS/X system but even from Windows if you
 install an X server such as [Xming](http://www.straightrunning.com/XmingNotes/).
@@ -88,10 +100,9 @@ However note that rviz will not work remotely over X11,
 so to use it remotely you will have to either set up remote ROS access
 (which will be insecure unless you also set up a VPN like OpenVPN)
 or set up a VNC server on your robot
-(less efficient, but can be tunnelled over ssh).
+(less efficient, but VNC can be tunnelled over ssh).
 
 ## Launching Automatically at Boot
-
 The simplest way to launch the system automatically at boot is to enable automatic login
 and then configure it as a [Startup Application](https://help.ubuntu.com/16.04/ubuntu-help/startup-applications.html).
 Note that you may have to run it inside a terminal window to get this to work.
