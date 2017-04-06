@@ -86,17 +86,17 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
     * Attach two servos to the brackets. For each servo, use 4 ea. M2x8 screws and 4 ea. M2 hex nuts (nuts provided with servo kits).
 
-      ![image013.png](images/image013.png)
-      ![image015.png](images/image015.png)
+      ![Tower_Assembly 3](images/tower_assembly_3.png)
+      ![Tower_Assembly 4](images/tower_assembly_4.png)
     
       [_Drawing 2B_](http://a360.co/2coACk9)
 
-    * Install the DFRobot DC-DC Power Convertor.  The power convertor goes on the opposite side of the tower from the servos. Note the orientation of the connectors; when viewed from the side the power converted is mounted on, the 5V output should be on the left. When viewed from the _back_, where the servos are, the 5V output will be on the right. Use 4ea. M3x6mm spacers, 4ea. M3 locknuts and 4 ea. M3x14 screws.
+    * Install the DFRobot DC-DC Power Convertor.  The power convertor goes on the opposite side of the tower from the servos. Note the orientation of the connectors; when viewed from the side the power convertor is mounted on, the 5V output should be on the left. When viewed from the _back_, where the servos are, the 5V output will be on the right. Use 4ea. M3x6mm spacers, 4ea. M3 locknuts and 4 ea. M3x14 screws. Make sure the switch is in the 5V position.
 
     * Install standoffs for the UP board, but do not install UP board yet. We will install UP board last after we organize the wiring, much of which will run underneath the UP board. Use 4ea M2.5x16 mm standoffs and 4ea M2.5x6 screws. 
 
-      ![image017.png](images/image017.png)
-      ![image019.png](images/image019.png)
+      ![Camera Assembly 1](images/camera_assembly_1.png)
+      ![Camera Assembly 2](images/camera_assembly_2.png)
 
       [_Drawing 2C_](http://a360.co/2afYBTa)
 
