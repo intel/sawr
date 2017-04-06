@@ -1,6 +1,6 @@
 // Basic Model of Intel(R) RealSense(TM) R200 Depth Camera
 //   also includes cutting plan for basic mounting
-// Developed b0y: Michael McCool
+// Developed by: Michael McCool
 // Copyright 2017 Intel Corporation
 // License: CC-BY-4.0.  See LICENSE.md
 include <tols.scad>
