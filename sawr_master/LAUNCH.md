@@ -1,9 +1,46 @@
 # Launching Simple Autonomous Wheeled Robot (SAWR) Software Stack
 
+The SAWR software stack supports autonomous navigation using
+simultaneous localization and mapping (SLAM).
+This means that it is capable of creating a model of its environment (a map) and then
+figuring out its current location with respect to that map (localization).
+In addition, autonomous navigation is supported.
+This means the robot can be given a goal destination in the map,
+then it can plan a path from its current estimated position to the destination,
+and then execute the plan.  
+The plan of course will route around know obstacles in the map but
+during execution the robot will also dynamically avoid obstacles that show up 
+along the way, re-planning as necessary.
+
+![How Robot Navigation Works](http://wiki.ros.org/navigation?action=AttachFile&do=get&target=nav_comic.png)
+
+This is a system but is the basis of many other applications in mobile
+robotics.  To manage complexity, the software system is built up from a 
+number of phases or "layers".  
+The first layer just supports control of the motors,
+allowing the robot to move forward and turn with specific velocities, 
+and to estimate actual progress using odometry.  
+The second layer enables the Intel&reg; RealSense&trade; 3D cameras and 
+generates data that simulates a LIDAR.  
+The third layer takes this data and implements SLAM, building a map and 
+localizing.
+The fourth layer does planning and navigation.
+Finally, to control the robot and see where it is, we can use a visualization
+tool to observe the map and give the robot navigation goals, and can also
+use "teleoperation" to directly drive the robot from place to place.
+
+The layers are built up from standard ROS nodes for SLAM and navigation.
+In particular, we use 
+the [ROS Kinetic Kame](http://wiki.ros.org/kinetic) release, 
+The ROS 
+[slam_gmapping](http://wiki.ros.org/slam_gmapping) for mapping,
+[amcl](http://wiki.ros.org/amcl) nodes for probablistic localization, and 
+the ROS [move-base](http://wiki.ros.org/move_base) system
+for navigation.  This is similar to the stack used in 
+the [ROS navigation](http://wiki.ros.org/navigation) package.
+
 The SAWR software stack can be launched in a number of different ways,
 depending on your situtation.
-Launching is a bit difficult due to the need to work around some race
-conditions in some of the nodes.
 In theory you could start all the ROS nodes used using a single launch file.
 In practice, this sometimes does not work.
 So instead it is recommended to launch the SW stack in phases,
