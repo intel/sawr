@@ -105,25 +105,25 @@ It is advisable to assemble the rest of the robot in the order given below. Note
     * The following procedure is recommended to install the camera in order to ensure precise horizontal and vertical
      alignment:
 
-    ** Insert 1ea. M3x18 screw into slot in camera.
+        * Insert 1ea. M3x18 screw into slot in camera.
     
-    ** Add 2 ea. M3x1mm washers to the screw between camera and Tower.
+        * Add 2 ea. M3x1mm washers to the screw between camera and Tower.
     
-    ** Loosely secure screw with M3 locknut in the outer camera mount hole in the tower.
+        * Loosely secure screw with M3 locknut in the outer camera mount hole in the tower.
     
-    ** The camera should still be able to rotate and slide freely.
+        * The camera should still be able to rotate and slide freely.
     
-    ** Attach the magnet to the other side of the camera, making sure it is in an accurate position (the bump in the magnet should be in the slot on the back of the camera) and remove protective paper from the magnet.
+        * Attach the magnet to the other side of the camera, making sure it is in an accurate position (the bump in the magnet should be in the slot on the back of the camera) and remove protective paper from the magnet.
     
-    ** Align camera vertically and horizontally: the top edge of the camera should be aligned with the tower edge.
+        * Align camera vertically and horizontally: the top edge of the camera should be aligned with the tower edge.
     
-    ** Attach sticky side of the magnet to tower.
+        * Attach sticky side of the magnet to tower.
     
-    ** Secure the locknut.
+        * Secure the locknut.
     
-    ** Secure the second screw with washers and a locknut
+        * Secure the second screw with washers and a locknut
     
-    ** Do not overtighten either screw. The locknuts and screws should hold the camera firmly without bending the case of the camera.
+        * Do not overtighten either screw. The locknuts and screws should hold the camera firmly without bending the case of the camera.
 
   2. Top Plate
 
@@ -166,7 +166,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 [_Drawing 5A_](http://a360.co/2a3zOys) ([Base 3D Assembly](http://a360.co/2agoFxm))
 
   * Install the ball caster on the Base plate with 3ea. M3x8 screws and 3ea. M3 locknuts. Current design uses only one caster in the rear part of the robot, but you may add 2 more front casters if you want; this will reduce the ability of the robot to go over obstacles but will also make it less liable to tipping forward when decelerating. The extra mounting holes on the front of the Base Plate provide this option.
-  ** Only the Acetal version of the base plate has flexible "suspensions" for the casters.  If cut in Acrylic these have proven to break too easily.  The frame is intentionally designed so that the casters do not all touch the ground at the same time in any case.
+      * Only the Acetal version of the base plate has flexible "suspensions" for the casters.  If cut in Acrylic these have proven to break too easily.  The frame is intentionally designed so that the casters do not all touch the ground at the same time in any case.
 
 ![image033.png](images/image033.png)
 
@@ -219,7 +219,7 @@ through the main power rocker switch to the DC-DC convertor, where it splits int
   * Pay special attention to the correct polarity of the wires when connecting to DC-DC convertor. If you get this wrong you can destroy
 your UP Board and/or your servos. It is **strongly** recommended to use a voltmeter to check both the output voltage and the polarity before plugging in the servos or the UP
 Board!  See also the 
-[DFRobot Manufacturer Instructions](http://www.dfrobot.com/index.php?route=product/product&amp;product_id=752#.V5etZTU2eXg).
+[DFRobot Manufacturer Instructions](http://www.dfrobot.com/index.php?route=product/product&amp;product_id=752#.V5etZTU2eXg).  Double-check that the output voltage is set to 5V.
 
   * Also be careful when wiring up the power from the battery. We know of at least one person that has completely destroyed a robot by
 diligently wiring up their battery backwards.
@@ -235,18 +235,19 @@ mechanical assembly).
   
   * Using "custom" cable, connect the 2nd servo to the pass-through output power connector of the DC-DC power convertor.
   
-  ** This cable can be created by modifying a normal Dynamixel cable.
+      * This cable can be created by modifying a normal Dynamixel cable.
   
-  ** The "red" wire (the center wire of the Dynamixel cable) connects to OV out on the DC-DC convertor and the "black" wire
-     connects to GND. See wiring diagram, and note especially the keying on the Dynamixel cables.
+      * The "red" wire (the center wire of the Dynamixel cable) connects to OV out on the DC-DC convertor and the "black" wire connects to GND. See wiring diagram, and note especially the keying on the Dynamixel cables.
      
-  ** Unfortunately you will have to use the connector keying to distinguish the ground and the signal cables since they are not actually colored or labelled in any way!
+      * Unfortunately you will have to use the connector keying to distinguish the ground and the signal cables since they are not actually colored or labelled in any way!
  
-  ** The "red" wire of the custom cable has 2 female connectors that should be attached to the second rocker switch. This rocker switch will control power supply to motors only, which will allow you to turn off or reset the motors, but keep the UP board powered. This is useful both to preserve battery life when you need to work on UP board configuration and programming, and to stop the motors if necessary without crashing the UP Board.
+      * The "red" wire of the custom cable has 2 female connectors that should be attached to the second rocker switch. This rocker switch will control power supply to motors only, which will allow you to turn off or reset the motors, but keep the UP board powered. This is useful both to preserve battery life when you need to work on UP board configuration and programming, and to stop the motors if necessary without crashing the UP Board.
   
   3. Camera and UP Board
 
-![image045.png](images/image045.png) ([Connection Diagram](http://a360.co/2ci6REp))
+![image045.png](images/image045.png) 
+
+[_Drawing 8_](http://a360.co/2ajdTqA) ([R200 Connection Diagram](http://a360.co/2ci6REp))
 
   * Connect RealSense R200 Camera to USB3 OTG port with the USB 3.0 cable provided in the camera kit.
      
@@ -254,8 +255,6 @@ mechanical assembly).
 
   * It is advisable to route camera and USB2AX cables in-between the Tower and UP Board. Address cable management and secure UP Board to
      the Tower plate with 4ea. M2.5x6 screws.
-     
-     [_Drawing 8_](http://a360.co/2ajdTqA)
      
   * Insert Wi-Fi USB dongle in UP board.
 
