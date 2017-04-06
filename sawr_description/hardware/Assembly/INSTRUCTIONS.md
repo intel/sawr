@@ -9,7 +9,7 @@ This simple robot (and its software stack) can also serve as a starting point fo
 All frame components for the SAWR are parametrically designed with [OpenSCAD](http://www.openscad.org/) and can be easily adjusted to 
 accommodate geometry of new electronic components if required. In addition to the Intel&reg; RealSense&trade; RDK, the frame also already has mounting points for the Intel&reg; Joule&trade; development kit and the ZR300 Intel&reg; RealSense&trade; 3D camera.
 
-The SAWR has a simple design and uses a minimal number of easily available off-the-shelf parts, making this platform easy to assemble. This allows you to and move faster into the ROS development phase, rather than spending time on mechanical assembly and custom electronic components. In particular, the SAWR's locomotion is based on two Dynamixel MX-12W servos, which provide accurate odometry feedback and speed control, and are well-supported by ROS and the robotics community.
+The SAWR uses easily available off-the-shelf parts.  This makes it possible to assemble a robot using locally-sourced and inexpensive components. The SAWR's locomotion is based on two Dynamixel MX-12W servos.  While these are a more "exotic" part these motors provide accurate odometry feedback and speed control, and are well-supported by ROS and the robotics community.
 
 This document outlines all mechanical/electronic components and assembly steps of the SAWR. Images have been included in the SAWR package to go with this file but links are also provided to high-resolution files and even 3D models as appropriate.
 
