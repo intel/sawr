@@ -15,8 +15,8 @@ This document outlines all mechanical/electronic components and assembly steps o
 
 ## Mechanical Assembly and Electrical Wiring
 
-![Side View - Rendering](images/image004.jpg)
-![Ortho View - Rendering](images/image003.gif)
+![Side View - Rendering](images/side_rendering.jpg)
+![Iso View - Rendering](images/iso_rendering.jpg)
 
 All mechanical drawings, 3D assemblies, and electrical schematics presented in this document are also available in the form of web
 links to CAD cloud storage. In general, the online versions of these images and models may be more up-to-date than the images in this document, in addition to in many cases allowing interaction, such as rotating the 3D model. Therefore, please follow the links in any case where a clearer view is needed or to ensure you have the latest version of the figure. You can also use OpenSCAD to look at the model locally.
