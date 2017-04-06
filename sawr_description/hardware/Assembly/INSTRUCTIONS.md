@@ -197,7 +197,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
   ![Driver Assembly 1](images/driver_assembly_1.png)
   
-  [_Drawing 6A ](http://a360.co/2a82vKJ) ([3D Assembly](http://a360.co/2akZt8Y))
+  [_Drawing 6A_](http://a360.co/2a82vKJ) ([3D Assembly](http://a360.co/2akZt8Y))
   
   
   
@@ -207,7 +207,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   
   ![Driver Assembly 2](images/driver_assembly_2.png) 
   
-  [_Drawing 6B ](http://a360.co/2akV7Pf) 
+  [_Drawing 6B_](http://a360.co/2akV7Pf) 
 
   * Install Driver and O-Ring by placing O-Ring over the Driver first and then stretching it around the grooves on the Wheel.
 
