@@ -1,5 +1,7 @@
 # Simple Autonomous Wheeled Robot (SAWR) Hardware
 
+![OpenSCAD Rendering of SAWR Model](iso.png)
+
 Here is all the information you need to build your own SAWR!
   1. Bills of materials are located under [Assembly](Assembly).
   Visit the [SAWR project page at 01.org](https://01.org/sawr) to see if kits are available.
@@ -16,4 +18,4 @@ Here is all the information you need to build your own SAWR!
   3. Under Modules you will find the CAD files.
   SAWR is modeled using [OpenSCAD](http://www.openscad.org/), an open-source 3D parametric modelling system.
   The main file is ``frame.scad``.
-  4. Build instructions are located in [Assembly/Instructions.pdf](Assembly/Instructions.pdf).
+  4. Build instructions are located in [Assembly/INSTRUCTIONS.md](Assembly/INSTRUCTIONS.md).
