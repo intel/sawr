@@ -74,8 +74,8 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
   1. Attach components to the Tower plate in the following order given by Drawings 2A, 2B, and 2C below. 
 
-     ![image009.png](images/image009.png)
-     ![image011.png](images/image011.png)
+     ![Tower_Assembly 1](images/tower_assembly_1.png)
+     ![Tower_Assembly 2](images/tower_assembly_2.png)
      
      [_Drawing 2A_](http://a360.co/2covpJj) ([Tower 3D Assembly](http://a360.co/2ago66G))
       
