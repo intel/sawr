@@ -7,22 +7,22 @@ figuring out its current location with respect to that map (localization).
 In addition, autonomous navigation is supported.
 This means the robot can be given a goal destination in the map,
 then it can plan a path from its current estimated position to the destination,
-and then execute the plan.  
+and then execute the plan.
 The plan of course will route around know obstacles in the map but
-during execution the robot will also dynamically avoid obstacles that show up 
+during execution the robot will also dynamically avoid obstacles that show up
 along the way, re-planning as necessary.
 
 ![How Robot Navigation Works](http://wiki.ros.org/navigation?action=AttachFile&do=get&target=nav_comic.png)
 
 This is a system but is the basis of many other applications in mobile
-robotics.  To manage complexity, the software system is built up from a 
-number of phases or "layers".  
+robotics.  To manage complexity, the software system is built up from a
+number of phases or "layers".
 The first layer just supports control of the motors,
-allowing the robot to move forward and turn with specific velocities, 
-and to estimate actual progress using odometry.  
-The second layer enables the Intel&reg; RealSense&trade; 3D cameras and 
-generates data that simulates a LIDAR.  
-The third layer takes this data and implements SLAM, building a map and 
+allowing the robot to move forward and turn with specific velocities,
+and to estimate actual progress using odometry.
+The second layer enables the Intel&reg; RealSense&trade; 3D cameras and
+generates data that simulates a LIDAR.
+The third layer takes this data and implements SLAM, building a map and
 localizing.
 The fourth layer does planning and navigation.
 Finally, to control the robot and see where it is, we can use a visualization
@@ -30,22 +30,22 @@ tool to observe the map and give the robot navigation goals, and can also
 use "teleoperation" to directly drive the robot from place to place.
 
 The layers are built up from standard ROS nodes for SLAM and navigation.
-In particular, we use 
-the [ROS Kinetic Kame](http://wiki.ros.org/kinetic) release, 
-The ROS 
-[slam_gmapping](http://wiki.ros.org/slam_gmapping) for mapping,
-[amcl](http://wiki.ros.org/amcl) nodes for probablistic localization, and 
-the ROS [move-base](http://wiki.ros.org/move_base) system
-for navigation.  This is similar to the stack used in 
+In particular, we use
+the [ROS Kinetic Kame](http://wiki.ros.org/kinetic) release,
+The ROS
+[slam_gmapping](http://wiki.ros.org/slam_gmapping) package for mapping,
+[amcl](http://wiki.ros.org/amcl) package for probablistic localization, and
+the ROS [move-base](http://wiki.ros.org/move_base) package
+for navigation.  This is similar to the stack used in
 the [ROS navigation](http://wiki.ros.org/navigation) package.
 
 The SAWR software stack can be launched in a number of different ways,
 depending on your situtation.
 In theory you could start all the ROS nodes used using a single launch file.
-In practice, this sometimes does not work.
+In practice, this sometimes does not work due to race conditions in some of the nodes.
 So instead it is recommended to launch the SW stack in phases,
 each phase adding another software layer with a bit more functionality.
-This layering
+Breaking the launch process into phases
 is also useful if you want to experiment with alternative "higher" layers
 (like an alternative mapping stack)
 while leaving the "lower" layers (like motor control) alone,
@@ -126,28 +126,67 @@ You can also launch these using scripts:
     ./scripts/viz.sh &
     ./scripts/teleop.sh
 
+## Manual Navigation
+Once you have a teleop running and a visualization, you can drive the robot around
+manually and build up a map.  
+You can observe the map being updated dynamically in rviz.
+Once you have a good map for a particular environment you can [save it](http://wiki.ros.org/map_server)
+using the ``map_saver`` command to the map server, and then using the start_saved.sh script
+provided, restart the system with that map.
+Upon restart with a saved map,
+the robot will immediately try to localize itself against the map to 
+determine its initial position.
+
+## Autonomonous Navigation
+Once you have a map and the robot has localized itself against the map,
+you can try autonomous navigation.
+This is done by specifying a goal position and orientation.
+Technically this is done by sending a message to the ``move-base`` sub-system
+which then initiates an "action" (a long-running process in ROS that you can
+observe the progress of, cancel, etc.).  Actions are particularly appropriate
+for navigation, but also useful in many other kinds of autonomous tasks.
+
+It is possible to initiate a navigation action using rviz.
+Once you have a map displayed and the robot has localized, selected the
+"Set Goal" button at the top of rviz, then click on a point on the map,
+drag a bit to select the orientation, and release the button.
+If all goes well... your robot will navigate to the goal position and orientation.
+
 ## Remote Access
+The above can be done using a HDMI cable and keyboard connected to the robot
+but this is obviously not very satisfactory.  Instead we want to be able to
+control the robot remotely.
+
 If you set up remote access via ssh as noted in [INSTALL.md](INSTALL.md),
 you will be able to launch the software stack remotely.
 If you use ``ssh -X`` to access the system over the internet,
 even the X11 versions with multiple terminal windows will
 work---definitely on a remote Linux or OS/X system but even from Windows if you
 install an X server such as [Xming](http://www.straightrunning.com/XmingNotes/).
-However note that rviz will not work remotely over X11,
+
+Unfortunately rviz will not work remotely over X11,
 so to use it remotely you will have to either set up remote ROS access
 (which will be insecure unless you also set up a VPN like OpenVPN)
 or set up a VNC server on your robot
 (less efficient, but VNC can be tunnelled over ssh).
+Theoretically, however, you could give goal states for navigation using
+command line tools, but you would have to understand the coordinate system
+the robot uses for its map.
+
+See the security discussion in the [INSTALL.md](INSTALL.md) file to set up
+remote access.  Doing this securely on a public network is unfortunately
+difficult so you may want to start with a private WiFi network.
 
 ## Launching Automatically at Boot
 The simplest way to launch the system automatically at boot is to enable automatic login
 and then configure it as a [Startup Application](https://help.ubuntu.com/16.04/ubuntu-help/startup-applications.html).
 Note that you may have to run it inside a terminal window to get this to work.
-This is somewhat insecure but you can always have your login time out quickly.
+This is somewhat insecure, as someone could in theory plug in a keyboard, mouse, and monitor to your robot and
+access your account, but you can always have your login time out quickly.
 However, note that anyone with physical access to your robot can typically break in without too much trouble
-even if you don't set up automatic login.
+anyway even if you don't set up automatic login...
 
 You can also configure a
 [script to run at boot using systemd](https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux).
-This is a bit more robust and will work even without automatic login and even if you disable the windowing system,
+This is a bit more robust and will work even without automatic login, and even if you disable the windowing system,
 but is a little harder to set up.
