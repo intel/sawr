@@ -50,7 +50,7 @@ The software stack consists of ROS configuration files
 and some simple ROS nodes for motor control.
 For the most part, we have kept the stack as simple as possible.
 Additional instructions for the SAWR software stack are
-located in the ``sawr`` package:
+located in the ``sawr_master`` package:
 * [sawr_master/INSTALL.md](sawr_master/INSTALL.md) - How to install the SAWR software stack.
 * [sawr_master/LAUNCH.md](sawr_master/LAUNCH.md) - How to run the SAWR software stack after installation.
 
