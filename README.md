@@ -31,7 +31,9 @@ If you can find it, acetal is much tougher than acrylic and highly recommended, 
 more flexible, allows for some additional features, like a compliant suspension.
 However, if you must use acrylic make sure you cut with the acrylic verion of the frame.
 
-Assembly details are in
+A general overview of the hardware design is in
+[sawr_description/hardware/README.md](sawr_description/hardware/README.md)
+and assembly details are in
 [sawr_description/hardware/Assembly/INSTRUCTIONS.md](sawr_description/hardware/Assembly/INSTRUCTIONS.md).
 
 The SAWR software stack enables basic autonomous navigation and currently supports
