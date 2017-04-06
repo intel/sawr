@@ -1,3 +1,7 @@
+// Tolerances
+// Developed by: Michael McCool
+// Copyright 2017 Intel Corporation
+// License: CC-BY-4.0.  See LICENSE.md
 
 printed = 0;
 
