@@ -9,7 +9,7 @@ Here is all the information you need to build your own SAWR!
   2. If you want to cut your own frame, laser-cut files are located in CUT.
   Use the version appropriate to your material.
   Acetal is highly recommended if you can source it.
-  Acyrlic is ok but not as sturdy.
+  Acyrlic is ok but tends to be brittle.
   If your sheets have different dimensions you may have to reorganize the parts 
   a little bit using a vector graphics editor such as [Inkscape](https://inkscape.org/).
   Note that one 2mm thick sheet and one 3mm thick sheet are used.
