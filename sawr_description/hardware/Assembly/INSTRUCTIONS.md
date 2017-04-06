@@ -130,7 +130,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 2. Top Plate
 
-![image021.png](images/image021.png)
+![Top Assembly 1](images/top_assembly_1.png)
 
 [_Drawing 3A_](http://a360.co/2a3N9qc) ([3D Assembly](http://a360.co/2a3nbTS))
 
@@ -138,7 +138,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   
 * Install 2 ea. Power On-Off switches.
 
-  ![image023.png](images/image023.png)
+  ![Top Assembly 2](images/top_assembly_2.png)
 
   [_Drawing 3B_](http://a360.co/2a3n1Mc)
 
@@ -148,23 +148,24 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 * Secure Outer Mount Plate to the Servo with 8ea. M2x8 screws and 8ea. M2 hex nuts.  Repeat for the second Outer Mount.
 
-  ![image025.png](images/image025.png)
+  ![Side Assembly](images/side_assembly.png)
 
   [_Drawing 3C_](http://a360.co/2a3orGD)
     
 * Attach Outer Mount Plates to Top Plate with ties.
 
-  ![image027.png](images/image027.png)
+3. Install Axles and Wheels but do not secure the M5 axle nut tightly yet. Repeat for the second Wheel. NOTE: it is possible to substitute an M6 nut and bolt for the shoulder bolt used here, as long as at least 12mm of the shaft of the bolt is unthreaded and is actually 6mm in diameter.  Shoulder bolts are generally machined to be exact whereas unthreaded bolts are more approximate.
+  
+  ![Wheel Assembly 1](images/wheel_assembly_1.png)
+  ![Wheel Assembly 2](images/wheel_assembly_2.png)
 
   [_Drawing 4_](http://a360.co/2a3nPRi) ([3D Assembly](http://a360.co/2a3N1Y2))
-
-3. Install Axles and Wheels but do not secure the M5 axle nut tightly yet. Repeat for the second Wheel. NOTE: it is possible to substitute an M6 nut and bolt for the shoulder bolt used here, as long as at least 12mm of the shaft of the bolt is unthreaded and is actually 6mm in diameter.  Shoulder bolts are generally machined to be exact whereas unthreaded bolts are more approximate.
-
+  
 * At this point, for the ease of future assembly, you may want to address Servo wiring as described in the Servo Wiring section below.
 
 4. Base Plate
 
-  ![image031.png](images/image031.png)
+  ![Bottom Diagram](images/bottom_diag.png)
 
   [_Drawing 5A_](http://a360.co/2a3zOys) ([Base 3D Assembly](http://a360.co/2agoFxm))
 
@@ -172,17 +173,17 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
   * Only the Acetal version of the base plate has flexible "suspensions" for the casters.  If cut in Acrylic these have proven to break too easily.  The frame is intentionally designed so that the casters do not all touch the ground at the same time in any case.
 
-    ![image033.png](images/image033.png)
+    ![Battery Diagram](images/battery_diag.png)
 
-    [_Drawing 7_](http://a360.co/2a88AGJ)
+    [_Drawing 5B_](http://a360.co/2a88AGJ)
 
   * Insert Velcro straps in the slots of the Base Plate and Install the Battery. 
    
-  * You should remove the battery after fitting it, then add it back in afterwards.
+  * You should remove the battery after fitting it, then slide it back in afterwards.  You might also want to fit the straps (and remove the battery again) before fitting the bottom plate. 
   
-    ![image035.png](images/image035.png)
+    ![Bottom Assembly](images/bottom_assembly.png)
   
-    [_Drawing 5B_](http://a360.co/2a3zYpA)
+    [_Drawing 5C_](http://a360.co/2a3zYpA)
   
   * Secure front Standoffs to the Base Plate with 2 ea. M3x8 screws
 
@@ -194,14 +195,19 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 5. Driver and O-rings. 
 
-  ![image037.png](images/image037.png)
-  [_Drawing 6A ](http://a360.co/2a82vKJ) and [_Drawing 6B ](http://a360.co/2akV7Pf) ([3D Assembly](http://a360.co/2akZt8Y))
+  ![Driver Assembly 1](images/driver_assembly_1.png)
+  
+  [_Drawing 6A ](http://a360.co/2a82vKJ) ([3D Assembly](http://a360.co/2akZt8Y))
+  
+  
   
   * Stack Driver components in your hand and align bolt holes.
     
   * Insert 4 ea. M2x20mm screws into stack, then secure driver onto the servo hub.
   
-  ![image039.png](images/image039.png) ([3D Assembly](http://a360.co/2akV7Pf))
+  ![Driver Assembly 2](images/driver_assembly_2.png) 
+  
+  [_Drawing 6B ](http://a360.co/2akV7Pf) 
 
   * Install Driver and O-Ring by placing O-Ring over the Driver first and then stretching it around the grooves on the Wheel.
 
@@ -209,30 +215,34 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 6. Power
 
-  ![image041.png](images/image041.png)
+  ![Wiring 1](images/wiring_1.png)
     
-  [_Drawing 7: Power Supply Diagram_](http://a360.co/2a8p4yC)
+  [_Drawing 7: Power Supply Wiring Diagram_](http://a360.co/2a8p4yC)
     
-  * In this design we are using Venom 20C 3S 4000mAh 11.1V LiPo Battery with Universal Plug. In our tests this battery provides enough power for 60 min of operation.
+  * In this design we are using Venom 20C 3S 4000mAh 11.1V LiPo Battery with Universal Plug.
+    In our tests this battery provides enough power for 60 min of active operation.
 
-  * Main electrical power is distributed from the battery through an in-line 5 AMP fuse. The positive side is routed through the main power rocker switch to the DC-DC convertor, where it splits into 5V and 12V supply lines. The 12V line is used to power the Servos using a modified Dynamixel cable while the 5V line is used to power UP board with a barrel connector.
+  * Main electrical power is distributed from the battery through an in-line 5 AMP fuse.
+    The positive side is routed through the main power rocker switch to the DC-DC convertor,
+    where it splits into 5V and 12V supply lines. The 12V line is used to power the Servos
+    using a modified Dynamixel cable while the 5V line is used to power UP board with a barrel connector.
 
-  * Pay special attention to the correct polarity of the wires when connecting to DC-DC convertor. 
-      If you get this wrong you can destroy your UP Board and/or your servos. It is **strongly** recommended 
-      to use a voltmeter to check both the output voltage and the polarity before plugging in the servos or 
-      the UP Board!  See also the 
-      [DFRobot Manufacturer Instructions](http://www.dfrobot.com/index.php?route=product/product&amp;product_id=752#.V5etZTU2eXg).
-      Double-check that the output voltage is set to 5V.
+  * Pay special attention to the correct polarity of the wires when connecting to DC-DC convertor.
+    If you get this wrong you can destroy your UP Board and/or your servos. It is **strongly** recommended
+    to use a voltmeter to check both the output voltage and the polarity before plugging in the servos or
+    the UP Board!  See also the
+    [DFRobot Manufacturer Instructions](http://www.dfrobot.com/index.php?route=product/product&amp;product_id=752#.V5etZTU2eXg).
+    Double-check that the output voltage is set to 5V.
 
-  * Also be careful when wiring up the power from the battery. We know of at least one person that has 
-      completely destroyed a robot by diligently wiring up their battery backwards.
+  * Also be careful when wiring up the power from the battery. We know of at least one person that has
+    completely destroyed a robot by diligently wiring up their battery backwards.
 
 7. Servo Wiring
   For ease of assembly you may want to complete this step immediately after step 3 of the mechanical assembly.
 
-  ![image043.png](images/image043.png) 
+  ![Wiring 2](images/wiring_2.png) 
    
-  [Servo wiring Diagram](http://a360.co/2a8p5CN)
+  [_Drawing 8: Servo Wiring Diagram_](http://a360.co/2a8p5CN)
   
   * Connect USB2AX to 1st servo using a 250mm Dynamixel cable.
  
@@ -248,11 +258,11 @@ It is advisable to assemble the rest of the robot in the order given below. Note
  
       * The "red" wire of the custom cable has 2 female connectors that should be attached to the second rocker switch. This rocker switch will control power supply to motors only, which will allow you to turn off or reset the motors, but keep the UP board powered. This is useful both to preserve battery life when you need to work on UP board configuration and programming, and to stop the motors if necessary without crashing the UP Board.
   
-8. Camera and UP Board Wiring
+8. USB Connections
 
-  ![image045.png](images/image045.png) 
+  ![Wiring 3](images/wiring_3.png) 
 
-  [_Drawing 8_](http://a360.co/2ajdTqA) ([R200 Connection Diagram](http://a360.co/2ci6REp))
+  [_Drawing 9_: USB Connections](http://a360.co/2ajdTqA) ([USB Connection Diagram](http://a360.co/2ci6REp))
 
   * Connect RealSense R200 Camera to USB3 OTG port with the USB 3.0 cable provided in the camera kit.
      
@@ -260,4 +270,5 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
   * It is advisable to route camera and USB2AX cables in-between the Tower and UP Board. Address cable management and secure UP Board to the Tower plate with 4ea. M2.5x6 screws.
      
-  * Insert Wi-Fi USB dongle in UP board.
+  * Insert Wi-Fi USB dongle into UP board.
+  
