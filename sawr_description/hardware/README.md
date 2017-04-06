@@ -11,7 +11,7 @@ Here is all the information you need to build your own SAWR!
   Acetal is highly recommended if you can source it.
   Acyrlic is ok but not as sturdy.
   If your sheets have different dimensions you may have to reorganize the parts 
-  a little bit using a vector graphics editor such as [Inkscape](https://inkscape.org/)
+  a little bit using a vector graphics editor such as [Inkscape](https://inkscape.org/).
   Note that one 2mm thick sheet and one 3mm thick sheet are used.
   The design allows for 10% tolerance in sheet thickness, and is really only important for the 3mm sheet.
   Consider this if you can only source sheets in Imperial thicknesses. 
