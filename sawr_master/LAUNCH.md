@@ -128,16 +128,16 @@ You can also launch these using scripts:
 
 ## Manual Navigation
 Once you have a teleop running and a visualization, you can drive the robot around
-manually and build up a map.  
+manually and build up a map.
 You can observe the map being updated dynamically in rviz.
 Once you have a good map for a particular environment you can [save it](http://wiki.ros.org/map_server)
 using the ``map_saver`` command to the map server, and then using the start_saved.sh script
 provided, restart the system with that map.
 Upon restart with a saved map,
-the robot will immediately try to localize itself against the map to 
+the robot will immediately try to localize itself against the map to
 determine its initial position.
 
-## Autonomonous Navigation
+## Autonomous Navigation
 Once you have a map and the robot has localized itself against the map,
 you can try autonomous navigation.
 This is done by specifying a goal position and orientation.
