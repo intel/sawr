@@ -1,7 +1,7 @@
 // Simple Autonomous Wheeled Robot (SAWR) Frame Design
 // Developed by: Michael McCool
-// Copyright 2016 Intel Corporation
-// License: CC-BY.  See LICENSE.md
+// Copyright 2017 Intel Corporation
+// License: CC-BY-4.0.  See sawr/LICENSE.md
 include <tols.scad>
 include <smooth_model.scad>
 //include <smooth_make.scad>
@@ -15,9 +15,9 @@ use <zr300.scad>
               
 // Material selection
 using_pom = true;  // Use of POM (aka Delrin/Duracon/Acetal) allows for certain
-                    // features like a cantilevered suspension... but if using 
-                    // acrylic, which is too brittle to support these features,
-                    // set this to false.
+                   // features like a cantilevered suspension... but if using 
+                   // acrylic, which is too brittle to support these features,
+                   // set this to false.
 
 // Use external 3D models in visualization
 use_external_models = true; 
@@ -27,7 +27,7 @@ use_external_models = true;
 plate_thickness = 3;
 wheel_plate_thickness = 2;
 
-// Unfortunately acrylic sheet thickness can vary a lot, and we 
+// Unfortunately acrylic (and POM) sheet thickness can vary a lot, and we 
 // have to account for that in the design, eg for tab/slot joints.
 // If you want tight joints, actually measure the plates first... 
 // keeping in mind that a single plate can vary in thickness across
@@ -49,11 +49,12 @@ use_zr300_camera = false; // use a zr300 camera
 use_arm = false; // enable arm on upper platform (WIP)
 use_up = true; // use UP Board
 use_up_squared = false;  // use UP squared
-use_tc = true; // use standard Joule carrier (TuChuck)
+use_tc = false; // use standard Joule carrier board (TuChuck)
 use_gum = false; // use Gumstix board
 use_up_holes = true; // include mounting holes for UP/Gumstix
 use_up_squared_holes = true; // include mounting holes for UP Squared
 use_tc_holes = true; // include mounting holes for TC
+use_imu = false; // show IMU
 use_imu_holes = true; // include mounting holes for IMU
 use_front_casters = true; // make this true if you want the OPTION of front casters
 use_tread = true; // to better grip o-ring
@@ -79,7 +80,7 @@ use_gum_model = use_gum && use_external_models; // use detailed model of gumstix
 use_servo_model = use_external_models;  // use detailed model of Dynamixel servo
 use_bracket_model = use_external_models;  // use detailed model of servo bracket
 use_power_model = use_power_holes && use_external_models; // use detailed model of power module
-use_imu_model = use_external_models; // use detailed model of imu
+use_imu_model = use_imu && use_external_models; // use detailed model of imu
 
 // Various visualization options.  Affects only rendering, not output model.
 use_speaker = false; // affects only visualization
@@ -107,7 +108,7 @@ middle_plate_thickness =
   (tire_wd > 3*wheel_plate_thickness) 
   ? plate_thickness
   : wheel_plate_thickness;
-// figure out if we should ALSO use thick plates in outer plates
+// figure out if we should ALSO use thick plates in outer plates of wheel
 outer_plate_thickness =
   (tire_wd > 2*wheel_plate_thickness + middle_plate_thickness)
   ? plate_thickness
@@ -122,6 +123,7 @@ tire_i = 2; // amount to inset inner wheel slice
 tire_od = tire_id + 2*tire_wd + 1.5*tire_e;
 
 // default trim value for friction drive (find exact value by experimentation)
+// NOTE: WIP, not used at present
 friction_trim = 0.3;
 
 // offset tower when using friction drive to optimize mechanical advantage
@@ -174,7 +176,7 @@ bearing_sm = 4*sm_base;
 axle_sm = 2*bolt_sm;
 bracket_sm = 5*sm_base;
 
-spacer_sm = 6; // actually do want hexagons
+spacer_sm = 6; // actually DO want hexagons
 up_board_standoff_sm = 6;
 up_squared_board_standoff_sm = 6;
 
@@ -218,7 +220,7 @@ wheel_cutout_scale = 0.1;
 wheel_cutout_r1 = wheel_cutout_scale*wheel_cutout_R1;
 wheel_cutout_r2 = 2.5*wheel_cutout_scale*wheel_cutout_R2;
 
-// 7.4V battery... but does not work with MX-12W's :(
+// 7.4V NIMH battery... but does not work with MX-12W's :(
 battery_radius = 27.5/2;
 battery_length = 135;
 
@@ -380,7 +382,7 @@ speaker_r = 500+speaker_c;
 speaker_h3 = 20-speaker_c;
 speaker_oy = -48;
 
-// pololu 1" ball caster with plastic rollers
+// Pololu 1" ball caster with plastic rollers
 // https://www.pololu.com/product/2691
 caster_t = 2;
 caster_oyy = 6 + caster_t;
@@ -1010,8 +1012,9 @@ module tc_fan_spacers() {
 module up_board() {
   color([0.3,0.3,0.5,0.5]) 
     if (use_up_model) {
-      scale(1000)
-        import("External/UP.stl",convexity=5);
+      //scale(1000) // need for Aaeon's model, not for replacement
+        translate([0,0,7.85]) // need for replacement model...
+          import("External/UP.stl",convexity=5);
     } else {
       translate([-up_board_x/2,-up_board_y/2,0])
         cube([up_board_x,up_board_y,up_board_z]);
@@ -2994,6 +2997,7 @@ module assembly() {
 //tc_board();
 //camera();
 //translate([0,0,-3-plate_thickness]) shelf_plate();
+//up_board();
 
 // ASSEMBLY VISUALIZATION
 // Note: full CGAL compile will fail because UP board is not a 
