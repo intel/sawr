@@ -1,7 +1,7 @@
 # Simple Autonomous Wheeled Robot (SAWR)
 The goal of the SAWR project is to define a basic "example robot"
-to demonstrate autonomous navigation using ROS with
-the Intel&reg; RealSense&trade; 3D cameras.
+to demonstrate autonomous navigation using [ROS](http://wiki.ros.org/) with
+the [Intel&reg; RealSense&trade; 3D cameras](http://www.intel.com/content/www/us/en/architecture-and-technology/realsense-overview.html).
 This robot can also be used as a software
 development and testing platform and
 to deliver training material.
@@ -9,11 +9,15 @@ to deliver training material.
 This repository contains both the hardware specification and the software
 to enable you to build and run your own SAWR.
 For compute and sensing, you can
-use either the Intel&reg; RealSense&trade; Robotic Development Kit
-(which includes an UP Board and an Intel&reg; RealSense&trade; R200 3D camera)
-or an Intel&reg; Joule&trade; compute module combined with
+use either the 
+[Intel&reg; RealSense&trade; Robotic Development Kit](https://software.intel.com/en-us/realsense/robotic-development-kit)
+(which includes an [Aaeon UP Board](http://www.up-board.org/)
+and an [Intel&reg; RealSense&trade; R200 3D camera](https://software.intel.com/en-us/articles/realsense-r200-camera))
+or an [Intel&reg; Joule&trade; compute module](https://software.intel.com/en-us/iot/hardware/joule) combined with
 an Intel&reg; RealSense&trade; R200 3D camera. 
-Note: The frame is designed to support a RealSense&trade; ZR300 3D camera as well
+Note: The frame is designed to support a 
+[RealSense&trade; ZR300 3D camera](https://click.intel.com/intelr-realsensetm-development-kit-featuring-the-zr300.html) as well,
+which has additional capabilities for visual odometry and inertial navigation,
 but the SW has not yet been fully updated and tested; stay tuned.
 
 The hardware specification,
