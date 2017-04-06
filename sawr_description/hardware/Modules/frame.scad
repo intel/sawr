@@ -1,7 +1,7 @@
 // Simple Autonomous Wheeled Robot (SAWR) Frame Design
 // Developed by: Michael McCool
 // Copyright 2017 Intel Corporation
-// License: CC-BY-4.0.  See sawr/LICENSE.md
+// License: CC-BY-4.0.  See LICENSE.md
 include <tols.scad>
 include <smooth_model.scad>
 //include <smooth_make.scad>
