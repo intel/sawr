@@ -49,7 +49,7 @@ Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with the
 
 The Tower plate provides the option to mount either the RDK kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with an Intel RealSense ZR300 camera. It is also possible to combine a Joule with an R200 camera.
 
-![image005.png](images/image005.png)
+![Tower Diagram](images/tower_diag.png)
 
 Here is a Bill of Materials (BOM), with estimated cost of parts. The links are for reference only; you may be able to find alternative suppliers for these parts.
 
@@ -58,7 +58,7 @@ Here is a Bill of Materials (BOM), with estimated cost of parts. The links are f
 
 ## Wheels Assembly
 
-![image007.png](images/image007.png)
+![Wheel Diagram](images/wheel_diag.png)
 
 [_Drawing 1_](http://a360.co/29UsC8R) ([Wheel 3D Assembly](http://a360.co/2agnle2))
 
