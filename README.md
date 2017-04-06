@@ -32,7 +32,7 @@ more flexible, allows for some additional features, like a compliant suspension.
 However, if you must use acrylic make sure you cut with the acrylic verion of the frame.
 
 Assembly details are in
-[sawr_description/hardware/Assembly/ASSEMBLY.md](sawr_description/hardware/Assembly/ASSEMBLY.md).
+[sawr_description/hardware/Assembly/INSTRUCTIONS.md](sawr_description/hardware/Assembly/INSTRUCTIONS.md).
 
 The SAWR software stack enables basic autonomous navigation and currently supports
 building a 2D map with gmapper and then planning and executing a motion path
