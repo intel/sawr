@@ -32,7 +32,7 @@ Here is all the information you need to build your own SAWR!
   
      You should also cut one of the following:
 
-     * [2mm sheet (same for all materials)](Make/sheet1_2mm.pdf)
+     * [2mm sheet (same for all materials)](Make/sheet2_2mm.pdf)
 
      Note that both 2mm and 3mm parts are used and these are organized onto 
      different sheets. The design allows for 10% tolerance in sheet thickness, 
