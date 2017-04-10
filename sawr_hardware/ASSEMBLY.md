@@ -102,8 +102,8 @@ Select Download from the following web pages:
 * [Download Laser Cut file for 2mm sheet in PDF format](http://a360.co/2iRK3wz)
 
 You can also access these files locally:
-* [Local Laser Cut file for 2mm sheet in SVG format](Make/sheet1_2mm.svg)
-* [Local Laser Cut file for 2mm sheet in PDF format](Make/sheet1_2mm.pdf)
+* [Local Laser Cut file for 2mm sheet in SVG format](Make/2mm.svg)
+* [Local Laser Cut file for 2mm sheet in PDF format](Make/2mm.pdf)
 
 
 ### Sheet 2:450x300x3mm
@@ -114,13 +114,13 @@ If you are using Acrylic, select Download from the following web pages:
 * [Download Laser Cut file for 3mm sheet in PDF format](http://a360.co/2iRBB0e)
 
 You can also access these files locally:
-* [Local Laser Cut file for 3mm sheet in SVG format](Make/sheet2_3mm_acrylic.svg)
-* [Local Laser Cut file for 3mm sheet in PDF format](Make/sheet2_3mm_acrylic.pdf)
+* [Local Laser Cut file for 3mm sheet in SVG format](Make/3mm_acrylic.svg)
+* [Local Laser Cut file for 3mm sheet in PDF format](Make/3mm_acrylic.pdf)
 
 If you are using POM and want a cantilevered suspension, use the following
 instead for the 3mm sheet:
-* [Local Laser Cut file for 3mm sheet in SVG format for POM](Make/sheet2_3mm_pom.svg)
-* [Local Laser Cut file for 3mm sheet in PDF format for POM](Make/sheet2_3mm_pom.pdf)
+* [Local Laser Cut file for 3mm sheet in SVG format for POM](Make/3mm_pom.svg)
+* [Local Laser Cut file for 3mm sheet in PDF format for POM](Make/3mm_pom.pdf)
 
 
 Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with 

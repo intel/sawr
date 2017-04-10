@@ -15,8 +15,8 @@ Here is all the information you need to build your own SAWR!
      [Make](Make) subdirectory. Choose one of the following depending on your
      material:
 
-     * [Acrylic 3mm sheet](Make/sheet1_3mm_acrylic.pdf)
-     * [POM 3mm sheet](Make/sheet1_3mm_pom.pdf)
+     * [Acrylic 3mm sheet](Make/3mm_acrylic.pdf)
+     * [POM 3mm sheet](Make/3mm_pom.pdf)
 
      POM (short for Polyoxymethylene, also known as Acetal, Delrin, or Duracon)
      is highly recommended if you can source it.  Acyrlic (short for polymethyl
@@ -33,7 +33,7 @@ Here is all the information you need to build your own SAWR!
   
      You should also cut one of the following:
 
-     * [2mm sheet (same for all materials)](Make/sheet2_2mm.pdf)
+     * [2mm sheet (same for all materials)](Make/2mm.pdf)
 
      Note that both 2mm and 3mm parts are used and these are organized onto
      different sheets. The design allows for 10% tolerance in sheet thickness,
