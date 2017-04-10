@@ -15,8 +15,8 @@ This document outlines all mechanical/electronic components and assembly steps o
 
 ## Mechanical Assembly and Electrical Wiring
 
-![Side View - Rendering](images/side_rendering.jpg)
-![Iso View - Rendering](images/iso_rendering.jpg)
+![Side View - Rendering](Images/side_rendering.jpg)
+![Iso View - Rendering](Images/iso_rendering.jpg)
 
 All mechanical drawings, 3D assemblies, and electrical schematics presented in this document are also available in the form of web
 links to CAD cloud storage. In general, the online versions of these images and models may be more up-to-date than the images in this document, in addition to in many cases allowing interaction, such as rotating the 3D model. Therefore, please follow the links in any case where a clearer view is needed or to ensure you have the latest version of the figure. You can also use OpenSCAD to look at the model locally.
@@ -50,7 +50,7 @@ Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with the
 
 The Tower plate provides the option to mount either the RDK kit (UP board and Intel RealSense RS200) or an Intel Joule development kit with an Intel RealSense ZR300 camera. It is also possible to combine a Joule with an R200 camera.
 
-![Tower Diagram](images/tower_diag.png)
+![Tower Diagram](Images/tower_diag.png)
 
 Here is a Bill of Materials (BOM), with estimated cost of parts. The links are for reference only; you may be able to find alternative suppliers for these parts.
 
@@ -60,7 +60,7 @@ Select Download from the following web pages:
 
 ## Wheels Assembly
 
-![Wheel Diagram](images/wheel_diag.png)
+![Wheel Diagram](Images/wheel_diag.png)
 
 [_Drawing 1_](http://a360.co/29UsC8R) ([Wheel 3D Assembly](http://a360.co/2agnle2))
 
@@ -78,8 +78,8 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 1. Attach components to the Tower plate in the following order given by Drawings 2A, 2B, and 2C below. 
 
-  ![Tower_Assembly 1](images/tower_assembly_1.png)
-  ![Tower_Assembly 2](images/tower_assembly_2.png)
+  ![Tower_Assembly 1](Images/tower_assembly_1.png)
+  ![Tower_Assembly 2](Images/tower_assembly_2.png)
      
    [_Drawing 2A_](http://a360.co/2covpJj) ([Tower 3D Assembly](http://a360.co/2ago66G))
       
@@ -89,8 +89,8 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 * Attach two servos to the brackets. For each servo, use 4 ea. M2x8 screws and 4 ea. M2 hex nuts (nuts provided with servo kits).
 
-  ![Tower_Assembly 3](images/tower_assembly_3.png)
-  ![Tower_Assembly 4](images/tower_assembly_4.png)
+  ![Tower_Assembly 3](Images/tower_assembly_3.png)
+  ![Tower_Assembly 4](Images/tower_assembly_4.png)
     
   [_Drawing 2B_](http://a360.co/2coACk9)
 
@@ -98,8 +98,8 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 * Install standoffs for the UP board, but do not install UP board yet. We will install UP board last after we organize the wiring, much of which will run underneath the UP board. Use 4ea M2.5x16 mm standoffs and 4ea M2.5x6 screws. 
 
-  ![Camera Assembly 1](images/camera_assembly_1.png)
-  ![Camera Assembly 2](images/camera_assembly_2.png)
+  ![Camera Assembly 1](Images/camera_assembly_1.png)
+  ![Camera Assembly 2](Images/camera_assembly_2.png)
 
   [_Drawing 2C_](http://a360.co/2afYBTa)
 
@@ -130,7 +130,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 2. Top Plate
 
-![Top Assembly 1](images/top_assembly_1.png)
+![Top Assembly 1](Images/top_assembly_1.png)
 
 [_Drawing 3A_](http://a360.co/2a3N9qc) ([3D Assembly](http://a360.co/2a3nbTS))
 
@@ -138,7 +138,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   
 * Install 2 ea. Power On-Off switches.
 
-  ![Top Assembly 2](images/top_assembly_2.png)
+  ![Top Assembly 2](Images/top_assembly_2.png)
 
   [_Drawing 3B_](http://a360.co/2a3n1Mc)
 
@@ -148,7 +148,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 * Secure Outer Mount Plate to the Servo with 8ea. M2x8 screws and 8ea. M2 hex nuts.  Repeat for the second Outer Mount.
 
-  ![Side Assembly](images/side_assembly.png)
+  ![Side Assembly](Images/side_assembly.png)
 
   [_Drawing 3C_](http://a360.co/2a3orGD)
     
@@ -156,8 +156,8 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 3. Install Axles and Wheels but do not secure the M5 axle nut tightly yet. Repeat for the second Wheel. NOTE: it is possible to substitute an M6 nut and bolt for the shoulder bolt used here, as long as at least 12mm of the shaft of the bolt is unthreaded and is actually 6mm in diameter.  Shoulder bolts are generally machined to be exact whereas unthreaded bolts are more approximate.
   
-  ![Wheel Assembly 1](images/wheel_assembly_1.png)
-  ![Wheel Assembly 2](images/wheel_assembly_2.png)
+  ![Wheel Assembly 1](Images/wheel_assembly_1.png)
+  ![Wheel Assembly 2](Images/wheel_assembly_2.png)
 
   [_Drawing 4_](http://a360.co/2a3nPRi) ([3D Assembly](http://a360.co/2a3N1Y2))
   
@@ -165,7 +165,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 4. Base Plate
 
-  ![Bottom Diagram](images/bottom_diag.png)
+  ![Bottom Diagram](Images/bottom_diag.png)
 
   [_Drawing 5A_](http://a360.co/2a3zOys) ([Base 3D Assembly](http://a360.co/2agoFxm))
 
@@ -173,7 +173,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
   * Only the Acetal version of the base plate has flexible "suspensions" for the casters.  If cut in Acrylic these have proven to break too easily.  The frame is intentionally designed so that the casters do not all touch the ground at the same time in any case.
 
-    ![Battery Diagram](images/battery_diag.png)
+    ![Battery Diagram](Images/battery_diag.png)
 
     [_Drawing 5B_](http://a360.co/2a88AGJ)
 
@@ -181,7 +181,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
    
   * You should remove the battery after fitting it, then slide it back in afterwards.  You might also want to fit the straps (and remove the battery again) before fitting the bottom plate. 
   
-    ![Bottom Assembly](images/bottom_assembly.png)
+    ![Bottom Assembly](Images/bottom_assembly.png)
   
     [_Drawing 5C_](http://a360.co/2a3zYpA)
   
@@ -195,7 +195,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 5. Driver and O-rings. 
 
-  ![Driver Assembly 1](images/driver_assembly_1.png)
+  ![Driver Assembly 1](Images/driver_assembly_1.png)
   
   [_Drawing 6A_](http://a360.co/2a82vKJ) ([3D Assembly](http://a360.co/2akZt8Y))
   
@@ -205,7 +205,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
     
   * Insert 4 ea. M2x20mm screws into stack, then secure driver onto the servo hub.
   
-  ![Driver Assembly 2](images/driver_assembly_2.png) 
+  ![Driver Assembly 2](Images/driver_assembly_2.png) 
   
   [_Drawing 6B_](http://a360.co/2akV7Pf) 
 
@@ -215,7 +215,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 
 6. Power
 
-  ![Wiring 1](images/wiring_1.png)
+  ![Wiring 1](Images/wiring_1.png)
     
   [_Drawing 7: Power Supply Wiring Diagram_](http://a360.co/2a8p4yC)
     
@@ -240,7 +240,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
 7. Servo Wiring
   For ease of assembly you may want to complete this step immediately after step 3 of the mechanical assembly.
 
-  ![Wiring 2](images/wiring_2.png) 
+  ![Wiring 2](Images/wiring_2.png) 
    
   [_Drawing 8: Servo Wiring Diagram_](http://a360.co/2a8p5CN)
   
@@ -260,7 +260,7 @@ It is advisable to assemble the rest of the robot in the order given below. Note
   
 8. USB Connections
 
-  ![Wiring 3](images/wiring_3.png) 
+  ![Wiring 3](Images/wiring_3.png) 
 
   [_Drawing 9_: USB Connections](http://a360.co/2ajdTqA) ([USB Connection Diagram](http://a360.co/2ci6REp))
 
