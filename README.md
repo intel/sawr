@@ -21,7 +21,7 @@ which has additional capabilities for visual odometry and inertial navigation,
 but the SW has not yet been fully updated and tested; stay tuned.
 
 The hardware specification,
-located in ``sawr_description/hardware``,
+located in ``sawr_hardware``,
 is intended to be sufficient to allow you to
 build your own SAWR if you have access to a laser cutter.
 The hardware specification is in the form of some OpenSCAD files,
@@ -36,9 +36,9 @@ more flexible, allows for some additional features, like a compliant suspension.
 However, if you must use acrylic make sure you cut with the acrylic verion of the frame.
 
 A general overview of the hardware design is in
-[sawr_description/hardware/README.md](sawr_description/hardware/README.md)
+[sawr_hardware/README.md](sawr_hardware/README.md)
 and assembly details are in
-[sawr_description/hardware/Assembly/INSTRUCTIONS.md](sawr_description/hardware/Assembly/INSTRUCTIONS.md).
+[sawr_hardware/ASSEMBLY.md](sawr_hardware/ASSEMBLY.md).
 
 The SAWR software stack enables basic autonomous navigation and currently supports
 building a 2D map with gmapper and then planning and executing a motion path
@@ -59,11 +59,15 @@ Here is a list of packages included in this project and
 a summary of what each one contains.
 Please refer to the README.md files in each package for more information:
 * [sawr_master](sawr_master/README.md) - Master package, installation instructions, and launch scripts.
-* [sawr_description](sawr_description/README.md) - Hardware specification and build instructions, URDF files.
+* [sawr_description](sawr_description/README.md) - Run-time physical description (URDF files).
 * [sawr_base](sawr_base/README.md) - Motor controller and hardware interfacing.
 * [sawr_scan](sawr_scan/README.md) - Camera configuration.
 * [sawr_mapping](sawr_mapping/README.md) - SLAM configuration.
 * [sawr_navigation](sawr_navigation/README.md) - Move-base configuration.
+
+CAD files and build instructions are located in the following package
+but this package is not actually required for operation:
+* [sawr_hardware](sawr_hardware/README.md) - CAD files and assembly instructions.
 
 # Additional Material
 Please look for the SAWR project under
