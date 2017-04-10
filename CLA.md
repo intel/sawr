@@ -1,4 +1,5 @@
-# Individual Contributor License Agreement
+Individual Contributor License Agreement
+========================================
 
 You accept and agree to the following terms and conditions for Your present and future Contributions submitted to Intel Corporation. Except for the license granted herein to Intel Corporation and recipients of software distributed by Intel Corporation, You reserve all right, title, and interest in and to Your Contributions.
 

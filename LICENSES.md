@@ -1,16 +1,26 @@
-# Licenses
+Simple Autonomous Wheeled Robot (SAWR)
+======================================
 
-The following licenses apply to the SAWR project, as indicated in the package.xml files in the corresponding subdirectories.  In addition, certain other modules from which the SAWR project was derived require the terms of
+Licenses
+--------
+
+The following licenses apply to the SAWR project, as indicated in the 
+package.xml files in the corresponding subdirectories. In addition, certain 
+other modules from which the SAWR project was derived require the terms of
 the BSD license to also be included in the redistribution.
 
-The code BSD-2 refers to the 2-clause ["The FreeBSD Copyright"](https://en.wikipedia.org/wiki/BSD_licenses#3-clause) license,
-the code BSD-3 refers to the 3-clause ["The FreeBSD Copyright"](https://en.wikipedia.org/wiki/BSD_licenses#3-clause) license, and 
-the code CC-BY-4.0 refers to the ["Creative Commons Attribution 4.0 International Public License"](https://creativecommons.org/licenses/by/4.0/).
+The abbreviation BSD-2 refers to the 2-clause version of 
+["The FreeBSD Copyright"][BSD2] license, the abbreviation BSD-3 refers to 
+the 3-clause ["The FreeBSD Copyright"][BSD3] license, and the abbreviation 
+CC-BY-4.0 refers to the 
+["Creative Commons Attribution 4.0 International Public License"][CCBY4] 
+license.
 
-The text of these licenses is given below and by using the information in these packages you agree to be bound 
-by these licenses.
+The text of these licenses is given below and by using the information in 
+these packages you agree to be bound by these licenses.
 
-## The FreeBSD Copyright (2-Clause)
+The FreeBSD Copyright (2-Clause)
+--------------------------------
 The following license will be referred to as "BSD-2".
 
 Copyright 1992-2012 The FreeBSD Project. All rights reserved.  
@@ -33,7 +43,8 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## Creative Commons Attribution 4.0 International Public License
+Creative Commons Attribution 4.0 International Public License
+-------------------------------------------------------------
 The following license will be referred to as "CC-BY-4.0".
 
 By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution 4.0 International Public License ("Public License"). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
@@ -179,3 +190,7 @@ For the avoidance of doubt, this Section 4 supplements and does not replace Your
 Creative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at [creativecommons.org/policies](http://creativecommons.org/policies), Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.
 
 Creative Commons may be contacted at creativecommons.org
+
+[BSD2]: https://en.wikipedia.org/wiki/BSD_licenses#2-clause
+[BSD3]: https://en.wikipedia.org/wiki/BSD_licenses#3-clause 
+[CCBY4]: https://creativecommons.org/licenses/by/4.0/

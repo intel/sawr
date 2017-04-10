@@ -1,5 +1,7 @@
-Simple Autonomous Wheeled Robot (SAWR) SECURITY NOTES
-=====================================================
+Simple Autonomous Wheeled Robot (SAWR)
+======================================
+SECURITY NOTES
+--------------
 
 This file will be used as a security alert mechanism.
 Please "follow" this file under github.  If a security
