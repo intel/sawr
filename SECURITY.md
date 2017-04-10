@@ -4,9 +4,9 @@ SECURITY NOTES
 --------------
 
 This file will be used as a security alert mechanism.
-Please "follow" this file under github.  If a security
-notification is needed, a note will be added to this
-file and you will be alerted via email.
+Please "watch" this file under github.  If a security
+notification is needed, this file will be edited and
+you will be alerted via email.
 
 Currently there are no known security issues, although
 remote access is not supported directly by the software
