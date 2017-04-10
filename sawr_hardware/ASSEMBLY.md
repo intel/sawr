@@ -483,7 +483,7 @@ you may want to remove the Base Plate temporarily.
     using cable management clips and/or cable ties.
 
      * Note that the USB3.0 plug on the UP Board is fragile and can be 
-       broken off easily (guess how we know this...). Avoid puitting vertical
+       broken off easily (guess how we know this...). Avoid putting vertical
        pressure on this cable. It is strongly advised to provide strain relief
        on the cable protruding from this port in particular.
      
