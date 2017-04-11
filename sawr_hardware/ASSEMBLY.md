@@ -23,7 +23,6 @@ for the Intel&reg; Joule&trade; development kit and the more advanced
 Intel&reg; RealSense&trade; ZR300 3D camera.
 
 ![SAWR Pair](Images/sawr_pair.jpg)
-![SAWR Pair Back](Images/sawr_pair_back.jpg)
 
 The SAWR uses easily available off-the-shelf parts. This makes it possible to 
 assemble a robot using locally-sourced and relatively inexpensive components.
@@ -65,7 +64,8 @@ Generally a 10% tolerance is assumed for the thickness of the plates making
 up the frame and for the sizes of holes. For example, the slots for tabs on 
 3mm plates are actually 3.3mm wide so plates that are a little thicker than
 they are supposed to be will still work. The same is true for most bolt holes;
-an M3 bolt hole is generally 3.2mm in diameter (the threaded part of an M3 bolt is actually slightly less than 3mm in diameter). This allows for both
+an M3 bolt hole is generally 3.2mm in diameter (the threaded part of an M3 bolt 
+is actually slightly less than 3mm in diameter). This allows for both
 manufacturing variance (eg for plates, which can very in thickness even within
 a single sheet) and for the use of Imperial substitutions for bolts. One
 exception however where an accurate size is needed is for the bearings and the
@@ -73,58 +73,8 @@ bolt used for the wheel axle. These must be exact as a press fit is used so
 either get metric bolts and bearings or edit the CAD files and/or PDF files
 before cutting if you must make substitutions.
 
-Frame, driver and wheel components are laser cut from two 450mm x 300mm (approx.
-18x12 inch) Acrylic or POM sheets: one 2mm thick and the second 3mm thick.
-Acrylic is perfectly fine and is low-cost, but POM (also known as Acetal, 
-Delrin, or Duracon) is more durable and is recommended for heavy use, such as
-in a classroom, or if you need to transport the robot frequently. Using Acrylic
-only for the 2mm sheet but POM for the 3mm sheet is also possible and gives
-most of the benefit of using POM alone.
-
-If you just want to laser-cut the file, start with the PDF file, being careful
-not to resize it. If you do not have access to the size of sheet specified in
-the PDF file, you can rearrange the parts using a 2D vector graphics editor 
-such as [Inkscape](https://inkscape.org/), which is free. In this case, you 
-want to start from the SVG file. If you need to rearrange the file with Adobe 
-Illustrator, however, start from the PDF file, as Adobe Illustrator tends to
-resize SVG on import. 
-
-The lines in these files have been colored red and blue. Red lines should be 
-cut first, followed by the blue lines (i.e. Trotec conventions). Basically,
-the outline of a part needs to be cut last so it is only freed from the main
-sheet once all interior features have been cut. Depending on your laser cutter
-(i.e. if you have a Universal laser cutter), you may have to modify the colors
-to get the right cutting order. Depending on the laser cutter model the cut
-time is between 24 min to 1 hr.  
-
-### Sheet 1 
-450 x 300 x 2 mm (approximately 18 x 12 x 0.078 inch) -- 1 each.
-
-Select Download from the following web pages:
-* [Download Laser Cut file for 2mm sheet in SVG format](http://a360.co/2aKxAYn)
-* [Download Laser Cut file for 2mm sheet in PDF format](http://a360.co/2iRK3wz)
-
-You can also access these files locally:
-* [Local Laser Cut file for 2mm sheet in SVG format](Make/2mm.svg)
-* [Local Laser Cut file for 2mm sheet in PDF format](Make/2mm.pdf)
-
-
-### Sheet 2:450x300x3mm
-450 x 300 x 2 mm (approximately 18 x 12 x 0.078 inch) -- 1 each.
-
-If you are using Acrylic, select Download from the following web pages:
-* [Download Laser Cut file for 3mm sheet in SVG format](http://a360.co/2iRDmuA)
-* [Download Laser Cut file for 3mm sheet in PDF format](http://a360.co/2iRBB0e)
-
-You can also access these files locally:
-* [Local Laser Cut file for 3mm sheet in SVG format](Make/3mm_acrylic.svg)
-* [Local Laser Cut file for 3mm sheet in PDF format](Make/3mm_acrylic.pdf)
-
-If you are using POM and want a cantilevered suspension, use the following
-instead for the 3mm sheet:
-* [Local Laser Cut file for 3mm sheet in SVG format for POM](Make/3mm_pom.svg)
-* [Local Laser Cut file for 3mm sheet in PDF format for POM](Make/3mm_pom.pdf)
-
+Cut sheets and instructions for making a frame are in the [Make](Make/README.md)
+subdirectory.
 
 Here is [a drawing](http://a360.co/2a88Qpd) of all laser cut components with 
 the names we will be using to refer to them in the assembly notes.
