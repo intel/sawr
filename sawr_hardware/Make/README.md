@@ -27,14 +27,14 @@ sheet once all interior features have been cut. Depending on your laser cutter
 to get the right cutting order. Depending on the laser cutter model the cut
 time is between 24 min to 1 hr.  
 
-### Sheet 1 
+### Sheet 1: 2mm Thick
 You can access the cut files locally.  Use the appropriate format for your
 laser cutter.  PDF is generally recommended unless you need to do editing.
 Use one of the following to cut parts from a 2mm sheet of either Acrylic or POM:
 * [Laser Cut file for 2mm sheet in SVG format](2mm.svg)
 * [Laser Cut file for 2mm sheet in PDF format](2mm.pdf)
 
-### Sheet 2:
+### Sheet 2: 3mm Thick
 If you are using Acrylic, use one of these files to cut a 3mm sheet:
 * [Laser Cut file for 3mm sheet in SVG format for Acrylic](3mm_acrylic.svg)
 * [Laser Cut file for 3mm sheet in PDF format for Acrylic](3mm_acrylic.pdf)
