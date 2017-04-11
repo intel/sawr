@@ -7,14 +7,19 @@ the [Intel&reg; RealSense&trade; 3D cameras][RS]. This robot can also be
 used as a software development and testing platform and to deliver training
 material.
 
+![SAWR Photo](sawr_hardware/Images/sawr.jpg)
+
 This repository contains both the hardware specification and the software
-to enable you to build and run your own SAWR. For compute and sensing, you
-can use either the [Intel&reg; RealSense&trade; Robotic Development Kit][RDK]
+to enable you to build, set up, and run your own SAWR.
+
+Hardware
+--------
+For compute and sensing, you can use either the 
+[Intel&reg; RealSense&trade; Robotic Development Kit][RDK]
 (which includes an [Aaeon UP Board][UP] and an
 [Intel&reg; RealSense&trade; R200 3D camera][R200]) or an
 [Intel&reg; Joule&trade; compute module][Joule] an
 Intel&reg; RealSense&trade; R200 3D camera.
-
 The frame can also support a [RealSense&trade; ZR300 3D camera][ZR300],
 which has additional capabilities for visual odometry and inertial navigation,
 but the SW has not yet been fully updated and tested; stay tuned.
@@ -25,6 +30,8 @@ access to a laser cutter.  A general overview of the hardware design is in
 [sawr_hardware/README.md](sawr_hardware/README.md) and assembly details are in
 [sawr_hardware/ASSEMBLY.md](sawr_hardware/ASSEMBLY.md).
 
+Software
+--------
 The SAWR software stack enables basic autonomous navigation and currently
 supports building a 2D map with gmapper and then planning and executing a
 motion path using move-base. It does not yet support out-of-the-box secure
@@ -44,7 +51,8 @@ in the [sawr_master](sawr_master) package:
 * [sawr_master/LAUNCH.md](sawr_master/LAUNCH.md): 
    How to run the SAWR software stack after installation.
 
-# Packages
+Packages
+--------
 Here is a list of packages included in this project to provide the software
 stack for the SAWR and a summary of what each one contains:
 * [sawr_master](sawr_master/README.md):
@@ -66,16 +74,14 @@ required for run-time operation:
 * [sawr_hardware](sawr_hardware/README.md):
    CAD files and assembly instructions.
 
-# Additional Material
+Additional Material
+-------------------
 Please look for the SAWR project under [01.org](https://01.org/sawr)
-for links to additional material. For example, the basic build instructions 
-included in this package, while included to make the package self-contained,
-do not include high-resolution images to keep the download size down.
-
-For the same reason this package does not include videos of the SAWR in action.
-We will make these and other resources available externally with a 
-[SAWR project under 01.org](https://01.org/sawr). This site will also act as 
-a hub pointing to any other resources as they become available.
+for links to additional material. Only basic build instructions 
+included in this package.  The 01.org site will contain additional
+tutorial information including video, as well as a discussion of future
+plans.  This site will also act as a hub pointing to any other resources 
+(for instance, under the ROS wiki) as they become available.
 
 In particular, we hope to make kits available for purchase and link to them 
 from the [01.org SAWR project page](https://01.org/sawr). If you want to make 
@@ -85,7 +91,8 @@ and the package.xml files in each directory for information on which licenses
 apply to each component. However, please do let us know if you are producing 
 a kit so we can link to you from the above site.
 
-# Contributing to the SAWR Project
+Contributing
+------------
 This project welcomes third-party code via GitHub pull requests. Please review 
 the [Contribution License Agreement](CLA.md) located in the root of the 
 repository. For each pull request submitted, please state your legal name and 
