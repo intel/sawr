@@ -11,8 +11,9 @@ Here is all the information you need to build your own SAWR!
      are provided to McMaster-Carr and Amazon but other sources can also be
      used as the parts are generally standard.
 
-  2. If you want to cut your own frame, laser-cut files (and instructions on how
-     to use them) are located in the [Make](Make) subdirectory. 
+  2. If you want to cut your own frame, laser-cut files (and 
+     [instructions](Make/README.md) on how to use them) are located in the 
+     [Make](Make) subdirectory. 
 
   3. Under the [Models](Models) subdirectory you will find the source CAD
      files. SAWR is modeled using [OpenSCAD](http://www.openscad.org/), an
