@@ -36,8 +36,8 @@ Use one of the following to cut parts from a 2mm sheet of either Acrylic or POM:
 
 ### Sheet 2:
 If you are using Acrylic, use one of these files to cut a 3mm sheet:
-* [Laser Cut file for 3mm sheet in SVG format](Make/3mm_acrylic.svg)
-* [Laser Cut file for 3mm sheet in PDF format](Make/3mm_acrylic.pdf)
+* [Laser Cut file for 3mm sheet in SVG format for Acrylic](Make/3mm_acrylic.svg)
+* [Laser Cut file for 3mm sheet in PDF format for Acrylic](Make/3mm_acrylic.pdf)
 
 If you are using POM and want a cantilevered suspension, use one of the 
 following files instead for the 3mm sheet:
