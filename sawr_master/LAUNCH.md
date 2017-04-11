@@ -40,6 +40,8 @@ localization, and the ROS [move-base](http://wiki.ros.org/move_base) package
 for navigation.  This is similar to the stack used in the 
 [ROS navigation](http://wiki.ros.org/navigation) package.
 
+![SAWR Running Navigation Stack](sawr_hardware/Images/sawr_console.jpg)
+
 The SAWR software stack can be launched in a number of different ways,
 depending on your situation. In theory you could start all the ROS nodes used 
 using a single launch file. In practice, this sometimes does not work due to
