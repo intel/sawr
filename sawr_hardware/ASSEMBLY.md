@@ -22,6 +22,9 @@ Intel&reg; RealSense&trade; RDK, the frame also already has mounting points
 for the Intel&reg; Joule&trade; development kit and the more advanced
 Intel&reg; RealSense&trade; ZR300 3D camera.
 
+![SAWR Pair](Images/sawr_pair.jpg)
+![SAWR Pair Back](Images/sawr_pair_back.jpg)
+
 The SAWR uses easily available off-the-shelf parts. This makes it possible to 
 assemble a robot using locally-sourced and relatively inexpensive components.
 The SAWR's locomotion is based on two Dynamixel MX-12W servos. While these are
