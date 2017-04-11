@@ -31,15 +31,15 @@ time is between 24 min to 1 hr.
 You can access the cut files locally.  Use the appropriate format for your
 laser cutter.  PDF is generally recommended unless you need to do editing.
 Use one of the following to cut parts from a 2mm sheet of either Acrylic or POM:
-* [Laser Cut file for 2mm sheet in SVG format](Make/2mm.svg)
-* [Laser Cut file for 2mm sheet in PDF format](Make/2mm.pdf)
+* [Laser Cut file for 2mm sheet in SVG format](2mm.svg)
+* [Laser Cut file for 2mm sheet in PDF format](2mm.pdf)
 
 ### Sheet 2:
 If you are using Acrylic, use one of these files to cut a 3mm sheet:
-* [Laser Cut file for 3mm sheet in SVG format for Acrylic](Make/3mm_acrylic.svg)
-* [Laser Cut file for 3mm sheet in PDF format for Acrylic](Make/3mm_acrylic.pdf)
+* [Laser Cut file for 3mm sheet in SVG format for Acrylic](3mm_acrylic.svg)
+* [Laser Cut file for 3mm sheet in PDF format for Acrylic](3mm_acrylic.pdf)
 
 If you are using POM and want a cantilevered suspension, use one of the 
 following files instead for the 3mm sheet:
-* [Laser Cut file for 3mm sheet in SVG format for POM](Make/3mm_pom.svg)
-* [Laser Cut file for 3mm sheet in PDF format for POM](Make/3mm_pom.pdf)
+* [Laser Cut file for 3mm sheet in SVG format for POM](3mm_pom.svg)
+* [Laser Cut file for 3mm sheet in PDF format for POM](3mm_pom.pdf)
