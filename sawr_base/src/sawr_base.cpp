@@ -94,10 +94,10 @@ int param_right_motor_id = 2;
 // Mechanical advantage of transmission
 double param_mech = 6.21882;
 // Dynamixel baudrate
-int param_baudrate = 115200;
+int param_baudrate = 1000000;
 // Dynamixel serial port device
-//char param_device[] = "/dev/ttyUSB0"; 
-char param_device[] = "/dev/ttyACM0"; 
+//char param_device[] = "/dev/ttyUSB0"; // for USB2Dynamixel
+char param_device[] = "/dev/ttyACM0";  // for USB2AX
 // Tire diameter - minor radius (m)
 // double param_tire_diameter = 6.89/1000.0; // mm -> m
 double param_tire_diameter = 5.7/1000.0; // mm -> m
