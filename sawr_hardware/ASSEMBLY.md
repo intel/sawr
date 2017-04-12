@@ -372,8 +372,12 @@ you may want to remove the Base Plate temporarily.
 	  
       - To extend the lifetime of the battery, best practice is to charge slowly,
         at a 0.5C rate (eg charge a 4000mAh battery at a rate of 2A),
-        and only to 80% of a full charge each time).  It is possible to charge
-	faster, but it will reduce the life of your battery.
+        and not to a full charge each time, say to 12.4V rather than 12.6V.
+	It is possible to charge faster, but it will reduce the life of your battery.
+	
+      - If you need to leave the robot in storage for a while, try to not do so 
+        with the battery near a full charge.   Instead it should be between 75%
+	and 80% full.
 	  
       - **BE VERY CAREFUL NOT TO SHORT-CIRCUIT THE BATTERY TERMINALS.**  These 
         batteries can discharge at a very high rate, and short-circuiting the 
