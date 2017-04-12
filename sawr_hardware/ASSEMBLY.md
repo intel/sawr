@@ -224,7 +224,7 @@ Assembly:
 * Install 2 ea. Switches.
 
   ![Top Assembly 2](Images/top_assembly_2.png)
-u
+  
   [_Drawing 3B_](http://a360.co/2a3n1Mc)
 
 * Attach Top Plate to the Tower with 2 ea. M3x6 screws, M3 nuts, M3x1 washers
@@ -356,42 +356,42 @@ you may want to remove the Base Plate temporarily.
     good results. In our tests this battery provides enough power for 
     about 60 min of active operation.
     
-        - Get a 
-	  [battery monitor](https://hobbyking.com/en_us/hobbykingtm-lipo-voltage-checker-2s-8s.html) 
-	  to monitor the voltage of the battery and
-	  make sure never to discharge any cell below 3.4V.   In fact, you should
-	  avoid going below 3.6V (on any cell) to extend the life of your battery.
+      - Get a
+	[battery monitor](https://hobbyking.com/en_us/hobbykingtm-lipo-voltage-checker-2s-8s.html)
+	to monitor the voltage of the battery and
+        make sure never to discharge any cell below 3.4V.   In fact, you should
+	avoid going below 3.6V (on any cell) to extend the life of your battery.
 	  
-	- Do not leave the battery monitor plugged in when the robot is in storage.
-	  Otherwise the monitor will slowly drain (and kill) your battery.
+      - Do not leave the battery monitor plugged in when the robot is in storage.
+	Otherwise the monitor will slowly drain (and kill) your battery.
 	  
-	- Observe proper safety precautions with the battery.  In particular,
-	  do not charge the battery while it is in the robot: remove it and
-	  charge it in a fire-safe bag.  Follow the manufacturer's instructions
-	  on charge rate and do not overcharge.
+      - Observe proper safety precautions with the battery.  In particular,
+        do not charge the battery while it is in the robot: remove it and
+        charge it in a fire-safe bag.  Follow the manufacturer's instructions
+        on charge rate and do not overcharge.
 	  
-	- To extend the lifetime of the battery, best practice is to charge slowly,
-	  at a 0.5C rate (eg charge a 4000mAh battery at a rate of 2A),
-	  and only to 80% of a full charge each time).  It is possible to charge
-	  faster, but it will reduce the life of your battery.
+      - To extend the lifetime of the battery, best practice is to charge slowly,
+        at a 0.5C rate (eg charge a 4000mAh battery at a rate of 2A),
+        and only to 80% of a full charge each time).  It is possible to charge
+	faster, but it will reduce the life of your battery.
 	  
-	- *BE VERY CAREFUL NOT TO SHORT-CIRCUIT THE BATTERY TERMINALS.*  These 
-	  batteries can discharge at a very high rate, and short-circuiting the 
-	  battery will cause a fire hazard.
+      - **BE VERY CAREFUL NOT TO SHORT-CIRCUIT THE BATTERY TERMINALS.**  These 
+        batteries can discharge at a very high rate, and short-circuiting the 
+        battery will cause a fire hazard.
     
   * You may also want to consider creating a barrel connector to battery-plug
     adapter cable so you can power the system from an external power supply during
     software configuration.  However, please be aware of the following:
        
-       - You want to connect the external supply _instead_ of the battery, **not**
-         in parallel with it.
+      - You want to connect the external supply _instead_ of the battery, **not**
+        in parallel with it.
 	 
-       - You need a 12V external power supply of at least 5A.  A 3A supply is
-         insufficient to power both the motors and the UP Board.
+      - You need a 12V external power supply of at least 5A.  A 3A supply is
+        insufficient to power both the motors and the UP Board.
 	 
-       - **BE VERY CAREFUL NOT TO PLUG THIS ADAPTER DIRECTLY INTO YOUR UP BOARD.
-         The UP Board requires a 5V regulated supply.  Plugging 12V into it 
-	 directly will destroy it.**
+      - **BE VERY CAREFUL NOT TO PLUG THIS ADAPTER DIRECTLY INTO YOUR UP BOARD.
+        The UP Board requires a 5V regulated supply.  Plugging 12V into it 
+        directly will destroy it.**
 
   * Main electrical power is distributed from the battery through an in-line 
     5 AMP fuse. The positive side is routed through the main power rocker 
