@@ -181,16 +181,75 @@ Here is a summary of how to install the Dynamixel SDK manually:
 
 You will also have to configure the left servo with ID 1 (which in practice 
 means you leave it alone, since that is the default) and the right servo with
-ID 2.  You should also lower the communication speed to 115200bps for
-increased reliability.
+ID 2.
 
 You can use the 
 [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_monitor.htm)
-(yes, it does work with the USB2AX) from Windows although there is
-now some support for doing this from ROS as well. 
+(yes, it does work with the USB2AX) from Windows to reconfigure the ID,
+although it is also possible to do it directly from Linux.
 
-The default ID and communication rate settings can also be reconfigured in 
-[`sawr_base.cpp'](../sawr_base/src/sawr_base.cpp) if you want to change them.
+In your DynamixelSDK install, go to the `examples` directory and compile
+the `dxl_monitor` program:
+
+    cd ~/Drivers/DynamixelSDK/c++/example/dxl_monitor/linux64
+    make
+    
+Then connect _just the **right** servo_ to the USB2AX.  Make sure it still has power,
+however, since the USB2AX does not provide it.  This will require temporarily 
+reorganizing the servo cabling to bypass the left servo.  The problem is that
+by default all servos have the ID of 1, and having both on the bus at once will
+lead to a conflict.   We need to changing the ID of the right servo to a different
+ID so we can have them both on the same bus at the same time.
+
+In the above directory start the `dxl_monitor` program and do the following 
+(note that input is intermixed with output here):
+```
+./dxl_monitor --device /dev/ttyACM0
+
+***********************************************************************
+*                            DXL Monitor                              *
+***********************************************************************
+
+Succeeded to open the port!
+
+ - Device Name : /dev/ttyACM0
+ - Baudrate    : 1000000
+
+[CMD] scan
+ [ID:001] Model No : 00360                ... SUCCESS 
+..........................................................................................................................................................................................................................................................
+
+Scan Dynamixel Using Protocol 2.0
+............................................................................................................................................................................................................................................................
+
+[CMD] w1 1 3 2
+
+ Success to write
+
+[CMD] scan
+
+Scan Dynamixel Using Protocol 1.0
+.
+ [ID:002] Model No : 00360                ... SUCCESS 
+..........................................................................................................................................................................................................................................................
+
+Scan Dynamixel Using Protocol 2.0
+............................................................................................................................................................................................................................................................
+
+[CMD] exit
+```
+Basically what the `w1 1 3 2` command does here is write, using 
+Dynamixel Protocol 1, on the servo with ID 1, the value 2 to register 3.
+Each MX-12W servo has a 
+[set of registers](http://support.robotis.com/en/product/actuator/dynamixel/mx_series/mx-12w.htm). 
+Register 3 corresponds to the ID, so this changes its ID to 2.  
+When you rescan, you see the (only) servo now has a new ID of 002.
+
+Now you can put the servo wiring back to normal, as the default ID of 1 is fine for the other servo.
+If you want you can rescan to make sure both servos are visible.
+
+Use `help` with `dxl_monitor` if you run into trouble.   The `reset1` command is
+also useful as it resets the servo to its factory settings.
 
 Install librealsense
 --------------------
