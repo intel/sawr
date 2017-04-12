@@ -163,11 +163,11 @@ Then log out and log back in again. Check group membership using and confirm
 Install Dynamixel SDK
 ---------------------
 
-The [DynamixelSDK](https://github.com/ROBOTIS-GIT/DynamixelSDK) library 
+The [DynamixelSDK](https://github.com/ROBOTIS-GIT/DynamixelSDK) library
 supports communication with the MX-12W "smart motors" used in the SAWR.
 
-(You should be able to install the Dynamixel SDK by installing the 
-ros-kinetic-dynamixel package, which is done below.  You can skip this 
+(You should be able to install the Dynamixel SDK by installing the
+ros-kinetic-dynamixel package, which is done below.  You can skip this
 step and return to it for a manual install if that does not work.)
 
 Here is a summary of how to install the Dynamixel SDK manually:
@@ -179,29 +179,30 @@ Here is a summary of how to install the Dynamixel SDK manually:
     make
     sudo make install
 
-You will also have to configure the left servo with ID 1 (which in practice 
+You will also have to configure the left servo with ID 1 (which in practice
 means you leave it alone, since that is the default) and the right servo with
 ID 2.
 
-You can use the 
+You can use the
 [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_monitor.htm)
 (yes, it does work with the USB2AX) from Windows to reconfigure the ID,
 although it is also possible to do it directly from Linux.
 
-In your DynamixelSDK install, go to the `examples` directory and compile
-the `dxl_monitor` program:
+To configure the servo IDs in Linux, go to your Dynamixel SDK install,
+go to the `examples` directory, and compile the `dxl_monitor` program:
 
     cd ~/Drivers/DynamixelSDK/c++/example/dxl_monitor/linux64
     make
     
 Then connect _just the **right** servo_ to the USB2AX.  Make sure it still has power,
-however, since the USB2AX does not provide it.  This will require temporarily 
-reorganizing the servo cabling to bypass the left servo.  The problem is that
-by default all servos have the ID of 1, and having both on the bus at once will
-lead to a conflict.   We need to changing the ID of the right servo to a different
-ID so we can have them both on the same bus at the same time.
+however, since the USB2AX does not provide it.  This will require temporarily
+reorganizing the servo cabling to disconnect and bypass the left servo.
+The problem is that
+by default all servos have the ID of 1, so having both on the bus at once will
+lead to a conflict.  In order to change the ID of the right servo to a different
+value we have to first make sure it is the only one on the bus.
 
-In the above directory start the `dxl_monitor` program and do the following 
+In the above directory start the `dxl_monitor` program and do the following
 (note that input is intermixed with output here):
 ```
 ./dxl_monitor --device /dev/ttyACM0
@@ -238,11 +239,11 @@ Scan Dynamixel Using Protocol 2.0
 
 [CMD] exit
 ```
-Basically what the `w1 1 3 2` command does here is write, using 
+Basically what the `w1 1 3 2` command does here is write, using
 Dynamixel Protocol 1, on the servo with ID 1, the value 2 to register 3.
-Each MX-12W servo has a 
-[set of registers](http://support.robotis.com/en/product/actuator/dynamixel/mx_series/mx-12w.htm). 
-Register 3 corresponds to the ID, so this changes its ID to 2.  
+Each MX-12W servo has a
+[set of registers](http://support.robotis.com/en/product/actuator/dynamixel/mx_series/mx-12w.htm).
+Register 3 corresponds to the ID, so this changes its ID to 2.
 When you rescan, you see the (only) servo now has a new ID of 002.
 
 Now you can put the servo wiring back to normal, as the default ID of 1 is fine for the other servo.
@@ -250,6 +251,9 @@ If you want you can rescan to make sure both servos are visible.
 
 Use `help` with `dxl_monitor` if you run into trouble.   The `reset1` command is
 also useful as it resets the servo to its factory settings.
+
+We use the factory default baud rate of 1,000,000 in our motor driver so there is no
+need to change that.
 
 Install librealsense
 --------------------
