@@ -4,23 +4,33 @@ Software Installation
 ---------------------
 
 Follow these instructions to set up the software stack on your robot.
-Once set up, refer to [LAUNCH.md](LAUNCH.md) for instructions on how to 
-use the software stack.
+Once set up, refer to [LAUNCH.md](LAUNCH.md) for instructions on how to
+run and use the software stack.
+
+SAWR uses ROS (Robot Operating System, an open-source middleware framework for 
+robotics) but this is _not_ a tutorial on how to use ROS for mobile autonomous
+robotics.  Please see the [ROS wiki](http://wiki.ros.org/) and also the many
+excellent [books on ROS](http://wiki.ros.org/Books). Please also visit and
+follow the [SAWR 01.org project page](https://01.org/sawr) for more
+discussion, information, and resources for learning about robotics
+using SAWR.
 
 Install Ubuntu 16.04
 --------------------
 
-The SW stack is based on [ROS Kinetic][ROS] which works best under 
+The SAWR software stack is based on [ROS Kinetic][ROS] which works best under 
 [Ubuntu 16.04][Ubuntu] Both the [Intel&reg; Joule&trade;][Joule]
 and the [UP Board from Aaeon][UP] support desktop versions of Ubuntu 16.04.
 
-**NOTE:** During setup, it is highly recommended that you do NOT use a 
-username or password that are used elsewhere, and also you should NOT store
+**NOTE:** During setup, it is highly recommended that you _DO NOT_ use a 
+username or password that are used elsewhere, and also you _DO NOT_ store
 personal information (including web browser caches or web service account
 credentials) on the robot. You may also want to use a separate account for
-administration and run the robot software on an account without sudo access.
+administration and run the SAWR software on an account the robot on without
+sudo access.
 
-As noted later, among other issues, remote access to ROS can be insecure.
+As noted later, among other issues, remote access to ROS can be insecure unless
+you take special effort to secure it.
 
 ### UP Board (included with the Intel Realsense Robotic Development Kit)
 
