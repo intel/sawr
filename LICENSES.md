@@ -78,18 +78,18 @@ k. __You__ means the individual or entity exercising the Licensed Rights under t
 
 a. ___License grant.___
 
-  1. Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:
-
+  1. Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to
+    
     A. reproduce and Share the Licensed Material, in whole or in part; and
-
+    
     B. produce, reproduce, and Share Adapted Material.
 
   2. __Exceptions and Limitations.__ For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.
 
   3. __Term.__ The term of this Public License is specified in Section 6(a).
 
-  4. __Media and formats; technical modifications allowed.__ The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.
-
+  4. __Media and formats; technical modifications allowed.__ The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material
+  
   5. __Downstream recipients.__
 
     A. __Offer from the Licensor – Licensed Material.__ Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.
@@ -127,11 +127,11 @@ a. ___Attribution.___
       v. a URI or hyperlink to the Licensed Material to the extent reasonably practicable;
 
     B. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and
-
+        
     C. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.
 
   2. You may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.
-
+    
   3. If requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.
 
   4. If You Share Adapted Material You produce, the Adapter's License You apply must not prevent recipients of the Adapted Material from complying with this Public License.
@@ -165,8 +165,8 @@ For the avoidance of doubt, this Section 4 supplements and does not replace Your
     1. automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or
 
     2. upon express reinstatement by the Licensor.
-
-    For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.
+       
+For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.
 
   c. For the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.
 
@@ -175,7 +175,7 @@ For the avoidance of doubt, this Section 4 supplements and does not replace Your
 ### Section 7 – Other Terms and Conditions.
 
   a. The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.
-
+ 
   b. Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.
 
 ### Section 8 – Interpretation.
