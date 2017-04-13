@@ -5,11 +5,12 @@ Licenses
 --------
 
 The following licenses apply to the SAWR project, as indicated in the 
-package.xml files in the corresponding subdirectories. In addition, certain 
-other modules from which the SAWR project was derived require the terms of
-the BSD license to also be included in the redistribution.
+`package.xml` files in the corresponding subdirectories. In addition, certain 
+incoming modules from which the SAWR project was derived require the copyright notice
+and a copy of license to also be included in the redistribution.
+See [COPYING.md](COPYING.md).
 
-The abbreviation BSD-2 refers to the 2-clause version of 
+For outgoing licenses, the abbreviation BSD-2 refers to the 2-clause version of 
 ["The FreeBSD Copyright"][BSD2] license, the abbreviation BSD-3 refers to 
 the 3-clause ["The FreeBSD Copyright"][BSD3] license, and the abbreviation 
 CC-BY-4.0 refers to the 
@@ -39,7 +40,7 @@ All rights reserved.
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
   *	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
   * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 
-  * Neither the name of the Intel nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. 
+  * Neither the name of Intel nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. 
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
