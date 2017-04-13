@@ -2,7 +2,7 @@
 <package>
   <name>sawr_description</name>
   <version>1.0.0</version>
-  <description>URDF Description and Hardware Design for the Simple Autonomous Wheeled Robot (SAWR)</description>
+  <description>URDF Description for the Simple Autonomous Wheeled Robot (SAWR)</description>
   <maintainer email="michael.mccool@intel.com">Michael McCool</maintainer>
   <license>BSD-3 (code) and CC-BY-4.0 (XACRO, URDF, images, and STL models)</license>
   <url type="website">https://01.org/sawr</url>
