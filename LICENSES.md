@@ -115,9 +115,9 @@ a. ___Attribution.___
   1. If You Share the Licensed Material (including in modified form), You must:
 
       A. retain the following if it is supplied by the Licensor with the Licensed Material:
-
+      
           i. identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);
-
+    
           ii. a copyright notice;
 
           iii. a notice that refers to this Public License;
@@ -161,9 +161,9 @@ For the avoidance of doubt, this Section 4 supplements and does not replace Your
   a. This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.
 
   b. Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:
-
+  
       1. automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or
-
+      
       2. upon express reinstatement by the Licensor.
        
 For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.
