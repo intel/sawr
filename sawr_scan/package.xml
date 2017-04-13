@@ -2,7 +2,7 @@
 <package>
   <name>sawr_scan</name>
   <version>1.0.0</version>
-  <description>Convert RealSense data into LaserScan data</description>
+  <description>Convert RealSense data into LaserScan data for Simple Wheeled Autonomous Robot (SAWR)</description>
   <maintainer email="michael.mccool@intel.com">intel</maintainer>
   <license>BSD-3</license>
   <url type="website">https://01.org/sawr</url>
