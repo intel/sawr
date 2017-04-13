@@ -116,15 +116,15 @@ a. ___Attribution.___
 
       A. retain the following if it is supplied by the Licensor with the Licensed Material:
 
-         i. identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);
+          i. identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);
 
-         ii. a copyright notice;
+          ii. a copyright notice;
 
-         iii. a notice that refers to this Public License;
+          iii. a notice that refers to this Public License;
 
-         iv. a notice that refers to the disclaimer of warranties;
+          iv. a notice that refers to the disclaimer of warranties;
 
-         v. a URI or hyperlink to the Licensed Material to the extent reasonably practicable;
+          v. a URI or hyperlink to the Licensed Material to the extent reasonably practicable;
 
       B. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and
         
@@ -162,9 +162,9 @@ For the avoidance of doubt, this Section 4 supplements and does not replace Your
 
   b. Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:
 
-     1. automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or
+      1. automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or
 
-     2. upon express reinstatement by the Licensor.
+      2. upon express reinstatement by the Licensor.
        
 For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.
 
