@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <name>sawr_hardware</name>
+  <version>1.0.0</version>
+  <description>Hardware Design for the Simple Autonomous Wheeled Robot (SAWR)</description>
+  <maintainer email="michael.mccool@intel.com">Michael McCool</maintainer>
+  <license>CC-BY-4.0</license>
+  <url type="website">https://01.org/sawr</url>
+  <author email="michael.mccool@intel.com">Michael McCool</author>
+  <buildtool_depend>openscad</buildtool_depend>
+</package>
