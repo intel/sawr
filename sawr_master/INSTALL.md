@@ -354,10 +354,10 @@ Install SAWR Packages
 ---------------------
 
 If you have not done it already, the SAWR software itself can be copied from
-the [SAWR github repository](https://github.org/01org/sawr) as follows:
+the [SAWR github repository](https://github.com/01org/sawr) as follows:
 
     cd ~/catkin_ws/src
-    git clone https://github.org/01org/sawr 
+    git clone https://github.com/01org/sawr.git
 
 Install Extra ROS Dependencies
 ------------------------------
@@ -480,5 +480,5 @@ See [LAUNCH.md](LAUNCH.md) for further instructions.
 
 [ROS]: http://wiki.ros.org/kinetic
 [Ubuntu]: http://releases.ubuntu.com/16.04/
-[Joule]: https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=intel+joule&*
+[Joule]: https://software.intel.com/en-us/iot/hardware/joule
 [UP]: http://www.up-board.org/up/ 
