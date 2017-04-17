@@ -434,6 +434,30 @@ You can also
 If set up properly this can be reasonably secure and will allow graphical
 applications like rviz, although it will not be especially performant.
 
+The easy way to do this is to enable 
+[Desktop Sharing](http://ubuntuhandbook.org/index.php/2016/07/remote-access-ubuntu-16-04/) in Ubuntu
+then use the [Remmina remote desktop client](https://github.com/FreeRDP/Remmina/wiki/Remmina-User's-guide).
+
+Do not disable the firewall on your robot or open a port for VNC; instead use
+the SSH tunnelling options provided by Remmina.
+You will want to select the password option when you set up Desktop Sharing
+even though we will not be depending on VNC's weak encryption for security
+but the much stronger security provided by the SSH tunnel.
+
+The trouble with Desktop Sharing in Ubuntu however is that it assumes
+you are already logged in and want to share your "current" screen. It doesn't
+even start a VNC server otherwise. Therefore
+it will only work if you either log in manually (after plugging in a keyboard
+and mouse) or set up the system to log in automatically (compromising
+security).  
+
+You can set up an off-screen VNC server to avoid these issues
+but it's a bit more complicted to set up: you need to set up a script to
+[start a vncserver (or start one after first logging in over ssh)](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-16-04) and 
+[may need to manually set up SSH tunneling](https://www.cyberciti.biz/tips/tunneling-vnc-connections-over-ssh-howto.html).
+Also, Unity (the default windowing manager) is not very friendly to VNC so you might want to switch to a
+simpler desktop like XFCE first, although Unity does work.  Mostly.
+
 ### Remote ROS Access
 Note that if the firewall is running then 
 [remote network access to ROS](http://wiki.ros.org/ROS/NetworkSetup)
