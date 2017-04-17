@@ -125,7 +125,11 @@ Enter the following to install git and basic development tools:
 
 Install WiFi Drivers (UP Board Only)
 ------------------------------------
-Since the UP Board does not includeH
+Since the UP Board does not include WiFi, if you want wireless access you will
+need to find a WiFi dongle and get it working. This will probably also involve
+finding and installing drivers.  A 5GHz (ac) WiFi dongle is highly desireable
+in this context but tends to only be supported by newer dongles that may not
+yet have support built into the Linux distribution.
 
 The TP-LINK AC600 (Archer T2UH) is a reasonable choice, as it supports both
 2.4GHz and 5GHz bands and has a high-gain antenna. Driver installation for
