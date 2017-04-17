@@ -399,21 +399,32 @@ it or to remotely visualize ROS data you will have to do some work.
 The following are suggestions, not a complete solution for secure access.
 
 ### SSH
-By default an ssh server is not installed on Ubuntu. You can install an ssh 
-server and client using
+By default an ssh server is not installed on Ubuntu. You can install it using:
 
-    sudo apt-get install openssh-server openssh-client
+    sudo apt-get install openssh-server
     
-Follow the 
-[instructions here](https://www.thefanclub.co.za/how-to/how-secure-ubuntu-1604-lts-server-part-1-basics) to configure it.
+Follow the [instructions here][SSH] to configure it.
+
 Note that for enhanced security, after installation you should set up
 a public key, copy it to the computer you intend to access the robot with,
 then disable all remote logins via password.
 
+It is recommended to leave your passphrase blank (it complicates automated
+logins) but use a 4096-bit RSA key and use ufw to limit the rate of
+login attempts to compensate.
+
 ### Firewall
-You should also 
-[set up a firewall:](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04).
-If you want remote ssh, then you need to explictly allow it.
+You should also [set up a firewall][UFW]. With the firewall enabled, if you want 
+remote ssh access, then you need to explictly allow it:
+
+    sudo ufw enable
+    sudo ufw allow ssh
+
+Although, as noted above, to improve security you might want to limit the
+rate of login attempts:
+
+    sudo ufw limit ssh
+    
 Once this is setup, you will be able to remotely and securely log into your
 robot to start the SW stack and use keyboard teleop. If you use `ssh -X` 
 you will even be able to open windows.
@@ -421,6 +432,12 @@ you will even be able to open windows.
 Unfortunately remote graphics such as in `rviz` does not work (there is 
 support in OpenGL for remote graphics, but...) and using ROS remotely may
 require disabling the firewall.
+
+Depending on what you want to do, you may also want to allow the ntp and http
+protocols:
+
+    sudo ufw allow ntp
+    sudo ufw allow http
 
 ### Secure Tunnelled VNC
 You can also 
@@ -449,14 +466,12 @@ access as ROS uses a number of dynamically allocated ports.
 
 ### OpenVPN
 A more secure option for remote ROS access, and recommended if you want to 
-access your robot remotely over the internet, is to 
-[set up a VPN](http://wiki.ros.org/ROS/NetworkSetup).
+access your robot remotely over the internet, is to set up a VPN.
 
 Assuming your router/WiFi access point does not support running a VPN
 in hardware, you probably will have to do this in software using something
-like
-[OpenVPN](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04).
-This is complex to set up but can give you secure remote access to ROS.
+like [OpenVPN][OpenVPN]. This is complex to set up but can give you secure
+remote access to ROS.
 
 ### ROSbridge: Future Work
 We are currently investigating rosbridge and how to secure a remote web 
@@ -481,4 +496,7 @@ See [LAUNCH.md](LAUNCH.md) for further instructions.
 [ROS]: http://wiki.ros.org/kinetic
 [Ubuntu]: http://releases.ubuntu.com/16.04/
 [Joule]: https://software.intel.com/en-us/iot/hardware/joule
-[UP]: http://www.up-board.org/up/ 
+[UP]: http://www.up-board.org/up/
+[SSH]: https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
+[UFW]: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-16-04
+[OpenVPN]: https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04
