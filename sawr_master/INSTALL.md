@@ -2,12 +2,11 @@ Simple Autonomous Wheeled Robot (SAWR)
 ======================================
 Software Installation
 ---------------------
-
 Follow these instructions to set up the software stack on your robot.
 Once set up, refer to [LAUNCH.md](LAUNCH.md) for instructions on how to
 run and use the software stack.
 
-SAWR uses ROS (Robot Operating System, an open-source middleware framework for 
+SAWR uses ROS (Robot Operating System, an open-source middleware framework for
 robotics) but this is _not_ a tutorial on how to use ROS for mobile autonomous
 robotics.  Please see the [ROS wiki](http://wiki.ros.org/) and also the many
 excellent [books on ROS](http://wiki.ros.org/Books). Please also visit and
@@ -17,23 +16,19 @@ using SAWR.
 
 Install Ubuntu 16.04
 --------------------
-
-The SAWR software stack is based on [ROS Kinetic][ROS] which works best under 
-[Ubuntu 16.04][Ubuntu] Both the [Intel&reg; Joule&trade;][Joule]
+The SAWR software stack is based on [ROS Kinetic][ROS] which currently works
+best under "desktop" [Ubuntu 16.04][Ubuntu]. Both the [Intel&reg; Joule&trade;][Joule]
 and the [UP Board from Aaeon][UP] support desktop versions of Ubuntu 16.04.
 
-**NOTE:** During setup, it is highly recommended that you _DO NOT_ use a 
-username or password that are used elsewhere, and also you _DO NOT_ store
+**SECURITY NOTE:** During setup, it is highly recommended that you _DO NOT_ use
+a username or password that are used elsewhere, and also you _DO NOT_ store
 personal information (including web browser caches or web service account
 credentials) on the robot. You may also want to use a separate account for
-administration and run the SAWR software on an account the robot on without
-sudo access.
-
-As noted later, among other issues, remote access to ROS can be insecure unless
-you take special effort to secure it.
+administration and run the SAWR software on an account on the robot on without
+sudo access. As noted later, among other issues, remote access to ROS can be insecure
+unless you take special effort to secure it.
 
 ### UP Board (included with the Intel Realsense Robotic Development Kit)
-
 Follow instructions at
 [https://up-community.org/wiki/Ubuntu](https://up-community.org/wiki/Ubuntu)
 to first set up a standard distribution of Ubuntu 16.04 on your UP Board.
@@ -46,10 +41,11 @@ or [Win32DiskImager](https://wiki.ubuntu.com/Win32DiskImager) under Windows,
 or, if you have Ubuntu running already on another computer, the
 [Startup Disk Creator](https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu).
 
-Note: it is possible and perhaps preferrable to install a lightweight variant
+**NOTE:** for performance reasons it is preferrable to install a lightweight variant
 such as Xubuntu or Lubuntu. However, the normal Unity-based Ubuntu distribution
-works fine and generally is more consistent with existing documentation. 
-Ubuntu Core has _not_ been tested with this release.
+works fine and generally is more consistent with existing documentation, so try
+that first... you can always reconfigure the window manager later if you want.
+Ubuntu Core and Ubuntu Server have _not_ been tested with this release.
 
 Then boot the UP Board and tap the DEL key to get into the BIOS (if it prompts
 for a password just press enter). Go to the Boot menu and make the
@@ -91,11 +87,10 @@ This special UP kernel, in addition to providing access to board features
 like GPIOs, already includes the RealSense uvc patches, saving us a step later.
 
 ### Intel Joule 
-
 There is a special install of Ubuntu 16.04 for Joule available from
 [Canonical](https://developer.ubuntu.com/core/get-started/intel-joule#alternative-install:-ubuntu-desktop-16.04-lts).
 
-Note that for ROS, currently you want to install "Desktop Ubuntu" rather than 
+**NOTE:** for ROS, currently you want to install "Desktop Ubuntu" rather than 
 "Ubuntu Core". You probably also need to update the Joule BIOS to the latest
 version first as indicated. Updating the BIOS is relatively straightforward
 but you will need a Windows computer with USB-3.0 and the USB3.0-to-USB-C 
@@ -107,7 +102,7 @@ later.
 
 Currently only standard desktop Ubuntu (running Unity) is supported, not
 Xubuntu or Lubuntu. However, if you really want XFCE or another lightweight 
-window manager, it is possible to install it and have it run by default 
+window manager, it is possible to install it later and have it run by default 
 (or even no window manager, which may make even more sense...).  
 
 However, it is recommended to first complete a working install before trying
@@ -115,7 +110,6 @@ these options.
 
 Open a Terminal Window
 ----------------------
-
 You will need command line access to do most things. Click on the topmost icon
 in the left menu bar with the Ubuntu logo, type "Terminal" in the search field,
 then drag the terminal icon to the menu bar for later use.
@@ -125,17 +119,13 @@ click and select "New Terminal".
 
 Install Basic Development Tools
 -------------------------------
-
 Enter the following to install git and basic development tools:
 
     sudo apt-get install git build-essential
 
 Install WiFi Drivers (UP Board Only)
 ------------------------------------
-
-Since the UP Board does not include WiFi, if you want wireless access you will
-need to find a WiFi dongle and get it working. This will probably also involve
-finding and installing drivers.
+Since the UP Board does not includeH
 
 The TP-LINK AC600 (Archer T2UH) is a reasonable choice, as it supports both
 2.4GHz and 5GHz bands and has a high-gain antenna. Driver installation for
