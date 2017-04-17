@@ -150,7 +150,6 @@ Log into your access point and test.
 
 Add User to dialout Group
 -------------------------
-
 Membership in the `dialout` group is necessary to access the UART device for 
 the [USB2AX](http://www.xevelabs.com/doku.php?id=product:usb2ax:quickstart)
 which is used in turn to control the motors.
@@ -166,13 +165,13 @@ Then log out and log back in again. Check group membership using and confirm
 
 Install Dynamixel SDK
 ---------------------
-
 The [DynamixelSDK](https://github.com/ROBOTIS-GIT/DynamixelSDK) library
 supports communication with the MX-12W "smart motors" used in the SAWR.
 
-(You should be able to install the Dynamixel SDK by installing the
-ros-kinetic-dynamixel package, which is done below.  You can skip this
-step and return to it for a manual install if that does not work.)
+In theory you _should_ be able to install the Dynamixel SDK by installing the
+`ros-kinetic-dynamixel` package, which is done below. In practice you need
+the `dxl_monitor` program (see below) to configure your servos,
+and currently that is unfortunately only available with a manual installation.
 
 Here is a summary of how to install the Dynamixel SDK manually:
 
@@ -261,7 +260,6 @@ need to change that.
 
 Install librealsense
 --------------------
-
 The [librealsense SDK](https://github.com/IntelRealSense/librealsense)
 library supports the Intel RealSense cameras. The SAWR can use either the R200
 or the ZR300 but the R200 is recommended for use with the UP Board and the 
@@ -305,7 +303,6 @@ Which should display the color, depth, and IR channels from the camera.
 
 Install ROS Kinetic
 -------------------
-
 Follow the [online install instructions for ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 including sourcing the ROS setup script in your `.bashrc`.
 
@@ -326,7 +323,6 @@ depending on your network connection.
 
 Set Up a Catkin Workspace 
 -------------------------
-
 Follow [the Catkin workspace tutorial](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
 to configure a Catkin workspace, a summary of which follows:
 
@@ -346,7 +342,6 @@ automatically.
 
 Install SAWR Packages
 ---------------------
-
 If you have not done it already, the SAWR software itself can be copied from
 the [SAWR github repository](https://github.com/01org/sawr) as follows:
 
@@ -355,7 +350,6 @@ the [SAWR github repository](https://github.com/01org/sawr) as follows:
 
 Install Extra ROS Dependencies
 ------------------------------
-
 The SAWR package depends on a few other ROS packages.
 If necessary these can be installed with ``apt-get`` as follows:
 
@@ -373,7 +367,6 @@ drivers, but if not, you can try the manual installations above.
 
 Compile SAWR Package
 --------------------
-
 Prepare code in the SAWR package for execution:
 
     cd ~/catkin_ws
@@ -483,7 +476,6 @@ isolated network.
 
 Next Steps
 ----------
-
 The installation should now be ready to launch.
 See [LAUNCH.md](LAUNCH.md) for further instructions.
 
