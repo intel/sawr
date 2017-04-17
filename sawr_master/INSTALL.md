@@ -376,17 +376,19 @@ Remote Access and Security
 --------------------------
 No system is ever perfectly secure, and there are tradeoffs between 
 functionality and security.
-
 Ubuntu is [fairly secure by default](https://insights.ubuntu.com/2016/12/08/ubuntu-16-04-lts-security-a-comprehensive-overview/)
 but there are various ways to [improve it](https://www.thefanclub.co.za/how-to/how-secure-ubuntu-1604-lts-server-part-1-basics).
-
 However, if you want to support remote access to your robot to teleoperate
 it or to remotely visualize ROS data you will have to do some work.
-
 The following are suggestions, not a complete solution for secure access.
 
 ### SSH
-By default an ssh server is not installed on Ubuntu. You can install it using:
+SSH provides secure remote access to a Linux system, and allows you to log
+into your robot without having to hook up a display, keyboard and mouse.
+This is obviously useful when the robot is roaming around.
+
+However, by default an SSH server is not installed on Ubuntu. You can 
+however easily install it using:
 
     sudo apt-get install openssh-server
     
