@@ -141,8 +141,12 @@ double effective_wheel_circumference = M_PI*effective_wheel_diameter;
 double base_circumference = M_PI*param_wheel_base;
 
 // Calibration
+//double param_calibration = 0.6;
+//double param_calibration = 0.65;
+//double param_calibration = 0.7;
 double param_calibration = 0.8;
 //double param_calibration = 0.9;
+//double param_calibration = 1.0;
 //double param_calibration = 1.1;
 
 // Amount to scale linear speed values in m/s to get motor speeds in cps
