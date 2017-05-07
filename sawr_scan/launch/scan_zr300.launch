@@ -1,6 +1,5 @@
-<!-- Bring up RealSense-based laser scan using nodelets
-     For historical reasons, assumes a R200.  For a ZR300 camera
-     use scan_zr300.launch.
+<!-- Bring up RealSense-based laser scan using nodelets.
+     Assumes a ZR300.  If your camera is a R200 use scan.launch.
 -->
 <launch>
   <!-- "camera" should uniquely identify the device. 
@@ -14,7 +13,7 @@
   <arg name="output"      default="screen"/>
 
   <arg name="camera"      default="camera"/>
-  <arg name="camera_type" default="R200"/>
+  <arg name="camera_type" default="ZR300"/>
   <arg name="serial_no"   default="" />
   <arg name="usb_port_id" default="" /> <!-- USB "Bus#-Port#" -->
   <arg name="publish_tf"  default="false"/>  <!-- coming from URDF already -->
@@ -43,16 +42,23 @@
   <arg name="enable_ir"         default="true" />
   <arg name="enable_ir2"        default="true" />
   <arg name="enable_color"      default="true" />
+  <arg name="enable_fisheye"    default="true" />
+  <arg name="enable_imu"        default="true" />
   <arg name="enable_pointcloud" default="true" />
   <arg name="enable_tf"         default="false" />
+  <arg name="enable_tf_dynamic" default="false" />
   <!-- lower value of depth resolution improves (reduces) min range -->
   <arg name="depth_width"       default="332" />
   <arg name="depth_height"      default="252" />
+  <arg name="depth_fps"         default="30" />
   <!-- lower camera resolution for enhanced performance -->
   <arg name="color_width"       default="640" />
   <arg name="color_height"      default="480" />
-  <arg name="depth_fps"         default="30" />
   <arg name="color_fps"         default="30" />
+  <!-- fisheye keeps higher framerate for visual odometry -->
+  <arg name="fisheye_width"     default="640" />
+  <arg name="fisheye_height"    default="480" />
+  <arg name="fisheye_fps"       default="30" />
 
   <!-- set up as camera driver parameters -->
   <param name="$(arg camera)/driver/mode"              type="str"  
@@ -65,6 +71,10 @@
          value="$(arg enable_ir2)" />
   <param name="$(arg camera)/driver/enable_color"      type="bool" 
          value="$(arg enable_color)" />
+  <param name="$(arg camera)/driver/enable_fisheye"    type="bool" 
+         value="$(arg enable_fisheye)" />
+  <param name="$(arg camera)/driver/enable_imu"        type="bool" 
+         value="$(arg enable_imu)" />
   <param name="$(arg camera)/driver/enable_pointcloud" type="bool" 
          value="$(arg enable_pointcloud)" />
   <param name="$(arg camera)/driver/enable_tf"         type="bool" 
@@ -77,10 +87,16 @@
          value="$(arg color_width)" />
   <param name="$(arg camera)/driver/color_height"      type="int"  
          value="$(arg color_height)" />
+  <param name="$(arg camera)/driver/fisheye_width"       type="int"  
+         value="$(arg fisheye_width)" />
+  <param name="$(arg camera)/driver/fisheye_height"      type="int"  
+         value="$(arg fisheye_height)" />
   <param name="$(arg camera)/driver/depth_fps"         type="int"  
          value="$(arg depth_fps)" />
   <param name="$(arg camera)/driver/color_fps"         type="int"  
          value="$(arg color_fps)" />
+  <param name="$(arg camera)/driver/fisheye_fps"         type="int"  
+         value="$(arg fisheye_fps)" />
 
   <group ns="$(arg camera)">
     <!-- Start nodelet manager -->

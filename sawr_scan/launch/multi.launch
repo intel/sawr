@@ -1,0 +1,324 @@
+<!-- Bring up multiple RealSense-based cameras using nodelets
+     This assumes a three-camera, R200/ZR300/R200 system
+     Edit the serial numbers, types, and numbers to match
+     your system. You can find out the information using
+        cpp-enumerate-devices | grep DEVICE
+-->
+<launch>
+  <!-- "cameraL", "camera" and "cameraR"  uniquely identify 
+       each device. All topics are pushed down into the corresponding
+       namespace, and it is prepended to tf frame ids. 
+       Note that the "center" camera is still called "camera" to
+       be consistent with things that assume there is only
+       one camera.
+  -->
+  <arg name="manager"     value="camera_nodelet_manager"/>
+  <!-- Worker threads for the nodelet manager --> 
+  <arg name="num_worker_threads" default="4" />
+
+  <arg name="output"      default="screen"/>
+
+  <!-- ids for left camera -->
+  <arg name="cameraL"      default="cameraL"/>
+  <arg name="camera_typeL" default="R200"/>
+  <arg name="serial_noL"   default="2511007669" /> <!-- CHANGE! -->
+  <arg name="usb_port_idL" default="" />      <!-- USB "Bus#-Port#" -->
+  <arg name="publish_tfL"  default="false"/>  <!-- assume coming from URDF already -->
+
+  <!-- ids for center camera -->
+  <arg name="camera"       default="camera"/>
+  <arg name="camera_type"  default="ZR300"/>
+  <arg name="serial_no"    default="3481800964" /> <!-- CHANGE! -->
+  <arg name="usb_port_id"  default="" />      <!-- USB "Bus#-Port#" -->
+  <arg name="publish_tf"   default="false"/>  <!-- assume coming from URDF already -->
+
+  <!-- ids for right camera -->
+  <arg name="cameraR"      default="cameraR"/>
+  <arg name="camera_typeR" default="R200"/>
+  <arg name="serial_noR"   default="2281000321" /> <!-- CHANGE! -->
+  <arg name="usb_port_idR" default="" />      <!-- USB "Bus#-Port#" -->
+  <arg name="publish_tfR"  default="false"/>  <!-- assume coming from URDF already -->
+
+  <!-- Factory-calibrated depth registration -->
+  <arg name="depth_registration" default="false"/>
+
+  <!-- Laserscan topic -->
+  <arg name="scan_topic" default="scan"/>
+
+  <!-- Processing Modules and Parameters -->
+  <arg name="rgb_processing"                  default="true"/>
+  <arg name="ir_processing"                   default="true"/>
+  <arg name="depth_processing"                default="true"/>
+  <arg name="depth_registered_processing"     default="true"/>
+  <arg name="disparity_processing"            default="true"/>
+  <arg name="disparity_registered_processing" default="true"/>
+
+  <!-- pick depth mode -->
+  <arg if="$(arg depth_registration)" name="depth" value="depth_registered" />
+  <arg unless="$(arg depth_registration)" name="depth" value="depth" />
+
+  <!-- other camera parameters -->
+  <arg name="mode"              default="manual" />
+  <arg name="enable_depth"      default="true" />
+  <arg name="enable_ir"         default="true" />
+  <arg name="enable_ir2"        default="true" />
+  <arg name="enable_color"      default="true" />
+  <arg name="enable_fisheye"    default="true" /> <!-- only valid for ZR300, ignored by others -->
+  <arg name="enable_imu"        default="true" /> <!-- only valid for ZR300, ignored by others -->
+  <arg name="enable_pointcloud" default="true" />
+  <arg name="enable_tf"         default="false" />
+  <arg name="enable_tf_dynamic" default="true" /> <!-- work around bug in ROS -->
+  <!-- lower value of depth resolution improves (reduces) min range -->
+  <arg name="depth_width"       default="332" />
+  <arg name="depth_height"      default="252" />
+  <arg name="depth_fps"         default="30" /> <!-- higher values may be unstable with multiple cameras -->
+  <!-- lower camera resolution for enhanced performance -->
+  <arg name="color_width"       default="640" />
+  <arg name="color_height"      default="480" />
+  <arg name="color_fps"         default="30" />
+  <!-- fisheye camera (set for all cameras, but only applicable to ZR300; ignored by others) -->
+  <arg name="fisheye_width"     default="640" />
+  <arg name="fisheye_height"    default="480" />
+  <arg name="fisheye_fps"       default="60" /> <!-- set higher to not interfere with visual odometry -->
+
+  <!-- set up "cameraL" (left camera) driver parameters -->
+  <param name="$(arg cameraL)/driver/mode"              type="str"  
+         value="$(arg mode)" />
+  <param name="$(arg cameraL)/driver/enable_depth"      type="bool" 
+         value="$(arg enable_depth)" />
+  <param name="$(arg cameraL)/driver/enable_ir"         type="bool" 
+         value="$(arg enable_ir)" />
+  <param name="$(arg cameraL)/driver/enable_ir2"        type="bool" 
+         value="$(arg enable_ir2)" />
+  <param name="$(arg cameraL)/driver/enable_color"      type="bool" 
+         value="$(arg enable_color)" />
+<!--
+  <param name="$(arg cameraL)/driver/enable_fisheye"    type="bool" 
+         value="$(arg enable_fisheye)" />
+  <param name="$(arg cameraL)/driver/enable_imu"        type="bool" 
+         value="$(arg enable_imu)" />
+-->
+  <param name="$(arg cameraL)/driver/enable_pointcloud" type="bool" 
+         value="$(arg enable_pointcloud)" />
+  <param name="$(arg cameraL)/driver/enable_tf"         type="bool" 
+         value="$(arg enable_tf)" />
+  <param name="$(arg cameraL)/driver/depth_width"       type="int"  
+         value="$(arg depth_width)" />
+  <param name="$(arg cameraL)/driver/depth_height"      type="int"  
+         value="$(arg depth_height)" />
+  <param name="$(arg cameraL)/driver/color_width"       type="int"  
+         value="$(arg color_width)" />
+  <param name="$(arg cameraL)/driver/color_height"      type="int"  
+         value="$(arg color_height)" />
+  <param name="$(arg cameraL)/driver/depth_fps"         type="int"  
+         value="$(arg depth_fps)" />
+  <param name="$(arg cameraL)/driver/color_fps"         type="int"  
+         value="$(arg color_fps)" />
+  <!-- frame IDs for "cameraL" -->
+  <param name="$(arg cameraL)/driver/base_frame_id"             type="str"  
+         value="$(arg cameraL)_link" />
+  <param name="$(arg cameraL)/driver/depth_frame_id"            type="str"  
+         value="$(arg cameraL)_depth_frame" />
+  <param name="$(arg cameraL)/driver/depth_optical_frame_id"    type="str"  
+         value="$(arg cameraL)_depth_optical_frame" />
+  <param name="$(arg cameraL)/driver/color_frame_id"            type="str"  
+         value="$(arg cameraL)_color_frame" />
+  <param name="$(arg cameraL)/driver/color_optical_frame_id"    type="str"  
+         value="$(arg cameraL)_color_optical_frame" />
+  <param name="$(arg cameraL)/driver/ir_frame_id"               type="str"  
+         value="$(arg cameraL)_ir_frame" />
+  <param name="$(arg cameraL)/driver/ir_optical_frame_id"       type="str"  
+         value="$(arg cameraL)_ir_optical_frame" />
+  <param name="$(arg cameraL)/driver/ir2_frame_id"              type="str"  
+         value="$(arg cameraL)_ir2_frame" />
+  <param name="$(arg cameraL)/driver/ir2_optical_frame_id"      type="str"  
+         value="$(arg cameraL)_ir2_optical_frame" />
+<!--
+  <param name="$(arg cameraL)/driver/fisheye_frame_id"          type="str"  
+         value="$(arg cameraL)_fisheye_frame" />
+  <param name="$(arg cameraL)/driver/fisheye_optical_frame_id"  type="str"  
+         value="$(arg cameraL)_fisheye_optical_frame" />
+  <param name="$(arg cameraL)/driver/imu_frame_id"              type="str"  
+         value="$(arg cameraL)_imu_frame" />
+  <param name="$(arg cameraL)/driver/imu_optical_frame_id"      type="str"  
+         value="$(arg cameraL)_imu_optical_frame" />
+-->
+
+  <!-- set up "camera" (central camera) driver parameters -->
+  <param name="$(arg camera)/driver/mode"              type="str"  
+         value="$(arg mode)" />
+  <param name="$(arg camera)/driver/enable_depth"      type="bool" 
+         value="$(arg enable_depth)" />
+  <param name="$(arg camera)/driver/enable_ir"         type="bool" 
+         value="$(arg enable_ir)" />
+  <param name="$(arg camera)/driver/enable_ir2"        type="bool" 
+         value="$(arg enable_ir2)" />
+  <param name="$(arg camera)/driver/enable_color"      type="bool" 
+         value="$(arg enable_color)" />
+  <param name="$(arg camera)/driver/enable_fisheye"    type="bool" 
+         value="$(arg enable_fisheye)" />
+  <param name="$(arg camera)/driver/enable_imu"        type="bool" 
+         value="$(arg enable_imu)" />
+  <param name="$(arg camera)/driver/enable_pointcloud" type="bool" 
+         value="$(arg enable_pointcloud)" />
+  <param name="$(arg camera)/driver/enable_tf"         type="bool" 
+         value="$(arg enable_tf)" />
+  <param name="$(arg camera)/driver/depth_width"       type="int"  
+         value="$(arg depth_width)" />
+  <param name="$(arg camera)/driver/depth_height"      type="int"  
+         value="$(arg depth_height)" />
+  <param name="$(arg camera)/driver/color_width"       type="int"  
+         value="$(arg color_width)" />
+  <param name="$(arg camera)/driver/color_height"      type="int"  
+         value="$(arg color_height)" />
+  <param name="$(arg camera)/driver/depth_fps"         type="int"  
+         value="$(arg depth_fps)" />
+  <param name="$(arg camera)/driver/color_fps"         type="int"  
+         value="$(arg color_fps)" />
+  <!-- frame IDs for "camera" -->
+  <param name="$(arg camera)/driver/base_frame_id"             type="str"  
+         value="$(arg camera)_link" />
+  <param name="$(arg camera)/driver/depth_frame_id"            type="str"  
+         value="$(arg camera)_depth_frame" />
+  <param name="$(arg camera)/driver/depth_optical_frame_id"    type="str"  
+         value="$(arg camera)_depth_optical_frame" />
+  <param name="$(arg camera)/driver/color_frame_id"            type="str"  
+         value="$(arg camera)_color_frame" />
+  <param name="$(arg camera)/driver/color_optical_frame_id"    type="str"  
+         value="$(arg camera)_color_optical_frame" />
+  <param name="$(arg camera)/driver/ir_frame_id"               type="str"  
+         value="$(arg camera)_ir_frame" />
+  <param name="$(arg camera)/driver/ir_optical_frame_id"       type="str"  
+         value="$(arg camera)_ir_optical_frame" />
+  <param name="$(arg camera)/driver/ir2_frame_id"              type="str"  
+         value="$(arg camera)_ir2_frame" />
+  <param name="$(arg camera)/driver/ir2_optical_frame_id"      type="str"  
+         value="$(arg camera)_ir2_optical_frame" />
+  <param name="$(arg camera)/driver/fisheye_frame_id"          type="str"  
+         value="$(arg camera)_fisheye_frame" />
+  <param name="$(arg camera)/driver/fisheye_optical_frame_id"  type="str"  
+         value="$(arg camera)_fisheye_optical_frame" />
+  <param name="$(arg camera)/driver/imu_frame_id"              type="str"  
+         value="$(arg camera)_imu_frame" />
+  <param name="$(arg camera)/driver/imu_optical_frame_id"      type="str"  
+         value="$(arg camera)_imu_optical_frame" />
+
+  <!-- set up "cameraR" (right camera) driver parameters -->
+  <param name="$(arg cameraR)/driver/mode"              type="str"  
+         value="$(arg mode)" />
+  <param name="$(arg cameraR)/driver/enable_depth"      type="bool" 
+         value="$(arg enable_depth)" />
+  <param name="$(arg cameraR)/driver/enable_ir"         type="bool" 
+         value="$(arg enable_ir)" />
+  <param name="$(arg cameraR)/driver/enable_ir2"        type="bool" 
+         value="$(arg enable_ir2)" />
+  <param name="$(arg cameraR)/driver/enable_color"      type="bool" 
+         value="$(arg enable_color)" />
+<!--
+  <param name="$(arg cameraR)/driver/enable_fisheye"    type="bool" 
+         value="$(arg enable_fisheye)" />
+  <param name="$(arg cameraR)/driver/enable_imu"        type="bool" 
+         value="$(arg enable_imu)" />
+-->
+  <param name="$(arg cameraR)/driver/enable_pointcloud" type="bool" 
+         value="$(arg enable_pointcloud)" />
+  <param name="$(arg cameraR)/driver/enable_tf"         type="bool" 
+         value="$(arg enable_tf)" />
+  <param name="$(arg cameraR)/driver/depth_width"       type="int"  
+         value="$(arg depth_width)" />
+  <param name="$(arg cameraR)/driver/depth_height"      type="int"  
+         value="$(arg depth_height)" />
+  <param name="$(arg cameraR)/driver/color_width"       type="int"  
+         value="$(arg color_width)" />
+  <param name="$(arg cameraR)/driver/color_height"      type="int"  
+         value="$(arg color_height)" />
+  <param name="$(arg cameraR)/driver/depth_fps"         type="int"  
+         value="$(arg depth_fps)" />
+  <param name="$(arg cameraR)/driver/color_fps"         type="int"  
+         value="$(arg color_fps)" />
+  <!-- frame IDs for "cameraR" -->
+  <param name="$(arg cameraR)/driver/base_frame_id"             type="str"  
+         value="$(arg cameraR)_link" />
+  <param name="$(arg cameraR)/driver/depth_frame_id"            type="str"  
+         value="$(arg cameraR)_depth_frame" />
+  <param name="$(arg cameraR)/driver/depth_optical_frame_id"    type="str"  
+         value="$(arg cameraR)_depth_optical_frame" />
+  <param name="$(arg cameraR)/driver/color_frame_id"            type="str"  
+         value="$(arg cameraR)_color_frame" />
+  <param name="$(arg cameraR)/driver/color_optical_frame_id"    type="str"  
+         value="$(arg cameraR)_color_optical_frame" />
+  <param name="$(arg cameraR)/driver/ir_frame_id"               type="str"  
+         value="$(arg cameraR)_ir_frame" />
+  <param name="$(arg cameraR)/driver/ir_optical_frame_id"       type="str"  
+         value="$(arg cameraR)_ir_optical_frame" />
+  <param name="$(arg cameraR)/driver/ir2_frame_id"              type="str"  
+         value="$(arg cameraR)_ir2_frame" />
+  <param name="$(arg cameraR)/driver/ir2_optical_frame_id"      type="str"  
+         value="$(arg cameraR)_ir2_optical_frame" />
+<!--
+  <param name="$(arg cameraR)/driver/fisheye_frame_id"          type="str"  
+         value="$(arg cameraR)_fisheye_frame" />
+  <param name="$(arg cameraR)/driver/fisheye_optical_frame_id"  type="str"  
+         value="$(arg cameraR)_fisheye_optical_frame" />
+  <param name="$(arg cameraR)/driver/imu_frame_id"              type="str"  
+         value="$(arg cameraR)_imu_frame" />
+  <param name="$(arg cameraR)/driver/imu_optical_frame_id"      type="str"  
+         value="$(arg cameraR)_imu_optical_frame" />
+-->
+
+  <!-- To handle multiple cameras, we need to start this outside of all namespaces,
+       then refer to it using an absolute name, below.  -->
+  <!-- Start nodelet manager -->
+  <node pkg="nodelet" 
+        type="nodelet" 
+        name="$(arg manager)" 
+        args="manager"
+        output="$(arg output)"/>
+
+  <group ns="$(arg cameraL)">
+    <!-- Start RealSense nodelet for "cameraL" (left camera) -->
+    <include file="$(find realsense_camera)/launch/includes/nodelet.launch.xml">
+      <arg name="manager"      value="/$(arg manager)" />
+      <arg name="camera"       value="$(arg cameraL)" />
+      <arg name="camera_type"  value="$(arg camera_typeL)" />
+      <arg name="serial_no"    value="$(arg serial_noL)" />
+      <arg name="usb_port_id"  value="$(arg usb_port_idL)" />
+    </include>
+  </group>
+
+  <group ns="$(arg cameraR)">
+    <!-- Start RealSense nodelet for "cameraR" (right camera) -->
+    <include file="$(find realsense_camera)/launch/includes/nodelet.launch.xml">
+      <arg name="manager"      value="/$(arg manager)" />
+      <arg name="camera"       value="$(arg cameraR)" />
+      <arg name="camera_type"  value="$(arg camera_typeR)" />
+      <arg name="serial_no"    value="$(arg serial_noR)" />
+      <arg name="usb_port_id"  value="$(arg usb_port_idR)" />
+    </include>
+  </group>
+
+  <group ns="$(arg camera)">
+    <!-- Start RealSense nodelet for "camera" (central camera) -->
+    <include file="$(find realsense_camera)/launch/includes/nodelet.launch.xml">
+      <arg name="manager"      value="/$(arg manager)" />
+      <arg name="camera"       value="$(arg camera)" />
+      <arg name="camera_type"  value="$(arg camera_type)" />
+      <arg name="serial_no"    value="$(arg serial_no)" />
+      <arg name="usb_port_id"  value="$(arg usb_port_id)" />
+    </include>
+
+    <!-- Start depth image to laserscan conversion nodelet. -->
+    <node pkg="nodelet" 
+          type="nodelet" 
+          name="depthimage_to_laserscan" 
+          args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet /$(arg manager)">
+      <param name="scan_height" value="10"/>
+      <param name="output_frame_id" value="/$(arg camera)_depth_frame"/>
+      <param name="range_min" value="0.30"/>
+      <remap from="image" to="depth/image_raw"/>
+      <remap from="scan"  to="$(arg scan_topic)"/>
+      <remap from="image" to="depth/image_raw"/>
+    </node>
+  </group>
+</launch>
+
