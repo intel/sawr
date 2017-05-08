@@ -226,7 +226,7 @@ it. In testing, MATE used roughly half the CPU of Unity on a Joule.
 
 [TurboJPEG_deb]: https://sourceforge.net/projects/libjpeg-turbo/files/1.5.1/libjpeg-turbo-official_1.5.1_amd64.deb/download
 [VGL_deb]: https://sourceforge.net/projects/virtualgl/files/2.5.2/virtualgl_2.5.2_amd64.deb
-[TVNC_deb]: https://sourceforge.net/projects/turbovnc/files/2.1.1/turbovnc_2.1.1_amd64.deb
+[TurboVNC_deb]: https://sourceforge.net/projects/turbovnc/files/2.1.1/turbovnc_2.1.1_amd64.deb
 [TurboVNC]: http://www.turbovnc.org/
 [TurboVNC_UG]: http://www.virtualgl.org/vgldoc/2_1_1/
 [VGLrun]: http://www.virtualgl.org/vgldoc/2_1_1/#Advanced_Configuration
