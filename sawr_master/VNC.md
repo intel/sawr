@@ -25,9 +25,11 @@ selection is checked.
 ### System Update
 
 Make sure your system is up to date:
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get dist-upgrade
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+```
 
 ### Ubuntu MATE (Optional)
 
