@@ -430,33 +430,24 @@ protocols:
 
 ### Secure Tunnelled VNC
 You can also 
-[set up a VNC and tunnel it over ssh](https://www.linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04).
+[set up a VNC and tunnel it over SSH](https://www.linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04) to provide a remote desktop graphical user interface.
 If set up properly this can be reasonably secure and will allow graphical
-applications like rviz, although it will not be especially performant.
+applications like `rviz`, and although it will not be as performant as a wired
+HDMI connection, of course.
 
-The easy way to do this is to enable 
+The simplest way to set up VNC (and the way you will find most instructions describing
+if you search for how to do this on the Web) is just to enable 
 [Desktop Sharing](http://ubuntuhandbook.org/index.php/2016/07/remote-access-ubuntu-16-04/) in Ubuntu
-then use the [Remmina remote desktop client](https://github.com/FreeRDP/Remmina/wiki/Remmina-User's-guide).
+then use the [Remmina remote desktop client](https://github.com/FreeRDP/Remmina/wiki/Remmina-User's-guide). 
 
-Do not disable the firewall on your robot or open a port for VNC; instead use
-the SSH tunnelling options provided by Remmina.
-You will want to select the password option when you set up Desktop Sharing
-even though we will not be depending on VNC's weak encryption for security
-but the much stronger security provided by the SSH tunnel.
+However, Desktop Sharing has various issues. The most important limitation 
+for our purposes is that Ubuntu's Desktop Sharing 
+and Remmina use `tightvnc` which does not support 3D graphics,
+so applications like `rviz` will not work. Therefore we recommend
+using [TurboVNC](http://www.turbovnc.org/) which not only enables 3D graphics,
+it also has significantly higher performance and quality than `tightvnc`.
 
-The trouble with Desktop Sharing in Ubuntu however is that it assumes
-you are already logged in and want to share your "current" screen. It doesn't
-even start a VNC server otherwise. Therefore
-it will only work if you either log in manually (after plugging in a keyboard
-and mouse) or set up the system to log in automatically (compromising
-security).  
-
-You can set up an off-screen VNC server to avoid these issues
-but it's a bit more complicted to set up: you need to set up a script to
-[start a vncserver (or start one after first logging in over ssh)](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-16-04) and 
-[may need to manually set up SSH tunneling](https://www.cyberciti.biz/tips/tunneling-vnc-connections-over-ssh-howto.html).
-Also, Unity (the default windowing manager) is not very friendly to VNC so you might want to switch to a
-simpler desktop like XFCE first, although Unity does work.  Mostly.
+Full setup instructions are given in [VNC.md](VNC.md).
 
 ### Remote ROS Access
 Note that if the firewall is running then 
