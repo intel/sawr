@@ -9,7 +9,7 @@ library.
 Prerequisites
 -------------
 
-*** Automatic WiFi Connection
+### Automatic WiFi Connection
 
 You have to be able to connect via SSH even when not logged in. Unfortunately,
 under Ubuntu 16.04, by default WiFi connections set up under a particular user
@@ -22,14 +22,14 @@ your WiFi network), selecting Edit on the appropriate connection, and selecting
 sure the "Automatically connect to this network when it is available"
 selection is checked.
 
-*** System Update
+### System Update
 
 Make sure your system is up to date:
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get dist-upgrade
 
-*** Ubuntu MATE (Optional)
+### Ubuntu MATE (Optional)
 
 Install the Ubuntu MATE Desktop environment for use with VNC to avoid the
 overhead of Unity and various issues and bugs when using that environment with
