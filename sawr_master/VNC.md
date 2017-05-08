@@ -25,7 +25,7 @@ selection is checked.
 ### System Update
 
 Make sure your system is up to date:
-```bash
+```
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
@@ -36,7 +36,7 @@ sudo apt-get dist-upgrade
 Install the Ubuntu MATE Desktop environment for use with VNC to avoid the
 overhead of Unity and various issues and bugs when using that environment with
 TurboVNC. This is optional but will significantly improve performance.
-```bash
+```
 sudo apt-get install mate-desktop-environment 
 sudo apt-get install mate-dock-applet mate-desktop-environment-extra
 ```
@@ -55,13 +55,15 @@ back. BEFORE removing Unity, though, login to MATE and ensure that it is
 configured and that you are comfortable with it.
 
 Here is how you can remove Unity:
-```sh
-    sudo apt-get purge unity*
-    sudo apt-get autoremove
+```
+sudo apt-get purge unity*
+sudo apt-get autoremove
 ```
 
 If you want to reinstall Unity later, you can use:
-    sudo apt-get install unity
+```
+sudo apt-get install unity
+```
  
 If you chose not to install MATE, you can still run TurboVNC with Unity
 but you need to use the `-3dwm` option when starting the server, as Unity
@@ -69,9 +71,11 @@ depends on OpenGL to generate various bits of (unnecessary) eye candy.
 
 If you want to remove MATE (again, make sure you have at least one other
 display manager installed and working...) use
-    sudo apt-get purge mate-desktop-environment-core
-    sudo apt-get purge mate-desktop-environment-extra
-    sudo apt-get autoremove
+```
+sudo apt-get purge mate-desktop-environment-core
+sudo apt-get purge mate-desktop-environment-extra
+sudo apt-get autoremove
+```
 
 Setup
 -----
@@ -87,58 +91,82 @@ SourceForge download sites. Later versions should also work.
 Install these packages as follows; note you need to remove any previous 
 installation of VirtualGL first. It's ok to run the removal command to
 check even if there isn't a previous installation.
-    sudo dpkg -i libjpeg-turbo-official_1.5.1_amd64.deb
-    sudo dpkg -r virtualgl
-    sudo dpkg -i virtualgl_2.5.2_amd64.deb
-    sudo dpkg -i turbovnc_2.1.1_amd64.deb
+```
+sudo dpkg -i libjpeg-turbo-official_1.5.1_amd64.deb
+sudo dpkg -r virtualgl
+sudo dpkg -i virtualgl_2.5.2_amd64.deb
+sudo dpkg -i turbovnc_2.1.1_amd64.deb
+```
 
 You may want to add `/opt/TurboVNC/bin` to your path. If so, add the
 following to your `.bashrc`:
-    export PATH=/opt/TurboVNC/bin:$PATH
+```
+export PATH=/opt/TurboVNC/bin:$PATH
+```
 The following doesn't assume you've done this, though.
 
 After doing the above, log out, and log back in remotely using SSH 
-    ssh {user}@{host}
+```
+ssh {user}@{host}
+```
 
 Temporarily shut down the display manager:
-    sudo service lightdm stop
+```
+sudo service lightdm stop
+```
 If you still have a screen attached to the target computer, it should go
 black at this point.
 
 Run the VirtualGL configuration program:
-    sudo vglserver_config
+```
+sudo vglserver_config
+```
 select option 1, accept all the suggested configuration defaults, then
 use X to exit.
 
 Restart the display manager:
-    sudo service lightdm start
+```
+sudo service lightdm start
+```
 
 Add any user who will use TurboVNC to the `vglusers` group.  In the 
 following we assume there is only going to be one TurboVNC user, 
 and that this is the current user:
-    sudo usermod -a -G vglusers $USER
+```
+sudo usermod -a -G vglusers $USER
+```
 
 Also add root to the `vglusers` group:
-    sudo usermod -a -G vglusers root
+```
+sudo usermod -a -G vglusers root
+```
 
 Log out and log back in and confirm that you are part of the `vglusers`
 group using
-    groups
+```
+groups
+```
 
 Manually Starting TurboVNC
 --------------------------
 Login remotely to the computer using SSH. Replace `{host}` with the name or
 IP address of the target computer, and `{user}` with an appropriate username.
-    ssh {user}@{host}
+```
+ssh {user}@{host}
+```
 
 Start a TurboVNC server. After it starts, it will give you a display number to
 use (typically `:1`).  In the following we will refer to this as `:{n}`.
-    /opt/TurboVNC/bin/vncserver
+```
+/opt/TurboVNC/bin/vncserver
+```
 
 NOTE: the above is for Ubuntu MATE.  If you are running the stock Unity 
 display manager (_not_ recommended for performance reasons...) then you will
 have to use the following instead:
-    /opt/TurboVNC/bin/vncserver -3dwm
+```
+/opt/TurboVNC/bin/vncserver -3dwm
+```
 The _GOOD_ news of doing this though is that since everything is considered to
 be 3D capable, you don't need to prefix applications with `vglrun`.  The bad
 news is that everything will be considered 3D and will use more resources than
@@ -152,12 +180,16 @@ tunnel is recommended (see below).
 Now back on the client machine, start a viewer on the appropriate host and
 display number. If you are on a Linux machine in which you have also installed
 TurboVNC, you can use
-  /opt/TurboVNC/bin/vncviewer
+```
+/opt/TurboVNC/bin/vncviewer
+```
 
 The viewer may complain about not being able to find a Java runtime. If it
 does, install OpenJDK-8 as follows (_not_ 9; TurboVNC does not currently support
 version 9):
-  sudo apt-get install openjdk-8-jdk
+```
+sudo apt-get install openjdk-8-jdk
+```
 
 Once you start the viewer successfully it will open a window and prompt for a
 server. Enter the hostname or IP, followed by a colon and the display number,
@@ -169,23 +201,44 @@ way, will complain that there is no OpenGL support. You have to grant access to
 OpenGL for each 3D application using the `vglrun` prefix command. For example,
 suppose we want to run OpenSCAD, a 3D CAD program. We would need to use the
 following:
-  /opt/VirtualGL/bin/vglrun openscad
-This command has [various options][VGLrun]. One nice thing about this though
-is that all processes started by the target command are also covered. So for
-instance, you can use `vglrun` on scripts that start other 3D things, or even
-terminals that start things, or `rosrun` or `roslaunch` that launch other
-programs that (eventually) start a process that actually needs 3D. Of course
-this may start things that don't need 3D, so you should still be a _little_
-selective.
+```
+/opt/VirtualGL/bin/vglrun openscad
+```
+Alternatively, if you have a RealSense camera and librealsense installed,
+you can try these:
+```
+/opt/VirtualGL/bin/vglrun cpp-pointcloud
+/opt/VirtualGL/bin/vglrun cpp-capture
+```
+This also works:
+```
+/opt/VirtualGL/bin/vglrun roslaunch sawr_navigation display.launch &
+```
+or even this:
+```
+/opt/VirtualGL/bin/vglrun rosrun sawr_master/scripts viz.sh
+```
+
+The `vglrun` prefix command has [various options][VGLrun]. One nice thing about 
+`vglrun` though is that all processes started recursively by the target command
+are also 3D enabled. So for instance, as shown in the examples above, you can use
+`vglrun` on scripts that start multiple other 3D things, or start terminals that
+start 3D things, or use `rosrun` or `roslaunch` that launch other programs that
+(eventually) start a process that actually needs 3D. Of course this may start
+things that don't need 3D, so you should still be a _little_ selective.
 
 Stopping a Manually Started VNC Server
 --------------------------------------
 After logging out, stop the TurboVNC server via the SSH shell to the remote
 machine using
-  /opt/TurboVNC/bin/vncserver -kill :{n}
+```
+/opt/TurboVNC/bin/vncserver -kill :{n}
+```
 
 If you want, you can also list all current sessions:
-  /opt/TurboVNC/bin/vncserver -list
+```
+/opt/TurboVNC/bin/vncserver -list
+```
 
 Using SSH Tunneling
 -------------------
@@ -196,19 +249,25 @@ your own tunnel unnecessary._
 If you are on an insecure network (for instance, a wireless network) and want
 improved security, you can set up SSH tunneling. You can set up a tunnel using
 SSH as follows:
-   ssh -L {localport}:localhost:{remoteport} {user}@{host}
+```
+ssh -L {localport}:localhost:{remoteport} {user}@{host}
+```
 
 For example, if the VNC server is running on display `:1`, as it usually the
 case, then it will use port 5901. Use a different port locally to avoid any
 conflicts with local VNC servers, such as 15901:
-   ssh -L 15901:localhost:5901 {user}@{host}
+```
+ssh -L 15901:localhost:5901 {user}@{host}
+```
 
 Now follow the steps above to start the remote server. The SSH session to set
 up the port forwarding can also be used to start the remote VNC server
 manually.
 
-The only difference is that now you need to start the local viewer as follows: 
-   /opt/TurboVNC/bin/vncviewer localhost:1::15901
+The only difference is that now you need to start the local viewer as follows:
+```
+/opt/TurboVNC/bin/vncviewer localhost:1::15901
+```
 and it won't prompt for a server or display.
 
 If you are using another VNC client, such as tightvnc or Remmina, you can use
