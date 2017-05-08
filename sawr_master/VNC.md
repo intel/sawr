@@ -16,7 +16,7 @@ under Ubuntu 16.04, by default WiFi connections set up under a particular user
 are dropped when that user logs out.
 
 This can be fixed by editing the connection using the Network Manager (pull
-down the network menu at the upper right after establishing a connection t
+down the network menu at the upper right after establishing a connection to
 your WiFi network), selecting Edit on the appropriate connection, and selecting
 "All users many connect to this network" under the "General" tab. Also make
 sure the "Automatically connect to this network when it is available"
