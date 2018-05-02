@@ -42,10 +42,10 @@ sudo apt-get install mate-desktop-environment \
      ubuntu-mate-themes
 ```
 
-This will take about 450MB of storage. After installation, log in using a
-normal keyboard and display to initialize it. If you do a first login via VNC,
-automatic initialization currently has some issues (the panel crashes) and you
-may have to do some manual initialization.
+This will need about 600MB of extra storage. After installation, log in using a
+normal keyboard and display to initialize the desktop environment. If you do a
+first login via VNC, automatic initialization currently has some issues (the panel
+crashes) and you may have to do some manual initialization.
 
 Also, you may find when you log into Unity that the theme is a little messed
 up: missing icons, strange colors, etc. You can correct this by re-selecting a
