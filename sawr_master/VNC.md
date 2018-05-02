@@ -37,8 +37,9 @@ Install the Ubuntu MATE Desktop environment for use with VNC to avoid the
 overhead of Unity and various issues and bugs when using that environment with
 TurboVNC. This is optional but will significantly improve performance.
 ```
-sudo apt-get install mate-desktop-environment 
-sudo apt-get install mate-dock-applet mate-desktop-environment-extra
+sudo apt-get install mate-desktop-environment \
+     mate-dock-applet mate-desktop-environment-extra \
+     ubuntu-mate-themes
 ```
 
 This will take about 450MB of storage. After installation, log in using a
