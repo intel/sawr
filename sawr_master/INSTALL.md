@@ -177,12 +177,18 @@ In theory you _should_ be able to install the Dynamixel SDK by installing the
 the `dxl_monitor` program (see below) to configure your servos,
 and currently that is unfortunately only available with a manual installation.
 
-Here is a summary of how to install the Dynamixel SDK manually:
+Here is a summary of how to install the Dynamixel SDK manually.  Note that
+we also check out the `kinetic-devel` branch.  You need this if you want to
+use `dxl_monitor` (see later section) as it depends on some functions in the
+Dynamixel driver that have been deprecated in the latest versions.  More generally,
+since we are using ROS Kinetic, we want a compatible version.
 
     mkdir -p ~/Drivers
     cd ~/Drivers
     git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git
-    cd DynamixelSDK/c++/build/linux64
+    cd DynamixelSDK
+    git checkout kinetic-devel
+    cd c++/build/linux64
     make
     sudo make install
 
