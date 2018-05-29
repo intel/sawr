@@ -56,11 +56,15 @@ The simplest way to do this is to use a wired connection, since you
 might have to install drivers for your WiFi dongle in a later step.
 
 After you have installed Ubuntu, install the special kernel for the UP board,
-using basically the following sequence:
+using basically the following sequence (see the page on the
+[UP Board wiki](https://wiki.up-community.org/Ubuntu) for the latest instructions
+on installing Ubuntu).
 
     sudo add-apt-repository ppa:ubilinux/up
     sudo apt update
-    sudo apt install linux-upboard
+    sudo apt-get autoremove --purge 'linux-.*generic'
+    sudo apt-get install linux-image-generic-hwe-16.04-upboard
+    sudo reboot
  
 As of this writing the instructions for modifying GRUB to boot the UP kernel
 by default are missing a few things. In particular, to get the system to bring
@@ -269,13 +273,19 @@ ZR300 for use with the Joule.
 package, which is done below.  You can skip this step and return to it for
 a manual install if that does not work.)
 
-Here is a summary of how to install librealsense manually:
+Here is a summary of how to install librealsense manually.
 
     sudo apt-get install libusb-1.0-0-dev pkg-config libglfw3-dev cmake
     mkdir -p ~/Drivers
     cd ~/Drivers
     git clone https://github.com/IntelRealSense/librealsense.git
     cd librealsense
+  
+If you are using the R200 or ZR300, you have to use the "legacy" library (tagged as v1.12.1)
+as version 2 no longer supports these (now obsolete...) cameras:
+    
+    git fetch --all --tags --prune
+    git checkout tags/v1.12.1 -b legacy
 
 Install the librealsense user-space SDK libraries as follows:
 
@@ -295,11 +305,21 @@ Plug in your camera, and check that it is recognized with
 
     sudo dmesg | tail -n 50
 
+Make sure `/usr/local/lib` (the install location of `librealsense`) is on your
+`LD_LIBRARY_PATH`; if necessary, add it explicitly in your `.bashrc`:
+
+    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib" >> ~/.bashrc
+
 Finally, run a test such as
 
     cpp-capture
 
 Which should display the color, depth, and IR channels from the camera.
+If you are running headless, you can also use
+
+    cpp-headless
+    
+which dumps
 
 Install ROS Kinetic
 -------------------
